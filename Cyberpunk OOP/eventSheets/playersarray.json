@@ -1,0 +1,997 @@
+{
+	"name": "playersArray",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "PlayerNumberY",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 939896314132083
+		},
+		{
+			"eventType": "variable",
+			"name": "ActorNrY",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 905646326787211
+		},
+		{
+			"eventType": "variable",
+			"name": "TeamY",
+			"type": "number",
+			"initialValue": "2",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 835850115765508
+		},
+		{
+			"eventType": "variable",
+			"name": "NickNameY",
+			"type": "number",
+			"initialValue": "3",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 351652588639542
+		},
+		{
+			"eventType": "variable",
+			"name": "CharacterNameY",
+			"type": "number",
+			"initialValue": "4",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 375566793373988
+		},
+		{
+			"eventType": "variable",
+			"name": "TrophiesArrayY",
+			"type": "number",
+			"initialValue": "5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 441509106369309
+		},
+		{
+			"eventType": "variable",
+			"name": "Bot1NameArrayY",
+			"type": "number",
+			"initialValue": "6",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 363628477604726
+		},
+		{
+			"eventType": "variable",
+			"name": "Bot2NameArrayY",
+			"type": "number",
+			"initialValue": "7",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 234382924486912
+		},
+		{
+			"eventType": "variable",
+			"name": "Bot3NameArrayY",
+			"type": "number",
+			"initialValue": "8",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 679369973644444
+		},
+		{
+			"functionName": "SetBotsCharacterNames",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-size",
+					"objectClass": "CharacterBotsData",
+					"sid": 912921877372111,
+					"parameters": {
+						"width": "MaxPlayers",
+						"height": "2",
+						"depth": "1"
+					}
+				}
+			],
+			"sid": 956119675118216,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "botNickName",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 121088984924863
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for",
+							"objectClass": "System",
+							"sid": 932034633271866,
+							"parameters": {
+								"name": "\"\"",
+								"start-index": "0",
+								"end-index": "MaxPlayers - 1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-at-xy",
+							"objectClass": "CharacterBotsData",
+							"sid": 998193825007344,
+							"parameters": {
+								"x": "loopindex",
+								"y": "0",
+								"value": "choose(\"Punk\", \"Biker\", \"Cyborg\", \"Brigand\")"
+							}
+						},
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 410565246874534,
+							"disabled": true,
+							"parameters": {
+								"tag": "\"NickNames\"",
+								"file": "NickNames.json"
+							}
+						},
+						{
+							"type": "script",
+							"script": "localVars.botNickName = getRandomNickName()"
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "CharacterBotsData",
+							"sid": 661368876252564,
+							"parameters": {
+								"x": "loopindex",
+								"y": "1",
+								"value": "botNickName"
+							}
+						}
+					],
+					"sid": 111410583166540
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 872069992592577,
+					"parameters": {
+						"tag": "\"NickNames\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-at-xy",
+					"objectClass": "CharacterBotsData",
+					"sid": 531555320892845,
+					"parameters": {
+						"x": "1",
+						"y": "1",
+						"value": "JSON.Get(\"nicknames\")"
+					}
+				}
+			],
+			"sid": 471191619029530,
+			"disabled": true
+		},
+		{
+			"functionName": "UpdateActorList",
+			"functionDescription": "",
+			"functionCategory": "Connect",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 803402447336518,
+					"parameters": {
+						"first-value": "Photon.PropertyOfMyRoom(\"MatchFounded\")",
+						"comparison": 0,
+						"second-value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "clear",
+					"objectClass": "1PlayersArray",
+					"sid": 723745574919867,
+					"parameters": {
+						"value": "0"
+					}
+				}
+			],
+			"sid": 435190502065715,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "ActorNr",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 641116619639771
+				},
+				{
+					"eventType": "variable",
+					"name": "Team",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 681519997669852
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for",
+							"objectClass": "System",
+							"sid": 236794128044856,
+							"parameters": {
+								"name": "\"\"",
+								"start-index": "0",
+								"end-index": "1PlayersArray.Width- 1"
+							}
+						},
+						{
+							"id": "compare-at-xy",
+							"objectClass": "1PlayersArray",
+							"sid": 333468998932387,
+							"parameters": {
+								"x": "loopindex",
+								"y": "ActorNrY",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-at-xy",
+							"objectClass": "1PlayersArray",
+							"sid": 385508720821364,
+							"parameters": {
+								"x": "loopindex",
+								"y": "ActorNrY",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 145965782865453
+				},
+				{
+					"eventType": "comment",
+					"text": "Players"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 834965414667436,
+							"parameters": {
+								"first-value": "Photon.ActorCount",
+								"comparison": 1,
+								"second-value": "0"
+							}
+						},
+						{
+							"id": "for",
+							"objectClass": "System",
+							"sid": 860991275588142,
+							"parameters": {
+								"name": "\"\"",
+								"start-index": "0",
+								"end-index": "Photon.ActorCount - 1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 356638252465736,
+							"parameters": {
+								"variable": "ActorNr",
+								"value": "Photon.ActorNrAt(loopindex)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 137260457001249,
+							"parameters": {
+								"variable": "Team",
+								"value": "int(Photon.PropertyOfActorByNr(ActorNr, \"Team\"))"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "1PlayersArray",
+							"sid": 591489456694256,
+							"parameters": {
+								"x": "loopindex",
+								"y": "PlayerNumberY",
+								"value": "str(Team)&str(loopindex%2)&str(ActorNr)"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "1PlayersArray",
+							"sid": 802383010048363,
+							"parameters": {
+								"x": "loopindex",
+								"y": "TeamY",
+								"value": "Photon.PropertyOfActorByNr(ActorNr, \"Team\")"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "1PlayersArray",
+							"sid": 868572598701758,
+							"parameters": {
+								"x": "loopindex",
+								"y": "ActorNrY",
+								"value": "ActorNr"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "1PlayersArray",
+							"sid": 493619321851024,
+							"parameters": {
+								"x": "loopindex",
+								"y": "NickNameY",
+								"value": "Photon.ActorNameByNr(ActorNr)"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "1PlayersArray",
+							"sid": 790888655695368,
+							"parameters": {
+								"x": "loopindex",
+								"y": "CharacterNameY",
+								"value": "Photon.PropertyOfActorByNr(ActorNr, \"CharacterName\")"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "1PlayersArray",
+							"sid": 540036654849480,
+							"parameters": {
+								"x": "loopindex",
+								"y": "TrophiesArrayY",
+								"value": "Photon.PropertyOfActorByNr(ActorNr, \"Trophies\")"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "1PlayersArray",
+							"sid": 755072692168653,
+							"parameters": {
+								"x": "loopindex",
+								"y": "Bot1NameArrayY",
+								"value": "Photon.PropertyOfActorByNr(ActorNr, \"Bot1Name\")"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "1PlayersArray",
+							"sid": 759504219606968,
+							"parameters": {
+								"x": "loopindex",
+								"y": "Bot2NameArrayY",
+								"value": "Photon.PropertyOfActorByNr(ActorNr, \"Bot2Name\")"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "1PlayersArray",
+							"sid": 859216809940716,
+							"parameters": {
+								"x": "loopindex",
+								"y": "Bot3NameArrayY",
+								"value": "Photon.PropertyOfActorByNr(ActorNr, \"Bot3Name\")"
+							}
+						}
+					],
+					"sid": 711934410291845
+				},
+				{
+					"eventType": "comment",
+					"text": "Bots"
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 514482910654423,
+							"parameters": {
+								"variable": "ActorNr",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 593412816970201
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 235020625412312,
+							"parameters": {
+								"first-value": "Photon.PropertyOfMyRoom(\"BotsCount\")",
+								"comparison": 4,
+								"second-value": "0"
+							}
+						},
+						{
+							"id": "for",
+							"objectClass": "System",
+							"sid": 526952392057245,
+							"parameters": {
+								"name": "\"\"",
+								"start-index": "Photon.ActorCount",
+								"end-index": "Photon.ActorCount + Photon.PropertyOfMyRoom(\"BotsCount\") - 1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 233355368980063,
+							"parameters": {
+								"variable": "ActorNr",
+								"value": "max(1, int(1PlayersArray.Width / Photon.PropertyOfMyRoom(\"BotsCount\")))"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 740079298039204,
+							"parameters": {
+								"variable": "Team",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "1PlayersArray",
+							"sid": 660290046524417,
+							"parameters": {
+								"x": "loopindex",
+								"y": "PlayerNumberY",
+								"value": "str(Team)&str(loopindex%2)&str(loopindex)"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "1PlayersArray",
+							"sid": 833106612750977,
+							"parameters": {
+								"x": "loopindex",
+								"y": "TeamY",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "1PlayersArray",
+							"sid": 527568299320304,
+							"parameters": {
+								"x": "loopindex",
+								"y": "ActorNrY",
+								"value": "-loopindex"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "1PlayersArray",
+							"sid": 224507025547655,
+							"parameters": {
+								"x": "loopindex",
+								"y": "NickNameY",
+								"value": "CharacterBotsData.At(loopindex, 1)"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "1PlayersArray",
+							"sid": 472097356919900,
+							"parameters": {
+								"x": "loopindex",
+								"y": "CharacterNameY",
+								"value": "CharacterBotsData.At(loopindex, 0)"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "1PlayersArray",
+							"sid": 207758748956173,
+							"parameters": {
+								"x": "loopindex",
+								"y": "TrophiesArrayY",
+								"value": "max(0, Trophies + int(random(-20, 20)))"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "1PlayersArray",
+							"sid": 778659849538101,
+							"parameters": {
+								"x": "loopindex",
+								"y": "Bot1NameArrayY",
+								"value": "Functions.GetRandomBotName"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "1PlayersArray",
+							"sid": 572596700042057,
+							"parameters": {
+								"x": "loopindex",
+								"y": "Bot2NameArrayY",
+								"value": "Functions.GetRandomBotName"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "1PlayersArray",
+							"sid": 266172404230896,
+							"parameters": {
+								"x": "loopindex",
+								"y": "Bot3NameArrayY",
+								"value": "Functions.GetRandomBotName"
+							}
+						}
+					],
+					"sid": 548636454166263
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "sort",
+							"objectClass": "1PlayersArray",
+							"sid": 951228603684751,
+							"parameters": {
+								"axis": "x"
+							}
+						}
+					],
+					"sid": 228503426319445
+				}
+			]
+		},
+		{
+			"functionName": "GetRandomBotName",
+			"functionDescription": "",
+			"functionCategory": "Bot",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 702440398979194,
+					"parameters": {
+						"value": "choose(\"Alarmbot\", \"Copter\", \"Hammer\", \"Patrol\", \"Drone\", \"Cannon\", \"ShockBot\", \"BattleDrone\", \"StepperCannon\")"
+					}
+				}
+			],
+			"sid": 341964393293194
+		},
+		{
+			"functionName": "GetActorNrByPlayerNumber",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "playerNumber",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 206021524751772
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 348279188162240,
+					"parameters": {
+						"value": "int(1PlayersArray.At(playerNumber - 1, ActorNrY))"
+					}
+				}
+			],
+			"sid": 659348864424305
+		},
+		{
+			"functionName": "GetPlayerNumberByActorNr",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "actorNr",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 261020324303038
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "for",
+					"objectClass": "System",
+					"sid": 163926856875516,
+					"parameters": {
+						"name": "\"\"",
+						"start-index": "0",
+						"end-index": "MaxPlayers - 1"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 728505497068936,
+					"parameters": {
+						"first-value": "Functions.GetActorNrByPlayerNumber(loopindex)",
+						"comparison": 0,
+						"second-value": "actorNr"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 609547157769914,
+					"parameters": {
+						"value": "loopindex"
+					}
+				}
+			],
+			"sid": 887631630344245
+		},
+		{
+			"functionName": "GetActorsAndBotsCount",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 935430753437257,
+					"parameters": {
+						"value": "Photon.ActorCount + Photon.PropertyOfMyRoom(\"BotsCount\")"
+					}
+				}
+			],
+			"sid": 218719721765116
+		},
+		{
+			"functionName": "GetPlayersDataCount",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 910275641034496,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "counter",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 568415757626348
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 940667653720110,
+							"parameters": {
+								"first-value": "Photon.ActorCount",
+								"comparison": 1,
+								"second-value": "0"
+							}
+						},
+						{
+							"id": "for",
+							"objectClass": "System",
+							"sid": 855881265812778,
+							"parameters": {
+								"name": "\"\"",
+								"start-index": "0",
+								"end-index": "1PlayersArray.Width - 1"
+							}
+						},
+						{
+							"id": "compare-at-xy",
+							"objectClass": "1PlayersArray",
+							"sid": 740402085425503,
+							"parameters": {
+								"x": "loopindex",
+								"y": "ActorNrY",
+								"comparison": 1,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 455325921196731,
+							"parameters": {
+								"variable": "counter",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 259603601052718
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 679077098591735,
+							"parameters": {
+								"value": "counter"
+							}
+						}
+					],
+					"sid": 789474753881199
+				}
+			]
+		},
+		{
+			"functionName": "GetNickNameByPlayerNumber",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "playerNumber",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 133707009811353
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 260949608281015,
+					"parameters": {
+						"value": "1PlayersArray.At(playerNumber - 1, NickNameY)"
+					}
+				}
+			],
+			"sid": 915279022895212
+		},
+		{
+			"functionName": "GetBotNameByPlayerNumber",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "playerNumber",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 434930204526745
+				},
+				{
+					"name": "botNumber",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 320130689970903
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 339143834464079,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 815256698302799,
+							"parameters": {
+								"variable": "botNumber",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 626954685190629,
+							"parameters": {
+								"value": "1PlayersArray.At(playerNumber - 1, Bot1NameArrayY)"
+							}
+						}
+					],
+					"sid": 979792429836996
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 883056173263988
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 410688586218321,
+							"parameters": {
+								"variable": "botNumber",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 111828500812095,
+							"parameters": {
+								"value": "1PlayersArray.At(playerNumber - 1, Bot2NameArrayY)"
+							}
+						}
+					],
+					"sid": 904521023384723
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 957123834550685
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 340000479424459,
+							"parameters": {
+								"variable": "botNumber",
+								"comparison": 0,
+								"value": "3"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 778311790096242,
+							"parameters": {
+								"value": "1PlayersArray.At(playerNumber - 1, Bot3NameArrayY)"
+							}
+						}
+					],
+					"sid": 608725818290940
+				}
+			]
+		},
+		{
+			"functionName": "GetCharacterNameByPlayerNumber",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "playerNumber",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 637566331020668
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 935109466939345,
+					"parameters": {
+						"value": "1PlayersArray.At(playerNumber - 1, CharacterNameY)"
+					}
+				}
+			],
+			"sid": 677654049819680
+		}
+	],
+	"sid": 380271941647293
+}

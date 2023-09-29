@@ -1,0 +1,299 @@
+{
+	"name": "HPBarHurt",
+	"enabled": true,
+	"interpolationMode": "default",
+	"resultMode": "default",
+	"ease": "noease",
+	"pathMode": "line",
+	"playheadTime": 0,
+	"totalTime": 0.45,
+	"stepTime": 0.05,
+	"useStepTime": true,
+	"showingInterpolationModes": false,
+	"showingResultModes": false,
+	"showingEases": false,
+	"showingPathModes": false,
+	"scale": 3,
+	"loop": false,
+	"pingPong": false,
+	"repeatCount": 1,
+	"startOnLayout": "",
+	"tracks": [
+		{
+			"type": "instance-track",
+			"worldInstance": 10,
+			"objectType": "0HP",
+			"project": "kvdl4ijiiy4",
+			"enabled": true,
+			"interpolationMode": "default",
+			"resultMode": "default",
+			"ease": "default",
+			"pathMode": "default",
+			"initialVisibility": true,
+			"id": "HPBarBack",
+			"virtualPosition": {
+				"offsetWidth": 0,
+				"offsetHeight": 0,
+				"useColor": true,
+				"colorSet": false,
+				"relativeFlags": 2047
+			},
+			"keyframes": [
+				{
+					"time": 0,
+					"tags": "",
+					"enabled": true,
+					"ease": "default",
+					"pathMode": "default"
+				},
+				{
+					"time": 0.15,
+					"tags": "",
+					"enabled": true,
+					"ease": "default",
+					"pathMode": "default"
+				},
+				{
+					"time": 0.45,
+					"tags": "",
+					"enabled": true,
+					"ease": "default",
+					"pathMode": "default"
+				}
+			],
+			"propertyTracks": [
+				{
+					"property": "offsetWidth",
+					"source": {
+						"type": "world-instance",
+						"uid": 10
+					},
+					"enabled": true,
+					"interpolationMode": "default",
+					"resultMode": "default",
+					"ease": "default",
+					"pathMode": "none",
+					"propertyKeyframes": [
+						{
+							"time": 0,
+							"enabled": true,
+							"resultMode": "default",
+							"ease": "default",
+							"pathMode": "none",
+							"value": 0,
+							"rValue": 0,
+							"aValue": 28,
+							"addons": []
+						},
+						{
+							"time": 0.15,
+							"enabled": true,
+							"resultMode": "default",
+							"ease": "default",
+							"pathMode": "none",
+							"value": 4,
+							"rValue": 4,
+							"aValue": 32,
+							"addons": []
+						},
+						{
+							"time": 0.45,
+							"enabled": true,
+							"resultMode": "default",
+							"ease": "default",
+							"pathMode": "none",
+							"value": 0,
+							"rValue": 0,
+							"aValue": 28,
+							"addons": []
+						}
+					]
+				},
+				{
+					"property": "offsetHeight",
+					"source": {
+						"type": "world-instance",
+						"uid": 10
+					},
+					"enabled": true,
+					"interpolationMode": "default",
+					"resultMode": "default",
+					"ease": "default",
+					"pathMode": "none",
+					"propertyKeyframes": [
+						{
+							"time": 0,
+							"enabled": true,
+							"resultMode": "default",
+							"ease": "default",
+							"pathMode": "none",
+							"value": 0,
+							"rValue": 0,
+							"aValue": 6,
+							"addons": []
+						},
+						{
+							"time": 0.15,
+							"enabled": true,
+							"resultMode": "default",
+							"ease": "default",
+							"pathMode": "none",
+							"value": 2,
+							"rValue": 2,
+							"aValue": 8,
+							"addons": []
+						},
+						{
+							"time": 0.45,
+							"enabled": true,
+							"resultMode": "default",
+							"ease": "default",
+							"pathMode": "none",
+							"value": 0,
+							"rValue": 0,
+							"aValue": 6,
+							"addons": []
+						}
+					]
+				}
+			],
+			"propertyTracksRoot": {
+				"enabled": true,
+				"interpolationMode": "default",
+				"resultMode": "default",
+				"ease": "default",
+				"pathMode": "default",
+				"expanded": true,
+				"name": "Property Track Folder",
+				"items": [],
+				"subfolders": []
+			}
+		},
+		{
+			"type": "instance-track",
+			"worldInstance": 12,
+			"objectType": "HPBar",
+			"project": "kvdl4ijiiy4",
+			"enabled": true,
+			"interpolationMode": "default",
+			"resultMode": "default",
+			"ease": "default",
+			"pathMode": "default",
+			"initialVisibility": true,
+			"id": "HPBar",
+			"virtualPosition": {
+				"offsetOpacity": 0,
+				"useColor": true,
+				"colorSet": false,
+				"relativeFlags": 2047
+			},
+			"keyframes": [
+				{
+					"time": 0,
+					"tags": "",
+					"enabled": true,
+					"ease": "default",
+					"pathMode": "default"
+				},
+				{
+					"time": 0.1,
+					"tags": "",
+					"enabled": true,
+					"ease": "default",
+					"pathMode": "default"
+				},
+				{
+					"time": 0.45,
+					"tags": "",
+					"enabled": true,
+					"ease": "default",
+					"pathMode": "default"
+				}
+			],
+			"propertyTracks": [
+				{
+					"property": "offsetOpacity",
+					"source": {
+						"type": "world-instance",
+						"uid": 12
+					},
+					"enabled": true,
+					"interpolationMode": "default",
+					"resultMode": "default",
+					"ease": "default",
+					"pathMode": "none",
+					"propertyKeyframes": [
+						{
+							"time": 0,
+							"enabled": true,
+							"resultMode": "default",
+							"ease": "default",
+							"pathMode": "none",
+							"value": 0,
+							"rValue": 0,
+							"aValue": 1,
+							"addons": []
+						},
+						{
+							"time": 0.1,
+							"enabled": true,
+							"resultMode": "default",
+							"ease": "default",
+							"pathMode": "none",
+							"value": -1,
+							"rValue": -1,
+							"aValue": 0,
+							"addons": []
+						},
+						{
+							"time": 0.45,
+							"enabled": true,
+							"resultMode": "default",
+							"ease": "default",
+							"pathMode": "none",
+							"value": 0,
+							"rValue": 0,
+							"aValue": 1,
+							"addons": []
+						}
+					]
+				}
+			],
+			"propertyTracksRoot": {
+				"enabled": true,
+				"interpolationMode": "default",
+				"resultMode": "default",
+				"ease": "default",
+				"pathMode": "default",
+				"expanded": true,
+				"name": "Property Track Folder",
+				"items": [],
+				"subfolders": []
+			}
+		}
+	],
+	"tracksRoot": {
+		"enabled": true,
+		"interpolationMode": "default",
+		"resultMode": "default",
+		"ease": "default",
+		"pathMode": "default",
+		"expanded": true,
+		"name": "Track Folder",
+		"items": [],
+		"subfolders": []
+	},
+	"nestedTimelinesRoot": {
+		"enabled": true,
+		"interpolationMode": "default",
+		"resultMode": "default",
+		"ease": "default",
+		"pathMode": "default",
+		"expanded": true,
+		"name": "Timelines",
+		"items": [],
+		"subfolders": []
+	},
+	"nestedData": {},
+	"transitionsData": []
+}

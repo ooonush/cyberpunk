@@ -1,0 +1,4064 @@
+{
+	"name": "E-CharactersBot",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "BotLogic2",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "DJumpTimer",
+					"type": "number",
+					"initialValue": "0.22",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": true,
+					"sid": 169856803444869
+				},
+				{
+					"eventType": "variable",
+					"name": "BotActionMult",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 527317390598990
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 848624096716925
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 292563988613704,
+							"parameters": {
+								"variable": "BotActionMult",
+								"value": "min(1, (25 + Trophies) / 100)"
+							}
+						}
+					],
+					"sid": 405271374642705
+				},
+				{
+					"functionName": "MoveBotToXY",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 357008402770072
+						},
+						{
+							"name": "X",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 716870095630069
+						},
+						{
+							"name": "Y",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 179681192464985
+						},
+						{
+							"name": "MoveDistance",
+							"type": "number",
+							"initialValue": "100",
+							"comment": "На каком расстоянии должен держаться бот",
+							"sid": 570769166179773
+						},
+						{
+							"name": "Attacking",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 794908260827994
+						},
+						{
+							"name": "CheckY",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 256810050476337
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 994490417998027,
+							"disabled": true,
+							"parameters": {
+								"first-value": "Carcas.Y",
+								"comparison": 5,
+								"second-value": "Y + 64"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Carcas",
+							"sid": 420490141284536,
+							"parameters": {
+								"unique-id": "UID"
+							}
+						},
+						{
+							"id": "pick-children",
+							"objectClass": "Carcas",
+							"sid": 310438099076401,
+							"parameters": {
+								"child": "CharacterScins",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 195402797427950,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 180323393297979,
+									"parameters": {
+										"variable": "CheckY"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 166373291691186,
+									"parameters": {
+										"first-value": "Carcas.Y",
+										"comparison": 5,
+										"second-value": "Y + 64"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 903026107817654,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 766918593585051,
+											"parameters": {
+												"first-value": "X",
+												"comparison": 5,
+												"second-value": "Carcas.X"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 236846393603149,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 704279555961379,
+													"parameters": {
+														"first-value": "abs(X-Carcas.X)",
+														"comparison": 3,
+														"second-value": "MoveDistance"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Carcas",
+													"sid": 118656593381325,
+													"disabled": true,
+													"parameters": {
+														"instance-variable": "Direction",
+														"value": "choose(-1,-1,-1,-1,-1,1,0)"
+													}
+												}
+											],
+											"sid": 671340725590034
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 640197989929813
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Carcas",
+													"sid": 185364182026200,
+													"disabled": true,
+													"parameters": {
+														"instance-variable": "Direction",
+														"value": "choose(1,1,1,1,1,-1,0)"
+													}
+												}
+											],
+											"sid": 443205484142300
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 916054525039365
+										}
+									],
+									"actions": [],
+									"sid": 363632575853997,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 272467712269692,
+													"parameters": {
+														"first-value": "abs(X-Carcas.X)",
+														"comparison": 3,
+														"second-value": "MoveDistance"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Carcas",
+													"sid": 882440907381041,
+													"disabled": true,
+													"parameters": {
+														"instance-variable": "Direction",
+														"value": "choose(1,1,1,1,1,-1,-1,0)"
+													}
+												}
+											],
+											"sid": 669511852622473
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 464994197609813
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Carcas",
+													"sid": 624255090468203,
+													"disabled": true,
+													"parameters": {
+														"instance-variable": "Direction",
+														"value": "choose(-1,-1,-1,-1,-1,1,1,0)"
+													}
+												}
+											],
+											"sid": 825002109165574
+										}
+									]
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Carcas",
+									"sid": 243610658418576,
+									"parameters": {
+										"instance-variable": "JumpCount",
+										"comparison": 0,
+										"value": "0"
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "CharacterScins",
+									"sid": 945904598205431,
+									"parameters": {
+										"child": "AttackView",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 316297477448837,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "flag",
+									"type": "boolean",
+									"initialValue": "false",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 903784931253462
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 807022923394071,
+											"parameters": {
+												"variable": "Attacking"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 305334045923412,
+											"parameters": {
+												"first-value": "abs(X - Carcas.X)",
+												"comparison": 3,
+												"second-value": "AttackView.Width / 1.9"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 449487441630564,
+											"parameters": {
+												"variable": "flag",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 986794150012011
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 328094028862006
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 168982396136680,
+											"parameters": {
+												"first-value": "abs(X - Carcas.X)",
+												"comparison": 3,
+												"second-value": "64"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 573281271842703,
+											"parameters": {
+												"variable": "flag",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 561367797558264
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 218157074363858,
+											"parameters": {
+												"variable": "flag"
+											}
+										},
+										{
+											"id": "compare-y",
+											"objectClass": "Carcas",
+											"sid": 941631698793130,
+											"parameters": {
+												"comparison": 4,
+												"y-co-ordinate": "Y + 30"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 748796166286406,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-y",
+													"objectClass": "Carcas",
+													"sid": 886626402162087,
+													"parameters": {
+														"comparison": 4,
+														"y-co-ordinate": "Y + 50"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 860909588009399,
+													"parameters": {
+														"seconds": "DJumpTimer"
+													}
+												}
+											],
+											"sid": 224415835215580
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "TryCharacterBotAttack",
+					"functionDescription": "Бот начинает атаковать если видит врага и готов",
+					"functionCategory": "Bot",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 648064009032353
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "CharacterCollider",
+							"sid": 522239828790805,
+							"parameters": {
+								"unique-id": "UID"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterCollider",
+							"sid": 178856770093341,
+							"parameters": {
+								"instance-variable": "Ready"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterCollider",
+							"sid": 991747396506247,
+							"parameters": {
+								"instance-variable": "BulletCount",
+								"comparison": 4,
+								"value": "0"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 260794936073620,
+							"parameters": {
+								"first-value": "Functions.WeaponIsAttacking(UID)",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 844552656674382,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "viewDir",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 419153174846338
+						},
+						{
+							"eventType": "variable",
+							"name": "currentDir",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 642684104331298
+						},
+						{
+							"eventType": "variable",
+							"name": "onlyEnemy",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 203308233546109
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "CharacterCollider",
+									"sid": 159336235750678,
+									"parameters": {
+										"instance-variable": "BotCondition",
+										"comparison": 0,
+										"value": "\"Defense\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 255047596207446,
+									"parameters": {
+										"variable": "onlyEnemy",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 274805946441777
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "CharacterCollider",
+									"sid": 862555246897848,
+									"parameters": {
+										"child": "CharacterScins",
+										"which": "own"
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "CharacterScins",
+									"sid": 268582000370436,
+									"parameters": {
+										"child": "AttackView",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 753738167604397,
+									"parameters": {
+										"variable": "viewDir",
+										"value": "Functions.IsEnemyInAttackView(AttackView.UID, CharacterCollider.Color, onlyEnemy)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 402775866719860,
+									"parameters": {
+										"variable": "currentDir",
+										"value": "CharacterCollider.Direction"
+									}
+								}
+							],
+							"sid": 837843179477520
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 889984071642721,
+									"parameters": {
+										"variable": "viewDir",
+										"comparison": 1,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 375126402440794,
+									"parameters": {
+										"seconds": "random(0, 0.2)"
+									}
+								},
+								{
+									"callFunction": "ReloadableWeaponTryAttackSync",
+									"sid": 373815870918629,
+									"parameters": [
+										"CharacterCollider.UID"
+									]
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 193157844237361,
+									"parameters": {
+										"seconds": "random(0.1, 0.4)"
+									}
+								}
+							],
+							"sid": 573811997542515
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 400352108818644,
+							"parameters": {
+								"interval-seconds": "0.2 + (1 - BotActionMult) * 0.6"
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 512598871177282,
+							"parameters": {
+								"object": "Carcas"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 424929744386472,
+							"parameters": {
+								"first-value": "Functions.IsCharacterBot(Carcas.UID)",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 598583460030485,
+							"parameters": {
+								"first-value": "Functions.IsCharacterMyOnline(Carcas.UID)",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "TryCharacterBotAttack",
+							"sid": 148403092462725,
+							"parameters": [
+								"Carcas.UID"
+							]
+						}
+					],
+					"sid": 323790152295336
+				},
+				{
+					"functionName": "MoveToNearestBasaEnemy",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 976761211091992
+						},
+						{
+							"name": "Color",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 135342247546078
+						},
+						{
+							"name": "MoveDistance",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 341541801234698
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Basa",
+							"sid": 383160397149778,
+							"parameters": {
+								"instance-variable": "Color",
+								"comparison": 0,
+								"value": "Color"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "MoveBotToXY",
+							"sid": 396690177994569,
+							"disabled": true,
+							"parameters": [
+								"UID",
+								"Basa.X",
+								"Basa.Y",
+								"50",
+								false,
+								false
+							]
+						}
+					],
+					"sid": 494308394516620,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "flag",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 617998239251514
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-ordered",
+									"objectClass": "System",
+									"sid": 336487674192114,
+									"parameters": {
+										"object": "Bot",
+										"expression": "abs(Bot.X - Basa.X)",
+										"order": "ascending"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Bot",
+									"sid": 919308621518757,
+									"parameters": {
+										"instance-variable": "Color",
+										"comparison": 1,
+										"value": "Color"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "MoveBotToXY",
+									"sid": 665172753395508,
+									"parameters": [
+										"UID",
+										"Bot.X",
+										"Bot.Y",
+										"0",
+										true,
+										false
+									]
+								},
+								{
+									"callFunction": "StartBaseHurtAnim",
+									"sid": 873275209607801,
+									"parameters": [
+										"Basa.UID"
+									]
+								},
+								{
+									"callFunction": "StartBotHurtAnim",
+									"sid": 661930414214541,
+									"parameters": [
+										"Bot.UID"
+									]
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 539875680586720,
+									"parameters": {
+										"variable": "flag",
+										"value": "true"
+									}
+								},
+								{
+									"id": "stop-loop",
+									"objectClass": "System",
+									"sid": 928736307865217
+								}
+							],
+							"sid": 871902227210118,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 890281159095506,
+									"parameters": {
+										"variable": "flag"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "for-each-ordered",
+									"objectClass": "System",
+									"sid": 265435370462868,
+									"parameters": {
+										"object": "CharacterCollider",
+										"expression": "abs(CharacterCollider.X - Basa.X)",
+										"order": "ascending"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "CharacterCollider",
+									"sid": 275442536429454,
+									"parameters": {
+										"instance-variable": "Color",
+										"comparison": 1,
+										"value": "Color"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "MoveBotToXY",
+									"sid": 850508131346981,
+									"parameters": [
+										"UID",
+										"CharacterCollider.X",
+										"CharacterCollider.Y",
+										"0",
+										true,
+										false
+									]
+								},
+								{
+									"callFunction": "StartBaseHurtAnim",
+									"sid": 742407627675365,
+									"parameters": [
+										"Basa.UID"
+									]
+								},
+								{
+									"callFunction": "HealthBarStartHurtAnim",
+									"sid": 854910378124524,
+									"parameters": [
+										"CharacterCollider.UID"
+									]
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 840933879614076,
+									"parameters": {
+										"variable": "flag",
+										"value": "true"
+									}
+								},
+								{
+									"id": "stop-loop",
+									"objectClass": "System",
+									"sid": 444702619295547
+								}
+							],
+							"sid": 215166900377172,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-ordered",
+									"objectClass": "System",
+									"sid": 255664541991938,
+									"parameters": {
+										"object": "1BotsAndCharacters",
+										"expression": "abs(1BotsAndCharacters.X - Basa.X)",
+										"order": "ascending"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 136718096842278,
+									"parameters": {
+										"variable": "Color",
+										"comparison": 1,
+										"value": "Functions.GetColor(1BotsAndCharacters.UID)"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 421934839267287,
+									"parameters": {
+										"first-value": "Functions.GetObjHP(1BotsAndCharacters.UID)",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "MoveBotToXY",
+									"sid": 629664188295857,
+									"parameters": [
+										"UID",
+										"1BotsAndCharacters.X",
+										"1BotsAndCharacters.Y",
+										"MoveDistance",
+										true,
+										false
+									]
+								},
+								{
+									"id": "stop-loop",
+									"objectClass": "System",
+									"sid": 510986842533033
+								}
+							],
+							"sid": 380146539247727
+						}
+					]
+				},
+				{
+					"functionName": "IsEnemyInBasa",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "number",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 438397947126853
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Carcas",
+							"sid": 168308191150297,
+							"parameters": {
+								"unique-id": "UID"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Basa",
+							"sid": 379347451198623,
+							"parameters": {
+								"instance-variable": "Color",
+								"comparison": 0,
+								"value": "Carcas.Color"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 367740916766451,
+							"parameters": {
+								"value": "0"
+							}
+						}
+					],
+					"sid": 679650580250212,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Враг на базе"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 128096577341739,
+									"parameters": {
+										"object": "1BotsAndCharacters"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Carcas",
+									"sid": 230959335986931,
+									"parameters": {
+										"instance-variable": "Color",
+										"comparison": 1,
+										"value": "Functions.GetColor(1BotsAndCharacters.UID)"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 162300388036188,
+									"parameters": {
+										"first-value": "abs(Basa.X - 1BotsAndCharacters.X)",
+										"comparison": 3,
+										"second-value": "500"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 465776771912069,
+									"parameters": {
+										"value": "1"
+									}
+								},
+								{
+									"id": "stop-loop",
+									"objectClass": "System",
+									"sid": 667256056733098
+								}
+							],
+							"sid": 481847586601217
+						}
+					]
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "CharacterBotTrigger",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 617262109988927
+								}
+							],
+							"actions": [],
+							"sid": 179717949118197,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "layername",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 862277312167361
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 792692911011872,
+											"parameters": {
+												"variable": "layername",
+												"value": "CharacterBotTrigger.LayerName"
+											}
+										}
+									],
+									"sid": 372751376910232,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 162499621308560,
+													"parameters": {
+														"object": "Triggers"
+													}
+												},
+												{
+													"id": "compare-x",
+													"objectClass": "Triggers",
+													"sid": 952185911420458,
+													"parameters": {
+														"comparison": 2,
+														"x-co-ordinate": "center.X"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 880199650299204,
+													"parameters": {
+														"object-to-create": "CharacterBotTrigger",
+														"layer": "layername",
+														"x": "center.X + (center.X - Triggers.X)",
+														"y": "Triggers.Y",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "CharacterBotTrigger",
+													"sid": 986612143673344,
+													"parameters": {
+														"instance-variable": "BucksMoveDir1",
+														"value": "Triggers.BucksMoveDir1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "CharacterBotTrigger",
+													"sid": 327375410769728,
+													"parameters": {
+														"instance-variable": "DefaultJump",
+														"value": "Triggers.DefaultJump"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "CharacterBotTrigger",
+													"sid": 311336281935350,
+													"parameters": {
+														"instance-variable": "DefaultMoveDir1",
+														"value": "Triggers.DefaultMoveDir1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "CharacterBotTrigger",
+													"sid": 485933505194712,
+													"parameters": {
+														"instance-variable": "BucksJump",
+														"value": "Triggers.BucksJump"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "CharacterBotTrigger",
+													"sid": 909884604500931,
+													"parameters": {
+														"instance-variable": "Dir1",
+														"value": "Triggers.Dir1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "CharacterBotTrigger",
+													"sid": 333333238133547,
+													"parameters": {
+														"instance-variable": "DirMultiple",
+														"value": "-1"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "CharacterBotTrigger",
+													"sid": 906876640312815,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-size",
+													"objectClass": "CharacterBotTrigger",
+													"sid": 213126974135539,
+													"parameters": {
+														"width": "Triggers.Width",
+														"height": "Triggers.Height"
+													}
+												}
+											],
+											"sid": 763570828679679,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "CharacterBotTrigger",
+															"sid": 599582759225853,
+															"parameters": {
+																"instance-variable": "Color",
+																"comparison": 0,
+																"value": "\"Blue\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "CharacterBotTrigger",
+															"sid": 328962123219640,
+															"parameters": {
+																"instance-variable": "Color",
+																"value": "\"Red\""
+															}
+														}
+													],
+													"sid": 409728221070820
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 433969329090247
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "CharacterBotTrigger",
+															"sid": 864664231186259,
+															"parameters": {
+																"instance-variable": "Color",
+																"comparison": 0,
+																"value": "\"Red\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "CharacterBotTrigger",
+															"sid": 875850121168134,
+															"parameters": {
+																"instance-variable": "Color",
+																"value": "\"Blue\""
+															}
+														}
+													],
+													"sid": 798618054580724
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Carcas",
+									"sid": 651196892519774,
+									"parameters": {
+										"object": "CharacterBotTrigger"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 884233118487077,
+									"parameters": {
+										"first-value": "Functions.IsCharacterBot(Carcas.UID)",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 667719993132463,
+									"parameters": {
+										"first-value": "Functions.IsCharacterMyOnline(Carcas.UID)",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 120728476411035,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "JumpValue",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 194835195342812
+								},
+								{
+									"eventType": "variable",
+									"name": "DirValue",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 419235333176607
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Carcas",
+											"sid": 269697070704190,
+											"parameters": {
+												"instance-variable": "Direction",
+												"comparison": 0,
+												"value": "CharacterBotTrigger.Dir1 * CharacterBotTrigger.DirMultiple"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "CharacterBotTrigger",
+											"sid": 286114436816877,
+											"parameters": {
+												"instance-variable": "Dir1",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 253957043197375,
+											"parameters": {
+												"variable": "DirValue",
+												"value": "Carcas.Direction"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 469056103353506,
+											"parameters": {
+												"variable": "JumpValue",
+												"value": "Functions.GetRandomValueFromTokens(CharacterBotTrigger.DefaultJump)"
+											}
+										}
+									],
+									"sid": 465767130295077,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Carcas",
+													"sid": 286513164940193,
+													"parameters": {
+														"instance-variable": "BotCondition",
+														"comparison": 0,
+														"value": "\"Bucks\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 436891216360436,
+													"parameters": {
+														"variable": "JumpValue",
+														"value": "Functions.GetRandomValueFromTokens(CharacterBotTrigger.BucksJump)"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 333528576933803,
+													"parameters": {
+														"variable": "DirValue",
+														"value": "Functions.GetRandomValueFromTokens(CharacterBotTrigger.BucksMoveDir1) * CharacterBotTrigger.DirMultiple"
+													}
+												}
+											],
+											"sid": 799270395038640
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 649641589166379
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Carcas",
+													"sid": 257661702158218,
+													"parameters": {
+														"instance-variable": "BotCondition",
+														"comparison": 0,
+														"value": "\"AttackBasa\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 492050921299713,
+													"parameters": {
+														"variable": "JumpValue",
+														"value": "Functions.GetRandomValueFromTokens(CharacterBotTrigger.DefaultJump)"
+													}
+												}
+											],
+											"sid": 964321216193694,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "CharacterBotTrigger",
+															"sid": 969327004293836,
+															"parameters": {
+																"instance-variable": "Color",
+																"comparison": 0,
+																"value": "\"All\""
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "CharacterBotTrigger",
+															"sid": 221151862919423,
+															"parameters": {
+																"instance-variable": "Color",
+																"comparison": 0,
+																"value": "Carcas.Color"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 255440621182232,
+													"disabled": true,
+													"isOrBlock": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 601677844958318
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 427617125529437,
+															"parameters": {
+																"variable": "JumpValue",
+																"value": "Functions.GetRandomValueFromTokens(CharacterBotTrigger.DefaultJump)"
+															}
+														}
+													],
+													"sid": 289683503911612,
+													"disabled": true
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 845112653366569
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Carcas",
+													"sid": 138683529073646,
+													"parameters": {
+														"instance-variable": "BotCondition",
+														"comparison": 0,
+														"value": "\"Defense\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 418365663486009,
+													"parameters": {
+														"variable": "JumpValue",
+														"value": "Functions.GetRandomValueFromTokens(CharacterBotTrigger.DefaultJump)"
+													}
+												}
+											],
+											"sid": 190219142245455
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 612829675533085
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Carcas",
+													"sid": 495019967560230,
+													"parameters": {
+														"instance-variable": "BotCondition",
+														"comparison": 0,
+														"value": "\"Buying\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 669569259315371,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 463520421424846
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Carcas",
+													"sid": 247443963454636,
+													"parameters": {
+														"instance-variable": "BotCondition",
+														"comparison": 0,
+														"value": "\"Default\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 229661579098800,
+													"parameters": {
+														"variable": "JumpValue",
+														"value": "Functions.GetRandomValueFromTokens(CharacterBotTrigger.DefaultJump)"
+													}
+												}
+											],
+											"sid": 359539597137567,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "CharacterBotTrigger",
+															"sid": 170939875522240,
+															"parameters": {
+																"instance-variable": "Color",
+																"comparison": 0,
+																"value": "\"All\""
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "CharacterBotTrigger",
+															"sid": 926140641621978,
+															"parameters": {
+																"instance-variable": "Color",
+																"comparison": 0,
+																"value": "Carcas.Color"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 369905188769341,
+															"parameters": {
+																"variable": "DirValue",
+																"value": "Functions.GetRandomValueFromTokens(CharacterBotTrigger.DefaultMoveDir1) * CharacterBotTrigger.DirMultiple"
+															}
+														}
+													],
+													"sid": 547117570729492,
+													"isOrBlock": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 782667728822114
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 539754591473700,
+															"parameters": {
+																"variable": "DirValue",
+																"value": "Functions.GetRandomValueFromTokens(CharacterBotTrigger.DefaultMoveDir1) * CharacterBotTrigger.DirMultiple * CharacterBotTrigger.ColorMultiple"
+															}
+														}
+													],
+													"sid": 828259912984913
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 423471818179425,
+													"parameters": {
+														"first-value": "JumpValue",
+														"comparison": 1,
+														"second-value": "0"
+													}
+												},
+												{
+													"id": "is-on-floor",
+													"objectClass": "Carcas",
+													"sid": 951827106032352,
+													"disabled": true,
+													"behaviorType": "Platform"
+												}
+											],
+											"actions": [],
+											"sid": 669997140378011,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 686594586207760,
+															"parameters": {
+																"first-value": "JumpValue",
+																"comparison": 0,
+																"second-value": "2"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 281658019905221,
+															"parameters": {
+																"seconds": "DJumpTimer"
+															}
+														}
+													],
+													"sid": 411214315303687
+												}
+											]
+										}
+									],
+									"isOrBlock": true
+								}
+							]
+						},
+						{
+							"functionName": "GetRandomValueFromTokens",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "number",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "Text1",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 538440036269209
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 928418659977786,
+									"parameters": {
+										"value": "int(tokenat(Text1, int(random(0, tokencount(Text1, \"/\"))), \"/\"))"
+									}
+								}
+							],
+							"sid": 691533472610707
+						}
+					],
+					"sid": 247161643725787
+				},
+				{
+					"functionName": "SetBotCondition",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 429761624300019
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Carcas",
+							"sid": 277963106561902,
+							"parameters": {
+								"unique-id": "UID"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 444625111800835,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 144112468060707,
+									"parameters": {
+										"first-value": "Functions.GetPhasaName",
+										"comparison": 0,
+										"second-value": "\"Bucks\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Carcas",
+									"sid": 883088096000157,
+									"parameters": {
+										"instance-variable": "BotCondition",
+										"value": "\"Bucks\""
+									}
+								}
+							],
+							"sid": 942400649355636
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 902912056927843
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Carcas",
+									"sid": 833560427906388,
+									"parameters": {
+										"instance-variable": "Bucks",
+										"comparison": 5,
+										"value": "BotsPrice.Get(Functions.GetCharacterName(Carcas.UID)&int(random(1, 4)))"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Carcas",
+									"sid": 528574307859291,
+									"parameters": {
+										"instance-variable": "BotCondition",
+										"value": "\"Buying\""
+									}
+								}
+							],
+							"sid": 922305241336769
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 185267947860381
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Carcas",
+									"sid": 364507222222499,
+									"parameters": {
+										"instance-variable": "BulletCount",
+										"comparison": 4,
+										"value": "0"
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "Carcas",
+									"sid": 431445977545977,
+									"parameters": {
+										"child": "0HP",
+										"which": "own"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "0HP",
+									"sid": 849744861559888,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 4,
+										"value": "400"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Carcas",
+									"sid": 664716598093428,
+									"parameters": {
+										"instance-variable": "BotCondition",
+										"value": "\"AttackEnemy\""
+									}
+								}
+							],
+							"sid": 946291146013510
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 552803713759506
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "Carcas",
+									"sid": 288627551825669,
+									"parameters": {
+										"child": "0HP",
+										"which": "own"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "0HP",
+									"sid": 160104686597838,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 4,
+										"value": "Carcas.MaxHP/2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Carcas",
+									"sid": 256921889256960,
+									"parameters": {
+										"instance-variable": "BotCondition",
+										"value": "\"AttackBasa\""
+									}
+								}
+							],
+							"sid": 535334959345917
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 664526813506267,
+							"parameters": {
+								"interval-seconds": "3"
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 248587417811799,
+							"parameters": {
+								"object": "Carcas"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 792824847066888,
+							"parameters": {
+								"first-value": "Functions.IsCharacterBot(Carcas.UID)",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 174586035387742,
+							"parameters": {
+								"first-value": "Functions.IsCharacterMyOnline(Carcas.UID)",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 536864545847450,
+					"disabled": true
+				},
+				{
+					"eventType": "variable",
+					"name": "price",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 381172959774437
+				},
+				{
+					"eventType": "variable",
+					"name": "botNumber",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 742994103257975
+				},
+				{
+					"eventType": "variable",
+					"name": "botName",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 593037330491498
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 458144442480439,
+							"parameters": {
+								"interval-seconds": "3"
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 714447841136859,
+							"parameters": {
+								"object": "Carcas"
+							}
+						},
+						{
+							"id": "pick-children",
+							"objectClass": "Carcas",
+							"sid": 619346978445596,
+							"parameters": {
+								"child": "2SpriteFont",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 798130057989911,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 265283265905023,
+									"parameters": {
+										"first-value": "Functions.IsCharacterBot(Carcas.UID)",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 102580203246905,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "2SpriteFont",
+											"sid": 784308519236644,
+											"parameters": {
+												"instance-variable": "ID2",
+												"comparison": 0,
+												"value": "\"NickName\""
+											}
+										},
+										{
+											"id": "compare-opacity",
+											"objectClass": "2SpriteFont",
+											"sid": 764613671897289,
+											"parameters": {
+												"comparison": 0,
+												"opacity": "100"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "2SpriteFont",
+											"sid": 809256219323379,
+											"parameters": {
+												"opacity": "70"
+											}
+										},
+										{
+											"id": "set-default-color",
+											"objectClass": "2SpriteFont",
+											"sid": 669249101877316,
+											"parameters": {
+												"color": "rgb(150, 150, 150)"
+											}
+										}
+									],
+									"sid": 406811372716429
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 131909934159587
+								},
+								{
+									"id": "compare-opacity",
+									"objectClass": "2SpriteFont",
+									"sid": 794141441836473,
+									"parameters": {
+										"comparison": 0,
+										"opacity": "100"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "2SpriteFont",
+									"sid": 975752673420394,
+									"parameters": {
+										"opacity": "100"
+									}
+								},
+								{
+									"id": "set-default-color",
+									"objectClass": "2SpriteFont",
+									"sid": 527094607577612,
+									"parameters": {
+										"color": "rgb(255, 255, 255)"
+									}
+								}
+							],
+							"sid": 458095954778269
+						}
+					]
+				},
+				{
+					"functionName": "GetBotRandomActionMult",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "number",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 660563332373549,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "rand",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 540450902171715
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 821668255820546,
+									"parameters": {
+										"variable": "rand",
+										"comparison": 3,
+										"value": "BotActionMult"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 943719286124481,
+									"parameters": {
+										"value": "1"
+									}
+								}
+							],
+							"sid": 989510964497742
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 384148032795223
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 114089183244743,
+									"parameters": {
+										"value": "-1"
+									}
+								}
+							],
+							"sid": 658370797813801
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 317540910764419,
+							"parameters": {
+								"interval-seconds": "0.45 + (1 - BotActionMult) * 2"
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 410795194804075,
+							"parameters": {
+								"object": "Carcas"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 413123148399337,
+							"parameters": {
+								"first-value": "Functions.IsCharacterBot(Carcas.UID)",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 461669908297463,
+							"parameters": {
+								"first-value": "Functions.IsCharacterMyOnline(Carcas.UID)",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						},
+						{
+							"id": "pick-children",
+							"objectClass": "Carcas",
+							"sid": 351138519202979,
+							"parameters": {
+								"child": "CharacterScins",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 388912437019598,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-timer-running",
+									"objectClass": "Carcas",
+									"sid": 396679069801049,
+									"disabled": true,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "\"BotMessage\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 872309009068997,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Bot",
+											"sid": 203592085355487,
+											"parameters": {
+												"instance-variable": "Color",
+												"comparison": 1,
+												"value": "Carcas.Color"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 663169112910404,
+											"parameters": {
+												"first-value": "Bot.PickedCount",
+												"comparison": 5,
+												"second-value": "5"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 247773390029005,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Carcas",
+													"sid": 336466702263037,
+													"parameters": {
+														"instance-variable": "BotCondition",
+														"comparison": 1,
+														"value": "\"Defense\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Carcas",
+													"sid": 113813102140621,
+													"parameters": {
+														"instance-variable": "BotCondition",
+														"value": "\"Defense\""
+													}
+												}
+											],
+											"sid": 252889655458768
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 550881858415038
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 198377662342178,
+											"parameters": {
+												"first-value": "Functions.IsEnemyInBasa(Carcas.UID)",
+												"comparison": 0,
+												"second-value": "1"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 133534653163965,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Carcas",
+													"sid": 456585930687258,
+													"parameters": {
+														"instance-variable": "BotCondition",
+														"comparison": 1,
+														"value": "\"Defense\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Carcas",
+													"sid": 566770057690809,
+													"parameters": {
+														"instance-variable": "BotCondition",
+														"value": "\"Defense\""
+													}
+												}
+											],
+											"sid": 297681167770354
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 566293284769373
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Carcas",
+											"sid": 601855622127326,
+											"parameters": {
+												"instance-variable": "BotCondition",
+												"comparison": 0,
+												"value": "\"Defense\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Carcas",
+											"sid": 766153322413631,
+											"parameters": {
+												"instance-variable": "BotCondition",
+												"value": "\"Default\""
+											}
+										}
+									],
+									"sid": 193182276658952
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 994436894430552
+								}
+							],
+							"actions": [],
+							"sid": 111639106249073,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Carcas",
+											"sid": 297881023533228,
+											"parameters": {
+												"instance-variable": "BotMessage",
+												"comparison": 0,
+												"value": "\"Attack\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Carcas",
+											"sid": 125317388729150,
+											"parameters": {
+												"instance-variable": "BotCondition",
+												"value": "\"AttackBasa\""
+											}
+										}
+									],
+									"sid": 114144089245719,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 394125967370243
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Carcas",
+											"sid": 721411434651103,
+											"parameters": {
+												"instance-variable": "BotMessage",
+												"comparison": 0,
+												"value": "\"Defense\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Carcas",
+											"sid": 539358192578143,
+											"parameters": {
+												"instance-variable": "BotCondition",
+												"value": "\"Defense\""
+											}
+										}
+									],
+									"sid": 417156087931715,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 585075470904437
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Carcas",
+											"sid": 755322535375859,
+											"parameters": {
+												"instance-variable": "BotMessage",
+												"comparison": 0,
+												"value": "\"Help\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Carcas",
+											"sid": 643681774759137,
+											"parameters": {
+												"instance-variable": "BotCondition",
+												"value": "\"Defense\""
+											}
+										}
+									],
+									"sid": 113514659079807,
+									"disabled": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Carcas",
+									"sid": 923115392261511,
+									"parameters": {
+										"instance-variable": "BotCondition",
+										"comparison": 0,
+										"value": "\"Buying\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Carcas",
+									"sid": 952149002990029,
+									"parameters": {
+										"instance-variable": "BotCondition",
+										"comparison": 0,
+										"value": "\"Defense\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "цена рандомного бота"
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 816773001635839,
+									"parameters": {
+										"variable": "botNumber",
+										"value": "int(random(1, 4))"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 482960858309174,
+									"parameters": {
+										"variable": "botName",
+										"value": "Functions.GetBotNameByNumber(Carcas.UID, botNumber)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 510684025314932,
+									"parameters": {
+										"variable": "price",
+										"value": "BotsPrice.Get(botName)"
+									}
+								}
+							],
+							"sid": 323936689828875,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 845881498017020,
+											"parameters": {
+												"first-value": "Functions.IsCharacterCanBuy(Carcas.UID, price)",
+												"comparison": 0,
+												"second-value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "SyncBotBuying",
+											"sid": 383436051268184,
+											"parameters": [
+												"botName",
+												"Carcas.ID",
+												"Carcas.LastBotID",
+												"Carcas.X",
+												"Carcas.Y",
+												"price",
+												"Functions.GetOnlineAll"
+											]
+										}
+									],
+									"sid": 661605354829023
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 212276019259136
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Carcas",
+											"sid": 286642887953848,
+											"parameters": {
+												"instance-variable": "BotCondition",
+												"comparison": 0,
+												"value": "\"Buying\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 852563030273934,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Carcas",
+													"sid": 694859986788679,
+													"parameters": {
+														"instance-variable": "Bucks",
+														"comparison": 5,
+														"value": "price"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Basa",
+													"sid": 658449666387340,
+													"parameters": {
+														"instance-variable": "Color",
+														"comparison": 0,
+														"value": "Carcas.Color"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "MoveBotToXY",
+													"sid": 464681242144609,
+													"parameters": [
+														"Carcas.UID",
+														"Basa.X",
+														"Basa.Y",
+														"100",
+														false,
+														false
+													]
+												}
+											],
+											"sid": 792013911002750
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 307254802117165
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Carcas",
+													"sid": 421905636906091,
+													"parameters": {
+														"instance-variable": "BotCondition",
+														"value": "\"Default\""
+													}
+												}
+											],
+											"sid": 136501644988557
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Carcas",
+											"sid": 211185842560566,
+											"parameters": {
+												"instance-variable": "BotCondition",
+												"comparison": 0,
+												"value": "\"Defense\""
+											}
+										},
+										{
+											"id": "pick-children",
+											"objectClass": "CharacterScins",
+											"sid": 820528038328689,
+											"parameters": {
+												"child": "AttackView",
+												"which": "own"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "MoveToNearestBasaEnemy",
+											"sid": 259559404467815,
+											"parameters": [
+												"Carcas.UID",
+												"Carcas.Color",
+												"random(AttackView.Width / 2.4, AttackView.Width / 2)"
+											]
+										}
+									],
+									"sid": 992997520939714
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 266068753451423
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Carcas",
+									"sid": 144500103088538,
+									"parameters": {
+										"instance-variable": "BotCondition",
+										"comparison": 0,
+										"value": "\"Default\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "SetBotCondition",
+									"sid": 212995586088182,
+									"parameters": [
+										"Carcas.UID"
+									]
+								}
+							],
+							"sid": 131039681724166
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 818041189652121
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Carcas",
+									"sid": 518146475038909,
+									"parameters": {
+										"instance-variable": "BotCondition",
+										"comparison": 0,
+										"value": "\"Bucks\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 220470473611976,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-overlapping-point",
+											"objectClass": "System",
+											"sid": 532601581567666,
+											"parameters": {
+												"object": "ZoneBucks",
+												"x": "Carcas.X",
+												"y": "Carcas.Y"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 551681394834691,
+									"children": [
+										{
+											"eventType": "variable",
+											"name": "myTeamInZone",
+											"type": "boolean",
+											"initialValue": "false",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 428013094765939
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 224304190635644,
+													"parameters": {
+														"object": "1BotsAndCharacters"
+													}
+												},
+												{
+													"id": "pick-overlapping-point",
+													"objectClass": "System",
+													"sid": 415756843932374,
+													"parameters": {
+														"object": "ZoneBucks",
+														"x": "1BotsAndCharacters.X",
+														"y": "1BotsAndCharacters.Y"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 603482013192781,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Carcas",
+															"sid": 239641568497399,
+															"parameters": {
+																"instance-variable": "Color",
+																"comparison": 0,
+																"value": "Functions.GetColor(1BotsAndCharacters.UID)"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 329183913196872,
+															"parameters": {
+																"variable": "myTeamInZone",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 276461984145701
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 876524093569392
+														},
+														{
+															"id": "pick-children",
+															"objectClass": "Carcas",
+															"sid": 838407477856452,
+															"parameters": {
+																"child": "0HP",
+																"which": "own"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "0HP",
+															"sid": 690920260230418,
+															"parameters": {
+																"instance-variable": "HP",
+																"comparison": 4,
+																"value": "500"
+															}
+														},
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 268634192907496,
+															"parameters": {
+																"first-value": "Functions.GetObjHP(1BotsAndCharacters.UID)",
+																"comparison": 4,
+																"second-value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "MoveBotToXY",
+															"sid": 656432089402636,
+															"parameters": [
+																"Carcas.UID",
+																"1BotsAndCharacters.X",
+																"1BotsAndCharacters.Y",
+																"ZoneBucks.Width/2.2",
+																false,
+																true
+															]
+														},
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 222646782956407,
+															"parameters": {
+																"variable": "myTeamInZone",
+																"value": "false"
+															}
+														},
+														{
+															"id": "stop-loop",
+															"objectClass": "System",
+															"sid": 244870493622007
+														}
+													],
+													"sid": 427993209446075
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 969736151137706,
+													"disabled": true,
+													"parameters": {
+														"variable": "myTeamInZone"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "for-each-ordered",
+													"objectClass": "System",
+													"sid": 218147755846378,
+													"parameters": {
+														"object": "Bucks",
+														"expression": "abs(Carcas.X - Bucks.X)",
+														"order": "ascending"
+													}
+												},
+												{
+													"id": "is-visible",
+													"objectClass": "Bucks",
+													"sid": 139957188344473
+												},
+												{
+													"id": "pick-overlapping-point",
+													"objectClass": "System",
+													"sid": 586457763077318,
+													"parameters": {
+														"object": "ZoneBucks",
+														"x": "Bucks.X",
+														"y": "Bucks.Y"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "MoveBotToXY",
+													"sid": 905343089195292,
+													"parameters": [
+														"Carcas.UID",
+														"Bucks.X",
+														"Bucks.Y",
+														"0",
+														false,
+														true
+													]
+												},
+												{
+													"id": "stop-loop",
+													"objectClass": "System",
+													"sid": 385074306446324
+												}
+											],
+											"sid": 767008432940176
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 544775520767779,
+													"parameters": {
+														"variable": "myTeamInZone"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "MoveBotToXY",
+													"sid": 186534929473371,
+													"parameters": [
+														"Carcas.UID",
+														"ZoneBucks.X",
+														"ZoneBucks.Y",
+														"random(ZoneBucks.Width/2.2)",
+														false,
+														false
+													]
+												}
+											],
+											"sid": 786806567242223
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 359290948831448,
+											"parameters": {
+												"first-value": "Functions.GetPhasaName",
+												"comparison": 1,
+												"second-value": "\"Bucks\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Carcas",
+											"sid": 150457814339606,
+											"parameters": {
+												"instance-variable": "BotCondition",
+												"value": "\"Default\""
+											}
+										}
+									],
+									"sid": 720185718603468
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 833619628615582
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Carcas",
+									"sid": 101157004169292,
+									"parameters": {
+										"instance-variable": "BotCondition",
+										"comparison": 0,
+										"value": "\"AttackEnemy\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 409535399753053,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "flag",
+									"type": "boolean",
+									"initialValue": "false",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 549627132243392
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each-ordered",
+											"objectClass": "System",
+											"sid": 697120781476146,
+											"parameters": {
+												"object": "1BotsAndCharacters",
+												"expression": "abs(Carcas.X - 1BotsAndCharacters.X)",
+												"order": "ascending"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 954805043724537,
+											"parameters": {
+												"first-value": "abs(Carcas.X - 1BotsAndCharacters.X)",
+												"comparison": 3,
+												"second-value": "450"
+											}
+										},
+										{
+											"id": "compare-y",
+											"objectClass": "Carcas",
+											"sid": 259512511924927,
+											"parameters": {
+												"comparison": 3,
+												"y-co-ordinate": "1BotsAndCharacters.Y + 100"
+											}
+										},
+										{
+											"id": "pick-children",
+											"objectClass": "1BotsAndCharacters",
+											"sid": 754824251610254,
+											"parameters": {
+												"child": "AttackView",
+												"which": "own"
+											}
+										},
+										{
+											"id": "pick-children",
+											"objectClass": "Carcas",
+											"sid": 220845257815716,
+											"parameters": {
+												"child": "CharacterAttack",
+												"which": "own"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Bot",
+											"sid": 741364276829718,
+											"parameters": {
+												"instance-variable": "Color",
+												"comparison": 1,
+												"value": "Functions.GetColor(1BotsAndCharacters.UID)"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 955662113835178,
+											"parameters": {
+												"first-value": "Functions.GetObjHP(1BotsAndCharacters.UID)",
+												"comparison": 4,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 359394996044208,
+											"parameters": {
+												"variable": "flag",
+												"value": "true"
+											}
+										},
+										{
+											"callFunction": "MoveBotToXY",
+											"sid": 848545222193148,
+											"parameters": [
+												"Carcas.UID",
+												"1BotsAndCharacters.X",
+												"1BotsAndCharacters.Y",
+												"random(min(CharacterAttack.Width, AttackView.Width) / 3, min(CharacterAttack.Width, AttackView.Width / 2))",
+												true,
+												true
+											]
+										},
+										{
+											"id": "stop-loop",
+											"objectClass": "System",
+											"sid": 733520553889146
+										}
+									],
+									"sid": 556496262723604
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 539535026524963,
+											"parameters": {
+												"variable": "flag"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Carcas",
+											"sid": 411787628962346,
+											"parameters": {
+												"instance-variable": "BotCondition",
+												"value": "\"Default\""
+											}
+										}
+									],
+									"sid": 711015982993870
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 809375059438857
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Carcas",
+									"sid": 534857048925897,
+									"parameters": {
+										"instance-variable": "BotCondition",
+										"comparison": 0,
+										"value": "\"AttackBasa\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 737284148317399,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Basa",
+											"sid": 154155278830372,
+											"parameters": {
+												"instance-variable": "Color",
+												"comparison": 1,
+												"value": "Carcas.Color"
+											}
+										},
+										{
+											"id": "pick-children",
+											"objectClass": "CharacterScins",
+											"sid": 384000412990006,
+											"parameters": {
+												"child": "AttackView",
+												"which": "own"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "MoveBotToXY",
+											"sid": 164196300159311,
+											"parameters": [
+												"Carcas.UID",
+												"Basa.X",
+												"Basa.Y",
+												"random(AttackView.Width / 3, AttackView.Width / 2)",
+												true,
+												false
+											]
+										}
+									],
+									"sid": 835086723058777
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 408446887436587
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Carcas",
+									"sid": 997292166616733,
+									"parameters": {
+										"instance-variable": "BotCondition",
+										"comparison": 0,
+										"value": "\"Retreat\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 654133542982392,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each-ordered",
+											"objectClass": "System",
+											"sid": 118604372695530,
+											"parameters": {
+												"object": "1BotsAndCharacters",
+												"expression": "abs(Carcas.X - 1BotsAndCharacters.X)",
+												"order": "ascending"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Carcas",
+											"sid": 373616283976658,
+											"parameters": {
+												"instance-variable": "Color",
+												"comparison": 1,
+												"value": "Functions.GetColor(1BotsAndCharacters.UID)"
+											}
+										},
+										{
+											"id": "pick-children",
+											"objectClass": "1BotsAndCharacters",
+											"sid": 529686838404787,
+											"disabled": true,
+											"parameters": {
+												"child": "AttackView",
+												"which": "own"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 890445869772267,
+											"parameters": {
+												"first-value": "Functions.GetObjHP(1BotsAndCharacters.UID)",
+												"comparison": 4,
+												"second-value": "0"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 765687136938715,
+											"parameters": {
+												"first-value": "abs(Carcas.X - 1BotsAndCharacters.X)",
+												"comparison": 3,
+												"second-value": "200"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "MoveBotToXY",
+											"sid": 911341445024579,
+											"parameters": [
+												"Carcas.UID",
+												"1BotsAndCharacters.X",
+												"1BotsAndCharacters.Y",
+												"200",
+												true,
+												true
+											]
+										}
+									],
+									"sid": 376032107477310
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-children",
+											"objectClass": "Carcas",
+											"sid": 561147597040820,
+											"parameters": {
+												"child": "0HP",
+												"which": "own"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "0HP",
+											"sid": 488205276046067,
+											"parameters": {
+												"instance-variable": "HP",
+												"comparison": 4,
+												"value": "600"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Carcas",
+											"sid": 351987413575038,
+											"parameters": {
+												"instance-variable": "BotCondition",
+												"value": "\"Default\""
+											}
+										}
+									],
+									"sid": 297578249413433
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 823641382571262,
+									"parameters": {
+										"first-value": "Carcas.Platform.VectorX",
+										"comparison": 0,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 477673838768532,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "jumprand",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 991769879932706
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 155707363595090,
+											"parameters": {
+												"variable": "jumprand",
+												"value": "random(0, 1)"
+											}
+										}
+									],
+									"sid": 429795200516933,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 626121909587699,
+													"parameters": {
+														"variable": "jumprand",
+														"comparison": 4,
+														"value": "0.1"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 522726115528702,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 224801573194911,
+															"parameters": {
+																"variable": "jumprand",
+																"comparison": 4,
+																"value": "0.5"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 226977516465819,
+															"parameters": {
+																"seconds": "DJumpTimer"
+															}
+														}
+													],
+													"sid": 856525059193881
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-ordered",
+									"objectClass": "System",
+									"sid": 134575671202612,
+									"parameters": {
+										"object": "1BotsAndCharacters",
+										"expression": "abs(Carcas.X - 1BotsAndCharacters.X)",
+										"order": "ascending"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Carcas",
+									"sid": 998021348780410,
+									"parameters": {
+										"instance-variable": "Color",
+										"comparison": 1,
+										"value": "Functions.GetColor(1BotsAndCharacters.UID)"
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "1BotsAndCharacters",
+									"sid": 400192981531501,
+									"parameters": {
+										"child": "AttackView",
+										"which": "own"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Carcas",
+									"sid": 106895828425897,
+									"parameters": {
+										"object": "AttackView"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 462785676885055,
+									"parameters": {
+										"seconds": "random(0.15, 0.3)"
+									}
+								}
+							],
+							"sid": 153489564686769,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "jumprand",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 200248924419013
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 587315460866929,
+											"parameters": {
+												"variable": "jumprand",
+												"value": "random(0, 1) * BotActionMult"
+											}
+										}
+									],
+									"sid": 405973564946791,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 243114127143124,
+													"parameters": {
+														"variable": "jumprand",
+														"comparison": 4,
+														"value": "0.3"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 401645438954918,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 659950543391036,
+															"parameters": {
+																"variable": "jumprand",
+																"comparison": 4,
+																"value": "0.6"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 876824959768720,
+															"parameters": {
+																"seconds": "DJumpTimer"
+															}
+														}
+													],
+													"sid": 280770581056552
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Carcas",
+									"sid": 891739100196252,
+									"parameters": {
+										"instance-variable": "BotCondition",
+										"comparison": 0,
+										"value": "\"Bucks\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Carcas",
+									"sid": 620319862612803,
+									"parameters": {
+										"instance-variable": "BotCondition",
+										"comparison": 0,
+										"value": "\"Default\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Carcas",
+									"sid": 653935710515109,
+									"parameters": {
+										"instance-variable": "BotCondition",
+										"comparison": 0,
+										"value": "\"AttackBasa\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 285594063218141,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Basa",
+											"sid": 341277835715973,
+											"parameters": {
+												"instance-variable": "Color",
+												"comparison": 0,
+												"value": "Carcas.Color"
+											}
+										},
+										{
+											"id": "pick-overlapping-point",
+											"objectClass": "System",
+											"sid": 347457073213022,
+											"parameters": {
+												"object": "ZoneMyBasa",
+												"x": "Basa.X",
+												"y": "Basa.Y"
+											}
+										},
+										{
+											"id": "pick-overlapping-point",
+											"objectClass": "System",
+											"sid": 551148347624011,
+											"parameters": {
+												"object": "ZoneMyBasa",
+												"x": "Carcas.X",
+												"y": "Carcas.Y"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "MoveBotToXY",
+											"sid": 798373864769403,
+											"parameters": [
+												"Carcas.UID",
+												"center.X",
+												"center.Y",
+												"0",
+												false,
+												false
+											]
+										}
+									],
+									"sid": 417501293249705,
+									"disabled": true
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 171555201764401,
+									"parameters": {
+										"object": "CharacterCollider"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "CharacterCollider",
+									"sid": 379712037881182,
+									"parameters": {
+										"instance-variable": "Color",
+										"comparison": 1,
+										"value": "Carcas.Color"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 660752387557933,
+									"parameters": {
+										"first-value": "abs(CharacterCollider.X - Carcas.X)",
+										"comparison": 3,
+										"second-value": "512"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 593205544765086,
+									"parameters": {
+										"first-value": "abs(CharacterCollider.Y - Carcas.Y)",
+										"comparison": 3,
+										"second-value": "80"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 874305919269242,
+									"disabled": true,
+									"parameters": {
+										"first-value": "CharacterCollider.Y",
+										"comparison": 3,
+										"second-value": "Carcas.Y"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "MoveBotToXY",
+									"sid": 985264158828035,
+									"parameters": [
+										"Carcas.ID",
+										"ZoneBucks.X",
+										"ZoneBucks.Y",
+										"0",
+										false,
+										false
+									]
+								}
+							],
+							"sid": 130833154147341,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Carcas",
+									"sid": 772585033208722,
+									"parameters": {
+										"object": "CharacterBotTrigger"
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "CharacterBotTrigger",
+									"sid": 280742642555031,
+									"parameters": {
+										"child": "Zones",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 531803034956243,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 892948626774672,
+											"parameters": {
+												"first-value": "abs(Carcas.X - Zones.ImagePointX(\"left\"))",
+												"comparison": 2,
+												"second-value": "abs(Carcas.X - Zones.ImagePointX(\"right\"))"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "MoveBotToXY",
+											"sid": 671163202355236,
+											"parameters": [
+												"Carcas.ID",
+												"Zones.ImagePointX(\"left\")",
+												"Zones.Y",
+												"0",
+												false,
+												false
+											]
+										}
+									],
+									"sid": 127362989741942,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 476724613138159
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "MoveBotToXY",
+											"sid": 153615572081792,
+											"parameters": [
+												"Carcas.ID",
+												"Zones.ImagePointX(\"right\")",
+												"Zones.Y",
+												"0",
+												false,
+												false
+											]
+										}
+									],
+									"sid": 831095589280660,
+									"disabled": true
+								},
+								{
+									"eventType": "comment",
+									"text": "Враг на базе"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 922684303809644,
+											"parameters": {
+												"first-value": "CharacterBotTrigger.Y - Zones.Y",
+												"comparison": 3,
+												"second-value": "200"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 196749613138130
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 804223832730629
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "MoveBotToXY",
+											"sid": 495753501130550,
+											"parameters": [
+												"Carcas.ID",
+												"Zones.X",
+												"Zones.Y",
+												"150",
+												false,
+												false
+											]
+										}
+									],
+									"sid": 391927000607244
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Carcas",
+									"sid": 644695083293999,
+									"parameters": {
+										"object": "CharacterBotTrigger"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "MoveBotToXY",
+									"sid": 160035905658736,
+									"parameters": [
+										"Carcas.ID",
+										"Carcas.X + choose(200, 200, 200, -200)",
+										"Carcas.Y + random(-40, 40)",
+										"0",
+										false,
+										false
+									]
+								}
+							],
+							"sid": 415895555178646,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"functionName": "IsCharacterBot",
+					"functionDescription": "",
+					"functionCategory": "Character",
+					"functionReturnType": "number",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 307380727961800
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "CharacterCollider",
+							"sid": 988469729528548,
+							"parameters": {
+								"unique-id": "UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 203412849588810,
+							"parameters": {
+								"value": "0"
+							}
+						}
+					],
+					"sid": 604985163510809,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "CharacterCollider",
+									"sid": 101211107545631,
+									"parameters": {
+										"instance-variable": "OnlineID",
+										"comparison": 1,
+										"value": "Self.ID"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "CharacterCollider",
+									"sid": 104854369803104,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 2,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 375264994986220,
+									"parameters": {
+										"value": "1"
+									}
+								}
+							],
+							"sid": 351039527815217,
+							"isOrBlock": true
+						}
+					]
+				}
+			],
+			"sid": 357347305733460
+		}
+	],
+	"sid": 341065716281580
+}

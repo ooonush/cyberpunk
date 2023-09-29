@@ -1,0 +1,132 @@
+{
+	"name": "BattleDroneAttack",
+	"plugin-id": "Sprite",
+	"sid": 383681413755182,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 124,
+						"height": 62,
+						"originX": 0.016129032258064516,
+						"originY": 0.04838709677419355,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 47227,
+						"collisionPoly": {
+							"points": [
+								0.02649773101103471,
+								0.002304156255062824,
+								0.9884792626728112,
+								0.9723502040458718,
+								0.8894010007656118,
+								0.9781107441071545,
+								0.004608312510125839,
+								0.09907827069682461
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 124,
+						"height": 62,
+						"originX": 0.016129032258064516,
+						"originY": 0.04838709677419355,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4916253,
+						"collisionPoly": {
+							"points": [
+								0.02649773101103471,
+								0.002304156255062824,
+								0.9884792626728112,
+								0.9723502040458718,
+								0.8894010007656118,
+								0.9781107441071545,
+								0.004608312510125839,
+								0.09907827069682461
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 923292960794459,
+				"name": "Blue",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 10
+			},
+			{
+				"frames": [
+					{
+						"width": 124,
+						"height": 62,
+						"originX": 0.016129032258064516,
+						"originY": 0.04838709677419355,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9809173,
+						"collisionPoly": {
+							"points": [
+								0.02649773101103471,
+								0.002304156255062824,
+								0.9884792626728112,
+								0.9723502040458718,
+								0.8894010007656118,
+								0.9781107441071545,
+								0.004608312510125839,
+								0.09907827069682461
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 124,
+						"height": 62,
+						"originX": 0.016129032258064516,
+						"originY": 0.04838709677419355,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7957489,
+						"collisionPoly": {
+							"points": [
+								0.02649773101103471,
+								0.002304156255062824,
+								0.9884792626728112,
+								0.9723502040458718,
+								0.8894010007656118,
+								0.9781107441071545,
+								0.004608312510125839,
+								0.09907827069682461
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 965856252390918,
+				"name": "Red",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 10
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"name": "Bot2",
+	"plugin-id": "Sprite",
+	"sid": 141429062383013,
+	"instanceVariables": [
+		{
+			"name": "ColorBot2",
+			"type": "string",
+			"desc": "",
+			"sid": 550820576117035
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Hammer",
+		"Alarmbot",
+		"Copter",
+		"Drone",
+		"Cannon",
+		"Patrol",
+		"BattleDrone",
+		"StepperCannon",
+		"ShockBot"
+	]
+}

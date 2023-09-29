@@ -1,0 +1,12 @@
+{
+	"name": "Bucks1",
+	"plugin-id": "Sprite",
+	"sid": 869686414591432,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Bucks",
+		"Bucks2"
+	]
+}

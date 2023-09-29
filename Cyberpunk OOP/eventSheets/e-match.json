@@ -1,0 +1,743 @@
+{
+	"name": "E-Match",
+	"events": [
+		{
+			"functionName": "OnStartMatch",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "addprogressioneventwithscore",
+					"objectClass": "1GameAnalytics",
+					"sid": 687391244370750,
+					"parameters": {
+						"progression_status": "start",
+						"progression_01": "LayoutName",
+						"progression_02": "MatchesPlayed+1&\"_Match\"",
+						"progression_03": "\"\"",
+						"score": "PlayTime"
+					}
+				},
+				{
+					"id": "adddesigneventwithvalue",
+					"objectClass": "1GameAnalytics",
+					"sid": 846259436617624,
+					"parameters": {
+						"event_id": "\"Play_With_\"&MyCharacterName",
+						"value": "Trophies"
+					}
+				},
+				{
+					"id": "addprogressionevent",
+					"objectClass": "1GameAnalytics",
+					"sid": 938935164637835,
+					"disabled": true,
+					"parameters": {
+						"progression_status": "start",
+						"progression_01": "MyCharacterName",
+						"progression_02": "Functions.GetOnlinePlayersCount(\"Blue\")",
+						"progression_03": "Functions.GetOnlinePlayersCount(\"Red\")"
+					}
+				},
+				{
+					"callFunction": "SetTrophies",
+					"sid": 545567242695370,
+					"parameters": [
+						"Trophies - 8"
+					]
+				}
+			],
+			"sid": 156866968883253
+		},
+		{
+			"functionName": "OnEndMatch",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Win",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"sid": 375089685355001
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"callFunction": "AddMatchesPlayed",
+					"sid": 749807655443367
+				},
+				{
+					"callFunction": "SetTrophies",
+					"sid": 304185471421203,
+					"parameters": [
+						"Trophies + 8"
+					]
+				},
+				{
+					"id": "adddesignevent",
+					"objectClass": "1GameAnalytics",
+					"sid": 923964042365489,
+					"parameters": {
+						"event_id": "MatchesPlayed&\"_Match_End\""
+					}
+				}
+			],
+			"sid": 271351247963628,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 375050862069571,
+							"parameters": {
+								"variable": "OnlineMode"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "adddesignevent",
+							"objectClass": "1GameAnalytics",
+							"sid": 386082805931112,
+							"parameters": {
+								"event_id": "\"Online_Players_\"&tokencount(Functions.GetOnlineAll, \"/\")"
+							}
+						}
+					],
+					"sid": 153396973641170
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 398561866702874,
+							"parameters": {
+								"variable": "Win"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "addprogressioneventwithscore",
+							"objectClass": "1GameAnalytics",
+							"sid": 585560105590272,
+							"parameters": {
+								"progression_status": "complete",
+								"progression_01": "LayoutName",
+								"progression_02": "MatchesPlayed&\"_Match\"",
+								"progression_03": "\"\"",
+								"score": "PlayTime"
+							}
+						}
+					],
+					"sid": 177275064366116
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 120457976553223
+						}
+					],
+					"actions": [
+						{
+							"id": "addprogressioneventwithscore",
+							"objectClass": "1GameAnalytics",
+							"sid": 185678849639188,
+							"parameters": {
+								"progression_status": "fail",
+								"progression_01": "LayoutName",
+								"progression_02": "MatchesPlayed&\"_Match\"",
+								"progression_03": "\"\"",
+								"score": "PlayTime"
+							}
+						}
+					],
+					"sid": 905970522341304
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 755816863859576,
+					"parameters": {
+						"variable": "MatchesPlayed",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "MoveToArrow",
+					"sid": 572893300627899,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "MoveToArrow3",
+					"sid": 423223523443321,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "MoveToArrow2",
+					"sid": 171878630749281,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "BotBuyZoneTutor",
+					"sid": 795639132205493,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 659166709599858,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 799409015442903,
+							"parameters": {
+								"first-value": "Functions.GetPhasaName",
+								"comparison": 0,
+								"second-value": "\"Bucks\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 880899195207047,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 125907847749972,
+									"parameters": {
+										"first-value": "distance(CharacterCollider.X, CharacterCollider.Y, center.X, center.Y)",
+										"comparison": 4,
+										"second-value": "256"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "MoveToArrow",
+									"sid": 500899783613328,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-angle-toward-position",
+									"objectClass": "MoveToArrow",
+									"sid": 262068368137616,
+									"parameters": {
+										"x": "center.X",
+										"y": "center.Y"
+									}
+								},
+								{
+									"id": "set-angle-toward-position",
+									"objectClass": "MoveToArrow1",
+									"sid": 773129589205380,
+									"disabled": true,
+									"parameters": {
+										"x": "center.X",
+										"y": "center.Y"
+									}
+								},
+								{
+									"id": "set-position-to-another-object",
+									"objectClass": "MoveToArrow",
+									"sid": 446657714149032,
+									"disabled": true,
+									"parameters": {
+										"object": "MoveToArrow1",
+										"image-point-optional": "1"
+									}
+								}
+							],
+							"sid": 771747144341491
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 839745250396100
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 594727368331477,
+							"parameters": {
+								"first-value": "Bot.Count",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 959383266838138,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "CharacterCollider",
+									"sid": 295655448891978,
+									"parameters": {
+										"instance-variable": "Bucks",
+										"comparison": 5,
+										"value": "BotsPrice.Get(Functions.GetBotNameByNumber(CharacterCollider.UID, 1))"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "BotBuyZoneTutor",
+									"sid": 123817257192958,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 401167136403848,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 873007616422133,
+											"parameters": {
+												"first-value": "distance(CharacterCollider.X, CharacterCollider.Y, BotBuyZoneTutor.X, BotBuyZoneTutor.Y)",
+												"comparison": 4,
+												"second-value": "100"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "MoveToArrow",
+											"sid": 132029146398064,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-angle-toward-position",
+											"objectClass": "MoveToArrow",
+											"sid": 418537300857879,
+											"parameters": {
+												"x": "BotBuyZoneTutor.X",
+												"y": "BotBuyZoneTutor.Y"
+											}
+										}
+									],
+									"sid": 625262072881582
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "CharacterCollider",
+											"sid": 358059394655650,
+											"parameters": {
+												"object": "BotBuyZoneTutor"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "MoveToArrow3",
+											"sid": 258390304641137,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "MoveToArrow2",
+											"sid": 184940128716713,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-angle-toward-position",
+											"objectClass": "MoveToArrow3",
+											"sid": 701678039364262,
+											"disabled": true,
+											"parameters": {
+												"x": "BotBuyZoneTutor.X",
+												"y": "BotBuyZoneTutor.Y"
+											}
+										}
+									],
+									"sid": 661704088880272
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 728904489437210
+						}
+					],
+					"actions": [],
+					"sid": 988272596415747,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Basa",
+									"sid": 900904347365090,
+									"parameters": {
+										"instance-variable": "Color",
+										"comparison": 0,
+										"value": "\"Red\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Basa",
+									"sid": 578851710320274,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 4,
+										"value": "BasaMaxHP - 3000"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 610835848509324,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 365857839175507,
+											"parameters": {
+												"first-value": "distance(CharacterCollider.X, CharacterCollider.Y, Basa.X, Basa.Y)",
+												"comparison": 4,
+												"second-value": "200"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "MoveToArrow",
+											"sid": 500733116430544,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-angle-toward-position",
+											"objectClass": "MoveToArrow",
+											"sid": 850787815431660,
+											"parameters": {
+												"x": "Basa.X",
+												"y": "Basa.Y - 55"
+											}
+										}
+									],
+									"sid": 653659318440251,
+									"disabled": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 847493936038063
+								}
+							],
+							"actions": [],
+							"sid": 358000917930087,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "CharacterCollider",
+											"sid": 451516227003835,
+											"parameters": {
+												"instance-variable": "Bucks",
+												"comparison": 4,
+												"value": "30"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 412911411250724,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "CharacterCollider",
+													"sid": 817477785867986,
+													"parameters": {
+														"instance-variable": "Bucks",
+														"comparison": 4,
+														"value": "50"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Basa",
+													"sid": 501281738981704,
+													"parameters": {
+														"instance-variable": "Color",
+														"comparison": 0,
+														"value": "\"Red\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Basa",
+													"sid": 604762140486303,
+													"parameters": {
+														"instance-variable": "HP",
+														"value": "BasaMaxHP - 3000"
+													}
+												}
+											],
+											"sid": 661334071831105,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Basa",
+													"sid": 829693293403031,
+													"parameters": {
+														"instance-variable": "Color",
+														"comparison": 0,
+														"value": "\"Blue\""
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 565410940953742,
+													"parameters": {
+														"first-value": "Functions.IsCharacterCanBuy(CharacterCollider.UID, BotsPrice.Get(Functions.GetBotNameByNumber(CharacterCollider.UID, 1)))",
+														"comparison": 0,
+														"second-value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "MoveToArrow",
+													"sid": 787068054885583,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-angle-toward-position",
+													"objectClass": "MoveToArrow",
+													"sid": 625761170628951,
+													"parameters": {
+														"x": "Basa.X",
+														"y": "Basa.Y"
+													}
+												}
+											],
+											"sid": 902628830015725,
+											"disabled": true
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 469226707639627
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Basa",
+											"sid": 595072683253040,
+											"parameters": {
+												"instance-variable": "Color",
+												"comparison": 0,
+												"value": "\"Red\""
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 331098697093084,
+											"parameters": {
+												"first-value": "distance(CharacterCollider.X, CharacterCollider.Y, Basa.X, Basa.Y)",
+												"comparison": 4,
+												"second-value": "200"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "MoveToArrow",
+											"sid": 490361809141161,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-angle-toward-position",
+											"objectClass": "MoveToArrow",
+											"sid": 176569595700075,
+											"parameters": {
+												"x": "Basa.X",
+												"y": "Basa.Y - 55"
+											}
+										}
+									],
+									"sid": 116184795435236,
+									"disabled": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 179022442699639,
+									"parameters": {
+										"first-value": "Functions.IsCharacterCanBuy(CharacterCollider.UID, BotsPrice.Get(Functions.GetBotNameByNumber(CharacterCollider.UID, 1)))",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "MoveToArrow3",
+									"sid": 348529325080378,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "MoveToArrow2",
+									"sid": 916108520618525,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 137281333148966,
+							"disabled": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-released",
+					"objectClass": "Keyboard",
+					"sid": 693588323752428,
+					"parameters": {
+						"key": 90
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 707561875443715,
+					"parameters": {
+						"layout": "EndMatchTimer3x3"
+					}
+				}
+			],
+			"sid": 490196248318290
+		}
+	],
+	"sid": 319252409676482
+}

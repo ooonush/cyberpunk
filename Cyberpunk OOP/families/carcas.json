@@ -1,0 +1,233 @@
+{
+	"name": "Carcas",
+	"plugin-id": "Sprite",
+	"sid": 754513375484572,
+	"instanceVariables": [
+		{
+			"name": "ID",
+			"type": "number",
+			"desc": "",
+			"sid": 910293757407335
+		},
+		{
+			"name": "OnlineID",
+			"type": "number",
+			"desc": "",
+			"sid": 156177256097349
+		},
+		{
+			"name": "IsDeath",
+			"type": "boolean",
+			"desc": "",
+			"sid": 153591323459357
+		},
+		{
+			"name": "PlayerNumber",
+			"type": "number",
+			"desc": "",
+			"sid": 563494387381354
+		},
+		{
+			"name": "OfflineTImer",
+			"type": "number",
+			"desc": "",
+			"sid": 331315512933792
+		},
+		{
+			"name": "IsOnline",
+			"type": "boolean",
+			"desc": "",
+			"sid": 387475816413363
+		},
+		{
+			"name": "HP",
+			"type": "number",
+			"desc": "",
+			"sid": 955800830987494
+		},
+		{
+			"name": "CharacterName",
+			"type": "string",
+			"desc": "",
+			"sid": 370549098034700
+		},
+		{
+			"name": "XX",
+			"type": "number",
+			"desc": "",
+			"sid": 690542722195800
+		},
+		{
+			"name": "YY",
+			"type": "number",
+			"desc": "",
+			"sid": 163772956807511
+		},
+		{
+			"name": "Color",
+			"type": "string",
+			"desc": "",
+			"sid": 417983056838454
+		},
+		{
+			"name": "Ping",
+			"type": "number",
+			"desc": "",
+			"sid": 928026701757938
+		},
+		{
+			"name": "Direction",
+			"type": "number",
+			"desc": "",
+			"sid": 201494575266242
+		},
+		{
+			"name": "JumpCount",
+			"type": "number",
+			"desc": "",
+			"sid": 789453952950560
+		},
+		{
+			"name": "Damage",
+			"type": "number",
+			"desc": "",
+			"sid": 846828874266433
+		},
+		{
+			"name": "StartX",
+			"type": "number",
+			"desc": "",
+			"sid": 361820998497176
+		},
+		{
+			"name": "StartY",
+			"type": "number",
+			"desc": "",
+			"sid": 928421858334424
+		},
+		{
+			"name": "ShiledTimer",
+			"type": "number",
+			"desc": "",
+			"sid": 858893498379187
+		},
+		{
+			"name": "Bucks",
+			"type": "number",
+			"desc": "",
+			"sid": 114141062513655
+		},
+		{
+			"name": "Ready",
+			"type": "boolean",
+			"desc": "игрок онлайн и живой",
+			"sid": 659086110065941
+		},
+		{
+			"name": "OnlineIDChanging",
+			"type": "number",
+			"desc": "",
+			"sid": 498333879597835
+		},
+		{
+			"name": "LastBotID",
+			"type": "number",
+			"desc": "",
+			"sid": 412157539172017
+		},
+		{
+			"name": "NickName",
+			"type": "string",
+			"desc": "",
+			"sid": 168283602228057
+		},
+		{
+			"name": "BulletCount",
+			"type": "number",
+			"desc": "",
+			"sid": 267674432745456
+		},
+		{
+			"name": "AddBulletTimer",
+			"type": "number",
+			"desc": "",
+			"sid": 460569090977862
+		},
+		{
+			"name": "MaxHP",
+			"type": "number",
+			"desc": "",
+			"sid": 699598409111327
+		},
+		{
+			"name": "AttackBlockTimer",
+			"type": "number",
+			"desc": "",
+			"sid": 310674483522825
+		},
+		{
+			"name": "BucksOnDeath",
+			"type": "number",
+			"desc": "",
+			"sid": 378808717025938
+		},
+		{
+			"name": "BotCondition",
+			"type": "string",
+			"desc": "",
+			"sid": 662592577340838
+		},
+		{
+			"name": "Bot1Name",
+			"type": "string",
+			"desc": "",
+			"sid": 449435904752170
+		},
+		{
+			"name": "Bot2Name",
+			"type": "string",
+			"desc": "",
+			"sid": 223520962580985
+		},
+		{
+			"name": "Bot3Name",
+			"type": "string",
+			"desc": "",
+			"sid": 388121073832489
+		},
+		{
+			"name": "BotMessage",
+			"type": "string",
+			"desc": "",
+			"sid": 792645926140520
+		},
+		{
+			"name": "BotMessageX",
+			"type": "number",
+			"desc": "",
+			"sid": 871242318899228
+		},
+		{
+			"name": "BotMessageY",
+			"type": "number",
+			"desc": "",
+			"sid": 780174775847022
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Platform",
+			"name": "Platform",
+			"sid": 783220972890049
+		},
+		{
+			"behaviorId": "Timer",
+			"name": "Timer",
+			"sid": 929589085898217
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"CharacterCollider"
+	]
+}

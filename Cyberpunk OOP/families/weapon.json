@@ -1,0 +1,91 @@
+{
+	"name": "Weapon",
+	"plugin-id": "Sprite",
+	"sid": 453480780861696,
+	"instanceVariables": [
+		{
+			"name": "BulletName",
+			"type": "string",
+			"desc": "",
+			"sid": 187475806420004
+		},
+		{
+			"name": "BulletTemplate",
+			"type": "string",
+			"desc": "",
+			"sid": 436663171219984
+		},
+		{
+			"name": "oDamage",
+			"type": "number",
+			"desc": "",
+			"sid": 601688190155793
+		},
+		{
+			"name": "TimeToSpawnBullet",
+			"type": "number",
+			"desc": "",
+			"sid": 938996399656023
+		},
+		{
+			"name": "SyncPosOnAttack",
+			"type": "boolean",
+			"desc": "",
+			"sid": 381921652585742
+		},
+		{
+			"name": "Attacking",
+			"type": "boolean",
+			"desc": "",
+			"sid": 238144391238332
+		},
+		{
+			"name": "Frequency",
+			"type": "number",
+			"desc": "",
+			"sid": 129485493224643
+		},
+		{
+			"name": "eReloadingTime",
+			"type": "number",
+			"desc": "",
+			"sid": 461398231229094
+		},
+		{
+			"name": "eBulletCount",
+			"type": "number",
+			"desc": "",
+			"sid": 201378132643985
+		},
+		{
+			"name": "eMaxBulletCount",
+			"type": "number",
+			"desc": "",
+			"sid": 121581364297892
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Timer",
+			"name": "oWeaponTimer",
+			"sid": 621715616626790
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Biker",
+		"Bomj",
+		"Alarmbot",
+		"BattleDrone",
+		"Brigand",
+		"Cannon",
+		"Copter",
+		"Cyborg",
+		"Drone",
+		"Hammer",
+		"Patrol",
+		"Punk",
+		"ShockBot",
+		"StepperCannon"
+	]
+}

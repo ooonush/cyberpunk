@@ -1,0 +1,73 @@
+{
+	"name": "CyborgAttack2",
+	"plugin-id": "Sprite",
+	"sid": 508928383687201,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 56,
+						"height": 14,
+						"originX": 0,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9955890,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 56,
+						"height": 14,
+						"originX": 0,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2479341,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 56,
+						"height": 14,
+						"originX": 0,
+						"originY": 0.4642857142857143,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4817404,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 56,
+						"height": 14,
+						"originX": 0,
+						"originY": 0.4642857142857143,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6217366,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 945661998827765,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 13
+			}
+		],
+		"subfolders": []
+	}
+}

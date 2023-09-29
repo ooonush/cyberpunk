@@ -1,0 +1,260 @@
+{
+	"name": "Bomb",
+	"plugin-id": "Sprite",
+	"sid": 847536834803487,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 10,
+						"height": 10,
+						"originX": 0.5,
+						"originY": 0.7,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1064654,
+						"collisionPoly": {
+							"points": [
+								0.3,
+								0.3,
+								0.5,
+								0.3,
+								0.8,
+								0.1,
+								0.8,
+								0.5,
+								0.8,
+								0.8,
+								0.5,
+								0.9,
+								0.1,
+								0.8,
+								0.1,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 240028333509469,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 10,
+						"height": 10,
+						"originX": 0.5,
+						"originY": 0.7,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2563462,
+						"collisionPoly": {
+							"points": [
+								0.3,
+								0.3,
+								0.5,
+								0.3,
+								0.8,
+								0.1,
+								0.8,
+								0.5,
+								0.8,
+								0.8,
+								0.5,
+								0.9,
+								0.1,
+								0.8,
+								0.1,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 10,
+						"height": 10,
+						"originX": 0.5,
+						"originY": 0.7,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 645436,
+						"collisionPoly": {
+							"points": [
+								0.3,
+								0.3,
+								0.5,
+								0.3,
+								0.8,
+								0.1,
+								0.8,
+								0.5,
+								0.8,
+								0.8,
+								0.5,
+								0.9,
+								0.1,
+								0.8,
+								0.1,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 10,
+						"height": 10,
+						"originX": 0.5,
+						"originY": 0.7,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4414363,
+						"collisionPoly": {
+							"points": [
+								0.3,
+								0.3,
+								0.5,
+								0.3,
+								0.8,
+								0.1,
+								0.8,
+								0.5,
+								0.8,
+								0.8,
+								0.5,
+								0.9,
+								0.1,
+								0.8,
+								0.1,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 10,
+						"height": 10,
+						"originX": 0.5,
+						"originY": 0.7,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3285271,
+						"collisionPoly": {
+							"points": [
+								0.3,
+								0.3,
+								0.5,
+								0.3,
+								0.8,
+								0.1,
+								0.8,
+								0.5,
+								0.8,
+								0.8,
+								0.5,
+								0.9,
+								0.1,
+								0.8,
+								0.1,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 10,
+						"height": 10,
+						"originX": 0.5,
+						"originY": 0.7,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4126317,
+						"collisionPoly": {
+							"points": [
+								0.3,
+								0.3,
+								0.5,
+								0.3,
+								0.8,
+								0.1,
+								0.8,
+								0.5,
+								0.8,
+								0.8,
+								0.5,
+								0.9,
+								0.1,
+								0.8,
+								0.1,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 10,
+						"height": 10,
+						"originX": 0.5,
+						"originY": 0.7,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1621932,
+						"collisionPoly": {
+							"points": [
+								0.3,
+								0.3,
+								0.5,
+								0.3,
+								0.8,
+								0.1,
+								0.8,
+								0.5,
+								0.8,
+								0.8,
+								0.5,
+								0.9,
+								0.1,
+								0.8,
+								0.1,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 693414385392402,
+				"name": "Boom",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

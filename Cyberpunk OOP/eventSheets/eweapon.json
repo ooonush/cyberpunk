@@ -1,0 +1,2254 @@
+{
+	"name": "eWeapon",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "ReloadableWeapon",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "Function",
+							"sid": 213424394453608,
+							"parameters": {
+								"name": "\"WeaponOnAttack\""
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "ReloadableWeapon",
+							"sid": 997019466936294,
+							"parameters": {
+								"unique-id": "Function.Param(0)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ReloadableWeaponStartReloading",
+							"sid": 686618677099317,
+							"parameters": [
+								"ReloadableWeapon.UID"
+							]
+						}
+					],
+					"sid": 680465296517274
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "ReloadableWeapon API",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "ReloadableWeapon API Variables",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Setter"
+								},
+								{
+									"functionName": "ReloadableWeaponSetBulletCount",
+									"functionDescription": "",
+									"functionCategory": "ReloadableWeapon",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "reloadableWeaponUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 651081576839334
+										},
+										{
+											"name": "bulletCount",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 622220515024632
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "ReloadableWeapon",
+											"sid": 559864099344930,
+											"parameters": {
+												"unique-id": "reloadableWeaponUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "ReloadableWeapon",
+											"sid": 595166465701241,
+											"parameters": {
+												"instance-variable": "BulletCount",
+												"value": "min(Self.MaxBulletCount, Self.BulletCount + bulletCount)"
+											}
+										}
+									],
+									"sid": 404138327300630
+								},
+								{
+									"eventType": "comment",
+									"text": "Getter"
+								},
+								{
+									"functionName": "ReloadableWeaponGetBulletCount",
+									"functionDescription": "",
+									"functionCategory": "ReloadableWeapon",
+									"functionReturnType": "number",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "reloadableWeaponUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 446116994311284
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "ReloadableWeapon",
+											"sid": 342922832888700,
+											"parameters": {
+												"unique-id": "reloadableWeaponUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 668722833785421,
+											"parameters": {
+												"value": "ReloadableWeapon.BulletCount"
+											}
+										}
+									],
+									"sid": 716672822353576
+								},
+								{
+									"functionName": "ReloadableWeaponGetMaxBulletCount",
+									"functionDescription": "",
+									"functionCategory": "ReloadableWeapon",
+									"functionReturnType": "number",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "reloadableWeaponUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 517675193688704
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "ReloadableWeapon",
+											"sid": 659709120726666,
+											"parameters": {
+												"unique-id": "reloadableWeaponUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 985975883051150,
+											"parameters": {
+												"value": "ReloadableWeapon.MaxBulletCount"
+											}
+										}
+									],
+									"sid": 689500626233047
+								},
+								{
+									"eventType": "comment",
+									"text": "Adder"
+								},
+								{
+									"functionName": "ReloadableWeaponAddBullet",
+									"functionDescription": "",
+									"functionCategory": "ReloadableWeapon",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "reloadableWeaponUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 280512146423792
+										},
+										{
+											"name": "bulletCount",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 974279435940642
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [
+										{
+											"callFunction": "ReloadableWeaponSetBulletCount",
+											"sid": 463208818602539,
+											"parameters": [
+												"reloadableWeaponUID",
+												"Functions.ReloadableWeaponGetBulletCount(reloadableWeaponUID) + bulletCount"
+											]
+										}
+									],
+									"sid": 236128261580814
+								},
+								{
+									"eventType": "comment",
+									"text": "Resetter"
+								},
+								{
+									"functionName": "ReloadableWeaponResetBulletCount",
+									"functionDescription": "",
+									"functionCategory": "ReloadableWeapon",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "reloadableWeaponUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 448903193087805
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [
+										{
+											"callFunction": "ReloadableWeaponSetBulletCount",
+											"sid": 864383789215733,
+											"parameters": [
+												"reloadableWeaponUID",
+												"Functions.ReloadableWeaponGetMaxBulletCount(reloadableWeaponUID)"
+											]
+										}
+									],
+									"sid": 896753449250246
+								}
+							],
+							"sid": 233283033659407
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "ReloadableWeapon API Reloading",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"functionName": "ReloadableWeaponStartReloading",
+									"functionDescription": "",
+									"functionCategory": "ReloadableWeapon",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "reloadableWeaponUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 821297109494201
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "ReloadableWeapon",
+											"sid": 406519038835404,
+											"parameters": {
+												"unique-id": "reloadableWeaponUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "start-timer",
+											"objectClass": "ReloadableWeapon",
+											"sid": 143430522838199,
+											"behaviorType": "ReloadableWeaponTimer",
+											"parameters": {
+												"duration": "ReloadableWeapon.ReloadPreparingDuration",
+												"type": "once",
+												"tag": "\"Reloading\""
+											}
+										}
+									],
+									"sid": 383331370996473
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-timer",
+											"objectClass": "ReloadableWeapon",
+											"sid": 811843906948111,
+											"behaviorType": "ReloadableWeaponTimer",
+											"parameters": {
+												"tag": "\"Reloading\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "ReloadableWeaponAddBullet",
+											"sid": 800680366715306,
+											"parameters": [
+												"ReloadableWeapon.UID",
+												"1"
+											]
+										}
+									],
+									"sid": 475736068055093,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "ReloadableWeapon",
+													"sid": 212146477250790,
+													"parameters": {
+														"instance-variable": "BulletCount",
+														"comparison": 2,
+														"value": "Self.MaxBulletCount"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "start-timer",
+													"objectClass": "ReloadableWeapon",
+													"sid": 726891279954704,
+													"behaviorType": "ReloadableWeaponTimer",
+													"parameters": {
+														"duration": "ReloadableWeapon.ReloadBulletDuration",
+														"type": "once",
+														"tag": "\"Reloading\""
+													}
+												}
+											],
+											"sid": 762299119905222
+										}
+									]
+								}
+							],
+							"sid": 821284042399540
+						},
+						{
+							"functionName": "ReloadableWeaponTryAttackSync",
+							"functionDescription": "",
+							"functionCategory": "Weapon",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "reloadableWeaponUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 937940467460426
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 186800046314876,
+									"parameters": {
+										"first-value": "Functions.ReloadableWeaponGetBulletCount(reloadableWeaponUID)",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "WeaponAttackSync",
+									"sid": 886908308485032,
+									"parameters": [
+										"reloadableWeaponUID"
+									]
+								}
+							],
+							"sid": 494321449348649
+						}
+					],
+					"sid": 178986655828617
+				}
+			],
+			"sid": 710298392723008
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Weapon",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "Function",
+							"sid": 986513382880406,
+							"parameters": {
+								"name": "\"WeaponOnAttack\""
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Weapon",
+							"sid": 411010425817579,
+							"parameters": {
+								"unique-id": "Function.Param(0)"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 953940097781484,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Weapon",
+									"sid": 460987119081678,
+									"parameters": {
+										"instance-variable": "Attacking",
+										"value": "true"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 202531685132095,
+									"parameters": {
+										"seconds": "Weapon.Frequency"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Weapon",
+									"sid": 414051076708640,
+									"parameters": {
+										"instance-variable": "Attacking",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 471219640725166
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Weapon",
+									"sid": 372367465985236,
+									"parameters": {
+										"animation": "\"Idle\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "SyncedSetAnimationSync",
+									"sid": 332835885679730,
+									"parameters": [
+										"Weapon.UID",
+										"\"Attack\""
+									]
+								}
+							],
+							"sid": 663614460913517
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 641655411382849
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Weapon",
+									"sid": 816331844378292,
+									"parameters": {
+										"animation": "\"Run\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "SyncedSetAnimationSync",
+									"sid": 666607596786452,
+									"parameters": [
+										"Weapon.UID",
+										"\"RunAndAttack\""
+									]
+								}
+							],
+							"sid": 658735315541272
+						}
+					]
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Weapon API",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "WeaponTryAttackSync",
+							"functionDescription": "",
+							"functionCategory": "Weapon",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "weaponUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 580595972194668
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Weapon",
+									"sid": 576174647539740,
+									"parameters": {
+										"unique-id": "weaponUID"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Weapon",
+									"sid": 990331494760833,
+									"parameters": {
+										"instance-variable": "Attacking"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "WeaponAttackSync",
+									"sid": 149335665075762,
+									"parameters": [
+										"weaponUID"
+									]
+								}
+							],
+							"sid": 590171586053747
+						},
+						{
+							"functionName": "WeaponAttackSync",
+							"functionDescription": "",
+							"functionCategory": "Weapon",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "weaponUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 312841576829392
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Weapon",
+									"sid": 776777556473122,
+									"parameters": {
+										"unique-id": "weaponUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 827296502440771,
+									"parameters": {
+										"name": "\"WeaponOnAttack\"",
+										"parameter-n": [
+											"weaponUID"
+										]
+									}
+								}
+							],
+							"sid": 955253236058388,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 337341901322511,
+											"parameters": {
+												"variable": "OnlineMode"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "CanHurtCreateSync",
+											"sid": 575654489277924,
+											"parameters": [
+												"Weapon.BulletName",
+												"Weapon.BulletTemplate",
+												"Weapon.X",
+												"Weapon.Y - Weapon.Height / 2",
+												"90*(1-Functions.IsInstanceMirrored(Weapon.Width))",
+												"Weapon.oDamage",
+												"weaponUID"
+											]
+										}
+									],
+									"sid": 168740245760281
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 655561751876743
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "CanHurtCreate",
+											"sid": 623341988208265,
+											"parameters": [
+												"Functions.CanHurtGetRandomID",
+												"Weapon.BulletName",
+												"Weapon.BulletTemplate",
+												"Weapon.X",
+												"Weapon.Y - Weapon.Height / 2",
+												"90*(1-Functions.IsInstanceMirrored(Weapon.Width))",
+												"Weapon.oDamage",
+												"weaponUID"
+											]
+										}
+									],
+									"sid": 130230305843405
+								}
+							]
+						},
+						{
+							"functionName": "WeaponIsAttacking",
+							"functionDescription": "",
+							"functionCategory": "Weapon",
+							"functionReturnType": "number",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "weaponUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 618402755080653
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Weapon",
+									"sid": 878305482306881,
+									"parameters": {
+										"unique-id": "weaponUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 485205526184086,
+									"parameters": {
+										"value": "Weapon.Attacking"
+									}
+								}
+							],
+							"sid": 406887937343092
+						}
+					],
+					"sid": 127038509454494
+				}
+			],
+			"sid": 647035102805490
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "CanHurt",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "CanHurt API",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "CanHurt API Sync",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"functionName": "CanHurtCreateSync",
+									"functionDescription": "",
+									"functionCategory": "CanHurt",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "canDamageInstanceName",
+											"type": "string",
+											"initialValue": "",
+											"comment": "",
+											"sid": 557529190099790
+										},
+										{
+											"name": "template",
+											"type": "string",
+											"initialValue": "",
+											"comment": "",
+											"sid": 201311049648950
+										},
+										{
+											"name": "x",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 350145306517360
+										},
+										{
+											"name": "y",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 230982835381679
+										},
+										{
+											"name": "canDamageAngle",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 607337000301798
+										},
+										{
+											"name": "damage",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 516211293988195
+										},
+										{
+											"name": "spawnerUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 615247515097268
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [],
+									"sid": 326195447445524,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 959624563823831,
+													"parameters": {
+														"variable": "OnlineMode"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "raiseevent17",
+													"objectClass": "Photon",
+													"sid": 461035608529109,
+													"parameters": {
+														"code0": "100",
+														"data1": "Functions.CanHurtGetRandomID&\"/\"&canDamageInstanceName&\"/\"&template&\"/\"&x&\"/\"&y&\"/\"&canDamageAngle&\"/\"&damage&\"/\"&Functions.SyncedGetIDByUID(spawnerUID)",
+														"interestgroup2": "0",
+														"cache11": "donotcache",
+														"receivers15": "others",
+														"targetactors16": "Functions.GetOnlineAll",
+														"webforward19": "no"
+													}
+												}
+											],
+											"sid": 798965756443733
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 578841264623021
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "CanHurtCreate",
+													"sid": 349678579795035,
+													"parameters": [
+														"Functions.CanHurtGetRandomID",
+														"canDamageInstanceName",
+														"template",
+														"x",
+														"y",
+														"canDamageAngle",
+														"damage",
+														"spawnerUID"
+													]
+												}
+											],
+											"sid": 251450710222998
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "onevent3",
+											"objectClass": "Photon",
+											"sid": 808234405814067,
+											"parameters": {
+												"code0": "100"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "CanHurtCreate",
+											"sid": 705599694376612,
+											"parameters": [
+												"tokenat(Photon.EventData, 0, \"/\")",
+												"tokenat(Photon.EventData, 1, \"/\")",
+												"tokenat(Photon.EventData, 2, \"/\")",
+												"int(tokenat(Photon.EventData, 3, \"/\"))",
+												"int(tokenat(Photon.EventData, 4, \"/\"))",
+												"int(tokenat(Photon.EventData, 5, \"/\"))",
+												"int(tokenat(Photon.EventData, 6, \"/\"))",
+												"Functions.SyncedGetUIDByID(tokenat(Photon.EventData, 7, \"/\"))"
+											]
+										}
+									],
+									"sid": 731342519363866
+								}
+							],
+							"sid": 544902378864283
+						},
+						{
+							"functionName": "CanHurtCreate",
+							"functionDescription": "",
+							"functionCategory": "CanHurt",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "canDamageID",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 315142846010066
+								},
+								{
+									"name": "instanceName",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 464265733758837
+								},
+								{
+									"name": "template",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 531704622708662
+								},
+								{
+									"name": "x",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 302545784599492
+								},
+								{
+									"name": "y",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 913313839685407
+								},
+								{
+									"name": "canDamageAngle",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 451680699553612
+								},
+								{
+									"name": "damage",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 362353557044793
+								},
+								{
+									"name": "spawnerUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 713927554260850
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object-by-name",
+									"objectClass": "System",
+									"sid": 187015363590874,
+									"parameters": {
+										"object-name": "instanceName",
+										"layer": "Functions.GetObjectsLayerName",
+										"x": "x",
+										"y": "y",
+										"create-hierarchy": true,
+										"template-name": "template"
+									}
+								}
+							],
+							"sid": 908222800988034,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-last-created",
+											"objectClass": "System",
+											"sid": 774630739284771,
+											"parameters": {
+												"object": "CanHurt"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "CanHurt",
+											"sid": 525051399709418,
+											"parameters": {
+												"instance-variable": "WeaponUID",
+												"value": "spawnerUID"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "CanHurt",
+											"sid": 390467629332921,
+											"parameters": {
+												"instance-variable": "Damage",
+												"value": "damage"
+											}
+										},
+										{
+											"id": "set-angle-of-motion",
+											"objectClass": "CanHurt",
+											"sid": 312722422629520,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"angle": "canDamageAngle"
+											}
+										},
+										{
+											"type": "comment",
+											"text": "Set Color"
+										},
+										{
+											"callFunction": "СoloredSetColotByUID",
+											"sid": 321651629102378,
+											"parameters": [
+												"CanHurt.UID",
+												"Functions.СoloredGetColotByUID(spawnerUID)"
+											]
+										},
+										{
+											"type": "comment",
+											"text": "Set ID"
+										},
+										{
+											"callFunction": "SyncedSetIDByUID",
+											"sid": 187122919965995,
+											"parameters": [
+												"CanHurt.UID",
+												"canDamageID"
+											]
+										},
+										{
+											"type": "comment",
+											"text": "Set OnlineActorNr"
+										},
+										{
+											"callFunction": "SyncedSetOnlineActorNrByUID",
+											"sid": 423049365043412,
+											"parameters": [
+												"CanHurt.UID",
+												"Functions.SyncedGetOnlineActorNrByUID(spawnerUID)"
+											]
+										}
+									],
+									"sid": 703970964135951,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 281793779207848,
+													"parameters": {
+														"variable": "canDamageAngle",
+														"comparison": 1,
+														"value": "0"
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 348252638576742,
+													"parameters": {
+														"variable": "canDamageAngle",
+														"comparison": 1,
+														"value": "360"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-mirrored",
+													"objectClass": "CanHurt",
+													"sid": 960307722424861,
+													"parameters": {
+														"state": "mirrored"
+													}
+												}
+											],
+											"sid": 450444204536821
+										}
+									]
+								}
+							]
+						},
+						{
+							"functionName": "CanHurtGetRandomID",
+							"functionDescription": "",
+							"functionCategory": "CanHurt",
+							"functionReturnType": "string",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 792558865742270,
+									"parameters": {
+										"value": "\"Bullet_\"&int(random(0, 1000000))"
+									}
+								}
+							],
+							"sid": 702773617360264
+						}
+					],
+					"sid": 929934483161209
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "CanHurt Damage",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Damage"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "CanHurt",
+									"sid": 886359603077370,
+									"parameters": {
+										"object": "HasHealth"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "HasHealth",
+									"sid": 504971759086020,
+									"parameters": {
+										"instance-variable": "oHealth",
+										"comparison": 4,
+										"value": "0"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 705150869209359,
+									"parameters": {
+										"first-value": "Functions.СoloredGetColotByUID(CanHurt.UID)",
+										"comparison": 1,
+										"second-value": "Functions.СoloredGetColotByUID(HasHealth.UID)"
+									}
+								},
+								{
+									"id": "is-timer-running",
+									"objectClass": "CharacterCollider",
+									"sid": 633451053166239,
+									"disabled": true,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "\"Shield\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "CanHurt",
+									"sid": 101115536873090
+								}
+							],
+							"sid": 156636026960887,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "CanHurt",
+											"sid": 884562095882734,
+											"parameters": {
+												"instance-variable": "DamageOnCollision"
+											}
+										}
+									],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "task Нанесения урона",
+											"text-color": [
+												1,
+												1,
+												1,
+												1
+											],
+											"background-color": [
+												0.996078431372549,
+												0.2235294117647059,
+												0.2235294117647059,
+												1
+											]
+										}
+									],
+									"sid": 421425177453457,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Explosions",
+													"sid": 635468291106079,
+													"parameters": {
+														"instance-variable": "IsBotExplosion"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "SyncDamageObj",
+													"sid": 308528621554995,
+													"parameters": [
+														"Basa.UID",
+														"Explosions.Damage * 2"
+													]
+												}
+											],
+											"sid": 803648132037073,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 784540097050394
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "SyncDamageObj",
+													"sid": 969010677762965,
+													"parameters": [
+														"Basa.UID",
+														"Explosions.Damage / 2"
+													]
+												}
+											],
+											"sid": 732348752997507,
+											"disabled": true
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "CyborgBullet",
+									"sid": 557951821979171,
+									"parameters": {
+										"object": "Character"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 777268874618267,
+									"parameters": {
+										"first-value": "Functions.SyncedGetIDByUID(CyborgAttackExplosion.UID)",
+										"comparison": 0,
+										"second-value": "MyActorNr"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 816797046686165,
+									"parameters": {
+										"first-value": "Functions.СoloredGetColotByUID(CyborgAttackExplosion.UID)",
+										"comparison": 0,
+										"second-value": "Functions.СoloredGetColotByUID(Character.UID)"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "CyborgBullet",
+									"sid": 737639010109581,
+									"parameters": {
+										"instance-variable": "WeaponUID",
+										"comparison": 1,
+										"value": "Character.UID"
+									}
+								},
+								{
+									"id": "is-timer-running",
+									"objectClass": "CharacterCollider",
+									"sid": 651205748298785,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "\"Shield\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "task",
+									"text-color": [
+										1,
+										1,
+										1,
+										1
+									],
+									"background-color": [
+										0.996078431372549,
+										0.2235294117647059,
+										0.2235294117647059,
+										1
+									]
+								},
+								{
+									"callFunction": "SyncAddObjHP",
+									"sid": 246856226973902,
+									"parameters": [
+										"CharacterCollider.UID",
+										"CyborgBullet.Damage * 2"
+									]
+								}
+							],
+							"sid": 908952730235675,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Explosions",
+									"sid": 921655675294433,
+									"parameters": {
+										"object": "CharacterCollider"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Explosions",
+									"sid": 725696543902265,
+									"parameters": {
+										"instance-variable": "OnlineID",
+										"comparison": 0,
+										"value": "MyActorNr"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "CharacterCollider",
+									"sid": 540435273624288,
+									"parameters": {
+										"instance-variable": "IsDeath"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "task",
+									"text-color": [
+										1,
+										1,
+										1,
+										1
+									],
+									"background-color": [
+										0.996078431372549,
+										0.2235294117647059,
+										0.2235294117647059,
+										1
+									]
+								}
+							],
+							"sid": 623988470501130,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Explosions",
+											"sid": 706397174642016,
+											"parameters": {
+												"instance-variable": "Color",
+												"comparison": 1,
+												"value": "CharacterCollider.Color"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 243807960760795,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-timer-running",
+													"objectClass": "CharacterCollider",
+													"sid": 417966458058644,
+													"behaviorType": "Timer",
+													"parameters": {
+														"tag": "\"Shield\""
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "SyncDamageObj",
+													"sid": 968131685311232,
+													"parameters": [
+														"CharacterCollider.UID",
+														"Explosions.Damage"
+													]
+												}
+											],
+											"sid": 408545676659381,
+											"disabled": true,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 326987099772232,
+															"parameters": {
+																"first-value": "Explosions.ObjectTypeName",
+																"comparison": 0,
+																"second-value": "CyborgAttackExplosion.ObjectTypeName"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Carcas",
+															"sid": 847273231654338,
+															"parameters": {
+																"instance-variable": "ID",
+																"comparison": 0,
+																"value": "Explosions.AttackerID"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "SyncAddObjHP",
+															"sid": 937429477472829,
+															"parameters": [
+																"Carcas.UID",
+																"50"
+															]
+														}
+													],
+													"sid": 751027824761231,
+													"disabled": true
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 342919605397302
+										}
+									],
+									"actions": [],
+									"sid": 749156690165594,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 473159045641608,
+													"parameters": {
+														"first-value": "Explosions.ObjectTypeName",
+														"comparison": 0,
+														"second-value": "CyborgAttackExplosion.ObjectTypeName"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Explosions",
+													"sid": 581823227405567,
+													"parameters": {
+														"instance-variable": "AttackerID",
+														"comparison": 1,
+														"value": "CharacterCollider.ID"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "SyncAddObjHP",
+													"sid": 409395984444457,
+													"parameters": [
+														"CharacterCollider.UID",
+														"50"
+													]
+												}
+											],
+											"sid": 998379104633158,
+											"disabled": true
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Explosions",
+									"sid": 400448059599776,
+									"parameters": {
+										"object": "Bot"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Bot",
+									"sid": 496661672111723,
+									"parameters": {
+										"instance-variable": "IsDeath"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Explosions",
+									"sid": 570258784021971,
+									"parameters": {
+										"instance-variable": "Color",
+										"comparison": 1,
+										"value": "Functions.GetColor(Bot.UID)"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Explosions",
+									"sid": 285702696675472,
+									"parameters": {
+										"instance-variable": "OnlineID",
+										"comparison": 0,
+										"value": "MyActorNr"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "task",
+									"text-color": [
+										1,
+										1,
+										1,
+										1
+									],
+									"background-color": [
+										0.996078431372549,
+										0.2235294117647059,
+										0.2235294117647059,
+										1
+									]
+								},
+								{
+									"callFunction": "SyncDamageObj",
+									"sid": 659990271051703,
+									"parameters": [
+										"Bot.UID",
+										"Explosions.Damage"
+									]
+								}
+							],
+							"sid": 257936226835015,
+							"disabled": true
+						}
+					],
+					"sid": 916693234484228
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-destroyed",
+							"objectClass": "CanHurt",
+							"sid": 514437849410197
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CanHurt",
+							"sid": 748609046326643,
+							"parameters": {
+								"instance-variable": "SpawnExplosionOnDestroy"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Explose"
+						}
+					],
+					"sid": 613672859943168,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "isMirrored",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 989979619138774
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 783407211904332,
+									"parameters": {
+										"variable": "isMirrored",
+										"value": "Functions.IsInstanceMirrored(CanHurt.Width)"
+									}
+								}
+							],
+							"sid": 173375447092571,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "CanHurt",
+									"sid": 260380628155056,
+									"parameters": {
+										"instance-variable": "ExplosionInstanceName",
+										"comparison": 0,
+										"value": "\"CyborgAttackExplosion\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 159705009518900,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 616763154716176,
+											"parameters": {
+												"first-value": "CanHurt.Bullet.AngleOfMotion",
+												"comparison": 0,
+												"second-value": "0"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 601272036072237,
+											"parameters": {
+												"first-value": "CanHurt.Bullet.AngleOfMotion",
+												"comparison": 0,
+												"second-value": "360"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "CanHurtCreate",
+											"sid": 374296823273961,
+											"parameters": [
+												"Functions.SyncedGetIDByUID(CanHurt.UID)",
+												"CanHurt.ExplosionInstanceName",
+												"\"\"",
+												"CanHurt.X",
+												"CanHurt.Y",
+												"CanHurt.Angle",
+												"CanHurt.Damage",
+												"CanHurt.WeaponUID"
+											]
+										},
+										{
+											"callFunction": "CanHurtCreate",
+											"sid": 310409203104981,
+											"parameters": [
+												"Functions.SyncedGetIDByUID(CanHurt.UID)",
+												"CanHurt.ExplosionInstanceName",
+												"\"\"",
+												"CanHurt.X + 64",
+												"CanHurt.Y",
+												"CanHurt.Angle",
+												"CanHurt.Damage",
+												"CanHurt.WeaponUID"
+											]
+										},
+										{
+											"callFunction": "CanHurtCreate",
+											"sid": 334832195311726,
+											"parameters": [
+												"Functions.SyncedGetIDByUID(CanHurt.UID)",
+												"CanHurt.ExplosionInstanceName",
+												"\"\"",
+												"CanHurt.X + 128",
+												"CanHurt.Y",
+												"CanHurt.Angle",
+												"CanHurt.Damage",
+												"CanHurt.WeaponUID"
+											]
+										}
+									],
+									"sid": 545962715031924,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 583100295723128
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "CanHurtCreate",
+											"sid": 884578933061401,
+											"parameters": [
+												"Functions.SyncedGetIDByUID(CanHurt.UID)",
+												"CanHurt.ExplosionInstanceName",
+												"\"\"",
+												"CanHurt.X",
+												"CanHurt.Y",
+												"CanHurt.Angle",
+												"CanHurt.Damage",
+												"CanHurt.WeaponUID"
+											]
+										},
+										{
+											"callFunction": "CanHurtCreate",
+											"sid": 230846017915153,
+											"parameters": [
+												"Functions.SyncedGetIDByUID(CanHurt.UID)",
+												"CanHurt.ExplosionInstanceName",
+												"\"\"",
+												"CanHurt.X - 64",
+												"CanHurt.Y",
+												"CanHurt.Angle",
+												"CanHurt.Damage",
+												"CanHurt.WeaponUID"
+											]
+										},
+										{
+											"callFunction": "CanHurtCreate",
+											"sid": 628768649744155,
+											"parameters": [
+												"Functions.SyncedGetIDByUID(CanHurt.UID)",
+												"CanHurt.ExplosionInstanceName",
+												"\"\"",
+												"CanHurt.X - 128",
+												"CanHurt.Y",
+												"CanHurt.Angle",
+												"CanHurt.Damage",
+												"CanHurt.WeaponUID"
+											]
+										}
+									],
+									"sid": 752797706815293
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 771918515456924
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "CanHurtCreate",
+									"sid": 683025119284746,
+									"parameters": [
+										"Functions.SyncedGetIDByUID(CanHurt.UID)",
+										"CanHurt.ExplosionInstanceName",
+										"\"\"",
+										"CanHurt.X",
+										"CanHurt.Y",
+										"CanHurt.Angle",
+										"CanHurt.Damage",
+										"CanHurt.WeaponUID"
+									]
+								}
+							],
+							"sid": 799541081068829
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-destroyed",
+							"objectClass": "CanHurt",
+							"sid": 979890116821908
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 430826355016335,
+							"parameters": {
+								"first-value": "Functions.SyncedGetOnlineActorNrByUID(CanHurt.UID)",
+								"comparison": 0,
+								"second-value": "MyActorNr"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SyncedPositionSyncAndDestroy",
+							"sid": 659678939922405,
+							"parameters": [
+								"CanHurt.UID"
+							]
+						}
+					],
+					"sid": 985369253484304
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "CanHurt",
+							"sid": 777006592294734,
+							"parameters": {
+								"object": "Tiles"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "CanHurt",
+							"sid": 648632514899564
+						}
+					],
+					"sid": 120226894071500
+				}
+			],
+			"sid": 332160068609327
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Explosion",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Explosions",
+							"sid": 493485775280631,
+							"parameters": {
+								"comparison": 5,
+								"number": "Self.oAttackFrameStart"
+							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Explosions",
+							"sid": 678787836896595,
+							"parameters": {
+								"comparison": 2,
+								"number": "Self.oAttackFrameEnd"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "Explosions",
+							"sid": 274139766933680,
+							"parameters": {
+								"collisions": "enabled"
+							}
+						}
+					],
+					"sid": 506622763955632
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Explosions",
+							"sid": 581950881630517,
+							"parameters": {
+								"comparison": 2,
+								"number": "Self.oAttackFrameStart"
+							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Explosions",
+							"sid": 767917765057399,
+							"parameters": {
+								"comparison": 5,
+								"number": "Self.oAttackFrameEnd"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "Explosions",
+							"sid": 213194075775433,
+							"parameters": {
+								"collisions": "disabled"
+							}
+						}
+					],
+					"sid": 258965302517528
+				}
+			],
+			"sid": 138580868614477
+		},
+		{
+			"eventType": "group",
+			"disabled": true,
+			"title": "ShockBotAttack",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "SyncBotAttackMode2",
+					"functionDescription": "",
+					"functionCategory": "Bullets",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 677969493435320
+						},
+						{
+							"name": "AttackX",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 988959962183416
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Bot",
+							"sid": 753905923052704,
+							"parameters": {
+								"unique-id": "UID"
+							}
+						},
+						{
+							"id": "pick-children",
+							"objectClass": "Bot",
+							"sid": 599977912429152,
+							"parameters": {
+								"child": "AttackView",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 540065589195644,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 195682382294199,
+									"parameters": {
+										"variable": "OnlineMode"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "raiseevent17",
+									"objectClass": "Photon",
+									"sid": 303932545477061,
+									"parameters": {
+										"code0": "99",
+										"data1": "Bot.ID&\"/\"&Bot.BotID&\"/\"&Bot.X&\"/\"&AttackView.Y&\"/\"&AttackX",
+										"interestgroup2": "0",
+										"cache11": "donotcache",
+										"receivers15": "others",
+										"targetactors16": "Functions.GetOnlineAll",
+										"webforward19": "no"
+									}
+								}
+							],
+							"sid": 657541299001382,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 532654490612613
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "BotAttackMode2",
+									"sid": 924449741804715,
+									"parameters": [
+										"Bot.UID",
+										"AttackX",
+										"Bot.X",
+										"AttackView.Y"
+									]
+								}
+							],
+							"sid": 291954546982847,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"functionName": "BotAttackMode2",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 452442820668866
+						},
+						{
+							"name": "AttackX",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 106539481005711
+						},
+						{
+							"name": "X",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 883475727681246
+						},
+						{
+							"name": "Y",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 730921352348427
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "ShockBot",
+							"sid": 665324330052740,
+							"parameters": {
+								"unique-id": "UID"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterCollider",
+							"sid": 918588497694546,
+							"parameters": {
+								"instance-variable": "ID",
+								"comparison": 0,
+								"value": "ShockBot.ID"
+							}
+						},
+						{
+							"id": "has-parent",
+							"objectClass": "ShockBot",
+							"sid": 440502909997452,
+							"disabled": true,
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 622348570340283,
+							"parameters": {
+								"object-to-create": "ShockBotAttack",
+								"layer": "ShockBot.LayerName",
+								"x": "X",
+								"y": "Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "add-child",
+							"objectClass": "ShockBotAttack",
+							"sid": 114725641719448,
+							"parameters": {
+								"child": "ShockBot",
+								"transform-x": true,
+								"transform-y": false,
+								"transform-w": false,
+								"transform-h": false,
+								"transform-a": false,
+								"transform-z-elevation": false,
+								"destroy-with-parent": false
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "ShockBotAttack",
+							"sid": 222040321976682,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"Attack\"",
+								"property": "offsetX",
+								"end-value": "AttackX",
+								"time": "0.4",
+								"ease": "default",
+								"destroy-on-complete": "yes",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						}
+					],
+					"sid": 941913882782898,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "onevent3",
+							"objectClass": "Photon",
+							"sid": 704730802140235,
+							"parameters": {
+								"code0": "99"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "ShockBot",
+							"sid": 945783871083627,
+							"parameters": {
+								"instance-variable": "ID",
+								"comparison": 0,
+								"value": "int(tokenat(Photon.EventData, 0, \"/\"))"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "ShockBot",
+							"sid": 490948089976931,
+							"parameters": {
+								"instance-variable": "BotID",
+								"comparison": 0,
+								"value": "int(tokenat(Photon.EventData, 1, \"/\"))"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "BotAttackMode2",
+							"sid": 573368049244523,
+							"parameters": [
+								"ShockBot.UID",
+								"Functions.GetXByActorNr(int(tokenat(Photon.EventData, 4, \"/\")), Photon.ActorNr)",
+								"Functions.GetXByActorNr(int(tokenat(Photon.EventData, 2, \"/\")), Photon.ActorNr)",
+								"int(tokenat(Photon.EventData, 3, \"/\"))"
+							]
+						}
+					],
+					"sid": 208386739956278,
+					"disabled": true
+				}
+			],
+			"sid": 971199310159202
+		}
+	],
+	"sid": 548060011717621
+}

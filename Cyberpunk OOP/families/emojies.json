@@ -1,0 +1,11 @@
+{
+	"name": "Emojies",
+	"plugin-id": "Sprite",
+	"sid": 788116876654531,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"CharacterCollider"
+	]
+}

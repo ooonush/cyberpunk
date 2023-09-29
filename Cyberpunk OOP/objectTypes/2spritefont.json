@@ -1,0 +1,45 @@
+{
+	"name": "2SpriteFont",
+	"plugin-id": "Spritefont2",
+	"sid": 904192314152836,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "ID",
+			"type": "number",
+			"desc": "",
+			"sid": 173937316167363
+		},
+		{
+			"name": "ID2",
+			"type": "string",
+			"desc": "",
+			"sid": 420653756407883
+		},
+		{
+			"name": "LocalizationKey",
+			"type": "string",
+			"desc": "",
+			"sid": 823008661153482
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 177381347319506
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 130,
+		"height": 28,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 7529344,
+		"useCollisionPoly": true
+	}
+}

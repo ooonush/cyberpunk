@@ -1,0 +1,49 @@
+{
+	"name": "Movement",
+	"plugin-id": "Sprite",
+	"sid": 185913676957103,
+	"instanceVariables": [
+		{
+			"name": "oIsReady",
+			"type": "boolean",
+			"desc": "",
+			"sid": 101212429780605
+		},
+		{
+			"name": "MovementActive",
+			"type": "boolean",
+			"desc": "",
+			"sid": 442771732619270
+		},
+		{
+			"name": "MovementHorizontal",
+			"type": "number",
+			"desc": "",
+			"sid": 489331665119050
+		},
+		{
+			"name": "MovementVertical",
+			"type": "number",
+			"desc": "",
+			"sid": 438265662946209
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Alarmbot",
+		"BattleDrone",
+		"Biker",
+		"Bomj",
+		"Brigand",
+		"Cannon",
+		"Cyborg",
+		"Copter",
+		"Drone",
+		"Hammer",
+		"Patrol",
+		"Punk",
+		"ShockBot",
+		"StepperCannon"
+	]
+}

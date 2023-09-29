@@ -1,0 +1,1127 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "phasa"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "EC-OnlineActors"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "camera"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "EM-MatchEnding"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "EC-Characters"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "E-Bots"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "EC-Bucks"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "bullets"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "EC-HPBar"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "EB-Basa"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "botBuying"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "syncFuncs"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "ads"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "particles"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "sounds"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "buttons"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "E-Graphics"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "E-Localization"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "E-Match"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "E-Object"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "E-CharactersBot"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "E-Emoji"
+		},
+		{
+			"eventType": "comment",
+			"text": "Lobby"
+		},
+		{
+			"eventType": "variable",
+			"name": "PlayerName",
+			"type": "string",
+			"initialValue": "Test",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 181427838445504
+		},
+		{
+			"eventType": "variable",
+			"name": "MyPlayerNumber",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 153119064980411
+		},
+		{
+			"eventType": "variable",
+			"name": "MyActorNr",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 139712161947692
+		},
+		{
+			"eventType": "variable",
+			"name": "NickName",
+			"type": "string",
+			"initialValue": "Player",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 141723702340958
+		},
+		{
+			"eventType": "variable",
+			"name": "MyCharacterName",
+			"type": "string",
+			"initialValue": "Punk",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 673334381826825
+		},
+		{
+			"eventType": "variable",
+			"name": "MaxPlayers",
+			"type": "number",
+			"initialValue": "6",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 625262359992337
+		},
+		{
+			"eventType": "variable",
+			"name": "BasaMaxHP",
+			"type": "number",
+			"initialValue": "12000",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 830471615723424
+		},
+		{
+			"eventType": "variable",
+			"name": "StartingMatchMode",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 430803731848855
+		},
+		{
+			"eventType": "variable",
+			"name": "WinTrophiesCount",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 494217062701881
+		},
+		{
+			"eventType": "variable",
+			"name": "OnlineMode",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 947003653115803
+		},
+		{
+			"eventType": "variable",
+			"name": "Graphics",
+			"type": "string",
+			"initialValue": "Medium",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 782409640755489
+		},
+		{
+			"eventType": "variable",
+			"name": "RenderingMode",
+			"type": "string",
+			"initialValue": "3D",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 354953829062514
+		},
+		{
+			"eventType": "comment",
+			"text": "10 - позиция игроков"
+		},
+		{
+			"eventType": "comment",
+			"text": "11 - анимация игроков"
+		},
+		{
+			"eventType": "comment",
+			"text": "100 - пули"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 207059945922830
+				}
+			],
+			"actions": [
+				{
+					"id": "set-time-scale",
+					"objectClass": "System",
+					"sid": 225589246950354,
+					"parameters": {
+						"time-scale": "1.0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 929000613165747,
+					"parameters": {
+						"variable": "MyActorNr",
+						"value": "Photon.MyActorNr"
+					}
+				}
+			],
+			"sid": 340737924328265,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 223963713627427,
+							"parameters": {
+								"variable": "MatchesPlayed",
+								"comparison": 0,
+								"value": "0"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "2SpriteFont",
+							"sid": 902548160281152,
+							"parameters": {
+								"instance-variable": "ID2",
+								"comparison": 0,
+								"value": "\"PhaseLeft\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "2SpriteFont",
+							"sid": 881888648619937,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 160856348555223,
+							"parameters": {
+								"layer": "\"FrontObj\"",
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 977878531707976,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 554080800649362,
+									"parameters": {
+										"object": "CharacterCollider"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 860394091799626,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "CharacterCollider",
+											"sid": 636260122565172,
+											"parameters": {
+												"instance-variable": "PlayerNumber",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "BotBuyButton",
+											"sid": 927161403675196,
+											"parameters": {
+												"instance-variable": "BotNumber",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 226499258156952,
+											"parameters": {
+												"object-to-create": "MoveToArrow",
+												"layer": "\"FrontObj\"",
+												"x": "CharacterCollider.X",
+												"y": "CharacterCollider.ImagePointY(\"Attack\")",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "add-child",
+											"objectClass": "CharacterCollider",
+											"sid": 635787953518969,
+											"parameters": {
+												"child": "MoveToArrow",
+												"transform-x": true,
+												"transform-y": true,
+												"transform-w": true,
+												"transform-h": true,
+												"transform-a": false,
+												"transform-z-elevation": true,
+												"destroy-with-parent": false
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 528023049053723,
+											"parameters": {
+												"object-to-create": "MoveToArrow3",
+												"layer": "BotBuyButton.LayerName",
+												"x": "BotBuyButton.X",
+												"y": "BotBuyButton.Y",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "add-child",
+											"objectClass": "BotBuyButton",
+											"sid": 676725134306439,
+											"parameters": {
+												"child": "MoveToArrow3",
+												"transform-x": true,
+												"transform-y": true,
+												"transform-w": true,
+												"transform-h": true,
+												"transform-a": false,
+												"transform-z-elevation": true,
+												"destroy-with-parent": false
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 595045946398887,
+											"parameters": {
+												"object-to-create": "MoveToArrow2",
+												"layer": "BotBuyButton.LayerName",
+												"x": "BotBuyButton.X",
+												"y": "BotBuyButton.Y",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "add-child",
+											"objectClass": "BotBuyButton",
+											"sid": 645600836056257,
+											"parameters": {
+												"child": "MoveToArrow2",
+												"transform-x": true,
+												"transform-y": true,
+												"transform-w": true,
+												"transform-h": true,
+												"transform-a": false,
+												"transform-z-elevation": true,
+												"destroy-with-parent": false
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 182681872974462,
+											"disabled": true,
+											"parameters": {
+												"object-to-create": "MoveToArrow",
+												"layer": "CharacterCollider.LayerName",
+												"x": "CharacterCollider.X",
+												"y": "CharacterCollider.Y - 32",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 424958842770008,
+											"parameters": {
+												"variable": "MyActorNr",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 205352669127795,
+											"parameters": {
+												"variable": "OnlineMode",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "CharacterCollider",
+											"sid": 869459988781715,
+											"parameters": {
+												"instance-variable": "ID",
+												"value": "0"
+											}
+										},
+										{
+											"callFunction": "SpawnCharacter",
+											"sid": 946395993510448,
+											"parameters": [
+												"CharacterCollider.UID",
+												"\"Blue\"",
+												"\"Punk\"",
+												"CharacterCollider.X",
+												"\"Punk\"",
+												"0",
+												"\"Alarmbot\"",
+												"\"Copter\"",
+												"\"Hammer\""
+											]
+										},
+										{
+											"callFunction": "OnStartMatch",
+											"sid": 978197486063427
+										},
+										{
+											"id": "set-z-elevation",
+											"objectClass": "MoveToArrow",
+											"sid": 176097825631967,
+											"parameters": {
+												"z": "1"
+											}
+										}
+									],
+									"sid": 647104840833328
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 534014664245631
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "CharacterCollider",
+											"sid": 340381347376269
+										}
+									],
+									"sid": 958553486910831
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 753038834044638
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "BotBuyZoneTutor",
+							"sid": 741554573792302
+						}
+					],
+					"sid": 951356005485571,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 643142066188908,
+									"parameters": {
+										"object": "ArrowsTutorial"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "ArrowsTutorial",
+									"sid": 680890748590778
+								}
+							],
+							"sid": 142874272357087
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 539555137642526,
+							"parameters": {
+								"object": "Bot"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Bot",
+							"sid": 379897138105221
+						}
+					],
+					"sid": 318645199081980
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 212792206813006,
+							"parameters": {
+								"object": "CharacterScins"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "CharacterScins",
+							"sid": 511702362466576
+						}
+					],
+					"sid": 489836321717785
+				}
+			]
+		},
+		{
+			"functionName": "IsEnemyInAttackView",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 793910570857180
+				},
+				{
+					"name": "AttackViewColor",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 738206270313829
+				},
+				{
+					"name": "OnlyEnemy",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "База не считается",
+					"sid": 496267014851160
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "AttackView",
+					"sid": 386527993080954,
+					"parameters": {
+						"unique-id": "UID"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 656777128699164,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "ViewDir",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 725573467470639
+				},
+				{
+					"eventType": "variable",
+					"name": "ViewX",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 803860889025251
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 839247868333769,
+							"parameters": {
+								"object": "CharacterCollider"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "AttackView",
+							"sid": 536644308543373,
+							"parameters": {
+								"object": "CharacterCollider"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterCollider",
+							"sid": 332252458883458,
+							"parameters": {
+								"instance-variable": "IsDeath"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-timer-running",
+							"objectClass": "CharacterCollider",
+							"sid": 596191596668712,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"Shield\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 547166935096507,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "CharacterCollider",
+									"sid": 384682512130056,
+									"parameters": {
+										"instance-variable": "Color",
+										"comparison": 1,
+										"value": "AttackViewColor"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 286349936956503,
+									"parameters": {
+										"variable": "ViewX",
+										"value": "CharacterCollider.X"
+									}
+								},
+								{
+									"id": "stop-loop",
+									"objectClass": "System",
+									"sid": 578870643777216
+								}
+							],
+							"sid": 664670462468680
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 966270466457425
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "CharacterCollider",
+									"sid": 685616785154193,
+									"parameters": {
+										"child": "0HP",
+										"which": "own"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "0HP",
+									"sid": 549687417546119,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 2,
+										"value": "Self.MaxHP / 1.5"
+									}
+								},
+								{
+									"id": "pick-parent",
+									"objectClass": "AttackView",
+									"sid": 424521038289770,
+									"parameters": {
+										"parent": "Cyborg",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 312182285344911,
+									"parameters": {
+										"variable": "ViewX",
+										"value": "CharacterCollider.X"
+									}
+								},
+								{
+									"id": "stop-loop",
+									"objectClass": "System",
+									"sid": 995122183845840
+								}
+							],
+							"sid": 246609851327752
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 613627139240865,
+							"parameters": {
+								"variable": "OnlyEnemy"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 982798024350485,
+							"parameters": {
+								"variable": "ViewX",
+								"comparison": 0,
+								"value": "0"
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 477455850739104,
+							"disabled": true,
+							"parameters": {
+								"object": "Basa"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Basa",
+							"sid": 943633849540228,
+							"parameters": {
+								"instance-variable": "Color",
+								"comparison": 1,
+								"value": "AttackViewColor"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "AttackView",
+							"sid": 869142898649513,
+							"parameters": {
+								"object": "Basa"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Basa",
+							"sid": 498774688815284,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 491287615319740,
+							"parameters": {
+								"variable": "ViewX",
+								"value": "Basa.X"
+							}
+						},
+						{
+							"id": "stop-loop",
+							"objectClass": "System",
+							"sid": 707977842404065
+						}
+					],
+					"sid": 234489790098416
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 348544970822471,
+							"parameters": {
+								"variable": "ViewX",
+								"comparison": 0,
+								"value": "0"
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 658379916042018,
+							"parameters": {
+								"object": "Bot"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Bot",
+							"sid": 100375451781524,
+							"parameters": {
+								"instance-variable": "IsDeath"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Bot",
+							"sid": 542538770449185,
+							"parameters": {
+								"instance-variable": "Color",
+								"comparison": 1,
+								"value": "AttackViewColor"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "AttackView",
+							"sid": 956460950805838,
+							"parameters": {
+								"object": "Bot"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 666591168748078,
+							"parameters": {
+								"variable": "ViewX",
+								"value": "Bot.X"
+							}
+						},
+						{
+							"id": "stop-loop",
+							"objectClass": "System",
+							"sid": 415761796866379
+						}
+					],
+					"sid": 261749469527985
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 175796222981699,
+							"parameters": {
+								"variable": "ViewX",
+								"comparison": 1,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 444572407811361,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 395371173627662,
+									"parameters": {
+										"first-value": "ViewX",
+										"comparison": 3,
+										"second-value": "AttackView.X"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 587221749251519,
+									"parameters": {
+										"variable": "ViewDir",
+										"value": "-1"
+									}
+								}
+							],
+							"sid": 550573821839156
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 567592533048837
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 817236653815568,
+									"parameters": {
+										"variable": "ViewDir",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 255686922964252
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 672602109984448,
+							"parameters": {
+								"value": "ViewDir"
+							}
+						}
+					],
+					"sid": 190951446379342
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 453717299642779,
+					"parameters": {
+						"interval-seconds": "1.0"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 232685696938115,
+					"parameters": {
+						"variable": "OnlineMode"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 483059835076362,
+					"parameters": {
+						"first-value": "Photon.ActorCount",
+						"comparison": 0,
+						"second-value": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 755308334229769,
+					"parameters": {
+						"variable": "OnlineMode",
+						"value": "false"
+					}
+				},
+				{
+					"id": "leaveroom16",
+					"objectClass": "Photon",
+					"sid": 368455554552251
+				},
+				{
+					"id": "disconnect14",
+					"objectClass": "Photon",
+					"sid": 802383909771113
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 366277954529214,
+					"parameters": {
+						"variable": "Ping",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 547765185912738
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 612408897020871,
+					"parameters": {
+						"interval-seconds": "1.0"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "2SpriteFont",
+					"sid": 897474877557353,
+					"parameters": {
+						"instance-variable": "ID2",
+						"comparison": 0,
+						"value": "\"FPS\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "2SpriteFont",
+					"sid": 178544213776782,
+					"parameters": {
+						"text": "\"FPS: \"&fps&newline&\"CPU:\"&round(cpuutilisation*100)&\"%\"\r\n"
+					}
+				}
+			],
+			"sid": 101248103734814
+		}
+	],
+	"sid": 101800974200591
+}

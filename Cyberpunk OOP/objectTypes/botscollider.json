@@ -1,0 +1,221 @@
+{
+	"name": "BotsCollider",
+	"plugin-id": "Sprite",
+	"sid": 865304983503217,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 48,
+						"height": 48,
+						"originX": 0.4166666666666667,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4130834,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 500597188308469,
+				"name": "Cannon",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 48,
+						"height": 48,
+						"originX": 0.3333333333333333,
+						"originY": 0.5416666666666666,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8565573,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 727291396275043,
+				"name": "Copter",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 48,
+						"height": 48,
+						"originX": 0.3541666666666667,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2716090,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 806392991295670,
+				"name": "Hammer",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 48,
+						"height": 48,
+						"originX": 0.3125,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9479387,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 852602339172526,
+				"name": "Alarmbot",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 48,
+						"height": 48,
+						"originX": 0.3541666666666667,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9787378,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 606159584165268,
+				"name": "Patrol",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 48,
+						"height": 48,
+						"originX": 0.2708333333333333,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1231943,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 389838070354770,
+				"name": "ShockBot",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 48,
+						"height": 48,
+						"originX": 0.3541666666666667,
+						"originY": 0.5208333333333334,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3895593,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 169817077623147,
+				"name": "Drone",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 48,
+						"height": 48,
+						"originX": 0.4375,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5397861,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 834885585262229,
+				"name": "StepperCannon",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 48,
+						"height": 48,
+						"originX": 0.3541666666666667,
+						"originY": 0.375,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2700005,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 550684290799754,
+				"name": "BattleDrone",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,30 @@
+{
+	"name": "Сolored",
+	"plugin-id": "Sprite",
+	"sid": 243890065306610,
+	"instanceVariables": [
+		{
+			"name": "oColor",
+			"type": "string",
+			"desc": "",
+			"sid": 448779167184629
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Alarmbot",
+		"BattleDrone",
+		"Biker",
+		"Brigand",
+		"Cannon",
+		"Copter",
+		"Cyborg",
+		"Drone",
+		"Hammer",
+		"Patrol",
+		"Punk",
+		"ShockBot",
+		"StepperCannon"
+	]
+}

@@ -1,0 +1,56 @@
+{
+	"name": "ChangeCharacterArrow",
+	"plugin-id": "Sprite",
+	"sid": 806709709462916,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Next",
+			"type": "boolean",
+			"desc": "",
+			"sid": 273581949729897
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 100,
+						"height": 146,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1624758,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 100,
+						"height": 146,
+						"originX": 0.39500000000000013,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5866933,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 135894402489038,
+				"name": "Animation 1",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 2
+			}
+		],
+		"subfolders": []
+	}
+}

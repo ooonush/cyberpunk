@@ -1,0 +1,14 @@
+{
+	"name": "AnimatedButtons",
+	"plugin-id": "Sprite",
+	"sid": 657827449757844,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"JumpArrow",
+		"LeftArrow",
+		"RightArrow",
+		"ArrowsTutorial"
+	]
+}

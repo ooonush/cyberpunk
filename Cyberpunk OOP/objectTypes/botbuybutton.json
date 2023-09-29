@@ -1,0 +1,99 @@
+{
+	"name": "BotBuyButton",
+	"plugin-id": "Sprite",
+	"sid": 778475135855221,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "BuyTimer",
+			"type": "number",
+			"desc": "",
+			"sid": 499394994507050
+		},
+		{
+			"name": "BotNumber",
+			"type": "number",
+			"desc": "",
+			"sid": 816129690107388
+		},
+		{
+			"name": "BotName",
+			"type": "string",
+			"desc": "",
+			"sid": 807117963843352
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 24,
+						"height": 24,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2063325,
+						"collisionPoly": {
+							"points": [
+								1,
+								1,
+								0,
+								1,
+								0,
+								0,
+								1,
+								0
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Price",
+								"x": 0.5,
+								"y": 0.9583333333333334
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6286569,
+						"collisionPoly": {
+							"points": [
+								1,
+								1,
+								0,
+								1,
+								0,
+								0,
+								1,
+								0
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 817110051705224,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

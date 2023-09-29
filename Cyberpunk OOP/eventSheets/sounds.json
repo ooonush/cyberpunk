@@ -1,0 +1,923 @@
+{
+	"name": "sounds",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 827471075260648
+				}
+			],
+			"actions": [
+				{
+					"id": "stop-all",
+					"objectClass": "Audio",
+					"sid": 154303601362422
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 196969009021225,
+					"parameters": {
+						"audio-file": "Ninja Tortoise - Verified Picasso",
+						"loop": "looping",
+						"volume": "-13",
+						"tag-optional": "\"Music\""
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 955208830872442,
+					"disabled": true,
+					"parameters": {
+						"audio-file": "lava",
+						"loop": "looping",
+						"volume": "-5\n",
+						"tag-optional": "\"Effect\""
+					}
+				}
+			],
+			"sid": 284406848298104,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 105164773113961,
+							"disabled": true,
+							"parameters": {
+								"first-value": "Photon.MyActorNr",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 477086050575462
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 232780982158515,
+					"disabled": true,
+					"parameters": {
+						"first-value": "Photon.MyActorNr",
+						"comparison": 0,
+						"second-value": "1"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 622995806053793,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "CharacterCollider",
+							"sid": 824654753961780,
+							"parameters": {
+								"object": "Bucks"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterCollider",
+							"sid": 373053448522558,
+							"parameters": {
+								"instance-variable": "ID",
+								"comparison": 0,
+								"value": "Photon.MyActorNr"
+							}
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "Bucks",
+							"sid": 800935160383961
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 493448016478850,
+							"parameters": {
+								"audio-file": "337049__shinephoenixstormcrow__320655-rhodesmas-level-up-01",
+								"loop": "not-looping",
+								"volume": "0",
+								"tag-optional": "\"StepperCannon\""
+							}
+						}
+					],
+					"sid": 676442584466606,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "PunkBullet",
+							"sid": 191377126287709
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 711653514420351,
+							"parameters": {
+								"audio-file": "431174__highpixel__fireball-explosion",
+								"loop": "not-looping",
+								"volume": "Functions.GetVolume(PunkBullet.X, PunkBullet.Y)",
+								"tag-optional": "\"Punk\""
+							}
+						}
+					],
+					"sid": 855045616751587
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "CyborgBullet",
+							"sid": 156663953188308
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 640626377080033,
+							"parameters": {
+								"audio-file": "423798__ch-ase__little-whoosh-3",
+								"loop": "not-looping",
+								"volume": "Functions.GetVolume(CyborgBullet.X, CyborgBullet.Y) - 8",
+								"tag-optional": "\"Cyborg\""
+							}
+						}
+					],
+					"sid": 640624108862346
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "CyborgAttackExplosion",
+							"sid": 112531253467347
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 940778189843211,
+							"parameters": {
+								"audio-file": "607252__d4xx__swoosh-1",
+								"loop": "not-looping",
+								"volume": "Functions.GetVolume(CyborgAttackExplosion.X, CyborgAttackExplosion.Y) - 15",
+								"tag-optional": "\"CyborgExplosion\""
+							}
+						}
+					],
+					"sid": 275332169302268
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "BrigandExplosion",
+							"sid": 679281882891678
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 981036254560968,
+							"parameters": {
+								"audio-file": "607252__d4xx__swoosh-1",
+								"loop": "not-looping",
+								"volume": "Functions.GetVolume(BrigandExplosion.X, BrigandExplosion.Y) - 6",
+								"tag-optional": "\"BrigandExplosion\""
+							}
+						}
+					],
+					"sid": 277990613328968
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "StepperCannonAttack",
+							"sid": 623636142109584
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 225908262939067,
+							"parameters": {
+								"audio-file": "435415__v-ktor__explosion10",
+								"loop": "not-looping",
+								"volume": "Functions.GetVolume(StepperCannonAttack.X, StepperCannonAttack.Y) - 5",
+								"tag-optional": "\"StepperCannon\""
+							}
+						}
+					],
+					"sid": 478909506685221
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "BattleDroneAttack",
+							"sid": 607757395448522
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 640458051065789,
+							"parameters": {
+								"audio-file": "612876__sound-designer-from-turkey__laser-2",
+								"loop": "not-looping",
+								"volume": "Functions.GetVolume(BattleDroneAttack.X, BattleDroneAttack.Y) - 5",
+								"tag-optional": "\"BattleDrone\""
+							}
+						}
+					],
+					"sid": 351008499392379
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "CannonAttack",
+							"sid": 458102460819692
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 147819188625287,
+							"parameters": {
+								"audio-file": "612876__sound-designer-from-turkey__laser-2",
+								"loop": "not-looping",
+								"volume": "Functions.GetVolume(CannonAttack.X, CannonAttack.Y) - 8",
+								"tag-optional": "\"Cannon\""
+							}
+						}
+					],
+					"sid": 338804619337959
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "AlarmbotBullet",
+							"sid": 768341227782341
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 415454288352837,
+							"parameters": {
+								"audio-file": "612877__sound-designer-from-turkey__laser-1",
+								"loop": "not-looping",
+								"volume": "Functions.GetVolume(AlarmbotBullet.X, AlarmbotBullet.Y) - 10",
+								"tag-optional": "\"Alarmbot\""
+							}
+						}
+					],
+					"sid": 826728554908176
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Explosion",
+							"sid": 138231019816972
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 766723640748934,
+							"parameters": {
+								"seconds": "0"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 504491834749679,
+							"parameters": {
+								"audio-file": "Boom",
+								"loop": "not-looping",
+								"volume": "Functions.GetVolume(Explosion.X, Explosion.Y) - (23 - 23 * (Explosion.Width / Explosion.ImageWidth))",
+								"tag-optional": "\"Explosion\""
+							}
+						}
+					],
+					"sid": 582675416226999
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-landed",
+							"objectClass": "CharacterCollider",
+							"sid": 319052674414797,
+							"behaviorType": "Platform"
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterCollider",
+							"sid": 926238542929279,
+							"parameters": {
+								"instance-variable": "ID",
+								"comparison": 0,
+								"value": "MyActorNr"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 611430625058058,
+							"parameters": {
+								"audio-file": "landed2",
+								"loop": "not-looping",
+								"volume": "Functions.GetVolume(Explosion.X, Explosion.Y) * Explosion.Width / Explosion.ImageWidth",
+								"tag-optional": "Functions.GetCharacterName(CharacterCollider.UID)"
+							}
+						}
+					],
+					"sid": 654191260261674,
+					"disabled": true
+				}
+			]
+		},
+		{
+			"eventType": "variable",
+			"name": "SoundVolume",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 298965346558645
+		},
+		{
+			"eventType": "variable",
+			"name": "SoundMaxVolumeDistance",
+			"type": "number",
+			"initialValue": "192",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 676891101135002
+		},
+		{
+			"eventType": "variable",
+			"name": "SoundDistance",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 108742693748737
+		},
+		{
+			"eventType": "variable",
+			"name": "SoundDistanceMult",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 689031073513001
+		},
+		{
+			"eventType": "variable",
+			"name": "SoundV",
+			"type": "number",
+			"initialValue": "1.3",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 116407427444124
+		},
+		{
+			"functionName": "GetVolume",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "X",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 707600649266687
+				},
+				{
+					"name": "Y",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 646709068546015
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 497271980509876,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterCollider",
+							"sid": 420873009577283,
+							"parameters": {
+								"instance-variable": "ID",
+								"comparison": 0,
+								"value": "MyActorNr"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 880012386788134,
+							"parameters": {
+								"variable": "SoundDistance",
+								"value": "distance(CharacterCollider.X, CharacterCollider.Y, X, Y)"
+							}
+						}
+					],
+					"sid": 643384316283059,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "CharacterCollider",
+									"sid": 744472223738870,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "MyActorNr"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 474608908351854,
+									"parameters": {
+										"variable": "SoundVolume",
+										"value": "- distance(Basa.X, Basa.Y, X, Y)^SoundV / SoundDistanceMult"
+									}
+								}
+							],
+							"sid": 117558828669215,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 323901923814683,
+									"parameters": {
+										"variable": "SoundDistance",
+										"comparison": 3,
+										"value": "SoundMaxVolumeDistance"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 310404017730389,
+									"parameters": {
+										"value": "0"
+									}
+								}
+							],
+							"sid": 733074322598314
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 277692410040739
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 206410003427844,
+									"parameters": {
+										"value": "-SoundDistance^SoundV /SoundDistanceMult"
+									}
+								}
+							],
+							"sid": 913072965176800
+						}
+					]
+				}
+			]
+		},
+		{
+			"functionName": "PlayJumpSound",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 296366792598160
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "CharacterCollider",
+					"sid": 243180425564827,
+					"parameters": {
+						"unique-id": "UID"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 180336470912952,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterCollider",
+							"sid": 111089978175177,
+							"parameters": {
+								"instance-variable": "ID",
+								"comparison": 0,
+								"value": "MyActorNr"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 406703544448501,
+							"parameters": {
+								"audio-file": "Jump",
+								"loop": "not-looping",
+								"volume": "-3",
+								"tag-optional": "Functions.GetCharacterName(UID)"
+							}
+						}
+					],
+					"sid": 585101585218689
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 979806123163982
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 918313588930295,
+							"parameters": {
+								"audio-file": "Jump",
+								"loop": "not-looping",
+								"volume": "Functions.GetVolume(CharacterCollider.X, CharacterCollider.Y) - 20",
+								"tag-optional": "Functions.GetCharacterName(UID)"
+							}
+						}
+					],
+					"sid": 453558745712734
+				}
+			]
+		},
+		{
+			"functionName": "PlayLandedSound",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 876608360966735
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "CharacterCollider",
+					"sid": 397802812720324,
+					"parameters": {
+						"unique-id": "UID"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 525671428422746,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterCollider",
+							"sid": 154484984338286,
+							"parameters": {
+								"instance-variable": "ID",
+								"comparison": 0,
+								"value": "MyActorNr"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 107969427018658,
+							"parameters": {
+								"audio-file": "Landed",
+								"loop": "not-looping",
+								"volume": "-3",
+								"tag-optional": "Functions.GetCharacterName(UID)"
+							}
+						}
+					],
+					"sid": 237126825195703
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 657571167554633
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 896955639305048,
+							"parameters": {
+								"audio-file": "Landed",
+								"loop": "not-looping",
+								"volume": "Functions.GetVolume(CharacterCollider.X, CharacterCollider.Y) - 20",
+								"tag-optional": "Functions.GetCharacterName(UID)"
+							}
+						}
+					],
+					"sid": 977153017769534
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 474608979000732,
+					"parameters": {
+						"interval-seconds": "0.1"
+					}
+				},
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 524491765494709,
+					"parameters": {
+						"object": "CharacterCollider"
+					}
+				},
+				{
+					"id": "pick-children",
+					"objectClass": "CharacterCollider",
+					"sid": 421017610630335,
+					"parameters": {
+						"child": "CharacterScins",
+						"which": "own"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 662561180937668,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "CharacterScins",
+							"sid": 898312129072989,
+							"parameters": {
+								"animation": "\"Run\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 231863471919216,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "volume",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 307167711789956
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "CharacterCollider",
+									"sid": 521729475631922,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "MyActorNr"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 315061760351219,
+									"parameters": {
+										"variable": "volume",
+										"value": "-10"
+									}
+								}
+							],
+							"sid": 126076162127363
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 551069320202428
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 902982743515642,
+									"parameters": {
+										"variable": "volume",
+										"value": "Functions.GetVolume(CharacterCollider.X, CharacterCollider.Y) - 25"
+									}
+								}
+							],
+							"sid": 125266874316237
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 325105785795383,
+									"parameters": {
+										"tag": "Functions.GetCharacterName(CharacterCollider.UID)&CharacterCollider.ID"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 901158025595873,
+									"parameters": {
+										"audio-file": "Run",
+										"loop": "looping",
+										"volume": "volume",
+										"tag-optional": "Functions.GetCharacterName(CharacterCollider.UID)&CharacterCollider.ID"
+									}
+								}
+							],
+							"sid": 613138557539411
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 291156727633647
+								}
+							],
+							"actions": [
+								{
+									"id": "set-volume",
+									"objectClass": "Audio",
+									"sid": 230279547588142,
+									"parameters": {
+										"tag": "Functions.GetCharacterName(CharacterCollider.UID)&CharacterCollider.ID",
+										"db": "volume"
+									}
+								}
+							],
+							"sid": 540850638715446
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 422201160781095
+						}
+					],
+					"actions": [
+						{
+							"id": "set-paused",
+							"objectClass": "Audio",
+							"sid": 792958226514362,
+							"parameters": {
+								"tag": "Functions.GetCharacterName(CharacterCollider.UID)&CharacterCollider.ID",
+								"state": "pause"
+							}
+						}
+					],
+					"sid": 127458361547815
+				}
+			]
+		}
+	],
+	"sid": 520564432468082
+}

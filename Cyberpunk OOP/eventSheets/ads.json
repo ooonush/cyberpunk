@@ -1,0 +1,125 @@
+{
+	"name": "ads",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 644470508281315,
+					"parameters": {
+						"interval-seconds": "1.0"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "CharacterCollider",
+					"sid": 250359948169054,
+					"parameters": {
+						"instance-variable": "ID",
+						"comparison": 0,
+						"value": "Photon.MyActorNr"
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "CharacterCollider",
+					"sid": 307721797773161,
+					"parameters": {
+						"instance-variable": "IsDeath"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [],
+			"sid": 979625625110922,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-showing-banner",
+							"objectClass": "MobileAdvert",
+							"sid": 419683371891759
+						}
+					],
+					"actions": [
+						{
+							"id": "hide-banner",
+							"objectClass": "MobileAdvert",
+							"sid": 506410842834317
+						}
+					],
+					"sid": 556988813360513
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 592309534873201
+						},
+						{
+							"id": "is-showing-banner",
+							"objectClass": "MobileAdvert",
+							"sid": 342794121120375,
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 813671938979184,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-loaded-banner",
+									"objectClass": "MobileAdvert",
+									"sid": 453096217660378
+								}
+							],
+							"actions": [
+								{
+									"id": "show-banner",
+									"objectClass": "MobileAdvert",
+									"sid": 519983193512224
+								}
+							],
+							"sid": 828606335387096,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 370708566342078
+								}
+							],
+							"actions": [
+								{
+									"id": "create-banner",
+									"objectClass": "MobileAdvert",
+									"sid": 869707838347506,
+									"parameters": {
+										"advert-id": "\"ca-app-pub-2860474538448366/4082199402\"",
+										"banner-size": "landscape",
+										"show": "false",
+										"position": "top"
+									}
+								}
+							],
+							"sid": 711180415762484,
+							"disabled": true
+						}
+					]
+				}
+			]
+		}
+	],
+	"sid": 698931926318414
+}

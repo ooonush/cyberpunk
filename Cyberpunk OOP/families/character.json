@@ -1,0 +1,34 @@
+{
+	"name": "Character",
+	"plugin-id": "Sprite",
+	"sid": 147106290865919,
+	"instanceVariables": [
+		{
+			"name": "oActorNr",
+			"type": "number",
+			"desc": "",
+			"sid": 294858742309964
+		},
+		{
+			"name": "oPlayerNumber",
+			"type": "number",
+			"desc": "",
+			"sid": 491286574928107
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Timer",
+			"name": "CharacterTimer",
+			"sid": 485938502767026
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Biker",
+		"Bomj",
+		"Brigand",
+		"Cyborg",
+		"Punk"
+	]
+}

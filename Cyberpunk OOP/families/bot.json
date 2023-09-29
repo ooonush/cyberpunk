@@ -1,0 +1,120 @@
+{
+	"name": "Bot",
+	"plugin-id": "Sprite",
+	"sid": 869672645836088,
+	"instanceVariables": [
+		{
+			"name": "ID",
+			"type": "number",
+			"desc": "",
+			"sid": 916845242695382
+		},
+		{
+			"name": "BotOnlineID",
+			"type": "number",
+			"desc": "",
+			"sid": 303961607808297
+		},
+		{
+			"name": "MaxHP",
+			"type": "number",
+			"desc": "",
+			"sid": 100085615297421
+		},
+		{
+			"name": "BotID",
+			"type": "number",
+			"desc": "",
+			"sid": 127623485282689
+		},
+		{
+			"name": "Color",
+			"type": "string",
+			"desc": "",
+			"sid": 630985976082043
+		},
+		{
+			"name": "IsSpawning",
+			"type": "boolean",
+			"desc": "",
+			"sid": 950121320868505
+		},
+		{
+			"name": "Damage",
+			"type": "number",
+			"desc": "",
+			"sid": 876365895964649
+		},
+		{
+			"name": "HPBarHeight",
+			"type": "number",
+			"desc": "",
+			"sid": 293899970265940
+		},
+		{
+			"name": "FlyHeight",
+			"type": "number",
+			"desc": "",
+			"sid": 150976216197950
+		},
+		{
+			"name": "FlySpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 339839061793822
+		},
+		{
+			"name": "AttackMode",
+			"type": "number",
+			"desc": "",
+			"sid": 546502867795458
+		},
+		{
+			"name": "AttackXX",
+			"type": "number",
+			"desc": "",
+			"sid": 998994317851910
+		},
+		{
+			"name": "AttackWait",
+			"type": "number",
+			"desc": "",
+			"sid": 480605704379128
+		},
+		{
+			"name": "IsDeath",
+			"type": "boolean",
+			"desc": "",
+			"sid": 515127319774399
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Platform",
+			"name": "Platform",
+			"sid": 493062577451828
+		},
+		{
+			"behaviorId": "Timer",
+			"name": "Timer",
+			"sid": 824565382700102
+		}
+	],
+	"effectTypes": [
+		{
+			"effectId": "blacknwhite",
+			"name": "BlackWhite"
+		}
+	],
+	"members": [
+		"Alarmbot",
+		"Hammer",
+		"Copter",
+		"BattleDrone",
+		"Patrol",
+		"StepperCannon",
+		"Drone",
+		"Cannon",
+		"ShockBot"
+	]
+}

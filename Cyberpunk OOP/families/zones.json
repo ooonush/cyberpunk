@@ -1,0 +1,13 @@
+{
+	"name": "Zones",
+	"plugin-id": "Sprite",
+	"sid": 667717482483229,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"CharacterBotTrigger",
+		"ZoneBucks",
+		"ZoneMyBasa4"
+	]
+}

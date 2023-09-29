@@ -1,0 +1,66 @@
+{
+	"name": "Explosions",
+	"plugin-id": "Sprite",
+	"sid": 734853837984076,
+	"instanceVariables": [
+		{
+			"name": "Damage",
+			"type": "number",
+			"desc": "",
+			"sid": 184140278781790
+		},
+		{
+			"name": "oAttackFrameStart",
+			"type": "number",
+			"desc": "",
+			"sid": 242639612963479
+		},
+		{
+			"name": "oAttackFrameEnd",
+			"type": "number",
+			"desc": "",
+			"sid": 515076842463933
+		},
+		{
+			"name": "WeaponUID",
+			"type": "number",
+			"desc": "",
+			"sid": 826659508711982
+		},
+		{
+			"name": "OnlineID",
+			"type": "number",
+			"desc": "",
+			"sid": 826739420750345
+		},
+		{
+			"name": "IsBotExplosion",
+			"type": "boolean",
+			"desc": "",
+			"sid": 402650309534321
+		},
+		{
+			"name": "AttackerID",
+			"type": "number",
+			"desc": "",
+			"sid": 371509726590322
+		},
+		{
+			"name": "Color",
+			"type": "string",
+			"desc": "",
+			"sid": 727215835092034
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"BattleDroneAttack",
+		"BrigandExplosion",
+		"CannonAttack",
+		"CyborgAttackExplosion",
+		"DroneAttack",
+		"Explosion",
+		"PatrolAttack"
+	]
+}

@@ -1,0 +1,1218 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 29302,
+	"name": "Cyberpunk",
+	"runtime": "c3",
+	"useWorker": "auto",
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Tilemap",
+			"name": "Tilemap",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Keyboard",
+			"name": "Keyboard",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Photon",
+			"name": "Photon",
+			"author": "Exit Games",
+			"version": "4.1.1.1",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Arr",
+			"name": "Array",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Dictionary",
+			"name": "Dictionary",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Touch",
+			"name": "Touch",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "LocalStorage",
+			"name": "Local storage",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TextBox",
+			"name": "Text input",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "advert",
+			"name": "Mobile advert",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Particles",
+			"name": "Particles",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Shape3D",
+			"name": "3D shape",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Camera3D",
+			"name": "3D camera",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "List",
+			"name": "List",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "googleplay",
+			"name": "Google Play",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "GameAnalytics",
+			"name": "GameAnalytics",
+			"author": "GameAnalytics",
+			"version": "3.0.13",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Json",
+			"name": "JSON",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Spritefont2",
+			"name": "Sprite font",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Timeline",
+			"name": "Timeline controller",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "skymen_skinsCore",
+			"name": "Skin Group",
+			"author": "skymen",
+			"version": "1.8.0.0",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "SkymenInputManager",
+			"name": "Input Manager",
+			"author": "skymen",
+			"version": "1.0.0.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Function",
+			"name": "Function",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "EdwardBonnett_VsCodePlugin",
+			"name": "VS Code Plugin",
+			"author": "Edward Bonnett",
+			"version": "1.0.0.1",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "scrollto",
+			"name": "Scroll To",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Timer",
+			"name": "Timer",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "jumpthru",
+			"name": "Jump-thru",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Sin",
+			"name": "Sine",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "solid",
+			"name": "Solid",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Anchor",
+			"name": "Anchor",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Platform",
+			"name": "Platform",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Bullet",
+			"name": "Bullet",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "blacknwhite",
+			"name": "Black & white",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "brightness",
+			"name": "Brightness",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "tint",
+			"name": "Tint",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "exposure",
+			"name": "Exposure",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "vignette",
+			"name": "Vignette",
+			"author": "Brad Larson",
+			"version": "r293.2",
+			"bundled": false
+		}
+	],
+	"uniqueId": "kvdl4ijiiy4",
+	"objectTypes": {
+		"items": [
+			"Tilemap",
+			"Tilemap2",
+			"TiledBackground",
+			"Keyboard",
+			"CharacterCollider",
+			"Cam",
+			"Photon",
+			"Players",
+			"Players1",
+			"PunkBullet",
+			"Explosion",
+			"Sprite2",
+			"Sprite5",
+			"Sprite12",
+			"AlarmbotBullet",
+			"BikerBullet",
+			"CyborgAttack2",
+			"Sprite8",
+			"HPBar",
+			"Sprite17",
+			"HPText",
+			"Sprite18",
+			"JumpArrow",
+			"RightArrow",
+			"LeftArrow",
+			"SuperAddEffect",
+			"AttackButton",
+			"Touch",
+			"Shield",
+			"Sprite7",
+			"Bucks",
+			"BasaBlue",
+			"Sprite19",
+			"0HP",
+			"Bomb",
+			"BucksCharacterIcon",
+			"BucksText",
+			"BotBuyButton",
+			"Sprite20",
+			"Sprite21",
+			"CharacterInMenu",
+			"Sprite23",
+			"Sprite24",
+			"ChangeCharacterButton",
+			"Sprite26",
+			"AddFriendButton",
+			"JumpArrow2",
+			"Text",
+			"HPBarBackUI",
+			"HPBarUI",
+			"HPTextUI",
+			"TiledBackground2",
+			"center",
+			"PatrolAttack",
+			"DroneAttack",
+			"BattleDroneAttack",
+			"Text2",
+			"CannonAttack",
+			"StepperCannonAttack",
+			"StepperCannonAttackDust",
+			"CyborgBullet",
+			"CyborgAttackExplosion",
+			"StartButton",
+			"Mouse",
+			"BotZone",
+			"BotTrigger",
+			"BotIcon",
+			"BuyButton",
+			"CharactersBuyed",
+			"LocalStorage",
+			"Audio",
+			"NickName",
+			"TextInput",
+			"TextInput2",
+			"NickNameInMenu",
+			"Sprite",
+			"TiledBackground3",
+			"OK",
+			"TrophiesText",
+			"Sprite4",
+			"Sprite6",
+			"BattleDroneAttackView",
+			"Browser",
+			"PlayersData",
+			"BattleDroneAttack2",
+			"DroneAttack2",
+			"CharacterAttack",
+			"ZoneMyBasa",
+			"PlayersDataDict",
+			"Tilemap3",
+			"Tilemap4",
+			"Text3",
+			"Sprite9",
+			"BotsFlyingZone",
+			"Sprite11",
+			"Sprite13",
+			"Sprite16",
+			"WinText",
+			"Sprite3",
+			"exit",
+			"HPBarUI2",
+			"HPBar2",
+			"AddBot",
+			"CharacterBotTrigger",
+			"ZoneBucks",
+			"ZoneMyBasa4",
+			"MobileAdvert",
+			"Sprite22",
+			"ShockBotAttack",
+			"Tilemap5",
+			"Sprite25",
+			"Sprite27",
+			"Sprite28",
+			"LabAnimObjects",
+			"Capsule",
+			"Bucks2",
+			"Tilemap6",
+			"HPBarWhiteEffect",
+			"RunParticles",
+			"JumpParticles",
+			"AddHPParticle",
+			"Particles",
+			"Sprite10",
+			"3DShape",
+			"3DCamera",
+			"3DShape2",
+			"3DShape3",
+			"3DShape4",
+			"3DShape5",
+			"3DShape6",
+			"3DShape7",
+			"3DShape8",
+			"3DShape9",
+			"3DShape10",
+			"3DShape11",
+			"3DShape12",
+			"3DShape13",
+			"3DShape14",
+			"3DShape15",
+			"3DShape16",
+			"3DShape17",
+			"BasaRed",
+			"3DShape19",
+			"3DShape20",
+			"3DShape21",
+			"3DShape18",
+			"3DShape22",
+			"3DShape23",
+			"3DShape24",
+			"3DShape25",
+			"TiledBackground4",
+			"3DShape26",
+			"3DShape27",
+			"3DShape28",
+			"3DShape29",
+			"Sprite29",
+			"1PlayersArray",
+			"CharacterBotsData",
+			"BotsPrice",
+			"List",
+			"BotNames",
+			"Sprite30",
+			"Particles2",
+			"Top",
+			"2GooglePlay",
+			"1GameAnalytics",
+			"JSON",
+			"AJAX",
+			"ConnectingError",
+			"Ping",
+			"Particles3",
+			"MoveToArrow",
+			"BotBuyZoneTutor",
+			"BuyBotTutorialZone",
+			"MoveToArrow1",
+			"MoveToArrow2",
+			"MoveToArrow3",
+			"ArrowsTutorial",
+			"Sprite31",
+			"PhasaText",
+			"OnChangePhasaText",
+			"TiledBackground5",
+			"Sprite32",
+			"Graphics",
+			"Back3D1",
+			"Back3D2",
+			"Back3D3",
+			"Back3D4",
+			"BrigandExplosion",
+			"Sprite33",
+			"ChangeCharacterArrow",
+			"CharactersInMenu",
+			"StartButton2",
+			"Btn",
+			"GraphicsSettings2",
+			"2SpriteFont",
+			"SpriteFontNumbers",
+			"PhasaText1",
+			"OnChangePhasaText1",
+			"Tilemap7",
+			"Tilemap8",
+			"Back",
+			"GraphicsSettings3",
+			"GraphicsSettings4",
+			"Tilemap9",
+			"Pings",
+			"Localization",
+			"Emoji",
+			"Sprite35",
+			"EmojiBack",
+			"EmojiButton",
+			"EmojiButtonBack",
+			"MessageButton",
+			"MessageBack",
+			"Sprite34",
+			"3DShape30",
+			"3DShape31",
+			"3DShape32",
+			"3DShape33",
+			"3DShape35",
+			"3DShape34",
+			"3DShape36",
+			"3DShape37",
+			"3DShape38",
+			"3DShape39",
+			"Sprite36",
+			"Sprite37",
+			"Sprite38",
+			"Sprite39",
+			"Sprite40",
+			"Sprite41",
+			"TimelineController",
+			"Sprite42",
+			"BotsCollider",
+			"SkinGroup",
+			"PlayersActorNr",
+			"InputManager",
+			"Function",
+			"VSCodePlugin"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"Alarmbot",
+					"BattleDrone",
+					"Biker",
+					"Bomj",
+					"Brigand",
+					"Cannon",
+					"Copter",
+					"Cyborg",
+					"Drone",
+					"Hammer",
+					"Patrol",
+					"Punk",
+					"ShockBot",
+					"StepperCannon"
+				],
+				"subfolders": [],
+				"name": "Mobs"
+			}
+		]
+	},
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [
+			"CharacterScins",
+			"Bot",
+			"Carcas",
+			"OnlineObjs",
+			"Anchor",
+			"Bot2",
+			"Buttons",
+			"Bucks1",
+			"AttackView",
+			"Zones",
+			"Tiles",
+			"Basa",
+			"1BotsAndCharacters",
+			"Triggers",
+			"AnimatedButtons",
+			"Texts",
+			"1WithHPObj",
+			"Emojies"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"Synced",
+					"HasHealth",
+					"CanBucksCollect",
+					"Сolored",
+					"Explosions",
+					"DestroyOnAnimationFinished",
+					"SmoothSynced"
+				],
+				"subfolders": [
+					{
+						"items": [
+							"BotMob",
+							"Character",
+							"PlatformMovement",
+							"Movement",
+							"0Mob",
+							"HasName"
+						],
+						"subfolders": [],
+						"name": "Mob"
+					},
+					{
+						"items": [
+							"CanHurt",
+							"Weapon",
+							"ReloadableWeapon"
+						],
+						"subfolders": [],
+						"name": "Attack"
+					}
+				],
+				"name": "OOP"
+			}
+		]
+	},
+	"layouts": {
+		"items": [
+			"Map-1-1-2D",
+			"Map-1-1-3D",
+			"Map-1-2-2D",
+			"Map-1-2-3D",
+			"Map2-1-3D",
+			"BattleFinding",
+			"Layout 2",
+			"M-MainMenu",
+			"Loader",
+			"EndMatchTimer3x3",
+			"EndMatchTimer2x2",
+			"Layout 3",
+			"Layout 5",
+			"Tutorial",
+			"M-MainMenu2"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"Event sheet 1",
+			"EM-MainMenu",
+			"E-Loader",
+			"E-endMatchMenu",
+			"buttons",
+			"Hash",
+			"ping",
+			"phasa",
+			"EC-OnlineActors",
+			"camera",
+			"sounds",
+			"EM-MatchEnding",
+			"EC-Characters",
+			"E-Bots",
+			"EC-Bucks",
+			"bullets",
+			"EC-HPBar",
+			"EB-Basa",
+			"Event sheet 2",
+			"botBuying",
+			"syncFuncs",
+			"EC-Shield",
+			"ads",
+			"particles",
+			"E-MatchFinding",
+			"playersArray",
+			"battlefind",
+			"E-LeaderBoard",
+			"Event sheet 3",
+			"E-Graphics",
+			"E-Map3D",
+			"E-Map2D",
+			"E-Localization",
+			"E-Match",
+			"E-CharactersBot",
+			"E-Object",
+			"E-Emoji",
+			"eHasSync",
+			"eWeapon",
+			"eSync",
+			"eMovement",
+			"eInput",
+			"eHasHealth",
+			"ePlayersData"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [
+				{
+					"name": "main.js",
+					"type": "application/javascript",
+					"sid": 149114154636680,
+					"script-info": {
+						"purpose": "main"
+					}
+				},
+				{
+					"name": "nickNames.js",
+					"type": "application/javascript",
+					"sid": 235884678716001,
+					"script-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "phasa.js",
+					"type": "application/javascript",
+					"sid": 590188091415861,
+					"script-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "importsForEvents.js",
+					"type": "application/javascript",
+					"sid": 705189061782873,
+					"script-info": {
+						"purpose": "imports-for-events"
+					}
+				},
+				{
+					"name": "charactersOrder.js",
+					"type": "application/javascript",
+					"sid": 723653632656001,
+					"script-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "graphicsSettings.js",
+					"type": "application/javascript",
+					"sid": 913058108776814,
+					"script-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "translates.js",
+					"type": "application/javascript",
+					"sid": 695590446898409,
+					"script-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "playersData.js",
+					"type": "application/javascript",
+					"sid": 385685321770502,
+					"script-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [
+				{
+					"name": "431174__highpixel__fireball-explosion.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 610027361787982,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "landed2.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 928414177946451,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "337049__shinephoenixstormcrow__320655-rhodesmas-level-up-01.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 244910325738406,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "582404__antumdeluge__explosion.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 740654233322574,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "423798__ch-ase__little-whoosh-3.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 325796241892080,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "530444__mellau__whoosh-short-4.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 724449454951649,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "541210__eminyildirim__combat-whoosh.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 791267719325727,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "607252__d4xx__swoosh-1.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 770680406374533,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Jump.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 246588171748359,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Jump1.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 108764135039995,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Landed.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 415439759702375,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Landed1.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 733732347001846,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Run1.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 272341236187371,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Run.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 514975013609273,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": [
+				{
+					"items": [
+						{
+							"name": "587174__derplayer__explosion-wide-edit.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 669679915537463,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "587197__derplayer__explosion-long-01.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 614741771877398,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "612876__sound-designer-from-turkey__laser-2.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 627305210622336,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "612877__sound-designer-from-turkey__laser-1.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 367579376100539,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Boom.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 194644225694455,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "fireball impact.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 103205887088680,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "StepperCannonBullet.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 834999185704470,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "435415__v-ktor__explosion10.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 578902221182232,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "New folder"
+				}
+			]
+		},
+		"music": {
+			"items": [
+				{
+					"name": "Ninja Tortoise.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 524013839967776,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "lava.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 381572261699500,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Ninja Tortoise - Verified Picasso.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 725601943990324,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Rise of the Machines.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 862021291062792,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [
+				{
+					"name": "pixelfont.ttf",
+					"type": "application/font-sfnt",
+					"sid": 656415969461753,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 957486215933045,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 439589270902107,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 479599719849187,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 752809548122337,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 200273645746384,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 179014286045782,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 279881283475506,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [
+				{
+					"name": "BotNickNames.json",
+					"type": "application/json",
+					"sid": 413302156667882,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "New Array.json",
+					"type": "application/json",
+					"sid": 855418427798764,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "NickNames.json",
+					"type": "application/json",
+					"sid": 191603528501853,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [
+			"CollectBucks",
+			"HPBarHurt",
+			"Loader"
+		],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "Alven",
+		"version": "0.0.5.2",
+		"author": "Alven",
+		"authorEmail": "alvengms@gmail.com",
+		"authorWebsite": "",
+		"appId": "com.alvengames.cyberpunk",
+		"pixelRounding": false,
+		"zAxisScale": "regular",
+		"fov": 0.7853981633974483,
+		"useLoaderLayout": true,
+		"fullscreenMode": "scale-outer",
+		"fullscreenQuality": "high",
+		"viewportFit": "cover",
+		"backgroundColor": [
+			0,
+			0,
+			0,
+			0
+		],
+		"splashColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"orientations": "landscape",
+		"webgpu": "auto",
+		"gpuPreference": "default",
+		"scriptsType": "module",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "nearest",
+		"downscaling": "low",
+		"renderingMode": "auto",
+		"anisotropicFiltering": "off",
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "splash",
+		"preloadSounds": true,
+		"cordovaiOSScheme": "app",
+		"cordovaAndroidScheme": "file"
+	},
+	"viewportWidth": 384,
+	"viewportHeight": 192,
+	"firstLayout": "Loader"
+}

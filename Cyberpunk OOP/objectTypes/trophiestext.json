@@ -1,0 +1,15 @@
+{
+	"name": "TrophiesText",
+	"plugin-id": "Text",
+	"sid": 122715029386812,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 843950735892796
+		}
+	],
+	"effectTypes": []
+}

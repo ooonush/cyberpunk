@@ -1,0 +1,42 @@
+{
+	"name": "PlatformMovement",
+	"plugin-id": "Sprite",
+	"sid": 520850389731071,
+	"instanceVariables": [
+		{
+			"name": "oPlatformMoveDir",
+			"type": "number",
+			"desc": "",
+			"sid": 376879373942410
+		},
+		{
+			"name": "oPlatformJumpCount",
+			"type": "number",
+			"desc": "",
+			"sid": 286953316805457
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Platform",
+			"name": "oPlatform",
+			"sid": 937896030447209
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Alarmbot",
+		"Biker",
+		"Bomj",
+		"Brigand",
+		"Cannon",
+		"Cyborg",
+		"Copter",
+		"Drone",
+		"Hammer",
+		"Patrol",
+		"Punk",
+		"ShockBot",
+		"StepperCannon"
+	]
+}

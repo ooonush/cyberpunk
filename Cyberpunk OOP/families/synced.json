@@ -1,0 +1,49 @@
+{
+	"name": "Synced",
+	"plugin-id": "Sprite",
+	"sid": 503989445070343,
+	"instanceVariables": [
+		{
+			"name": "oID",
+			"type": "string",
+			"desc": "",
+			"sid": 167287281260697
+		},
+		{
+			"name": "oIsOnline",
+			"type": "number",
+			"desc": "",
+			"sid": 632993816944843
+		},
+		{
+			"name": "oOnlineActorNr",
+			"type": "number",
+			"desc": "",
+			"sid": 371224796334985
+		},
+		{
+			"name": "oOnlineActorNrChanging",
+			"type": "number",
+			"desc": "",
+			"sid": 413591747973440
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Alarmbot",
+		"BattleDrone",
+		"Biker",
+		"Bomj",
+		"Brigand",
+		"Cannon",
+		"Copter",
+		"Cyborg",
+		"Drone",
+		"Hammer",
+		"Patrol",
+		"Punk",
+		"ShockBot",
+		"StepperCannon"
+	]
+}

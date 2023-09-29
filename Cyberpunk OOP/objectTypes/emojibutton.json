@@ -1,0 +1,78 @@
+{
+	"name": "EmojiButton",
+	"plugin-id": "Sprite",
+	"sid": 690042362067864,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 882341299992882
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 26,
+						"originX": 0.5625,
+						"originY": 0.4230769230769231,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7680668,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 496273162845820,
+				"name": "Animation 2",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 26,
+						"originX": 0.5625,
+						"originY": 0.4230769230769231,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4252184,
+						"collisionPoly": {
+							"points": [
+								0.046875,
+								0.25,
+								0.890625,
+								0.25,
+								0.890625,
+								1,
+								0.046875,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 736562273104425,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

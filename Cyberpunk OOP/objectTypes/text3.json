@@ -1,0 +1,22 @@
+{
+	"name": "Text3",
+	"plugin-id": "Text",
+	"sid": 773081088050844,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "ID",
+			"type": "number",
+			"desc": "",
+			"sid": 288158621673585
+		},
+		{
+			"name": "ID2",
+			"type": "string",
+			"desc": "",
+			"sid": 245378333298267
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

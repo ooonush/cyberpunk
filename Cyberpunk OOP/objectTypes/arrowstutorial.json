@@ -1,0 +1,132 @@
+{
+	"name": "ArrowsTutorial",
+	"plugin-id": "Sprite",
+	"sid": 641119660792894,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "E:\\igraepta\\Кнструк\\v2\\Новая папка (2)\\Animations\\Jump\\Default\\000.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5292164,
+						"collisionPoly": {
+							"points": [
+								0.03125,
+								1,
+								0.03125,
+								0,
+								0.96875,
+								0,
+								0.96875,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "E:\\igraepta\\Кнструк\\v2\\Новая папка (2)\\Animations\\Jump\\Default\\000.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3022622,
+						"collisionPoly": {
+							"points": [
+								0.03125,
+								1,
+								0.03125,
+								0,
+								0.96875,
+								0,
+								0.96875,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 619742347026126,
+				"name": "Default",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 2
+			},
+			{
+				"frames": [
+					{
+						"width": 34,
+						"height": 34,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "E:\\igraepta\\Кнструк\\v2\\Новая папка (2)\\Animations\\Jump\\Default\\000.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4653945,
+						"collisionPoly": {
+							"points": [
+								0.058823529411764705,
+								0.9705882352941176,
+								0.058823529411764705,
+								0.029411764705882353,
+								0.9411764705882353,
+								0.029411764705882353,
+								0.9411764705882353,
+								0.9705882352941176
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 34,
+						"height": 34,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "E:\\igraepta\\Кнструк\\v2\\Новая папка (2)\\Animations\\Jump\\Default\\000.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3610634,
+						"collisionPoly": {
+							"points": [
+								0.058823529411764705,
+								0.9705882352941176,
+								0.058823529411764705,
+								0.029411764705882353,
+								0.9411764705882353,
+								0.029411764705882353,
+								0.9411764705882353,
+								0.9705882352941176
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 303423587201019,
+				"name": "Animation 1",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 2
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,31 @@
+{
+	"name": "Anchor",
+	"plugin-id": "Sprite",
+	"sid": 727210096851448,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 816454060666931
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"RightArrow",
+		"JumpArrow",
+		"LeftArrow",
+		"AttackButton",
+		"Sprite23",
+		"JumpArrow2",
+		"BotBuyButton",
+		"HPBarBackUI",
+		"StartButton",
+		"Ping",
+		"Graphics",
+		"StartButton2",
+		"Btn",
+		"GraphicsSettings3",
+		"GraphicsSettings4"
+	]
+}

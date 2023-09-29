@@ -1,0 +1,15 @@
+{
+	"name": "PhasaText",
+	"plugin-id": "Text",
+	"sid": 373421039924063,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 297615287716511
+		}
+	],
+	"effectTypes": []
+}

@@ -1,0 +1,15 @@
+{
+	"name": "CanBucksCollect",
+	"plugin-id": "Sprite",
+	"sid": 462628944350971,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Biker",
+		"Bomj",
+		"Brigand",
+		"Cyborg",
+		"Punk"
+	]
+}

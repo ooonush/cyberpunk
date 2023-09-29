@@ -1,0 +1,32 @@
+{
+	"name": "OnChangePhasaText",
+	"plugin-id": "Text",
+	"sid": 379366840924654,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "ID",
+			"type": "number",
+			"desc": "",
+			"sid": 874759223602070
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 694014876703349
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Sine2",
+			"sid": 523776864269862
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Sine3",
+			"sid": 160506377060141
+		}
+	],
+	"effectTypes": []
+}

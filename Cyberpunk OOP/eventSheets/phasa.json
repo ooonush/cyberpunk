@@ -1,0 +1,1168 @@
+{
+	"name": "phasa",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "BucksPhasaTime",
+			"type": "number",
+			"initialValue": "40",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 610866219570014
+		},
+		{
+			"eventType": "variable",
+			"name": "BotsPhasaTime",
+			"type": "number",
+			"initialValue": "120",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 410791320487708
+		},
+		{
+			"eventType": "variable",
+			"name": "PhasaTimer",
+			"type": "number",
+			"initialValue": "60",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 696007261588244
+		},
+		{
+			"eventType": "variable",
+			"name": "PlayTime",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 852015319447981
+		},
+		{
+			"eventType": "variable",
+			"name": "Phasa",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 882961559513794
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 831204890207290
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 140497980452637,
+					"parameters": {
+						"variable": "OnlineMode"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "setpropertyofactorbynr102",
+					"objectClass": "Photon",
+					"sid": 180929567192561,
+					"parameters": {
+						"actornr0": "Photon.MyActorNr",
+						"propname1": "\"Timer\"",
+						"value2": "Phasa&\"/\"&PhasaTimer",
+						"webforward5": "no",
+						"checkandset8": "no",
+						"expectedvalue9": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 665765366752346,
+					"parameters": {
+						"variable": "Phasa",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 650759143035016,
+					"parameters": {
+						"variable": "PlayTime",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 522083841685103,
+					"parameters": {
+						"variable": "PhasaTimer",
+						"value": "BucksPhasaTime"
+					}
+				}
+			],
+			"sid": 563968416964025,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 270124901828858,
+							"parameters": {
+								"variable": "MatchesPlayed",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 510451837877605,
+							"parameters": {
+								"variable": "PhasaTimer",
+								"value": "15"
+							}
+						}
+					],
+					"sid": 860054375730755
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "2SpriteFont",
+							"sid": 765526493522281,
+							"parameters": {
+								"instance-variable": "ID2",
+								"comparison": 0,
+								"value": "\"PhaseLeft\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "2SpriteFont",
+							"sid": 411684268635288,
+							"parameters": {
+								"text": "Functions.GetPhasaText"
+							}
+						}
+					],
+					"sid": 663318599146156
+				}
+			]
+		},
+		{
+			"functionName": "GetPhasaName",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 554959519676278,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 993984185322384,
+							"parameters": {
+								"first-value": "Phasa % 2",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 272604882624272,
+							"parameters": {
+								"value": "\"Bots\""
+							}
+						}
+					],
+					"sid": 794941295049090
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 956820640623540
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 267865766441367,
+							"parameters": {
+								"value": "\"Bucks\""
+							}
+						}
+					],
+					"sid": 706299828151036
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 183830518714950,
+					"parameters": {
+						"interval-seconds": "1.0"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "2SpriteFont",
+					"sid": 184292946325135,
+					"parameters": {
+						"instance-variable": "ID2",
+						"comparison": 0,
+						"value": "\"PhaseLeft\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "2SpriteFont",
+					"sid": 277584568390805,
+					"parameters": {
+						"text": "Functions.GetPhasaText"
+					}
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 588498290358581,
+					"parameters": {
+						"variable": "PlayTime",
+						"value": "1"
+					}
+				},
+				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 372177534963720,
+					"parameters": {
+						"variable": "PhasaTimer",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 749604653246873,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "OnlineTimer",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 172508877315369
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 794415132220075,
+							"parameters": {
+								"variable": "MatchesPlayed",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 791073865175282,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "CharacterCollider",
+									"sid": 886042047693895,
+									"parameters": {
+										"instance-variable": "Bucks",
+										"comparison": 2,
+										"value": "BotsPrice.Get(Functions.GetBotNameByNumber(CharacterCollider.UID, 1))"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 807283572534969,
+									"parameters": {
+										"variable": "PhasaTimer",
+										"value": "15"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "2SpriteFont",
+									"sid": 485941355188918,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 369599393789371
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 555469431760912
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 604079152396496
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "2SpriteFont",
+									"sid": 183871727529131,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 644673635961950
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 595074212192232,
+							"parameters": {
+								"variable": "PhasaTimer",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 960992032980849,
+							"parameters": {
+								"variable": "Phasa",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 285051384080276,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 762485570150873,
+									"parameters": {
+										"first-value": "Functions.GetPhasaName",
+										"comparison": 0,
+										"second-value": "\"Bots\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 722410965157110,
+									"parameters": {
+										"variable": "PhasaTimer",
+										"value": "BotsPhasaTime"
+									}
+								},
+								{
+									"id": "set-default-color",
+									"objectClass": "2SpriteFont",
+									"sid": 914965530845515,
+									"parameters": {
+										"color": "rgbEx(248, 28, 57)"
+									}
+								},
+								{
+									"id": "set-default-color",
+									"objectClass": "OnChangePhasaText1",
+									"sid": 435575772009177,
+									"parameters": {
+										"color": "rgbEx(248, 28, 57)"
+									}
+								}
+							],
+							"sid": 673451647312136
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 849064936041446
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 732114347458797,
+									"parameters": {
+										"first-value": "Functions.GetPhasaName",
+										"comparison": 0,
+										"second-value": "\"Bucks\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 643830989386197,
+									"parameters": {
+										"variable": "PhasaTimer",
+										"value": "BucksPhasaTime"
+									}
+								},
+								{
+									"id": "set-default-color",
+									"objectClass": "2SpriteFont",
+									"sid": 768767834187187,
+									"parameters": {
+										"color": "rgb(3, 212, 113)"
+									}
+								},
+								{
+									"id": "set-default-color",
+									"objectClass": "OnChangePhasaText1",
+									"sid": 718113217459281,
+									"parameters": {
+										"color": "rgb(3, 212, 113)"
+									}
+								}
+							],
+							"sid": 179062312612387
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "OnChangePhasaText1",
+									"sid": 344761380034481,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "0"
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "OnChangePhasaText1",
+									"sid": 170060863973228,
+									"parameters": {
+										"child": "Sprite31",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "OnChangePhasaText1",
+									"sid": 221849943271192,
+									"parameters": {
+										"text": "Functions.GetPhasaNameText"
+									}
+								}
+							],
+							"sid": 363738443005671,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-active",
+											"objectClass": "OnChangePhasaText1",
+											"sid": 266191613218947,
+											"behaviorType": "Sine",
+											"parameters": {
+												"state": "active"
+											}
+										},
+										{
+											"id": "set-active",
+											"objectClass": "OnChangePhasaText1",
+											"sid": 753413794589642,
+											"behaviorType": "Sine",
+											"parameters": {
+												"state": "active"
+											}
+										},
+										{
+											"id": "set-active",
+											"objectClass": "OnChangePhasaText1",
+											"sid": 918243275895128,
+											"behaviorType": "Sine",
+											"parameters": {
+												"state": "active"
+											}
+										},
+										{
+											"id": "set-opacity",
+											"objectClass": "OnChangePhasaText1",
+											"sid": 756745731080320,
+											"parameters": {
+												"opacity": "0"
+											}
+										},
+										{
+											"id": "set-opacity",
+											"objectClass": "Sprite31",
+											"sid": 561352973396754,
+											"parameters": {
+												"opacity": "0"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "2SpriteFont",
+											"sid": 181866996510078,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "OnChangePhasaText1",
+											"sid": 746712631377344,
+											"parameters": {
+												"instance-variable": "ID",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "OnChangePhasaText1",
+											"sid": 746972657289507,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Sprite31",
+											"sid": 534020548373160,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 131909931010030,
+											"parameters": {
+												"seconds": "3"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "OnChangePhasaText1",
+											"sid": 146711490349833,
+											"parameters": {
+												"instance-variable": "ID",
+												"value": "2"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 160650738206110,
+											"parameters": {
+												"seconds": "2"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "OnChangePhasaText1",
+											"sid": 387257931738045,
+											"parameters": {
+												"instance-variable": "ID",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "OnChangePhasaText1",
+											"sid": 931385283644179,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Sprite31",
+											"sid": 434322200678852,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "2SpriteFont",
+											"sid": 660687165142995,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-active",
+											"objectClass": "OnChangePhasaText1",
+											"sid": 732105191140096,
+											"behaviorType": "Sine",
+											"parameters": {
+												"state": "inactive"
+											}
+										},
+										{
+											"id": "set-active",
+											"objectClass": "OnChangePhasaText1",
+											"sid": 699496126249936,
+											"behaviorType": "Sine",
+											"parameters": {
+												"state": "inactive"
+											}
+										},
+										{
+											"id": "set-active",
+											"objectClass": "OnChangePhasaText1",
+											"sid": 397333175404848,
+											"behaviorType": "Sine",
+											"parameters": {
+												"state": "inactive"
+											}
+										}
+									],
+									"sid": 794769678241034
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "variable",
+					"name": "PhasaAndPhasaTimer",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 593468015664428
+				},
+				{
+					"eventType": "variable",
+					"name": "RoomPhasa",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 568282809942606
+				},
+				{
+					"eventType": "variable",
+					"name": "RoomPhasaTimer",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 486832267736604
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 563634919191848,
+							"parameters": {
+								"variable": "OnlineMode"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 659970527791088,
+							"parameters": {
+								"variable": "PhasaAndPhasaTimer",
+								"value": "Photon.PropertyOfMyRoom(\"PhasaAndPhasaTimer\")"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 589303415658672,
+							"parameters": {
+								"variable": "RoomPhasa",
+								"value": "int(tokenat(PhasaAndPhasaTimer, 0, \"/\"))"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 684151237358354,
+							"parameters": {
+								"variable": "RoomPhasaTimer",
+								"value": "int(tokenat(PhasaAndPhasaTimer, 1, \"/\"))"
+							}
+						}
+					],
+					"sid": 966499940446513,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 861961167781078,
+									"parameters": {
+										"variable": "RoomPhasa",
+										"comparison": 4,
+										"value": "Phasa"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 145081605730847,
+									"parameters": {
+										"variable": "Phasa",
+										"value": "RoomPhasa"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 957678737667991,
+									"parameters": {
+										"variable": "PhasaTimer",
+										"value": "RoomPhasaTimer"
+									}
+								}
+							],
+							"sid": 915882573085056
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 198635360792701
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 638592964767924,
+									"parameters": {
+										"variable": "RoomPhasa",
+										"comparison": 2,
+										"value": "Phasa"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "setpropertyofmyroom103",
+									"objectClass": "Photon",
+									"sid": 295180074695720,
+									"parameters": {
+										"propname0": "\"PhasaAndPhasaTimer\"",
+										"value1": "Phasa&\"/\"&PhasaTimer",
+										"webforward4": "no",
+										"checkandset7": "no",
+										"expectedvalue8": "0"
+									}
+								}
+							],
+							"sid": 360905176678447
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 615098263924793
+								}
+							],
+							"actions": [],
+							"sid": 539951670259492,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 841118657554831,
+											"parameters": {
+												"variable": "RoomPhasaTimer",
+												"comparison": 2,
+												"value": "PhasaTimer - 1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 431354448322079,
+											"parameters": {
+												"variable": "PhasaTimer",
+												"value": "RoomPhasaTimer"
+											}
+										}
+									],
+									"sid": 956029614145445
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 729934414856169
+										}
+									],
+									"actions": [
+										{
+											"id": "setpropertyofmyroom103",
+											"objectClass": "Photon",
+											"sid": 395658827336371,
+											"parameters": {
+												"propname0": "\"PhasaAndPhasaTimer\"",
+												"value1": "Phasa&\"/\"&PhasaTimer",
+												"webforward4": "no",
+												"checkandset7": "no",
+												"expectedvalue8": "0"
+											}
+										}
+									],
+									"sid": 411259676835146
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 429162307884530,
+							"parameters": {
+								"variable": "OnlineMode"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 991952675472094,
+							"parameters": {
+								"variable": "OnlineTimer",
+								"value": "Photon.PropertyOfMyRoom(\"PhasaAndPhasaTimer\")"
+							}
+						}
+					],
+					"sid": 519993583836589,
+					"disabled": true
+				}
+			]
+		},
+		{
+			"functionName": "GetPhasaText",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 874655508626210,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 777559327507622,
+							"parameters": {
+								"first-value": "Functions.GetPhasaName",
+								"comparison": 0,
+								"second-value": "\"Bots\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 346530700854228,
+							"parameters": {
+								"value": "Functions.GetPhasaNameText&newline&Localization.Get(\"TimeLeft\")&\": 0\"&int(PhasaTimer/60)&\":\"&PhasaTimer%60"
+							}
+						}
+					],
+					"sid": 343847887302746
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 526202582566585
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 904484631340158,
+							"parameters": {
+								"first-value": "Functions.GetPhasaName",
+								"comparison": 0,
+								"second-value": "\"Bucks\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 501472373684127,
+							"parameters": {
+								"value": "Functions.GetPhasaNameText&newline&Localization.Get(\"TimeLeft\")&\": 0\"&int(PhasaTimer/60)&\":\"&PhasaTimer%60"
+							}
+						}
+					],
+					"sid": 445417824400028
+				}
+			]
+		},
+		{
+			"functionName": "GetPhasaNameText",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 528108430163714,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 193555364355776,
+							"parameters": {
+								"first-value": "Functions.GetPhasaName",
+								"comparison": 0,
+								"second-value": "\"Bots\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 450712103398157,
+							"parameters": {
+								"value": "Localization.Get(\"BotPhase\")"
+							}
+						}
+					],
+					"sid": 391197551228574
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 143136868519512
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 253233659249807,
+							"parameters": {
+								"first-value": "Functions.GetPhasaName",
+								"comparison": 0,
+								"second-value": "\"Bucks\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 513885385514540,
+							"parameters": {
+								"value": "Localization.Get(\"BucksPhase\")"
+							}
+						}
+					],
+					"sid": 626151463451691
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "OnChangePhasaText1",
+					"sid": 414608693603728,
+					"parameters": {
+						"instance-variable": "ID",
+						"comparison": 0,
+						"value": "1"
+					}
+				},
+				{
+					"id": "pick-children",
+					"objectClass": "OnChangePhasaText1",
+					"sid": 404135590278755,
+					"parameters": {
+						"child": "Sprite31",
+						"which": "own"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-opacity",
+					"objectClass": "OnChangePhasaText1",
+					"sid": 898618470120408,
+					"parameters": {
+						"opacity": "lerp(Self.Opacity, 100, 0.03)"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "Sprite31",
+					"sid": 699635417774411,
+					"parameters": {
+						"opacity": "lerp(Self.Opacity, 100, 0.03)"
+					}
+				}
+			],
+			"sid": 849447362053622
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "OnChangePhasaText1",
+					"sid": 698358523784381,
+					"parameters": {
+						"instance-variable": "ID",
+						"comparison": 0,
+						"value": "2"
+					}
+				},
+				{
+					"id": "pick-children",
+					"objectClass": "OnChangePhasaText1",
+					"sid": 622237040040138,
+					"parameters": {
+						"child": "Sprite31",
+						"which": "own"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-opacity",
+					"objectClass": "OnChangePhasaText1",
+					"sid": 177897583301793,
+					"parameters": {
+						"opacity": "lerp(Self.Opacity, 0, 0.03)"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "Sprite31",
+					"sid": 211845123307826,
+					"parameters": {
+						"opacity": "lerp(Self.Opacity, 0, 0.03)"
+					}
+				}
+			],
+			"sid": 423483831805510
+		}
+	],
+	"sid": 457388932571143
+}

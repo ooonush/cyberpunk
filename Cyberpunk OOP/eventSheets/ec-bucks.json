@@ -1,0 +1,1215 @@
+{
+	"name": "EC-Bucks",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 930659868234915
+				},
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 495276842089150,
+					"parameters": {
+						"object": "Bucks1"
+					}
+				},
+				{
+					"id": "compare-x",
+					"objectClass": "Bucks1",
+					"sid": 858658770087421,
+					"parameters": {
+						"comparison": 2,
+						"x-co-ordinate": "center.X"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 946727751945740,
+					"parameters": {
+						"object-to-create": "Bucks",
+						"layer": "Bucks1.LayerName",
+						"x": "center.X + (center.X - Bucks1.X)",
+						"y": "Bucks1.Y",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				}
+			],
+			"sid": 451556483363962
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "BucksCounter",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "CreateBucksCounter",
+					"functionDescription": "",
+					"functionCategory": "Character",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 708840569451886
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "CharacterCollider",
+							"sid": 665206909344617,
+							"parameters": {
+								"unique-id": "UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 266463675549540,
+							"parameters": {
+								"object-to-create": "SpriteFontNumbers",
+								"layer": "\"InGameUI\"",
+								"x": "CharacterCollider.ImagePointX(\"HPBar\")",
+								"y": "CharacterCollider.ImagePointY(\"HPBar\")-11",
+								"create-hierarchy": true,
+								"template-name": "\"CharacterBucks\""
+							}
+						},
+						{
+							"id": "add-child",
+							"objectClass": "CharacterCollider",
+							"sid": 733339282036164,
+							"parameters": {
+								"child": "SpriteFontNumbers",
+								"transform-x": true,
+								"transform-y": true,
+								"transform-w": false,
+								"transform-h": false,
+								"transform-a": false,
+								"transform-z-elevation": false,
+								"destroy-with-parent": true
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "SpriteFontNumbers",
+							"sid": 897298354102719,
+							"parameters": {
+								"text": "CharacterCollider.Bucks"
+							}
+						}
+					],
+					"sid": 904399765507386
+				},
+				{
+					"functionName": "SetCharacterBucksText",
+					"functionDescription": "",
+					"functionCategory": "Character",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 220916920035679
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "CharacterCollider",
+							"sid": 224770000075234,
+							"parameters": {
+								"unique-id": "UID"
+							}
+						},
+						{
+							"id": "pick-children",
+							"objectClass": "CharacterCollider",
+							"sid": 468711723661735,
+							"parameters": {
+								"child": "SpriteFontNumbers",
+								"which": "own"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "SpriteFontNumbers",
+							"sid": 153823336070628,
+							"parameters": {
+								"instance-variable": "ID2",
+								"comparison": 0,
+								"value": "\"Bucks\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "SpriteFontNumbers",
+							"sid": 324878834943305,
+							"parameters": {
+								"text": "CharacterCollider.Bucks"
+							}
+						}
+					],
+					"sid": 707648642615602
+				}
+			],
+			"sid": 468587540706135
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 227328380561556,
+					"parameters": {
+						"interval-seconds": "5"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 952550980550350,
+					"parameters": {
+						"first-value": "Functions.GetPhasaName",
+						"comparison": 0,
+						"second-value": "\"Bots\""
+					}
+				},
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 870071394942529,
+					"parameters": {
+						"object": "CharacterCollider"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "CharacterCollider",
+					"sid": 255040267754280,
+					"parameters": {
+						"instance-variable": "OnlineID",
+						"comparison": 0,
+						"value": "MyActorNr"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "SyncBucksAdd",
+					"sid": 296127524126757,
+					"parameters": [
+						"CharacterCollider.UID",
+						"1",
+						"Functions.GetOnlineAll"
+					]
+				}
+			],
+			"sid": 745395299747038
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "BucksCollect",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "CharacterCollider",
+							"sid": 111062099177339,
+							"parameters": {
+								"object": "Bucks"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterCollider",
+							"sid": 843948832204434,
+							"parameters": {
+								"instance-variable": "OnlineID",
+								"comparison": 0,
+								"value": "MyActorNr"
+							}
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "Bucks",
+							"sid": 347603804668297
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SyncBucksCollect2",
+							"sid": 373420000042746,
+							"parameters": [
+								"Bucks.UID",
+								"CharacterCollider.Color"
+							]
+						}
+					],
+					"sid": 801465658029288
+				},
+				{
+					"functionName": "SyncBucksCollect2",
+					"functionDescription": "",
+					"functionCategory": "Bucks",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "BucksUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 967839113210446
+						},
+						{
+							"name": "Color",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 967112490732186
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 214677866555735,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 481901174463273,
+									"parameters": {
+										"variable": "OnlineMode"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "raiseevent17",
+									"objectClass": "Photon",
+									"sid": 303850498540488,
+									"parameters": {
+										"code0": "40",
+										"data1": "BucksUID&\"/\"&Color",
+										"interestgroup2": "0",
+										"cache11": "donotcache",
+										"receivers15": "others",
+										"targetactors16": "Functions.GetOnlineAll",
+										"webforward19": "no"
+									}
+								}
+							],
+							"sid": 378197908776254
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 907040986520210
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "BucksCollect",
+									"sid": 438392215960915,
+									"parameters": [
+										"BucksUID",
+										"Color"
+									]
+								}
+							],
+							"sid": 868189849631004
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "onevent3",
+							"objectClass": "Photon",
+							"sid": 226747339101985,
+							"parameters": {
+								"code0": "40"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "BucksCollect",
+							"sid": 399654018080919,
+							"parameters": [
+								"int(tokenat(Photon.EventData, 0, \"/\"))",
+								"Functions.ChangeColorByActorNr(Photon.ActorNr, tokenat(Photon.EventData, 1, \"/\"))"
+							]
+						}
+					],
+					"sid": 777301940419791
+				},
+				{
+					"functionName": "BucksCollect",
+					"functionDescription": "",
+					"functionCategory": "Bucks",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "BucksUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 164486976967306
+						},
+						{
+							"name": "Color",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 753396853511810
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 415701224700974,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 960942028854640,
+									"parameters": {
+										"object": "Carcas"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Carcas",
+									"sid": 489213627166703,
+									"parameters": {
+										"instance-variable": "Color",
+										"comparison": 0,
+										"value": "Color"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "BucksSet",
+									"sid": 595506801020401,
+									"parameters": [
+										"Carcas.UID",
+										"Carcas.Bucks + 1"
+									]
+								}
+							],
+							"sid": 401187411205397
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Bucks",
+									"sid": 368198140832520,
+									"parameters": {
+										"unique-id": "BucksUID"
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Bucks",
+									"sid": 807379974053838
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Bucks",
+									"sid": 638047848925303,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "stop-timer",
+									"objectClass": "Bucks",
+									"sid": 203607171314319,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "\"Respawn\""
+									}
+								},
+								{
+									"id": "start-timer",
+									"objectClass": "Bucks",
+									"sid": 440403202313117,
+									"behaviorType": "Timer",
+									"parameters": {
+										"duration": "4",
+										"type": "once",
+										"tag": "\"Respawn\""
+									}
+								}
+							],
+							"sid": 349759629236167
+						}
+					]
+				},
+				{
+					"functionName": "SyncBucksCollect",
+					"functionDescription": "",
+					"functionCategory": "Bucks",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Color",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 999386812180086
+						},
+						{
+							"name": "X",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 604374837244764
+						},
+						{
+							"name": "Y",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 401205943469606
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "raiseevent17",
+							"objectClass": "Photon",
+							"sid": 825231268792262,
+							"parameters": {
+								"code0": "40",
+								"data1": "Color&\"/\"&X&\"/\"&Y",
+								"interestgroup2": "0",
+								"cache11": "donotcache",
+								"receivers15": "others",
+								"targetactors16": "Functions.GetOnlineAll",
+								"webforward19": "no"
+							}
+						}
+					],
+					"sid": 131702992548652,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-timer-running",
+							"objectClass": "Bucks",
+							"sid": 577906767434657,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"Respawn\""
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 246176106610312,
+							"parameters": {
+								"first-value": "Functions.GetPhasaName",
+								"comparison": 0,
+								"second-value": "\"Bucks\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Bucks",
+							"sid": 353412182047143,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 756935652895319
+				}
+			],
+			"sid": 633246531043242
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "BucksSet",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "SyncBucksSet",
+					"functionDescription": "",
+					"functionCategory": "Bucks",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "CharacterUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 507038509163182
+						},
+						{
+							"name": "BucksCount",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 506209703464552
+						},
+						{
+							"name": "TargetActors",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 939540464816965
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "CharacterCollider",
+							"sid": 925588033195390,
+							"parameters": {
+								"unique-id": "CharacterUID"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 505103587523217,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 520325030724871,
+									"parameters": {
+										"variable": "OnlineMode"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "raiseevent17",
+									"objectClass": "Photon",
+									"sid": 760048923454504,
+									"parameters": {
+										"code0": "41",
+										"data1": "CharacterCollider.ID&\"/\"&BucksCount",
+										"interestgroup2": "0",
+										"cache11": "donotcache",
+										"receivers15": "others",
+										"targetactors16": "TargetActors",
+										"webforward19": "no"
+									}
+								}
+							],
+							"sid": 945958248675339
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 960623193052513
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "BucksSet",
+									"sid": 660127901367797,
+									"parameters": [
+										"CharacterUID",
+										"BucksCount"
+									]
+								}
+							],
+							"sid": 941062035882638
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "onevent3",
+							"objectClass": "Photon",
+							"sid": 850066829733214,
+							"parameters": {
+								"code0": "41"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterCollider",
+							"sid": 518478217230791,
+							"parameters": {
+								"instance-variable": "ID",
+								"comparison": 0,
+								"value": "int(tokenat(Photon.EventData, 0, \"/\"))"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "BucksSet",
+							"sid": 793560057378348,
+							"parameters": [
+								"CharacterCollider.UID",
+								"int(tokenat(Photon.EventData, 1, \"/\"))"
+							]
+						}
+					],
+					"sid": 317223293280643
+				},
+				{
+					"functionName": "BucksSet",
+					"functionDescription": "",
+					"functionCategory": "Bucks",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "characterUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 459885289373769
+						},
+						{
+							"name": "bucksCount",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 382334397600925
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "CharacterCollider",
+							"sid": 290138189745588,
+							"parameters": {
+								"unique-id": "CharacterUID"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 560555404719502,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "CharacterCollider",
+									"sid": 350869059164294,
+									"parameters": {
+										"instance-variable": "Bucks",
+										"comparison": 2,
+										"value": "BucksCount"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "StartCollectBucksTimeline",
+									"sid": 246835648019078,
+									"parameters": [
+										"characterUID"
+									]
+								}
+							],
+							"sid": 776960900519947
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "CharacterCollider",
+									"sid": 125016047028616,
+									"parameters": {
+										"instance-variable": "Bucks",
+										"value": "bucksCount"
+									}
+								},
+								{
+									"callFunction": "SetBotIconsActive",
+									"sid": 961918205816451
+								},
+								{
+									"callFunction": "SetCharacterBucksText",
+									"sid": 468454465452845,
+									"parameters": [
+										"characterUID"
+									]
+								}
+							],
+							"sid": 170431203133206
+						}
+					]
+				}
+			],
+			"sid": 823860462116585
+		},
+		{
+			"functionName": "StartCollectBucksTimeline",
+			"functionDescription": "",
+			"functionCategory": "Bucks",
+			"functionReturnType": "none",
+			"functionIsAsync": true,
+			"functionParameters": [
+				{
+					"name": "characterUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 779529453018084
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "CharacterCollider",
+					"sid": 229204374562631,
+					"parameters": {
+						"unique-id": "CharacterUID"
+					}
+				},
+				{
+					"id": "pick-children",
+					"objectClass": "CharacterCollider",
+					"sid": 618470177313979,
+					"parameters": {
+						"child": "SpriteFontNumbers",
+						"which": "own"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "SpriteFontNumbers",
+					"sid": 225343418666896,
+					"parameters": {
+						"instance-variable": "ID2",
+						"comparison": 0,
+						"value": "\"Bucks\""
+					}
+				},
+				{
+					"id": "pick-children",
+					"objectClass": "SpriteFontNumbers",
+					"sid": 363830124071807,
+					"parameters": {
+						"child": "BucksCharacterIcon",
+						"which": "own"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "start-animation",
+					"objectClass": "BucksCharacterIcon",
+					"sid": 174462793891907,
+					"parameters": {
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-instance",
+					"objectClass": "TimelineController",
+					"sid": 495645495946731,
+					"parameters": {
+						"object-class": "BucksCharacterIcon",
+						"track-id": "\"Bucks\""
+					}
+				},
+				{
+					"id": "set-instance",
+					"objectClass": "TimelineController",
+					"sid": 492096541754214,
+					"parameters": {
+						"object-class": "SpriteFontNumbers",
+						"track-id": "\"Text\""
+					}
+				},
+				{
+					"id": "play-timeline",
+					"objectClass": "TimelineController",
+					"sid": 945022078271291,
+					"parameters": {
+						"timeline": "CollectBucks",
+						"tags": "\"CharacterBucksCollect\""
+					}
+				}
+			],
+			"sid": 804368489610312
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "BucksAdd",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "SyncBucksAdd",
+					"functionDescription": "",
+					"functionCategory": "Bucks",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "CharacterUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 749108675077186
+						},
+						{
+							"name": "BucksCount",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 529240997701821
+						},
+						{
+							"name": "TargetActors",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 683621397663181
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "CharacterCollider",
+							"sid": 635554588279257,
+							"parameters": {
+								"unique-id": "CharacterUID"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 640679948847376,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 242710468327127,
+									"parameters": {
+										"variable": "OnlineMode"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "raiseevent17",
+									"objectClass": "Photon",
+									"sid": 794950956950896,
+									"parameters": {
+										"code0": "42",
+										"data1": "CharacterCollider.ID&\"/\"&BucksCount",
+										"interestgroup2": "0",
+										"cache11": "donotcache",
+										"receivers15": "others",
+										"targetactors16": "TargetActors",
+										"webforward19": "no"
+									}
+								}
+							],
+							"sid": 351486238925188
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 537233497329955
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "BucksAdd",
+									"sid": 856621696841318,
+									"parameters": [
+										"CharacterUID",
+										"BucksCount"
+									]
+								}
+							],
+							"sid": 734648840240209
+						}
+					]
+				},
+				{
+					"functionName": "BucksAdd",
+					"functionDescription": "",
+					"functionCategory": "Bucks",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 757128016815390
+						},
+						{
+							"name": "BucksCount",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 858868475049913
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "CharacterCollider",
+							"sid": 618157677335076,
+							"parameters": {
+								"unique-id": "UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "BucksSet",
+							"sid": 190204042488946,
+							"parameters": [
+								"UID",
+								"CharacterCollider.Bucks + BucksCount"
+							]
+						}
+					],
+					"sid": 555601768810626
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "onevent3",
+							"objectClass": "Photon",
+							"sid": 787498026397406,
+							"parameters": {
+								"code0": "42"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterCollider",
+							"sid": 502927219707906,
+							"parameters": {
+								"instance-variable": "ID",
+								"comparison": 0,
+								"value": "int(tokenat(Photon.EventData, 0, \"/\"))"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SyncBucksSet",
+							"sid": 118131839068090,
+							"disabled": true,
+							"parameters": [
+								"CharacterCollider.ID",
+								"CharacterCollider.Bucks + int(tokenat(Photon.EventData, 1, \"/\"))",
+								"Functions.GetOnlineOthers"
+							]
+						},
+						{
+							"callFunction": "BucksSet",
+							"sid": 379342996930781,
+							"parameters": [
+								"CharacterCollider.UID",
+								"CharacterCollider.Bucks + int(tokenat(Photon.EventData, 1, \"/\"))"
+							]
+						}
+					],
+					"sid": 633257684426913
+				}
+			],
+			"sid": 758635373654459
+		},
+		{
+			"functionName": "SyncBucksOnDeath",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 375514611856547
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "CharacterCollider",
+					"sid": 304941085628434,
+					"parameters": {
+						"unique-id": "UID"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "CharacterCollider",
+					"sid": 197241889085943,
+					"parameters": {
+						"instance-variable": "Bucks",
+						"comparison": 4,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 884873997110585,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 942913885473330,
+							"parameters": {
+								"object": "Carcas"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Carcas",
+							"sid": 608436095568290,
+							"parameters": {
+								"instance-variable": "Color",
+								"comparison": 1,
+								"value": "CharacterCollider.Color"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Carcas",
+							"sid": 682867524276812,
+							"parameters": {
+								"instance-variable": "OnlineID",
+								"comparison": 0,
+								"value": "MyActorNr"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SyncBucksAdd",
+							"sid": 269634768779381,
+							"parameters": [
+								"Carcas.UID",
+								"int(CharacterCollider.Bucks/(MaxPlayers/2))",
+								"Functions.GetOnlineAll"
+							]
+						}
+					],
+					"sid": 715496843614162
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "BucksSet",
+							"sid": 866236951689641,
+							"parameters": [
+								"CharacterCollider.UID",
+								"0"
+							]
+						},
+						{
+							"callFunction": "SyncBucksSet",
+							"sid": 184520052899622,
+							"disabled": true,
+							"parameters": [
+								"CharacterCollider.ID",
+								"0",
+								"Functions.GetOnlineOthers"
+							]
+						}
+					],
+					"sid": 773589572161365
+				}
+			]
+		}
+	],
+	"sid": 686780577141229
+}

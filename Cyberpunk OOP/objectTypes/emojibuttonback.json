@@ -1,0 +1,56 @@
+{
+	"name": "EmojiButtonBack",
+	"plugin-id": "Sprite",
+	"sid": 326555255214363,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "EmojiName",
+			"type": "string",
+			"desc": "",
+			"sid": 835677992848277
+		},
+		{
+			"name": "Type",
+			"type": "string",
+			"desc": "",
+			"sid": 979477567183246
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 726879211492381
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 26,
+						"height": 20,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7250856,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 658253694000710,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

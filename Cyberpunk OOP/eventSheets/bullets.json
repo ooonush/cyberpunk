@@ -1,0 +1,114 @@
+{
+	"name": "bullets",
+	"events": [
+		{
+			"functionName": "IsInstanceMirrored",
+			"functionDescription": "",
+			"functionCategory": "Utils",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "width",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 574122876044100
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 221404547100364,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 447795664941898,
+							"parameters": {
+								"variable": "width",
+								"comparison": 2,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 953017032123356,
+							"parameters": {
+								"value": "1"
+							}
+						}
+					],
+					"sid": 942196512497980
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 849259326806181
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 126334988003147,
+							"parameters": {
+								"value": "0"
+							}
+						}
+					],
+					"sid": 406400952225363
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-animation-finished",
+					"objectClass": "DestroyOnAnimationFinished",
+					"sid": 393817620622693
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "DestroyOnAnimationFinished",
+					"sid": 505873155646606
+				}
+			],
+			"sid": 448729207058550
+		},
+		{
+			"functionName": "GetObjectsLayerName",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 373584916168195,
+					"parameters": {
+						"value": "CharacterCollider.LayerName"
+					}
+				}
+			],
+			"sid": 587927687855785
+		}
+	],
+	"sid": 915471115135455
+}

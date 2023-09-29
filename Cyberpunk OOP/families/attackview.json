@@ -1,0 +1,13 @@
+{
+	"name": "AttackView",
+	"plugin-id": "Sprite",
+	"sid": 361237056668598,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"BattleDroneAttack2",
+		"DroneAttack2",
+		"CharacterAttack"
+	]
+}

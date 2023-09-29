@@ -1,0 +1,55 @@
+{
+	"name": "BattleDroneAttack2",
+	"plugin-id": "Sprite",
+	"sid": 393339630319258,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 62,
+						"originX": 0.496,
+						"originY": 0.0967741935483871,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6352290,
+						"collisionPoly": {
+							"points": [
+								0.512,
+								0.03225806451612903,
+								0.9339999084472655,
+								0.8629031335153886,
+								0.8970001220703124,
+								0.89516116726783,
+								0.5,
+								0.0967741935483871,
+								0.09449993133544923,
+								0.8911289822670716,
+								0.06999998092651367,
+								0.848790307198801,
+								0.48466660563151054,
+								0.03225806451612903
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 975355448107955,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 10
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,48 @@
+{
+	"name": "MoveToArrow2",
+	"plugin-id": "Sprite",
+	"sid": 443029273445880,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 135959140795845
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Sine2",
+			"sid": 131640445972423
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 24,
+						"height": 24,
+						"originX": 1.8333333333333333,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3923515,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 143125631440880,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

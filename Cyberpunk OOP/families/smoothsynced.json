@@ -1,0 +1,28 @@
+{
+	"name": "SmoothSynced",
+	"plugin-id": "Sprite",
+	"sid": 708198601464628,
+	"instanceVariables": [
+		{
+			"name": "TargetX",
+			"type": "number",
+			"desc": "",
+			"sid": 350213584075405
+		},
+		{
+			"name": "TargetY",
+			"type": "number",
+			"desc": "",
+			"sid": 763528375117179
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Punk",
+		"Biker",
+		"Cyborg",
+		"Brigand",
+		"Bomj"
+	]
+}

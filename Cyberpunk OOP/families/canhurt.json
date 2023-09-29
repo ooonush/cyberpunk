@@ -1,0 +1,59 @@
+{
+	"name": "CanHurt",
+	"plugin-id": "Sprite",
+	"sid": 505977398743116,
+	"instanceVariables": [
+		{
+			"name": "DamageOnCollision",
+			"type": "boolean",
+			"desc": "",
+			"sid": 685542024845831
+		},
+		{
+			"name": "Damage",
+			"type": "number",
+			"desc": "",
+			"sid": 942633946416504
+		},
+		{
+			"name": "WeaponUID",
+			"type": "number",
+			"desc": "",
+			"sid": 686580654288991
+		},
+		{
+			"name": "SpawnExplosionOnDestroy",
+			"type": "boolean",
+			"desc": "",
+			"sid": 233723431304836
+		},
+		{
+			"name": "ExplosionInstanceName",
+			"type": "string",
+			"desc": "",
+			"sid": 502609394090880
+		},
+		{
+			"name": "ExplosionTemplate",
+			"type": "string",
+			"desc": "",
+			"sid": 683156648667092
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Bullet",
+			"name": "Bullet",
+			"sid": 543882416659486
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"PunkBullet",
+		"AlarmbotBullet",
+		"Bomb",
+		"BikerBullet",
+		"StepperCannonAttack",
+		"CyborgBullet"
+	]
+}

@@ -1,0 +1,1870 @@
+{
+	"name": "camera",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-layout-scale",
+					"objectClass": "System",
+					"sid": 140938616118049,
+					"parameters": {
+						"scale": "lerp(LayoutScale, Cam.LayoutScale, 0.1)"
+					}
+				}
+			],
+			"sid": 345571426330590,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 872302243709392,
+					"parameters": {
+						"variable": "StartingMatchMode",
+						"comparison": 0,
+						"value": "2"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "CharacterCollider",
+					"sid": 353910483794769,
+					"parameters": {
+						"instance-variable": "ID",
+						"comparison": 0,
+						"value": "Photon.MyActorNr"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Cam",
+					"sid": 637732450680050,
+					"parameters": {
+						"x": "lerp(Self.X, CharacterCollider.X, 0.01)",
+						"y": "lerp(Self.Y, CharacterCollider.Y-16, 0.01)"
+					}
+				}
+			],
+			"sid": 820481086947690,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 140595186295016
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 178254008939446,
+					"parameters": {
+						"variable": "EndMatch"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Basa",
+					"sid": 922012294815870,
+					"parameters": {
+						"instance-variable": "HP",
+						"comparison": 3,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Cam",
+					"sid": 136059275966705,
+					"parameters": {
+						"x": "lerp(Self.X, Basa.X, 0.05)",
+						"y": "lerp(Self.Y, Basa.Y-64, 0.1)"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Cam",
+					"sid": 649461427560040,
+					"parameters": {
+						"instance-variable": "LayoutScale",
+						"value": "1.1"
+					}
+				}
+			],
+			"sid": 642039137629906,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 945718434111966
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 441649042316633,
+					"parameters": {
+						"variable": "StartingMatchMode",
+						"comparison": 0,
+						"value": "0"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "CharacterCollider",
+					"sid": 717326856119402,
+					"parameters": {
+						"instance-variable": "ID",
+						"comparison": 0,
+						"value": "Photon.MyActorNr"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Cam",
+					"sid": 385681572275094,
+					"parameters": {
+						"x": "lerp(Self.X, CharacterCollider.X, 0.1)",
+						"y": "lerp(Self.Y, CharacterCollider.Y-16, 0.1)"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Cam",
+					"sid": 580141578883620,
+					"parameters": {
+						"instance-variable": "LayoutScale",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 811071870387431,
+			"disabled": true
+		},
+		{
+			"eventType": "variable",
+			"name": "DistanceZ",
+			"type": "number",
+			"initialValue": "300",
+			"comment": "",
+			"isStatic": true,
+			"isConstant": false,
+			"sid": 355747088547691
+		},
+		{
+			"eventType": "variable",
+			"name": "CharacterViewScale",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 382107213530252
+		},
+		{
+			"eventType": "variable",
+			"name": "CameraScale",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 825020702132631
+		},
+		{
+			"eventType": "variable",
+			"name": "CameraScale3D",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 708425737134108
+		},
+		{
+			"eventType": "variable",
+			"name": "CurrnetLayoutScale",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 589718703195812
+		},
+		{
+			"eventType": "variable",
+			"name": "ViewportScale",
+			"type": "number",
+			"initialValue": "3",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 898532564477331
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 525635061038440
+				}
+			],
+			"actions": [
+				{
+					"id": "set-fullscreen-scaling",
+					"objectClass": "System",
+					"sid": 613827580439811,
+					"parameters": {
+						"fullscreen-scaling": "low-quality"
+					}
+				}
+			],
+			"sid": 784387317256341,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 502723578279724,
+							"parameters": {
+								"variable": "Graphics",
+								"comparison": 0,
+								"value": "\"Ultra\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 473242816019300,
+							"parameters": {
+								"variable": "ViewportScale",
+								"value": "4"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 763478973837571,
+							"parameters": {
+								"layer": "\"Lights\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 621773333715624,
+							"parameters": {
+								"layer": "\"LightsFront\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 853354681575843,
+							"parameters": {
+								"layer": "\"FrontObj\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 518411645798474,
+							"parameters": {
+								"layer": "\"BackObj\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 134664327835492,
+							"parameters": {
+								"layer": "\"Clouds\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 513944565456068,
+							"parameters": {
+								"layer": "\"Back3D2\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 398027365815226,
+							"parameters": {
+								"layer": "\"Back2D2\"",
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 393260050115548,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 629988896249423,
+									"parameters": {
+										"variable": "RenderingMode",
+										"comparison": 0,
+										"value": "\"2D\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 634573303509769,
+									"parameters": {
+										"variable": "ViewportScale",
+										"value": "3.5"
+									}
+								}
+							],
+							"sid": 649291816979529
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 641720442904879,
+							"parameters": {
+								"variable": "Graphics",
+								"comparison": 0,
+								"value": "\"High\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 477479368623507,
+							"parameters": {
+								"variable": "ViewportScale",
+								"value": "3.5"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 858432827350156,
+							"parameters": {
+								"layer": "\"Lights\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 198493021809542,
+							"parameters": {
+								"layer": "\"LightsFront\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 603352791852875,
+							"parameters": {
+								"layer": "\"FrontObj\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 917075181584583,
+							"parameters": {
+								"layer": "\"BackObj\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 484522883759358,
+							"parameters": {
+								"layer": "\"Clouds\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 852859642913986,
+							"parameters": {
+								"layer": "\"Back3D2\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 956370621336254,
+							"parameters": {
+								"layer": "\"Back2D2\"",
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 173195214668569,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 318123172984097,
+									"parameters": {
+										"variable": "RenderingMode",
+										"comparison": 0,
+										"value": "\"2D\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 860254534123515,
+									"parameters": {
+										"variable": "ViewportScale",
+										"value": "3"
+									}
+								}
+							],
+							"sid": 779747344286999
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 686137711678709,
+							"parameters": {
+								"variable": "Graphics",
+								"comparison": 0,
+								"value": "\"Medium\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 435251030248264,
+							"parameters": {
+								"variable": "ViewportScale",
+								"value": "3"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 360835449162961,
+							"parameters": {
+								"layer": "\"Lights\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 215300807232882,
+							"parameters": {
+								"layer": "\"LightsFront\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 453494710263510,
+							"parameters": {
+								"layer": "\"FrontObj\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 132887279104067,
+							"parameters": {
+								"layer": "\"BackObj\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 194292068383086,
+							"parameters": {
+								"layer": "\"Clouds\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 160246857315864,
+							"parameters": {
+								"layer": "\"Back3D2\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 176778996615891,
+							"parameters": {
+								"layer": "\"Back2D2\"",
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 746094236169434,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 743722200673951,
+									"parameters": {
+										"variable": "RenderingMode",
+										"comparison": 0,
+										"value": "\"2D\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 532424991244879,
+									"parameters": {
+										"variable": "ViewportScale",
+										"value": "2.5"
+									}
+								}
+							],
+							"sid": 396361703435986
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 989237001760133,
+							"parameters": {
+								"variable": "Graphics",
+								"comparison": 0,
+								"value": "\"Low\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 325641092733765,
+							"parameters": {
+								"variable": "ViewportScale",
+								"value": "3"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 929249346597319,
+							"parameters": {
+								"layer": "\"Lights\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 195059153057636,
+							"parameters": {
+								"layer": "\"LightsFront\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 660546661659827,
+							"parameters": {
+								"layer": "\"FrontObj\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 191484398798175,
+							"parameters": {
+								"layer": "\"BackObj\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 235861246954818,
+							"parameters": {
+								"layer": "\"Clouds\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 123272889833505,
+							"parameters": {
+								"layer": "\"Back3D2\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 149784736950740,
+							"parameters": {
+								"layer": "\"Back2D2\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 212848676516202,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 741214930475613,
+									"parameters": {
+										"variable": "RenderingMode",
+										"comparison": 0,
+										"value": "\"2D\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 470796831031065,
+									"parameters": {
+										"variable": "ViewportScale",
+										"value": "2.5"
+									}
+								}
+							],
+							"sid": 465672230343374
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 434411875810123,
+							"parameters": {
+								"variable": "Graphics",
+								"comparison": 0,
+								"value": "\"Very Low\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 454835408133604,
+							"parameters": {
+								"layer": "\"Lights\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 179870413295075,
+							"parameters": {
+								"layer": "\"LightsFront\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 832486155296995,
+							"parameters": {
+								"layer": "\"FrontObj\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 898662178461300,
+							"parameters": {
+								"layer": "\"BackObj\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 211447912573865,
+							"parameters": {
+								"layer": "\"Clouds\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 551052916373869,
+							"parameters": {
+								"layer": "\"Back3D2\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 111151745759537,
+							"parameters": {
+								"layer": "\"Back2D2\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 124170173378242,
+							"parameters": {
+								"variable": "ViewportScale",
+								"value": "2.5"
+							}
+						}
+					],
+					"sid": 130011052940667,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 223440141874364,
+									"parameters": {
+										"variable": "RenderingMode",
+										"comparison": 0,
+										"value": "\"2D\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 747873669338669,
+									"parameters": {
+										"variable": "ViewportScale",
+										"value": "2"
+									}
+								}
+							],
+							"sid": 508826749042886
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 646152116419855
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 793891114463047,
+					"parameters": {
+						"seconds": "0"
+					}
+				},
+				{
+					"id": "set-canvas-size",
+					"objectClass": "System",
+					"sid": 158463185246929,
+					"parameters": {
+						"width": "ViewportScale*384",
+						"height": "ViewportScale*192"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 340238891285238,
+					"parameters": {
+						"variable": "CameraScale",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 125108950441022,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-layout-scale",
+							"objectClass": "System",
+							"sid": 560727023132074,
+							"parameters": {
+								"scale": "ViewportScale * CharacterViewScale"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 535518612136709,
+							"parameters": {
+								"variable": "CurrnetLayoutScale",
+								"value": "ViewportScale * CharacterViewScale * ViewportWidth(\"UI\") / 384"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 946445461255692,
+							"parameters": {
+								"seconds": "0"
+							}
+						},
+						{
+							"callFunction": "ResetLayersScale",
+							"sid": 252638287899843
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 218842770827237,
+							"parameters": {
+								"variable": "CameraScale3D",
+								"value": "ViewportHeight(\"UI\") / 384"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 878033109846733,
+							"parameters": {
+								"variable": "DistanceZ",
+								"value": "460 * CameraScale"
+							}
+						}
+					],
+					"sid": 306225160279655
+				}
+			]
+		},
+		{
+			"eventType": "variable",
+			"name": "TargetX",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": true,
+			"isConstant": false,
+			"sid": 299769944193404
+		},
+		{
+			"eventType": "variable",
+			"name": "TargetY",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": true,
+			"isConstant": false,
+			"sid": 647284938675583
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Camera",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "TargetZ",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 253463764108753
+				},
+				{
+					"eventType": "variable",
+					"name": "CameraX",
+					"type": "number",
+					"initialValue": "100",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 335642081219964
+				},
+				{
+					"eventType": "variable",
+					"name": "CameraY",
+					"type": "number",
+					"initialValue": "100",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 189992363951132
+				},
+				{
+					"eventType": "variable",
+					"name": "CameraZ",
+					"type": "number",
+					"initialValue": "100",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 710386477825013
+				},
+				{
+					"functionName": "CameraDamageAnim",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "ID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 775318519067932
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterCollider",
+							"sid": 737943307162828,
+							"parameters": {
+								"instance-variable": "ID",
+								"comparison": 0,
+								"value": "MyActorNr"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "start-timer",
+							"objectClass": "CharacterCollider",
+							"sid": 647928245426577,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "0.1",
+								"type": "once",
+								"tag": "\"CameraDamage\""
+							}
+						}
+					],
+					"sid": 793453320875394
+				},
+				{
+					"functionName": "CameraAttackAnim",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterCollider",
+							"sid": 119287754919991,
+							"parameters": {
+								"instance-variable": "ID",
+								"comparison": 0,
+								"value": "MyActorNr"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "start-timer",
+							"objectClass": "CharacterCollider",
+							"sid": 290571221432899,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "0.15",
+								"type": "once",
+								"tag": "\"CameraAttack\""
+							}
+						}
+					],
+					"sid": 888363397209245
+				},
+				{
+					"eventType": "variable",
+					"name": "LookDirX",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 940818340400072
+				},
+				{
+					"eventType": "variable",
+					"name": "LookDirY",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 683160076772675
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 624597506218248
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterCollider",
+							"sid": 915079102025685,
+							"parameters": {
+								"instance-variable": "ID",
+								"comparison": 0,
+								"value": "MyActorNr"
+							}
+						},
+						{
+							"id": "pick-children",
+							"objectClass": "CharacterCollider",
+							"sid": 654853282694653,
+							"parameters": {
+								"child": "CharacterScins",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 414620326876389,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 886180167814060,
+									"parameters": {
+										"variable": "EndMatch"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 611373115044291,
+									"parameters": {
+										"variable": "CameraZ",
+										"value": "lerp(CameraZ, DistanceZ * 0.7, 0.1 * 60 * dt)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 123880776819235,
+									"parameters": {
+										"variable": "CameraScale",
+										"value": "lerp(CameraScale, 0.7, 0.1 * 60 * dt)"
+									}
+								}
+							],
+							"sid": 738700103087839
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 682774586814398
+								},
+								{
+									"id": "is-timer-running",
+									"objectClass": "CharacterCollider",
+									"sid": 455891521534476,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "\"CameraDamage\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 834439365751010,
+									"parameters": {
+										"variable": "CameraZ",
+										"value": "lerp(CameraZ, DistanceZ * 0.97, 0.7  * 60 * dt)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 537403203027053,
+									"parameters": {
+										"variable": "CameraScale",
+										"value": "lerp(CameraScale, 0.97, 0.1 * 60 * dt)"
+									}
+								}
+							],
+							"sid": 238122398627107
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 724640694651336
+								},
+								{
+									"id": "is-timer-running",
+									"objectClass": "CharacterCollider",
+									"sid": 540617376314758,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "\"CameraAttack\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 329045583103663,
+									"parameters": {
+										"variable": "CameraZ",
+										"value": "lerp(CameraZ, DistanceZ * 1.03, 0.3)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 232997364034996,
+									"parameters": {
+										"variable": "CameraScale",
+										"value": "lerp(CameraScale, 1.03, 0.1 * 60 * dt)"
+									}
+								}
+							],
+							"sid": 197761877676443
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 954077785620021
+								},
+								{
+									"id": "is-timer-running",
+									"objectClass": "CharacterCollider",
+									"sid": 887853524960760,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "\"Respawn\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 510998619740640,
+									"parameters": {
+										"variable": "CameraZ",
+										"value": "lerp(CameraZ, DistanceZ * 0.5, 0.1)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 462914802623205,
+									"parameters": {
+										"variable": "CameraScale",
+										"value": "lerp(CameraScale, 0.5, 0.1 * 60 * dt)"
+									}
+								}
+							],
+							"sid": 244375343099140
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 764984134624812
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 600802557655729,
+									"parameters": {
+										"variable": "CameraZ",
+										"value": "lerp(CameraZ, DistanceZ, 0.1)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 201935198485209,
+									"parameters": {
+										"variable": "CameraScale",
+										"value": "lerp(CameraScale, 1, 0.1 * 60 * dt)"
+									}
+								}
+							],
+							"sid": 258481072776384
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 114086912377089,
+									"parameters": {
+										"variable": "EndMatch"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Basa",
+									"sid": 387345732550089,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 3,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 496636000058062,
+									"parameters": {
+										"variable": "LookDirX",
+										"value": "lerp(LookDirX, 0, 0.05  * 60 * dt)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 117802018916562,
+									"parameters": {
+										"variable": "LookDirY",
+										"value": "lerp(LookDirY, 0, 0.07 * 60 * dt)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 976709893679843,
+									"parameters": {
+										"variable": "TargetX",
+										"value": "lerp(TargetX, Basa.X, 0.2 * 60 * dt)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 104404972502356,
+									"parameters": {
+										"variable": "TargetY",
+										"value": "lerp(TargetY, Basa.Y - 32, 0.4 * 60 * dt)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 978037365694988,
+									"parameters": {
+										"variable": "TargetZ",
+										"value": "lerp(TargetZ, Basa.ZElevation, 0.3)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 186014396129211,
+									"parameters": {
+										"variable": "CameraX",
+										"value": "lerp(CameraX, Basa.X, 0.19 * 60 * dt)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 356544510171082,
+									"parameters": {
+										"variable": "CameraY",
+										"value": "lerp(CameraY, TargetY - 10, 0.4 * 60 * dt)"
+									}
+								}
+							],
+							"sid": 258845876830498
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 808155382131638
+								},
+								{
+									"id": "is-timer-running",
+									"objectClass": "CharacterCollider",
+									"sid": 455656962747099,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "\"Respawn\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 614162051596223,
+									"parameters": {
+										"variable": "LookDirX",
+										"value": "lerp(LookDirX, 0, 0.05  * 60 * dt)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 296596028149907,
+									"parameters": {
+										"variable": "LookDirY",
+										"value": "lerp(LookDirY, 0, 0.07 * 60 * dt)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 649009788415479,
+									"parameters": {
+										"variable": "TargetX",
+										"value": "lerp(TargetX, CharacterCollider.X + LookDirX, 0.3 * 60 * dt)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 195077972851682,
+									"parameters": {
+										"variable": "TargetY",
+										"value": "lerp(TargetY, CharacterCollider.ImagePointY(\"Camera\") + LookDirY, 0.4)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 155385487304348,
+									"parameters": {
+										"variable": "TargetZ",
+										"value": "lerp(TargetZ, CharacterCollider.ZElevation, 0.3)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 893335513185348,
+									"parameters": {
+										"variable": "CameraX",
+										"value": "lerp(CameraX, TargetX, 0.2 * 60 * dt)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 406638987907658,
+									"parameters": {
+										"variable": "CameraY",
+										"value": "lerp(CameraY, TargetY - 64, 0.4 * 60 * dt)"
+									}
+								}
+							],
+							"sid": 406986803987965
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 610585059476920
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 746902605463262,
+									"parameters": {
+										"variable": "LookDirX",
+										"value": "lerp(LookDirX, CharacterScins.Width/abs(CharacterScins.Width) * 16  + CharacterCollider.Platform.VectorX / 8, 0.02  * 60 * dt)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 433677201201320,
+									"parameters": {
+										"variable": "LookDirY",
+										"value": "lerp(LookDirY, CharacterCollider.Platform.VectorY / 17, 0.07 * 60 * dt)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 842266570770365,
+									"parameters": {
+										"variable": "TargetX",
+										"value": "lerp(TargetX, CharacterCollider.X + LookDirX * CameraScale3D, 0.3 * 60 * dt)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 460877486918030,
+									"parameters": {
+										"variable": "TargetY",
+										"value": "lerp(TargetY, CharacterCollider.ImagePointY(\"Camera\") + LookDirY * CameraScale3D, 0.4)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 597119033235340,
+									"parameters": {
+										"variable": "TargetZ",
+										"value": "lerp(TargetZ, CharacterCollider.ZElevation, 0.3)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 778269083173698,
+									"parameters": {
+										"variable": "CameraX",
+										"value": "lerp(CameraX, CharacterCollider.X, 0.25 * 60 * dt)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 667389426241373,
+									"parameters": {
+										"variable": "CameraY",
+										"value": "lerp(CameraY, CharacterCollider.ImagePointY(\"Camera\") - 32 * CameraScale3D, 0.25 * 60 * dt)"
+									}
+								}
+							],
+							"sid": 746698977960167
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 683005749815453
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterCollider",
+							"sid": 541409481062510,
+							"parameters": {
+								"instance-variable": "ID",
+								"comparison": 0,
+								"value": "MyActorNr"
+							}
+						},
+						{
+							"id": "pick-children",
+							"objectClass": "CharacterCollider",
+							"sid": 304610084534080,
+							"parameters": {
+								"child": "CharacterScins",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "look-at-position",
+							"objectClass": "3DCamera",
+							"sid": 606251422315727,
+							"parameters": {
+								"cam-x": "CameraX",
+								"cam-y": "CameraY",
+								"cam-z": "CameraZ",
+								"look-x": "TargetX",
+								"look-y": "TargetY",
+								"look-z": "TargetZ",
+								"up-x": "0",
+								"up-y": "1",
+								"up-z": "0"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Cam",
+							"sid": 187005720507930,
+							"parameters": {
+								"x": "TargetX",
+								"y": "TargetY"
+							}
+						}
+					],
+					"sid": 457136761281544,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "w",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 304153793718634
+						},
+						{
+							"eventType": "variable",
+							"name": "h",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 358709075753981
+						},
+						{
+							"eventType": "variable",
+							"name": "scale",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 553777893894092
+						},
+						{
+							"eventType": "variable",
+							"name": "scale2",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 344462890478959
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 732763023822287,
+									"disabled": true,
+									"parameters": {
+										"variable": "RenderingMode",
+										"comparison": 0,
+										"value": "\"2D\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "ResetLayersScale",
+									"sid": 767689407984836
+								}
+							],
+							"sid": 278784867325812
+						}
+					]
+				}
+			],
+			"sid": 793402238827772
+		},
+		{
+			"functionName": "ResetLayersScale",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-layout-scale",
+					"objectClass": "System",
+					"sid": 878615296932000,
+					"parameters": {
+						"scale": "ViewportScale * CharacterViewScale"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 959656702626320,
+					"parameters": {
+						"variable": "CurrnetLayoutScale",
+						"value": "ViewportScale * CharacterViewScale * ViewportWidth(\"UI\") / 384"
+					}
+				},
+				{
+					"id": "set-layout-scale",
+					"objectClass": "System",
+					"sid": 927091623918103,
+					"parameters": {
+						"scale": "CurrnetLayoutScale / CameraScale"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 287371772158056,
+					"parameters": {
+						"variable": "CameraScale3D",
+						"value": "ViewportHeight(\"UI\") / 384"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 400472831927647,
+					"parameters": {
+						"variable": "DistanceZ",
+						"value": "460 * CameraScale3D"
+					}
+				}
+			],
+			"sid": 299360607255705,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "w",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 513746232757767
+				},
+				{
+					"eventType": "variable",
+					"name": "h",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 888531606581563
+				},
+				{
+					"eventType": "variable",
+					"name": "scale",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 596842040736683
+				},
+				{
+					"eventType": "variable",
+					"name": "scale2",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 215786214800673
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 759833658315442,
+							"parameters": {
+								"variable": "w",
+								"value": "ViewportWidth(\"UI\")"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 513154825210728,
+							"parameters": {
+								"variable": "h",
+								"value": "ViewportHeight(\"UI\")"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 613034801442828,
+							"parameters": {
+								"variable": "scale",
+								"value": "max(w, h) / 384"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 325571841386726,
+							"parameters": {
+								"variable": "scale2",
+								"value": "w / 384"
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 566579791293588,
+							"parameters": {
+								"layer": "\"RespawnTimer\"",
+								"scale": "scale2"
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 819442314072617,
+							"parameters": {
+								"layer": "\"Buttons\"",
+								"scale": "scale2"
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 376898153161369,
+							"parameters": {
+								"layer": "\"Back\"",
+								"scale": "scale"
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 884057415785049,
+							"parameters": {
+								"layer": "\"Vignette\"",
+								"scale": "scale"
+							}
+						}
+					],
+					"sid": 484496522311324
+				}
+			]
+		}
+	],
+	"sid": 638896627511696
+}

@@ -1,0 +1,1581 @@
+{
+	"name": "eHasSync",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "oPing",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "MyPing",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 748065475061360
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 956337717277971,
+							"parameters": {
+								"interval-seconds": "0.2"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 437327783113010,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 180408175279213,
+									"parameters": {
+										"variable": "Ping",
+										"comparison": 4,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 815944894162626,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-visible",
+											"objectClass": "ConnectingError",
+											"sid": 363692511355122,
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-active",
+											"objectClass": "ConnectingError",
+											"sid": 274018536358972,
+											"behaviorType": "Sine",
+											"parameters": {
+												"state": "active"
+											}
+										},
+										{
+											"id": "set-cycle-position",
+											"objectClass": "ConnectingError",
+											"sid": 747280098492099,
+											"behaviorType": "Sine",
+											"parameters": {
+												"cycle-position": "1"
+											}
+										},
+										{
+											"id": "set-active",
+											"objectClass": "ConnectingError",
+											"sid": 925558806539586,
+											"behaviorType": "Sine2",
+											"parameters": {
+												"state": "active"
+											}
+										},
+										{
+											"id": "set-cycle-position",
+											"objectClass": "ConnectingError",
+											"sid": 117913445681618,
+											"behaviorType": "Sine2",
+											"parameters": {
+												"cycle-position": "1"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "ConnectingError",
+											"sid": 382595059675125,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 163007218687569
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 320720466426797
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "ConnectingError",
+									"sid": 966185648413777
+								}
+							],
+							"actions": [
+								{
+									"id": "set-active",
+									"objectClass": "ConnectingError",
+									"sid": 756867212231149,
+									"behaviorType": "Sine",
+									"parameters": {
+										"state": "inactive"
+									}
+								},
+								{
+									"id": "set-active",
+									"objectClass": "ConnectingError",
+									"sid": 988458050375053,
+									"behaviorType": "Sine2",
+									"parameters": {
+										"state": "inactive"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ConnectingError",
+									"sid": 794597076865575,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 144986328930859
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 410353256097771,
+									"parameters": {
+										"variable": "Ping",
+										"comparison": 3,
+										"value": "0.5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Ping",
+									"sid": 692540981271315,
+									"parameters": {
+										"frame-number": "0"
+									}
+								}
+							],
+							"sid": 456543486244111
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 494864644928297
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 767809640104839,
+									"parameters": {
+										"variable": "Ping",
+										"comparison": 3,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Ping",
+									"sid": 618960173604186,
+									"parameters": {
+										"frame-number": "1"
+									}
+								}
+							],
+							"sid": 808022900667939
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 231623716593115
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 345802393714547,
+									"parameters": {
+										"variable": "Ping",
+										"comparison": 3,
+										"value": "1.5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Ping",
+									"sid": 233249770013852,
+									"parameters": {
+										"frame-number": "2"
+									}
+								}
+							],
+							"sid": 243458739933403
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 847412827981651
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Ping",
+									"sid": 887860357368756,
+									"parameters": {
+										"frame-number": "3"
+									}
+								}
+							],
+							"sid": 674942218965035
+						}
+					]
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Ping2",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "pingY",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": true,
+							"sid": 794339564998869
+						},
+						{
+							"eventType": "variable",
+							"name": "offlineTimerY",
+							"type": "number",
+							"initialValue": "1",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": true,
+							"sid": 543693775825527
+						},
+						{
+							"eventType": "variable",
+							"name": "onlineActorNrChangingY",
+							"type": "number",
+							"initialValue": "2",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": true,
+							"sid": 986475787245813
+						},
+						{
+							"eventType": "variable",
+							"name": "offlinePingValue",
+							"type": "number",
+							"initialValue": "2",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": true,
+							"sid": 674062322084709
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 399602748519435
+								},
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 581851827142602,
+									"parameters": {
+										"name": "\"\"",
+										"start-index": "0",
+										"end-index": "MaxPlayers - 1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-at-xy",
+									"objectClass": "Pings",
+									"sid": 791883052824197,
+									"parameters": {
+										"x": "loopindex",
+										"y": "offlineTimerY",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 657101966555587
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Ping API",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"functionName": "PingResetOfflineTimer",
+									"functionDescription": "",
+									"functionCategory": "Ping",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "playerNumber",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 871724359008438
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "Устанавливаем значение пинга"
+										},
+										{
+											"callFunction": "PingSetPing",
+											"sid": 673782528992074,
+											"parameters": [
+												"playerNumber",
+												"Functions.PingGetOfflineTimer(playerNumber)"
+											]
+										},
+										{
+											"callFunction": "PingSetOfflineTimer",
+											"sid": 854715669950370,
+											"parameters": [
+												"playerNumber",
+												"0"
+											]
+										}
+									],
+									"sid": 344133792842356,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 566885195325206,
+													"parameters": {
+														"first-value": "playerNumber",
+														"comparison": 0,
+														"second-value": "MyPlayerNumber"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 753610509869752,
+													"parameters": {
+														"variable": "MyPing",
+														"value": "Functions.PingGetPing(playerNumber)"
+													}
+												}
+											],
+											"sid": 612977984881835,
+											"children": [
+												{
+													"eventType": "comment",
+													"text": ""
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "CharacterCollider",
+															"sid": 799624134100260,
+															"parameters": {
+																"instance-variable": "OnlineID",
+																"comparison": 1,
+																"value": "MyActorNr"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "CharacterCollider",
+															"sid": 341003030287056,
+															"parameters": {
+																"instance-variable": "OnlineIDChanging",
+																"comparison": 0,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 577569900769334,
+															"disabled": true,
+															"parameters": {
+																"seconds": "0.3"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "CharacterCollider",
+															"sid": 988315677062059,
+															"parameters": {
+																"instance-variable": "OnlineIDChanging",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 791375207037248,
+													"disabled": true,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "for-each",
+																	"objectClass": "System",
+																	"sid": 918383828156346,
+																	"parameters": {
+																		"object": "Bot"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "destroy",
+																	"objectClass": "Bot",
+																	"sid": 242398167440684
+																}
+															],
+															"sid": 309084085769765,
+															"disabled": true
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"functionName": "PingGetOnlineActorNrChanging",
+									"functionDescription": "",
+									"functionCategory": "Ping",
+									"functionReturnType": "number",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "playerNumber",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 893219655153845
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 165929611777417,
+											"parameters": {
+												"value": "Pings.At(loopindex, onlineActorNrChangingY)"
+											}
+										}
+									],
+									"sid": 318856721478878
+								},
+								{
+									"functionName": "PingSetOfflineTimer",
+									"functionDescription": "",
+									"functionCategory": "Ping",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "playerNumber",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 662428024917917
+										},
+										{
+											"name": "value",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 105366605695913
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-at-xy",
+											"objectClass": "Pings",
+											"sid": 407788934680730,
+											"parameters": {
+												"x": "playerNumber",
+												"y": "offlineTimerY",
+												"value": "value"
+											}
+										}
+									],
+									"sid": 433387651078672
+								},
+								{
+									"functionName": "PingGetPing",
+									"functionDescription": "",
+									"functionCategory": "Ping",
+									"functionReturnType": "number",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "playerNumber",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 903951713464953
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 664899505852001,
+											"parameters": {
+												"value": "Pings.At(playerNumber, pingY)"
+											}
+										}
+									],
+									"sid": 568899773383691
+								},
+								{
+									"functionName": "PingSetPing",
+									"functionDescription": "",
+									"functionCategory": "Ping",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "playerNumber",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 376063592377085
+										},
+										{
+											"name": "value",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 997467504633023
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-at-xy",
+											"objectClass": "Pings",
+											"sid": 568989934144249,
+											"parameters": {
+												"x": "playerNumber",
+												"y": "pingY",
+												"value": "value"
+											}
+										}
+									],
+									"sid": 461708595057243
+								},
+								{
+									"functionName": "PingGetOfflineTimer",
+									"functionDescription": "",
+									"functionCategory": "Ping",
+									"functionReturnType": "number",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "playerNumber",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 808527234537526
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 969445034775793,
+											"parameters": {
+												"value": "Pings.At(playerNumber, offlineTimerY)"
+											}
+										}
+									],
+									"sid": 503165940119218
+								},
+								{
+									"functionName": "PingAddOfflineTimer",
+									"functionDescription": "",
+									"functionCategory": "Ping",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "playerNumber",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 445833236795409
+										},
+										{
+											"name": "value",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 242614341502434
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [
+										{
+											"callFunction": "PingSetOfflineTimer",
+											"sid": 778285856052436,
+											"parameters": [
+												"loopindex",
+												"Functions.PingGetOfflineTimer(loopindex) + 0.1"
+											]
+										}
+									],
+									"sid": 238390192031696
+								}
+							],
+							"sid": 367899584533108
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 711791133303655,
+									"parameters": {
+										"variable": "OnlineMode"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 757198305299344,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 228680556165283,
+											"parameters": {
+												"interval-seconds": "1"
+											}
+										},
+										{
+											"id": "for",
+											"objectClass": "System",
+											"sid": 767648467015460,
+											"parameters": {
+												"name": "\"\"",
+												"start-index": "0",
+												"end-index": "MaxPlayers - 1"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 212884592359855,
+									"children": [
+										{
+											"eventType": "variable",
+											"name": "currentOfflineTimer",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 823019785666662
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 477854973491403,
+													"parameters": {
+														"variable": "currentOfflineTimer",
+														"value": "Pings.At(loopindex, offlineTimerY)"
+													}
+												}
+											],
+											"sid": 979490779227224
+										},
+										{
+											"eventType": "comment",
+											"text": "OnlineIDChanging"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 499093448450807,
+													"parameters": {
+														"variable": "currentOfflineTimer",
+														"comparison": 5,
+														"value": "4"
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 927367170702355,
+													"parameters": {
+														"variable": "MyPing",
+														"comparison": 2,
+														"value": "2"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 548951473143700,
+													"parameters": {
+														"first-value": "Functions.PingGetOnlineActorNrChanging(loopindex)",
+														"comparison": 0,
+														"second-value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-at-xy",
+													"objectClass": "Pings",
+													"sid": 892884752632748,
+													"parameters": {
+														"x": "loopindex",
+														"y": "onlineActorNrChangingY",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 334144644817484
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 314550275861990,
+													"parameters": {
+														"first-value": "Functions.PingGetOnlineActorNrChanging(loopindex)",
+														"comparison": 0,
+														"second-value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-at-xy",
+													"objectClass": "Pings",
+													"sid": 645813568102652,
+													"parameters": {
+														"x": "loopindex",
+														"y": "onlineActorNrChangingY",
+														"value": "2"
+													}
+												},
+												{
+													"id": "raiseevent17",
+													"objectClass": "Photon",
+													"sid": 308375777810762,
+													"parameters": {
+														"code0": "13",
+														"data1": "loopindex",
+														"interestgroup2": "0",
+														"cache11": "donotcache",
+														"receivers15": "all",
+														"targetactors16": "\"\"",
+														"webforward19": "no"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 425208354759925,
+													"parameters": {
+														"seconds": "2"
+													}
+												},
+												{
+													"id": "set-at-xy",
+													"objectClass": "Pings",
+													"sid": 900070880078998,
+													"parameters": {
+														"x": "loopindex",
+														"y": "onlineActorNrChangingY",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 820471372844106
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 107142094772375,
+											"parameters": {
+												"interval-seconds": "0.25"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "raiseevent17",
+											"objectClass": "Photon",
+											"sid": 479403237793557,
+											"parameters": {
+												"code0": "0",
+												"data1": "\"\"",
+												"interestgroup2": "0",
+												"cache11": "donotcache",
+												"receivers15": "all",
+												"targetactors16": "\"\"",
+												"webforward19": "no"
+											}
+										}
+									],
+									"sid": 357589634968461
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 580536157866402,
+											"parameters": {
+												"interval-seconds": "0.1"
+											}
+										},
+										{
+											"id": "for",
+											"objectClass": "System",
+											"sid": 889131526964969,
+											"parameters": {
+												"name": "\"\"",
+												"start-index": "0",
+												"end-index": "MaxPlayers - 1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "PingAddOfflineTimer",
+											"sid": 392769823801077,
+											"parameters": [
+												"loopindex",
+												"0.1"
+											]
+										}
+									],
+									"sid": 173933241898002,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Ping Value"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 744707706101341,
+													"parameters": {
+														"first-value": "Functions.PingGetOfflineTimer(loopindex)",
+														"comparison": 4,
+														"second-value": "Functions.PingGetPing(loopindex)"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "PingResetOfflineTimer",
+													"sid": 947750024679468,
+													"parameters": [
+														"loopindex"
+													]
+												}
+											],
+											"sid": 986136792690980
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "onevent3",
+											"objectClass": "Photon",
+											"sid": 391886565467187,
+											"parameters": {
+												"code0": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "PingResetOfflineTimer",
+											"sid": 425393441201151,
+											"parameters": [
+												"Functions.GetPlayerNumberByActorNr(Photon.ActorNr)"
+											]
+										}
+									],
+									"sid": 752700606027685,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "onevent3",
+											"objectClass": "Photon",
+											"sid": 720376826381520,
+											"parameters": {
+												"code0": "13"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "PingChangeOnlineActorNr",
+											"sid": 111379036573020,
+											"parameters": [
+												"int(Photon.EventData)",
+												"Photon.ActorNr"
+											]
+										}
+									],
+									"sid": 801774974612115
+								},
+								{
+									"functionName": "PingChangeOnlineActorNr",
+									"functionDescription": "",
+									"functionCategory": "Ping",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "playerNumber",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 768390970116532
+										},
+										{
+											"name": "newOnlineActorNr",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 408603224054588
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 156949435612897,
+											"parameters": {
+												"object": "Synced"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Synced",
+											"sid": 748520478649579,
+											"parameters": {
+												"instance-variable": "oOnlineActorNr",
+												"value": "newOnlineActorNr"
+											}
+										}
+									],
+									"sid": 774446216878611,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [],
+											"sid": 332629715432728,
+											"disabled": true,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "for-each",
+															"objectClass": "System",
+															"sid": 397373739245792,
+															"parameters": {
+																"object": "Carcas"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Carcas",
+															"sid": 832723519783468,
+															"parameters": {
+																"instance-variable": "OnlineID",
+																"comparison": 0,
+																"value": "MyActorNr"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "SyncBucksSet",
+															"sid": 755414352905322,
+															"parameters": [
+																"Carcas.UID",
+																"Carcas.Bucks",
+																"str(playerNumber)"
+															]
+														}
+													],
+													"sid": 663391647210636,
+													"disabled": true,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-children",
+																	"objectClass": "Carcas",
+																	"sid": 214795373109048,
+																	"parameters": {
+																		"child": "0HP",
+																		"which": "own"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "SyncObjHP",
+																	"sid": 951298977501750,
+																	"parameters": [
+																		"Carcas.UID"
+																	]
+																}
+															],
+															"sid": 225912368368737,
+															"disabled": true
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "for-each",
+															"objectClass": "System",
+															"sid": 361032397531958,
+															"parameters": {
+																"object": "Bot"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Bot",
+															"sid": 209054323345138,
+															"disabled": true,
+															"parameters": {
+																"instance-variable": "BotOnlineID",
+																"comparison": 0,
+																"value": "Photon.MyActorNr"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "SyncBotPosAndHP",
+															"sid": 882231506863069,
+															"parameters": [
+																"Bot.UID",
+																"str(playerNumber)"
+															]
+														}
+													],
+													"sid": 391068163894798,
+													"disabled": true,
+													"children": [
+														{
+															"eventType": "comment",
+															"text": "Изменяем OnlineID для всех ботов"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "CharacterCollider",
+																	"sid": 965250355856709,
+																	"parameters": {
+																		"instance-variable": "ID",
+																		"comparison": 0,
+																		"value": "Bot.ID"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Bot",
+																	"sid": 939764393831888,
+																	"parameters": {
+																		"instance-variable": "BotOnlineID",
+																		"value": "newOnlineActorNr"
+																	}
+																}
+															],
+															"sid": 207452710269739
+														}
+													]
+												},
+												{
+													"eventType": "comment",
+													"text": "Отправляем этому игроку координаты всех ботов"
+												}
+											]
+										},
+										{
+											"eventType": "comment",
+											"text": "Изменяем OnlineID для всех ботов"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 874655996728236,
+													"parameters": {
+														"object": "Bot"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Bot",
+													"sid": 645609373201882,
+													"parameters": {
+														"instance-variable": "BotOnlineID",
+														"comparison": 0,
+														"value": "playerNumber"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Bot",
+													"sid": 100856898483378,
+													"parameters": {
+														"instance-variable": "BotOnlineID",
+														"value": "newOnlineActorNr"
+													}
+												}
+											],
+											"sid": 495288303671898,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 921305857225395,
+													"parameters": {
+														"object": "Bot"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "CharacterCollider",
+													"sid": 449908629356156,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 0,
+														"value": "Bot.BotOnlineID"
+													}
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "CharacterCollider",
+													"sid": 913059791360368,
+													"parameters": {
+														"instance-variable": "IsOnline"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "SyncNotFoundedBot",
+													"sid": 250836799715734,
+													"parameters": [
+														"Bot.ID",
+														"Bot.BotID",
+														"str(Photon.ActorNr)"
+													]
+												}
+											],
+											"sid": 706503258095207,
+											"disabled": true,
+											"children": [
+												{
+													"eventType": "comment",
+													"text": "Изменяем OnlineID для всех ботов"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "CharacterCollider",
+															"sid": 644645677651136,
+															"parameters": {
+																"instance-variable": "ID",
+																"comparison": 0,
+																"value": "Bot.BotOnlineID"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Bot",
+															"sid": 528923416116388,
+															"parameters": {
+																"instance-variable": "BotOnlineID",
+																"value": "newOnlineActorNr"
+															}
+														}
+													],
+													"sid": 145115831752072
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "CharacterCollider",
+													"sid": 184102597243146,
+													"parameters": {
+														"instance-variable": "OnlineID",
+														"value": "newOnlineActorNr"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "CharacterCollider",
+													"sid": 644293559047453,
+													"parameters": {
+														"instance-variable": "XX",
+														"value": "Self.X"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "CharacterCollider",
+													"sid": 203601891048562,
+													"parameters": {
+														"instance-variable": "YY",
+														"value": "Self.Y"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "CharacterCollider",
+													"sid": 579761654152489,
+													"parameters": {
+														"instance-variable": "OnlineIDChanging",
+														"value": "2"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 388426948164718,
+													"parameters": {
+														"seconds": "1.0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "CharacterCollider",
+													"sid": 966333368842981,
+													"parameters": {
+														"instance-variable": "OnlineIDChanging",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 618390507888336,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-children",
+													"objectClass": "CharacterCollider",
+													"sid": 652723688699594,
+													"parameters": {
+														"child": "CharacterScins",
+														"which": "own"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "CharacterScins",
+													"sid": 749705669762133,
+													"parameters": {
+														"animation": "\"Idle\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 207523295788092,
+											"disabled": true
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 349692191756707
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 695203401961393
+								}
+							],
+							"actions": [],
+							"sid": 935578650861240,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 888204468437004,
+											"parameters": {
+												"object": "CharacterCollider"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "CharacterCollider",
+											"sid": 934881662339510,
+											"parameters": {
+												"instance-variable": "IsOnline",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "CharacterCollider",
+											"sid": 722014619588603,
+											"parameters": {
+												"instance-variable": "OfflineTImer",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "CharacterCollider",
+											"sid": 630341158093169,
+											"parameters": {
+												"instance-variable": "Ping",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "CharacterCollider",
+											"sid": 801909004538034,
+											"parameters": {
+												"instance-variable": "OnlineID",
+												"value": "MyActorNr"
+											}
+										}
+									],
+									"sid": 130275528467687
+								}
+							]
+						}
+					],
+					"sid": 680896598267702
+				},
+				{
+					"functionName": "IsCharacterMyOnline2",
+					"functionDescription": "",
+					"functionCategory": "Character",
+					"functionReturnType": "number",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 918607048743822
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "CharacterCollider",
+							"sid": 486259517102009,
+							"parameters": {
+								"unique-id": "UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 583466508725441,
+							"parameters": {
+								"value": "0"
+							}
+						}
+					],
+					"sid": 129915975482772,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "CharacterCollider",
+									"sid": 518265087684450,
+									"parameters": {
+										"instance-variable": "OnlineID",
+										"comparison": 0,
+										"value": "MyActorNr"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "CharacterCollider",
+									"sid": 566166175817877,
+									"parameters": {
+										"instance-variable": "IsOnline"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 233367405076230,
+									"parameters": {
+										"value": "1"
+									}
+								}
+							],
+							"sid": 600209386726851
+						}
+					]
+				}
+			],
+			"sid": 776190715779997
+		}
+	],
+	"sid": 779267665056461
+}

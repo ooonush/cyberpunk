@@ -1,0 +1,64 @@
+{
+	"name": "Buttons",
+	"plugin-id": "Sprite",
+	"sid": 725915353627413,
+	"instanceVariables": [
+		{
+			"name": "Scale1",
+			"type": "number",
+			"desc": "",
+			"sid": 693308456746752
+		},
+		{
+			"name": "Scale2",
+			"type": "number",
+			"desc": "",
+			"sid": 384722854025526
+		},
+		{
+			"name": "DefaultScale",
+			"type": "number",
+			"desc": "",
+			"sid": 522643696925845
+		},
+		{
+			"name": "Name",
+			"type": "string",
+			"desc": "",
+			"sid": 429285738383706
+		},
+		{
+			"name": "Value",
+			"type": "string",
+			"desc": "",
+			"sid": 404372945032204
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"StartButton",
+		"ChangeCharacterButton",
+		"AddFriendButton",
+		"OK",
+		"BuyButton",
+		"exit",
+		"AddBot",
+		"Top",
+		"JumpArrow",
+		"LeftArrow",
+		"AttackButton",
+		"RightArrow",
+		"BotBuyButton",
+		"Graphics",
+		"ChangeCharacterArrow",
+		"StartButton2",
+		"Btn",
+		"GraphicsSettings2",
+		"GraphicsSettings3",
+		"GraphicsSettings4",
+		"EmojiButton",
+		"EmojiButtonBack",
+		"MessageButton"
+	]
+}

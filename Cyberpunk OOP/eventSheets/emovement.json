@@ -1,0 +1,694 @@
+{
+	"name": "eMovement",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "PlatformMovement",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-landed",
+							"objectClass": "PlatformMovement",
+							"sid": 787224342894900,
+							"behaviorType": "oPlatform"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "PlatformMovement",
+							"sid": 358998510803051,
+							"parameters": {
+								"instance-variable": "oPlatformJumpCount",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 345383380326710
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "PlatformMovement Sync",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-landed",
+									"objectClass": "PlatformMovement",
+									"sid": 444984971295943,
+									"behaviorType": "oPlatform"
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "SyncedPositionSync",
+									"sid": 736902323618304,
+									"parameters": [
+										"PlatformMovement.UID"
+									]
+								}
+							],
+							"sid": 337736423933458
+						}
+					],
+					"sid": 193448134845925
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "PlatformMovement Moving",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-evaluate",
+									"objectClass": "System",
+									"sid": 818642399727403,
+									"parameters": {
+										"object": "PlatformMovement",
+										"expression": "Functions.MovementIsMovingToRight(PlatformMovement.UID)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "PlatformMovement",
+									"sid": 438208115009596,
+									"behaviorType": "oPlatform",
+									"parameters": {
+										"control": "right"
+									}
+								}
+							],
+							"sid": 338602934345795
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-evaluate",
+									"objectClass": "System",
+									"sid": 978107414648314,
+									"parameters": {
+										"object": "PlatformMovement",
+										"expression": "Functions.MovementIsMovingToLeft(PlatformMovement.UID)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "PlatformMovement",
+									"sid": 481741095087606,
+									"behaviorType": "oPlatform",
+									"parameters": {
+										"control": "left"
+									}
+								}
+							],
+							"sid": 626968706684550
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-evaluate",
+									"objectClass": "System",
+									"sid": 435712029851623,
+									"parameters": {
+										"object": "PlatformMovement",
+										"expression": "Functions.MovementIsMovingToUp(PlatformMovement.UID)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "PlatformMovement",
+									"sid": 108426209158214,
+									"behaviorType": "oPlatform",
+									"parameters": {
+										"control": "jump"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "PlatformMovement",
+									"sid": 293323148740931,
+									"parameters": {
+										"instance-variable": "oPlatformJumpCount",
+										"value": "1"
+									}
+								},
+								{
+									"callFunction": "MovementSetVertical",
+									"sid": 301534305332423,
+									"parameters": [
+										"PlatformMovement.UID",
+										"0"
+									]
+								}
+							],
+							"sid": 112019545649186
+						}
+					],
+					"sid": 541628277477131
+				}
+			],
+			"sid": 362716076632919
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Movement",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Movement API Variables",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Horizontal"
+						},
+						{
+							"functionName": "MovementSetHorizontal",
+							"functionDescription": "",
+							"functionCategory": "Movement",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "movementUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 328532774811948
+								},
+								{
+									"name": "value",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 227473842448866
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Movement",
+									"sid": 218239542852264,
+									"parameters": {
+										"unique-id": "movementUID"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Movement",
+									"sid": 285190116956352,
+									"parameters": {
+										"instance-variable": "MovementActive"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Movement",
+									"sid": 783474073118154,
+									"parameters": {
+										"instance-variable": "MovementHorizontal",
+										"value": "value"
+									}
+								}
+							],
+							"sid": 525830099844844
+						},
+						{
+							"functionName": "MovementGetHorizontal",
+							"functionDescription": "",
+							"functionCategory": "Movement",
+							"functionReturnType": "number",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "movementUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 789360058802083
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Movement",
+									"sid": 640879386507371,
+									"parameters": {
+										"unique-id": "movementUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 697781557855370,
+									"parameters": {
+										"value": "Movement.MovementHorizontal"
+									}
+								}
+							],
+							"sid": 429061755989051
+						},
+						{
+							"functionName": "MovementIsMovingToLeft",
+							"functionDescription": "",
+							"functionCategory": "Movement",
+							"functionReturnType": "number",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "movementUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 834543230601549
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Movement",
+									"sid": 622128716267116,
+									"parameters": {
+										"unique-id": "movementUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 109377623746300,
+									"parameters": {
+										"value": "Movement.MovementHorizontal = -1"
+									}
+								}
+							],
+							"sid": 933467262967290
+						},
+						{
+							"functionName": "MovementIsMovingToRight",
+							"functionDescription": "",
+							"functionCategory": "Movement",
+							"functionReturnType": "number",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "movementUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 682195311126593
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Movement",
+									"sid": 180791395362587,
+									"parameters": {
+										"unique-id": "movementUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 522300328211150,
+									"parameters": {
+										"value": "Movement.MovementHorizontal = 1"
+									}
+								}
+							],
+							"sid": 710400022070566
+						},
+						{
+							"eventType": "comment",
+							"text": "Vertical"
+						},
+						{
+							"functionName": "MovementSetVertical",
+							"functionDescription": "",
+							"functionCategory": "Movement",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "movementUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 321602505263798
+								},
+								{
+									"name": "value",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 298265086151211
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Movement",
+									"sid": 177219702006882,
+									"parameters": {
+										"unique-id": "movementUID"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Movement",
+									"sid": 606129205525021,
+									"parameters": {
+										"instance-variable": "MovementActive"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Movement",
+									"sid": 694050493690161,
+									"parameters": {
+										"instance-variable": "MovementVertical",
+										"value": "value"
+									}
+								}
+							],
+							"sid": 378089608404278
+						},
+						{
+							"functionName": "MovementGetVertical",
+							"functionDescription": "",
+							"functionCategory": "Movement",
+							"functionReturnType": "number",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "movementUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 340110596115929
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Movement",
+									"sid": 811417641895066,
+									"parameters": {
+										"unique-id": "movementUID"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Movement",
+									"sid": 439859716685162,
+									"parameters": {
+										"instance-variable": "MovementActive"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 411463055582206,
+									"parameters": {
+										"value": "Movement.MovementVertical"
+									}
+								}
+							],
+							"sid": 260427833574226
+						},
+						{
+							"functionName": "MovementIsMovingToUp",
+							"functionDescription": "",
+							"functionCategory": "Movement",
+							"functionReturnType": "number",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "movementUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 785322617528659
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Movement",
+									"sid": 111186277485623,
+									"parameters": {
+										"unique-id": "movementUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 151173056862796,
+									"parameters": {
+										"value": "Movement.MovementVertical = 1"
+									}
+								}
+							],
+							"sid": 547415995650322
+						},
+						{
+							"functionName": "MovementIsMovingToDown",
+							"functionDescription": "",
+							"functionCategory": "Movement",
+							"functionReturnType": "number",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "movementUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 656110697642081
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Movement",
+									"sid": 896654512291295,
+									"parameters": {
+										"unique-id": "movementUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 573920553654063,
+									"parameters": {
+										"value": "Movement.MovementVertical = 1"
+									}
+								}
+							],
+							"sid": 575451560538374
+						},
+						{
+							"eventType": "comment",
+							"text": "IsActive"
+						},
+						{
+							"functionName": "MovementIsActive",
+							"functionDescription": "",
+							"functionCategory": "Movement",
+							"functionReturnType": "number",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 829487096236864
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Movement",
+									"sid": 273840559101915,
+									"parameters": {
+										"unique-id": "UID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 404974152492279,
+									"parameters": {
+										"value": "Movement.MovementActive"
+									}
+								}
+							],
+							"sid": 467799633730183
+						}
+					],
+					"sid": 816130789299269
+				}
+			],
+			"sid": 558833722506613
+		},
+		{
+			"functionName": "MovementSetLookDir",
+			"functionDescription": "",
+			"functionCategory": "Movement",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 650058230648733
+				},
+				{
+					"name": "direction",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 585472810098416
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "0Mob",
+					"sid": 162160148960183,
+					"parameters": {
+						"unique-id": "UID"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 461128872407410,
+					"parameters": {
+						"first-value": "Functions.WeaponIsAttacking(UID)",
+						"comparison": 1,
+						"second-value": "1"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 821522004500637,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 681737780886740,
+							"parameters": {
+								"variable": "direction",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "0Mob",
+							"sid": 553052512503846,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						}
+					],
+					"sid": 602524047182117
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 155181009513220
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 914383271816598,
+							"parameters": {
+								"variable": "direction",
+								"comparison": 0,
+								"value": "-1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "0Mob",
+							"sid": 937087358831972,
+							"parameters": {
+								"state": "mirrored"
+							}
+						}
+					],
+					"sid": 528512180170640
+				}
+			]
+		}
+	],
+	"sid": 120672409594101
+}

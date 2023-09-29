@@ -1,0 +1,19 @@
+{
+	"name": "BotMob",
+	"plugin-id": "Sprite",
+	"sid": 784071323780518,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Alarmbot",
+		"BattleDrone",
+		"Cannon",
+		"Copter",
+		"Drone",
+		"Hammer",
+		"Patrol",
+		"ShockBot",
+		"StepperCannon"
+	]
+}

@@ -1,0 +1,15 @@
+{
+	"name": "NickNameInMenu",
+	"plugin-id": "Text",
+	"sid": 111253968643415,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 753611078140393
+		}
+	],
+	"effectTypes": []
+}

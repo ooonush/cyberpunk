@@ -1,0 +1,64 @@
+{
+	"name": "CharacterCollider",
+	"plugin-id": "Sprite",
+	"sid": 492752637969144,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8908336,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Attack",
+								"x": 0.5,
+								"y": 0.5
+							},
+							{
+								"name": "HPBar",
+								"x": 0.5,
+								"y": -0.15625
+							},
+							{
+								"name": "Camera",
+								"x": 0.5,
+								"y": 0.46875
+							},
+							{
+								"name": "Emoji",
+								"x": 1.25,
+								"y": 0
+							},
+							{
+								"name": "Message",
+								"x": -0.25,
+								"y": -0.125
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 773023339679507,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

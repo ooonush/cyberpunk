@@ -1,0 +1,678 @@
+{
+	"name": "EM-MatchEnding",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "EndMatch",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 781345933157745
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 519550667237031
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 744816181690034,
+					"parameters": {
+						"variable": "EndMatch",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 789695462871456
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Basa",
+					"sid": 543805636174071,
+					"parameters": {
+						"instance-variable": "HP",
+						"comparison": 3,
+						"value": "0"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 852105374960622,
+					"parameters": {
+						"variable": "EndMatch"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 593290571057887,
+					"parameters": {
+						"variable": "EndMatch",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-time-scale",
+					"objectClass": "System",
+					"sid": 657362349149273,
+					"parameters": {
+						"time-scale": "0.4"
+					}
+				},
+				{
+					"id": "create-interstitial",
+					"objectClass": "MobileAdvert",
+					"sid": 536841119181847,
+					"parameters": {
+						"advert-id": "\"ca-app-pub-2860474538448366/8521327233\"",
+						"show": "false"
+					}
+				}
+			],
+			"sid": 263573863183894,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 505190362453748,
+							"parameters": {
+								"variable": "OnlineMode"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 255951700893683,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Basa",
+									"sid": 238981926674333,
+									"parameters": {
+										"instance-variable": "Color",
+										"comparison": 0,
+										"value": "\"Blue\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 804791831647100,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 602129709261687,
+											"parameters": {
+												"variable": "MyPlayerNumber",
+												"comparison": 3,
+												"value": "MaxPlayers/2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "setpropertyofmyroom103",
+											"objectClass": "Photon",
+											"sid": 892795678430695,
+											"parameters": {
+												"propname0": "\"Basa1IsWin\"",
+												"value1": "1",
+												"webforward4": "no",
+												"checkandset7": "no",
+												"expectedvalue8": "0"
+											}
+										}
+									],
+									"sid": 613485612418068
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 980547887353356
+										}
+									],
+									"actions": [
+										{
+											"id": "setpropertyofmyroom103",
+											"objectClass": "Photon",
+											"sid": 345908257014663,
+											"parameters": {
+												"propname0": "\"Basa2IsWin\"",
+												"value1": "1",
+												"webforward4": "no",
+												"checkandset7": "no",
+												"expectedvalue8": "0"
+											}
+										}
+									],
+									"sid": 142950918070155
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Basa",
+									"sid": 974246474077057,
+									"parameters": {
+										"instance-variable": "Color",
+										"comparison": 0,
+										"value": "\"Red\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 988677535197911,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 103781937979817,
+											"parameters": {
+												"variable": "MyPlayerNumber",
+												"comparison": 3,
+												"value": "MaxPlayers/2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "setpropertyofmyroom103",
+											"objectClass": "Photon",
+											"sid": 388901544105659,
+											"parameters": {
+												"propname0": "\"Basa2IsWin\"",
+												"value1": "1",
+												"webforward4": "no",
+												"checkandset7": "no",
+												"expectedvalue8": "0"
+											}
+										}
+									],
+									"sid": 970620029340853
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 525441111642206
+										}
+									],
+									"actions": [
+										{
+											"id": "setpropertyofmyroom103",
+											"objectClass": "Photon",
+											"sid": 627473129088884,
+											"parameters": {
+												"propname0": "\"Basa1IsWin\"",
+												"value1": "1",
+												"webforward4": "no",
+												"checkandset7": "no",
+												"expectedvalue8": "0"
+											}
+										}
+									],
+									"sid": 670510138624784
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Basa",
+							"sid": 473012407672648,
+							"parameters": {
+								"instance-variable": "Color",
+								"comparison": 0,
+								"value": "\"Blue\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "OnEndMatch",
+							"sid": 597503033890106,
+							"parameters": [
+								false
+							]
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 289843199919352,
+							"parameters": {
+								"variable": "WinTrophiesCount",
+								"value": "-int(random(6, 11))"
+							}
+						}
+					],
+					"sid": 518873903432090
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 664948130529956
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "OnEndMatch",
+							"sid": 287898371726221,
+							"parameters": [
+								true
+							]
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 245336828360934,
+							"parameters": {
+								"variable": "WinTrophiesCount",
+								"value": "int(random(7, 14))"
+							}
+						}
+					],
+					"sid": 605678642671330
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "SetTrophies",
+							"sid": 589921247513117,
+							"parameters": [
+								"Trophies + WinTrophiesCount"
+							]
+						}
+					],
+					"sid": 270404111987053
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 427549920431344,
+							"parameters": {
+								"object-to-create": "Explosion",
+								"layer": "Basa.LayerName",
+								"x": "Basa.X+random(-64, 64)",
+								"y": "Basa.Y+random(-64, 0)",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 516839150110650,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 665158508322112,
+							"parameters": {
+								"object-to-create": "Explosion",
+								"layer": "Basa.LayerName",
+								"x": "Basa.X+random(-64, 64)",
+								"y": "Basa.Y+random(-64, 0)",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 912948319172403,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 784503387478153,
+							"parameters": {
+								"object-to-create": "Explosion",
+								"layer": "Basa.LayerName",
+								"x": "Basa.X+random(-64, 64)",
+								"y": "Basa.Y+random(-64, 0)",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 648413757650594,
+							"parameters": {
+								"seconds": "0.2"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 873089380594323,
+							"parameters": {
+								"object-to-create": "Explosion",
+								"layer": "Basa.LayerName",
+								"x": "Basa.X+random(-64, 64)",
+								"y": "Basa.Y+random(-64, 0)",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 677528702510391,
+							"parameters": {
+								"seconds": "0.2"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 660994588398739,
+							"parameters": {
+								"object-to-create": "Explosion",
+								"layer": "Basa.LayerName",
+								"x": "Basa.X+random(-64, 64)",
+								"y": "Basa.Y+random(-64, 0)",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 284263713471386,
+							"parameters": {
+								"object-to-create": "Explosion",
+								"layer": "Basa.LayerName",
+								"x": "Basa.X+random(-64, 64)",
+								"y": "Basa.Y+random(-64, 0)",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 390192659899481,
+							"parameters": {
+								"seconds": "0.2"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 347726056339406,
+							"parameters": {
+								"object-to-create": "Explosion",
+								"layer": "Basa.LayerName",
+								"x": "Basa.X+random(-64, 64)",
+								"y": "Basa.Y+random(-64, 0)",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 364904608167092,
+							"parameters": {
+								"seconds": "0.2"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 721198374709711,
+							"parameters": {
+								"object-to-create": "Explosion",
+								"layer": "Basa.LayerName",
+								"x": "Basa.X+random(-64, 64)",
+								"y": "Basa.Y+random(-64, 0)",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 638145348631437,
+							"parameters": {
+								"object-to-create": "Explosion",
+								"layer": "Basa.LayerName",
+								"x": "Basa.X+random(-64, 64)",
+								"y": "Basa.Y+random(-64, 0)",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 835146814116197,
+							"parameters": {
+								"seconds": "0.2"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 616113296902887,
+							"parameters": {
+								"object-to-create": "Explosion",
+								"layer": "Basa.LayerName",
+								"x": "Basa.X+random(-64, 64)",
+								"y": "Basa.Y+random(-64, 0)",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 242502540457635,
+							"parameters": {
+								"object-to-create": "Explosion",
+								"layer": "Basa.LayerName",
+								"x": "Basa.X+random(-64, 64)",
+								"y": "Basa.Y+random(-64, 0)",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 958121084713068,
+							"parameters": {
+								"seconds": "0.2"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 229787125601051,
+							"parameters": {
+								"object-to-create": "Explosion",
+								"layer": "Basa.LayerName",
+								"x": "Basa.X+random(-64, 64)",
+								"y": "Basa.Y+random(-64, 0)",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 235341964694668,
+							"parameters": {
+								"seconds": "0.2"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 699938435205339,
+							"parameters": {
+								"object-to-create": "Explosion",
+								"layer": "Basa.LayerName",
+								"x": "Basa.X+random(-64, 64)",
+								"y": "Basa.Y+random(-64, 0)",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 975587342704572,
+							"parameters": {
+								"time-scale": "1.0"
+							}
+						}
+					],
+					"sid": 961295976040761,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 707421980103635,
+									"parameters": {
+										"first-value": "MatchesPlayed",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 319143194123344,
+									"parameters": {
+										"layout": "M-MainMenu"
+									}
+								}
+							],
+							"sid": 866842747717622
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 616092139828926
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 316235667123927,
+									"parameters": {
+										"layout": "EndMatchTimer3x3"
+									}
+								}
+							],
+							"sid": 336670937027628
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-end-of-layout",
+					"objectClass": "System",
+					"sid": 256067571535580
+				}
+			],
+			"actions": [
+				{
+					"id": "set-fullscreen-scaling",
+					"objectClass": "System",
+					"sid": 739896696713423,
+					"parameters": {
+						"fullscreen-scaling": "high-quality"
+					}
+				},
+				{
+					"id": "set-canvas-size",
+					"objectClass": "System",
+					"sid": 878439113154140,
+					"parameters": {
+						"width": "384",
+						"height": "192"
+					}
+				},
+				{
+					"id": "set-layout-scale",
+					"objectClass": "System",
+					"sid": 806588070023024,
+					"parameters": {
+						"scale": "1"
+					}
+				}
+			],
+			"sid": 988036441714661
+		}
+	],
+	"sid": 462801412015389
+}

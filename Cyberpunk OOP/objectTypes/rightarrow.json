@@ -1,0 +1,84 @@
+{
+	"name": "RightArrow",
+	"plugin-id": "Sprite",
+	"sid": 484873786493269,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 34,
+						"height": 30,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "E:\\igraepta\\Кнструк\\v2\\Новая папка (2)\\Animations\\RightArrow\\Default\\000.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3284824,
+						"collisionPoly": {
+							"points": [
+								0.029411764705882353,
+								0,
+								0.9705882352941176,
+								0,
+								0.9705882352941176,
+								1,
+								0.029411764705882353,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 491678682646763,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			},
+			{
+				"frames": [
+					{
+						"width": 34,
+						"height": 30,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "E:\\igraepta\\Кнструк\\v2\\Новая папка (2)\\Animations\\RightArrow\\Default\\000.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7488417,
+						"collisionPoly": {
+							"points": [
+								0.029411764705882353,
+								0,
+								0.9705882352941176,
+								0,
+								0.9705882352941176,
+								1,
+								0.029411764705882353,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 370300054606018,
+				"name": "Touched",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

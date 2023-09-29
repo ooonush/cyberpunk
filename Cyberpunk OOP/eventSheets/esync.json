@@ -1,0 +1,1764 @@
+{
+	"name": "eSync",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Synced",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Synced States",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "SyncedOnSync",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "hasSyncUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 117933297180342
+								},
+								{
+									"name": "senderActorNr",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 183167428565209
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Synced",
+									"sid": 488509507795453,
+									"parameters": {
+										"unique-id": "hasSyncUID"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 721965991770158,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Synced",
+											"sid": 129926928786934,
+											"parameters": {
+												"instance-variable": "oOnlineActorNr",
+												"comparison": 1,
+												"value": "senderActorNr"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Synced",
+											"sid": 397504352823702,
+											"parameters": {
+												"instance-variable": "oOnlineActorNr",
+												"value": "senderActorNr"
+											}
+										}
+									],
+									"sid": 384000894631143
+								}
+							]
+						}
+					],
+					"sid": 744629844016489
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Synced API",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Synced API Position",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"functionName": "SyncedPositionSync",
+									"functionDescription": "",
+									"functionCategory": "Synced",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "hasSyncUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 134919053915055
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 625434307774304,
+											"parameters": {
+												"variable": "OnlineMode"
+											}
+										},
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Synced",
+											"sid": 250997280830731,
+											"parameters": {
+												"unique-id": "hasSyncUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "raiseevent17",
+											"objectClass": "Photon",
+											"sid": 938235857306751,
+											"parameters": {
+												"code0": "101",
+												"data1": "Synced.oID&\"/\"&int(Synced.X)&\"/\"&int(Synced.Y)",
+												"interestgroup2": "0",
+												"cache11": "donotcache",
+												"receivers15": "others",
+												"targetactors16": "Functions.GetOnlineOthers",
+												"webforward19": "no"
+											}
+										}
+									],
+									"sid": 996196256512945
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "onevent3",
+											"objectClass": "Photon",
+											"sid": 470547857239632,
+											"parameters": {
+												"code0": "101"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Synced",
+											"sid": 206941661377446,
+											"parameters": {
+												"instance-variable": "oID",
+												"comparison": 0,
+												"value": "tokenat(Photon.EventData, 0, \"/\")"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Synced",
+											"sid": 955406148553970,
+											"parameters": {
+												"x": "Functions.GetXByColor(int(tokenat(Photon.EventData, 1, \"/\")), Functions.СoloredGetColotByUID(Synced.UID))",
+												"y": "int(tokenat(Photon.EventData, 2, \"/\"))"
+											}
+										},
+										{
+											"callFunction": "SyncedOnSync",
+											"sid": 134361138281989,
+											"parameters": [
+												"Synced.UID",
+												"Photon.ActorNr"
+											]
+										}
+									],
+									"sid": 572910763114850
+								},
+								{
+									"functionName": "SyncedPositionAndWidthSync",
+									"functionDescription": "",
+									"functionCategory": "Synced",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "hasSyncUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 303179239316086
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 936736729657863,
+											"parameters": {
+												"variable": "OnlineMode"
+											}
+										},
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Synced",
+											"sid": 555991922742603,
+											"parameters": {
+												"unique-id": "hasSyncUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "raiseevent17",
+											"objectClass": "Photon",
+											"sid": 342547276619509,
+											"parameters": {
+												"code0": "103",
+												"data1": "Synced.oID&\"/\"&int(Synced.X)&\"/\"&int(Synced.Y)&\"/\"&Synced.Width",
+												"interestgroup2": "0",
+												"cache11": "donotcache",
+												"receivers15": "others",
+												"targetactors16": "Functions.GetOnlineOthers",
+												"webforward19": "no"
+											}
+										}
+									],
+									"sid": 344474657235637
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "onevent3",
+											"objectClass": "Photon",
+											"sid": 483550179272923,
+											"parameters": {
+												"code0": "103"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Synced",
+											"sid": 546134056484205,
+											"parameters": {
+												"instance-variable": "oID",
+												"comparison": 0,
+												"value": "tokenat(Photon.EventData, 0, \"/\")"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Synced",
+											"sid": 560868148010723,
+											"parameters": {
+												"x": "Functions.GetXByColor(int(tokenat(Photon.EventData, 1, \"/\")), Functions.СoloredGetColotByUID(Synced.UID))",
+												"y": "int(tokenat(Photon.EventData, 2, \"/\"))"
+											}
+										},
+										{
+											"id": "set-width",
+											"objectClass": "Synced",
+											"sid": 139011684029272,
+											"parameters": {
+												"width": "Functions.GetWidthByActorNr(int(tokenat(Photon.EventData, 3, \"/\")), Photon.ActorNr)"
+											}
+										},
+										{
+											"callFunction": "SyncedOnSync",
+											"sid": 389480402735471,
+											"parameters": [
+												"Synced.UID",
+												"Photon.ActorNr"
+											]
+										}
+									],
+									"sid": 659081043381897
+								},
+								{
+									"functionName": "SyncedPositionSyncAndDestroy",
+									"functionDescription": "",
+									"functionCategory": "Synced",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "hasSyncUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 571975722451719
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 367743773639223,
+											"parameters": {
+												"variable": "OnlineMode"
+											}
+										},
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Synced",
+											"sid": 528485914739169,
+											"parameters": {
+												"unique-id": "hasSyncUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "raiseevent17",
+											"objectClass": "Photon",
+											"sid": 887895271590620,
+											"parameters": {
+												"code0": "102",
+												"data1": "Synced.oID&\"/\"&int(Synced.X)&\"/\"&int(Synced.Y)",
+												"interestgroup2": "0",
+												"cache11": "donotcache",
+												"receivers15": "others",
+												"targetactors16": "Functions.GetOnlineOthers",
+												"webforward19": "no"
+											}
+										}
+									],
+									"sid": 354533881313526
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "onevent3",
+											"objectClass": "Photon",
+											"sid": 264128541282456,
+											"parameters": {
+												"code0": "102"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Synced",
+											"sid": 160774514126589,
+											"parameters": {
+												"instance-variable": "oID",
+												"comparison": 0,
+												"value": "tokenat(Photon.EventData, 0, \"/\")"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Synced",
+											"sid": 660643016448479,
+											"parameters": {
+												"x": "Functions.GetXByColor(int(tokenat(Photon.EventData, 1, \"/\")), Functions.СoloredGetColotByUID(Synced.UID))",
+												"y": "int(tokenat(Photon.EventData, 2, \"/\"))"
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Synced",
+											"sid": 414589827652383
+										},
+										{
+											"callFunction": "SyncedOnSync",
+											"sid": 575132083249027,
+											"parameters": [
+												"Synced.UID",
+												"Photon.ActorNr"
+											]
+										}
+									],
+									"sid": 528906955246585
+								}
+							],
+							"sid": 578892491716869
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Synced API Animation",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"functionName": "SyncedSetAnimationSync",
+									"functionDescription": "",
+									"functionCategory": "Synced",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "UID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 131732902275958
+										},
+										{
+											"name": "animationName",
+											"type": "string",
+											"initialValue": "",
+											"comment": "",
+											"sid": 835592675537018
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Synced",
+											"sid": 787439885133454,
+											"parameters": {
+												"unique-id": "UID"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 469642934705389,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 640258221267425,
+													"parameters": {
+														"variable": "OnlineMode"
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Synced",
+													"sid": 576361978621616,
+													"parameters": {
+														"animation": "animationName"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "raiseevent17",
+													"objectClass": "Photon",
+													"sid": 798289483296659,
+													"parameters": {
+														"code0": "11",
+														"data1": "Synced.oID&\"/\"&animationName",
+														"interestgroup2": "0",
+														"cache11": "donotcache",
+														"receivers15": "others",
+														"targetactors16": "Functions.GetOnlineOthers",
+														"webforward19": "no"
+													}
+												}
+											],
+											"sid": 675204717577171
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"callFunction": "SyncedSetAnimation",
+													"sid": 878569324047606,
+													"parameters": [
+														"UID",
+														"animationName"
+													]
+												}
+											],
+											"sid": 663045474347252
+										}
+									]
+								},
+								{
+									"functionName": "SyncedSetAnimation",
+									"functionDescription": "",
+									"functionCategory": "Synced",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "UID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 450513738815025
+										},
+										{
+											"name": "animationName",
+											"type": "string",
+											"initialValue": "",
+											"comment": "",
+											"sid": 964313541331739
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Synced",
+											"sid": 466920843961588,
+											"parameters": {
+												"unique-id": "UID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Synced",
+											"sid": 880428665676171,
+											"parameters": {
+												"animation": "animationName",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 994071810263085,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 511520442292338,
+													"parameters": {
+														"variable": "animationName",
+														"comparison": 0,
+														"value": "\"Jump\""
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 808597713909829,
+													"parameters": {
+														"variable": "animationName",
+														"comparison": 0,
+														"value": "\"DoubleJump\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "OnCharacterJump",
+													"sid": 677877027685934,
+													"parameters": [
+														"CharacterCollider.UID"
+													]
+												}
+											],
+											"sid": 566478013366637,
+											"disabled": true,
+											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 916501641351635
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "CharacterScins",
+													"sid": 517360635291298,
+													"parameters": {
+														"animation": "\"Falling\""
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 832147146540341,
+													"parameters": {
+														"variable": "animationName",
+														"comparison": 0,
+														"value": "\"Falling\""
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "OnCharacterLanded",
+													"sid": 508150971898853,
+													"parameters": [
+														"UID"
+													]
+												}
+											],
+											"sid": 539414640671538,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-children",
+													"objectClass": "CharacterCollider",
+													"sid": 922310812620167,
+													"parameters": {
+														"child": "RunParticles",
+														"which": "own"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 917237523721237,
+											"disabled": true,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 323838390443590,
+															"parameters": {
+																"variable": "animationName",
+																"comparison": 0,
+																"value": "\"Run\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-visible",
+															"objectClass": "RunParticles",
+															"sid": 580656755353449,
+															"parameters": {
+																"visibility": "visible"
+															}
+														}
+													],
+													"sid": 173785595624579,
+													"disabled": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 784666413603292
+														}
+													],
+													"actions": [
+														{
+															"id": "set-visible",
+															"objectClass": "RunParticles",
+															"sid": 355893117376666,
+															"parameters": {
+																"visibility": "invisible"
+															}
+														}
+													],
+													"sid": 409587468639169,
+													"disabled": true
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "onevent3",
+											"objectClass": "Photon",
+											"sid": 669619156281100,
+											"parameters": {
+												"code0": "11"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Synced",
+											"sid": 543969939232763,
+											"parameters": {
+												"instance-variable": "oID",
+												"comparison": 0,
+												"value": "tokenat(Photon.EventData, 0, \"/\")"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "SyncedSetAnimation",
+											"sid": 471354816848457,
+											"parameters": [
+												"Synced.UID",
+												"tokenat(Photon.EventData, 1, \"/\")"
+											]
+										},
+										{
+											"callFunction": "SyncedOnSync",
+											"sid": 274600338677126,
+											"parameters": [
+												"Synced.UID",
+												"Photon.ActorNr"
+											]
+										}
+									],
+									"sid": 789785550460503
+								}
+							],
+							"sid": 373517016642615
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Synced API Variables",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"functionName": "SyncedGetIDByUID",
+									"functionDescription": "",
+									"functionCategory": "Synced",
+									"functionReturnType": "string",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "hasSyncUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 219662939915896
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Synced",
+											"sid": 878679468182695,
+											"parameters": {
+												"unique-id": "hasSyncUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 954718123084861,
+											"parameters": {
+												"value": "Synced.oID"
+											}
+										}
+									],
+									"sid": 479842140056722
+								},
+								{
+									"functionName": "SyncedSetIDByUID",
+									"functionDescription": "",
+									"functionCategory": "Synced",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "hasSyncUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 870523475466196
+										},
+										{
+											"name": "ID",
+											"type": "string",
+											"initialValue": "",
+											"comment": "",
+											"sid": 990930124768849
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Synced",
+											"sid": 911460349661878,
+											"parameters": {
+												"unique-id": "hasSyncUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Synced",
+											"sid": 338395887598708,
+											"parameters": {
+												"instance-variable": "oID",
+												"value": "ID"
+											}
+										}
+									],
+									"sid": 962272266004127
+								},
+								{
+									"functionName": "SyncedGetUIDByID",
+									"functionDescription": "",
+									"functionCategory": "Synced",
+									"functionReturnType": "number",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "ID",
+											"type": "string",
+											"initialValue": "",
+											"comment": "",
+											"sid": 579076557058656
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Synced",
+											"sid": 983212845369646,
+											"parameters": {
+												"instance-variable": "oID",
+												"comparison": 0,
+												"value": "ID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 553814348898422,
+											"parameters": {
+												"value": "Synced.UID"
+											}
+										}
+									],
+									"sid": 807260257857970
+								},
+								{
+									"functionName": "SyncedGetOnlineActorNrByUID",
+									"functionDescription": "",
+									"functionCategory": "Synced",
+									"functionReturnType": "number",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "hasSyncUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 144758374752407
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Synced",
+											"sid": 390822226182866,
+											"parameters": {
+												"unique-id": "hasSyncUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 686643261379301,
+											"parameters": {
+												"value": "Synced.oOnlineActorNr"
+											}
+										}
+									],
+									"sid": 660176508164319
+								},
+								{
+									"functionName": "SyncedIsMyOnline",
+									"functionDescription": "",
+									"functionCategory": "Synced",
+									"functionReturnType": "number",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "hasSyncUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 792393820412500
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Synced",
+											"sid": 194638580045401,
+											"parameters": {
+												"unique-id": "hasSyncUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 812318131719590,
+											"parameters": {
+												"value": "Synced.oOnlineActorNr = MyActorNr"
+											}
+										}
+									],
+									"sid": 705475111198802
+								},
+								{
+									"functionName": "SyncedSetOnlineActorNrByUID",
+									"functionDescription": "",
+									"functionCategory": "Synced",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "hasSyncUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 958061276002182
+										},
+										{
+											"name": "newOnlineActorNr",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 658069911788049
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Synced",
+											"sid": 644868852250580,
+											"parameters": {
+												"unique-id": "hasSyncUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Synced",
+											"sid": 292458891944926,
+											"parameters": {
+												"instance-variable": "oOnlineActorNr",
+												"value": "newOnlineActorNr"
+											}
+										}
+									],
+									"sid": 436083293266186
+								}
+							],
+							"sid": 500821944774136
+						}
+					],
+					"sid": 171856268379121
+				}
+			],
+			"sid": 515873130742426
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Сolored",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "СoloredGetColotByUID",
+					"functionDescription": "",
+					"functionCategory": "Сolored",
+					"functionReturnType": "string",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "hasColorUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 904117398235717
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Сolored",
+							"sid": 787736420462160,
+							"parameters": {
+								"unique-id": "hasColorUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 961363854346620,
+							"parameters": {
+								"value": "Сolored.oColor"
+							}
+						}
+					],
+					"sid": 956066054910501
+				},
+				{
+					"functionName": "СoloredSetColotByUID",
+					"functionDescription": "",
+					"functionCategory": "Сolored",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "hasColorUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 859959567949350
+						},
+						{
+							"name": "color",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 991206451770358
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Сolored",
+							"sid": 902154046100517,
+							"parameters": {
+								"unique-id": "hasColorUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Сolored",
+							"sid": 727290180789498,
+							"parameters": {
+								"instance-variable": "oColor",
+								"value": "color"
+							}
+						}
+					],
+					"sid": 237549225016057
+				}
+			],
+			"sid": 835143934186767
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "SyncUtils",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "GetXByActorNr",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "number",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "X",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 353888226132999
+						},
+						{
+							"name": "ActorNr",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 400364746047227
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 682082528722411,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 119449731495821,
+									"parameters": {
+										"first-value": "Functions.GetColorByActorNr(ActorNr)",
+										"comparison": 0,
+										"second-value": "\"Blue\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 918400441405072,
+									"parameters": {
+										"value": "X"
+									}
+								}
+							],
+							"sid": 880848800665961
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 274542671590471,
+									"parameters": {
+										"first-value": "Functions.GetColorByActorNr(ActorNr)",
+										"comparison": 0,
+										"second-value": "\"Red\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 774983010498804,
+									"parameters": {
+										"value": "center.X+(center.X-X)"
+									}
+								}
+							],
+							"sid": 641154847596189
+						}
+					]
+				},
+				{
+					"functionName": "GetInverseColor",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "string",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Color",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 726446271575201
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 886758028035385,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 365538248925986,
+									"parameters": {
+										"variable": "Color",
+										"comparison": 0,
+										"value": "\"Blue\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 804300247431783,
+									"parameters": {
+										"value": "\"Red\""
+									}
+								}
+							],
+							"sid": 406409082239931
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 531544505123624
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 129492679810240,
+									"parameters": {
+										"value": "\"Blue\""
+									}
+								}
+							],
+							"sid": 472937741791901
+						}
+					]
+				},
+				{
+					"functionName": "GetXByColor",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "number",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "X",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 824984657031645
+						},
+						{
+							"name": "Color",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 686510792352245
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 682722433298704,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 848169172074674,
+									"parameters": {
+										"variable": "Color",
+										"comparison": 0,
+										"value": "\"Blue\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 138939768651841,
+									"parameters": {
+										"value": "X"
+									}
+								}
+							],
+							"sid": 643943763538190
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 678466883269564
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 427170239473370,
+									"parameters": {
+										"value": "center.X+(center.X-X)"
+									}
+								}
+							],
+							"sid": 401021868688154
+						}
+					]
+				},
+				{
+					"functionName": "ChangeColorByActorNr",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "string",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "ActorNr",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 308545566349259
+						},
+						{
+							"name": "ObjectColor",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 792988637667712
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 108379476734876,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "ActorColor",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 733650104396310
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 770837194562645,
+									"parameters": {
+										"first-value": "Functions.GetColorByActorNr(ActorNr)",
+										"comparison": 0,
+										"second-value": "\"Blue\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 103464832249089,
+									"parameters": {
+										"value": "ObjectColor"
+									}
+								}
+							],
+							"sid": 636232976062298
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 135327993622927
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 468371778473453,
+									"parameters": {
+										"value": "Functions.GetInverseColor(ObjectColor)"
+									}
+								}
+							],
+							"sid": 717889474142311
+						}
+					]
+				},
+				{
+					"functionName": "GetAngleByActorNr",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "number",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Angle1",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 622952069652652
+						},
+						{
+							"name": "ActorNr",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 354947618529817
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 459060694643531,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "newAngle",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 583590629382412
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 903938415395111,
+									"parameters": {
+										"first-value": "Functions.GetColorByActorNr(ActorNr)",
+										"comparison": 0,
+										"second-value": "\"Blue\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 638434374251560,
+									"parameters": {
+										"value": "Angle1"
+									}
+								}
+							],
+							"sid": 472812776652153
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 573797371702691
+								}
+							],
+							"actions": [],
+							"sid": 920421624714112,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 222715451294920,
+											"parameters": {
+												"variable": "Angle1",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 640800960700371,
+											"parameters": {
+												"value": "180"
+											}
+										}
+									],
+									"sid": 605408492843412
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 898203552949451,
+											"parameters": {
+												"variable": "Angle1",
+												"comparison": 0,
+												"value": "180"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 211952367972421,
+											"parameters": {
+												"value": "0"
+											}
+										}
+									],
+									"sid": 408236065339669
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "GetWidthByActorNr",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "number",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Width",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 496294367112602
+						},
+						{
+							"name": "ActorNr",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 481215997175787
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 977739751287141,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 858422164488822,
+									"parameters": {
+										"first-value": "Functions.GetColorByActorNr(ActorNr)",
+										"comparison": 0,
+										"second-value": "\"Blue\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 639098060930919,
+									"parameters": {
+										"value": "Width"
+									}
+								}
+							],
+							"sid": 148141932757350
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 707719379030005
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 301910769487293,
+									"parameters": {
+										"value": "-1*Width"
+									}
+								}
+							],
+							"sid": 621018309785446
+						}
+					]
+				},
+				{
+					"functionName": "GetColorByActorNr",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "string",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "ActorNr",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 835921877586299
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 580777976793439,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "CharacterCollider",
+									"sid": 731595564700105,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "ActorNr"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 973512369961013,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 566434999135182,
+											"parameters": {
+												"variable": "MyPlayerNumber",
+												"comparison": 3,
+												"value": "MaxPlayers/2"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "CharacterCollider",
+											"sid": 633883780805614,
+											"parameters": {
+												"instance-variable": "PlayerNumber",
+												"comparison": 3,
+												"value": "MaxPlayers/2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 321000104674089,
+											"parameters": {
+												"value": "\"Blue\""
+											}
+										}
+									],
+									"sid": 717443279170230
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 891650214494452
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 896175913629399,
+											"parameters": {
+												"variable": "MyPlayerNumber",
+												"comparison": 4,
+												"value": "MaxPlayers/2"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "CharacterCollider",
+											"sid": 958632796470597,
+											"parameters": {
+												"instance-variable": "PlayerNumber",
+												"comparison": 4,
+												"value": "MaxPlayers/2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 276307466667893,
+											"parameters": {
+												"value": "\"Blue\""
+											}
+										}
+									],
+									"sid": 175130079021182
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 856562325632924
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 743028849443778,
+											"parameters": {
+												"value": "\"Red\""
+											}
+										}
+									],
+									"sid": 168864097937552
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 812019657789393
+		}
+	],
+	"sid": 510979877251110
+}

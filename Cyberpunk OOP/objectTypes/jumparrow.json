@@ -1,0 +1,72 @@
+{
+	"name": "JumpArrow",
+	"plugin-id": "Sprite",
+	"sid": 901636685560601,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 30,
+						"height": 34,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "E:\\igraepta\\Кнструк\\v2\\Новая папка (2)\\Animations\\Jump\\Default\\000.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2211937,
+						"collisionPoly": {
+							"points": [
+								0,
+								1,
+								0,
+								0,
+								1,
+								0,
+								1,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 351138157130987,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			},
+			{
+				"frames": [
+					{
+						"width": 30,
+						"height": 34,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1246334,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 671679910140473,
+				"name": "Touched",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

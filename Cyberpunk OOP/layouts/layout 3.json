@@ -1,0 +1,157 @@
+{
+	"name": "Layout 3",
+	"layers": [
+		{
+			"name": "Layer 0",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [
+				{
+					"type": "CharacterCollider",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 110,
+					"instanceVariables": {
+						"ID": 1,
+						"OnlineID": 0,
+						"IsDeath": false,
+						"PlayerNumber": 4,
+						"OfflineTImer": 0,
+						"IsOnline": false,
+						"HP": 1500,
+						"CharacterName": "Punk",
+						"XX": 0,
+						"YY": 0,
+						"Color": "",
+						"Ping": 0,
+						"Direction": 0,
+						"JumpCount": 0,
+						"Damage": 120,
+						"StartX": 0,
+						"StartY": 0,
+						"ShiledTimer": 0,
+						"Bucks": 0,
+						"Ready": false,
+						"OnlineIDChanging": 0,
+						"LastBotID": 0,
+						"NickName": "",
+						"BulletCount": 3,
+						"AddBulletTimer": 0,
+						"MaxHP": 0,
+						"AttackBlockTimer": 0.4,
+						"BucksOnDeath": 0,
+						"BotCondition": "Default",
+						"Bot1Name": "",
+						"Bot2Name": "",
+						"Bot3Name": "",
+						"BotMessage": "",
+						"BotMessageX": 0,
+						"BotMessageY": 0
+					},
+					"behaviors": {
+						"Platform": {
+							"properties": {
+								"max-speed": 128,
+								"acceleration": 2000,
+								"deceleration": 2000,
+								"jump-strength": 300,
+								"gravity": 1200,
+								"max-fall-speed": 900,
+								"double-jump": true,
+								"jump-sustain": 0,
+								"default-controls": true,
+								"enabled": false
+							}
+						},
+						"Timer": {
+							"properties": {}
+						}
+					},
+					"sceneGraphData": {
+						"parent-uid": null,
+						"uid": 110,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"a": true,
+							"d": true,
+							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"world": {
+						"x": 182,
+						"y": 199,
+						"width": 17.43863719914205,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 980860834495138,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": false,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		}
+	],
+	"sid": 847649571084512,
+	"nonworld-instances": [],
+	"effectTypes": [],
+	"width": 768,
+	"height": 768,
+	"unboundedScrolling": false,
+	"vpX": 0.5,
+	"vpY": 0.5,
+	"projection": "perspective",
+	"eventSheet": "Event sheet 2"
+}

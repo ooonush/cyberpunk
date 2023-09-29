@@ -1,0 +1,588 @@
+{
+	"name": "E-Localization",
+	"events": [
+		{
+			"functionName": "SetLocalization",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 496228774359127,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 429027758676350,
+							"parameters": {
+								"variable": "Language",
+								"comparison": 0,
+								"value": "\"RU\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 732273575880742,
+							"parameters": {
+								"key": "\"Graphics\"",
+								"value": "\"ГРАФИКА\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 362569949971975,
+							"parameters": {
+								"key": "\"BotPhase\"",
+								"value": "\"ФАЗА ПОКУПКИ БОТОВ\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 602815536351495,
+							"parameters": {
+								"key": "\"BucksPhase\"",
+								"value": "\"ФАЗА СБОРА ДЕНЕГ\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 249117913452553,
+							"parameters": {
+								"key": "\"TimeLeft\"",
+								"value": "\"ОСТАЛОСЬ\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 485868130955349,
+							"parameters": {
+								"key": "\"Play\"",
+								"value": "\"ИГРАТЬ\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 965298748355941,
+							"parameters": {
+								"key": "\"Region\"",
+								"value": "\"РЕГИОН\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 419349663301454,
+							"parameters": {
+								"key": "\"PlayersFound\"",
+								"value": "\"НАЙДЕНО ИГРОКОВ\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 908453642022687,
+							"parameters": {
+								"key": "\"Exit\"",
+								"value": "\"ВЫЙТИ\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 400605888560042,
+							"parameters": {
+								"key": "\"SelectRegion\"",
+								"value": "\"ВЫБЕРИ РЕГИОН\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 236746062207582,
+							"parameters": {
+								"key": "\"SelectBot\"",
+								"value": "\"ВЫБЕРИ ТЕХНИКУ\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 927634333297673,
+							"parameters": {
+								"key": "\"Jump\"",
+								"value": "\"ПРЫЖОК\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 234515933182419,
+							"parameters": {
+								"key": "\"DoubleJump\"",
+								"value": "\"ДВОЙНОЙ ПРЫЖОК\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 547475084521964,
+							"parameters": {
+								"key": "\"Moving\"",
+								"value": "\"ПЕРЕДВИЖЕНИЕ\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 587333435699425,
+							"parameters": {
+								"key": "\"Attack\"",
+								"value": "\"АТАКА\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 635195190751223,
+							"parameters": {
+								"key": "\"Connecting\"",
+								"value": "\"СОЕДИНЕНИЕ\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 134265138863710,
+							"parameters": {
+								"key": "\"Win\"",
+								"value": "\"ПОБЕДА\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 290135368418630,
+							"parameters": {
+								"key": "\"Loose\"",
+								"value": "\"ПРОИГРЫШ\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 250651688488157,
+							"parameters": {
+								"key": "\"AttackMessage\"",
+								"value": "\"АТАКУЙТЕ БАЗУ!\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 692795960583849,
+							"parameters": {
+								"key": "\"DefenseMessage\"",
+								"value": "\"ЗАЩИЩАЙТЕ БАЗУ!\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 854497798596412,
+							"parameters": {
+								"key": "\"HelpMessage\"",
+								"value": "\"НУЖНА ПОМОЩЬ!\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 428218378806532,
+							"parameters": {
+								"key": "\"EnemyMessage\"",
+								"value": "\"ОБНАРУЖЕН ВРАГ!\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 507496564219282,
+							"parameters": {
+								"key": "\"AttackMessageButton\"",
+								"value": "\"АТАКУЙТЕ!\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 682174872762520,
+							"parameters": {
+								"key": "\"DefenseMessageButton\"",
+								"value": "\"ЗАЩИЩАЙТЕ!\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 517333386784080,
+							"parameters": {
+								"key": "\"HelpMessageButton\"",
+								"value": "\"ПОМОЩЬ!\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 146909745204443,
+							"parameters": {
+								"key": "\"EnemyMessageButton\"",
+								"value": "\"ВРАГ!\""
+							}
+						}
+					],
+					"sid": 246772149067102
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 832292609935548,
+							"parameters": {
+								"variable": "Language",
+								"comparison": 0,
+								"value": "\"ENG\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 613513088466759,
+							"parameters": {
+								"key": "\"Graphics\"",
+								"value": "\"GRAPHICS\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 600721414315895,
+							"parameters": {
+								"key": "\"BotPhase\"",
+								"value": "\"BOT BUYING PHASE\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 637796027281584,
+							"parameters": {
+								"key": "\"BucksPhase\"",
+								"value": "\"BUCKS COLLECTING PHASE\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 450225588579518,
+							"parameters": {
+								"key": "\"TimeLeft\"",
+								"value": "\"TIME LEFT\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 955023235444801,
+							"parameters": {
+								"key": "\"Play\"",
+								"value": "\"PLAY\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 480625951398876,
+							"parameters": {
+								"key": "\"Region\"",
+								"value": "\"REGION\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 915387535699285,
+							"parameters": {
+								"key": "\"PlayersFound\"",
+								"value": "\"PLAYERS FOUND\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 184039406143073,
+							"parameters": {
+								"key": "\"Exit\"",
+								"value": "\"EXIT\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 117731114023645,
+							"parameters": {
+								"key": "\"SelectRegion\"",
+								"value": "\"SELECT REGION\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 964779529372591,
+							"parameters": {
+								"key": "\"SelectBot\"",
+								"value": "\"SELECT THE ROBOT\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 569316704566474,
+							"parameters": {
+								"key": "\"Jump\"",
+								"value": "\"JUMP\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 320767912349740,
+							"parameters": {
+								"key": "\"DoubleJump\"",
+								"value": "\"DOUBLE JUMP\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 296984215240444,
+							"parameters": {
+								"key": "\"Moving\"",
+								"value": "\"MOVING\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 700839509299495,
+							"parameters": {
+								"key": "\"Attack\"",
+								"value": "\"ATTACK\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 709031280401342,
+							"parameters": {
+								"key": "\"Connecting\"",
+								"value": "\"CONNECTIONG\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 917121256409565,
+							"parameters": {
+								"key": "\"Win\"",
+								"value": "\"WIN\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 850752942747561,
+							"parameters": {
+								"key": "\"Loose\"",
+								"value": "\"LOOSE\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 999986480188296,
+							"parameters": {
+								"key": "\"AttackMessage\"",
+								"value": "\"ATTACK BASE!\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 218591140669543,
+							"parameters": {
+								"key": "\"DefenseMessage\"",
+								"value": "\"DEFENSE THE BASE!\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 761225268817264,
+							"parameters": {
+								"key": "\"HelpMessage\"",
+								"value": "\"NEED HELP!\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 183731116682618,
+							"parameters": {
+								"key": "\"EnemyMessage\"",
+								"value": "\"ENEMY DETECTED!\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 922644105093592,
+							"parameters": {
+								"key": "\"AttackMessageButton\"",
+								"value": "\"ATTACK!\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 621453655875979,
+							"parameters": {
+								"key": "\"DefenseMessageButton\"",
+								"value": "\"DEFENSE!\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 641014112234628,
+							"parameters": {
+								"key": "\"HelpMessageButton\"",
+								"value": "\"HELP!\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Localization",
+							"sid": 221351184367419,
+							"parameters": {
+								"key": "\"EnemyMessageButton\"",
+								"value": "\"ENEMY!\""
+							}
+						}
+					],
+					"sid": 542853751568816
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 134264445608068
+				}
+			],
+			"actions": [],
+			"sid": 601235087016160,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 838910442527278,
+							"parameters": {
+								"object": "2SpriteFont"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "2SpriteFont",
+							"sid": 238684024853383,
+							"parameters": {
+								"instance-variable": "LocalizationKey",
+								"comparison": 1,
+								"value": "\"\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "2SpriteFont",
+							"sid": 302776475190361,
+							"parameters": {
+								"text": "Localization.Get(Self.LocalizationKey)"
+							}
+						}
+					],
+					"sid": 104642247467968
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 447271502770619,
+							"parameters": {
+								"object": "Text"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 108186378775333,
+							"parameters": {
+								"instance-variable": "LocalizationKey",
+								"comparison": 1,
+								"value": "\"\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 262302296451112,
+							"parameters": {
+								"text": "Localization.Get(Self.LocalizationKey)"
+							}
+						}
+					],
+					"sid": 310435578485234
+				}
+			]
+		}
+	],
+	"sid": 382452379957082
+}

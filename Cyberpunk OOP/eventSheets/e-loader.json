@@ -1,0 +1,1145 @@
+{
+	"name": "E-Loader",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "SaveCount",
+			"type": "number",
+			"initialValue": "12",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 575475787722166
+		},
+		{
+			"eventType": "variable",
+			"name": "FirstStart",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 946913181459916
+		},
+		{
+			"eventType": "variable",
+			"name": "RegionSelected",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 354275602823278
+		},
+		{
+			"eventType": "variable",
+			"name": "Language",
+			"type": "string",
+			"initialValue": "ENG",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 919468946942558
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 161822657977491
+				}
+			],
+			"actions": [
+				{
+					"id": "clear-storage",
+					"objectClass": "LocalStorage",
+					"sid": 110346870928389,
+					"disabled": true
+				},
+				{
+					"id": "set-size",
+					"objectClass": "Sprite36",
+					"sid": 444241502317397,
+					"parameters": {
+						"width": "ViewportWidth(0)",
+						"height": "ViewportHeight(0)"
+					}
+				},
+				{
+					"id": "addavailableresourcecurrency",
+					"objectClass": "1GameAnalytics",
+					"sid": 950681179797588,
+					"parameters": {
+						"currency": "\"Trophies\""
+					}
+				},
+				{
+					"id": "addavailableresourceitemtype",
+					"objectClass": "1GameAnalytics",
+					"sid": 125519307464674,
+					"parameters": {
+						"item_type": "\"Item1\""
+					}
+				},
+				{
+					"id": "addavailableresourceitemtype",
+					"objectClass": "1GameAnalytics",
+					"sid": 112980506070605,
+					"parameters": {
+						"item_type": "\"Item2\""
+					}
+				},
+				{
+					"id": "addavailablecustomdimension01",
+					"objectClass": "1GameAnalytics",
+					"sid": 376638970826536,
+					"parameters": {
+						"dimension": "\"Dimension1\""
+					}
+				},
+				{
+					"id": "addavailablecustomdimension02",
+					"objectClass": "1GameAnalytics",
+					"sid": 869285377375311,
+					"parameters": {
+						"dimension": "\"Dimension2\""
+					}
+				},
+				{
+					"id": "addavailablecustomdimension02",
+					"objectClass": "1GameAnalytics",
+					"sid": 820257686980813,
+					"parameters": {
+						"dimension": "\"Dimension3\""
+					}
+				},
+				{
+					"id": "initialize",
+					"objectClass": "1GameAnalytics",
+					"sid": 295791695237525
+				},
+				{
+					"id": "setcustomdimension03",
+					"objectClass": "1GameAnalytics",
+					"sid": 871132295074511,
+					"parameters": {
+						"dimension": "\"Dimension3New\""
+					}
+				},
+				{
+					"id": "load-layout-images",
+					"objectClass": "System",
+					"sid": 508476183905196,
+					"parameters": {
+						"layout": "M-MainMenu"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 424789961163312
+				},
+				{
+					"id": "check-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 454350913593968,
+					"parameters": {
+						"key": "\"CharactersSavings\""
+					}
+				},
+				{
+					"id": "check-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 674004856642331,
+					"parameters": {
+						"key": "\"Trophies\""
+					}
+				},
+				{
+					"id": "check-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 693356423072754,
+					"parameters": {
+						"key": "\"NickName\""
+					}
+				},
+				{
+					"id": "check-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 273099176054537,
+					"parameters": {
+						"key": "\"MatchesPlayed\""
+					}
+				},
+				{
+					"id": "check-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 855471281983769,
+					"parameters": {
+						"key": "\"Graphics\""
+					}
+				},
+				{
+					"id": "check-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 942592884101847,
+					"parameters": {
+						"key": "\"RenderingMode\""
+					}
+				},
+				{
+					"id": "check-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 861092905891377,
+					"parameters": {
+						"key": "\"Bot1Name\""
+					}
+				},
+				{
+					"id": "check-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 987222429957509,
+					"parameters": {
+						"key": "\"Bot2Name\""
+					}
+				},
+				{
+					"id": "check-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 292269214975124,
+					"parameters": {
+						"key": "\"Bot3Name\""
+					}
+				},
+				{
+					"id": "check-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 151803481456985,
+					"parameters": {
+						"key": "\"CharacterName\""
+					}
+				},
+				{
+					"id": "check-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 831553205710319,
+					"parameters": {
+						"key": "\"Region\""
+					}
+				},
+				{
+					"id": "check-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 457257992038935,
+					"parameters": {
+						"key": "\"Language\""
+					}
+				}
+			],
+			"sid": 864652057433609,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "add-key",
+							"objectClass": "BotsPrice",
+							"sid": 584934273143121,
+							"parameters": {
+								"key": "\"Alarmbot\"",
+								"value": "10"
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "BotsPrice",
+							"sid": 995206962675349,
+							"parameters": {
+								"key": "\"Copter\"",
+								"value": "15"
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "BotsPrice",
+							"sid": 367931051720299,
+							"parameters": {
+								"key": "\"Hammer\"",
+								"value": "30"
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "BotsPrice",
+							"sid": 768152530012670,
+							"parameters": {
+								"key": "\"Patrol\"",
+								"value": "10"
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "BotsPrice",
+							"sid": 395246248593232,
+							"parameters": {
+								"key": "\"Drone\"",
+								"value": "15"
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "BotsPrice",
+							"sid": 303698144735580,
+							"parameters": {
+								"key": "\"Cannon\"",
+								"value": "25"
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "BotsPrice",
+							"sid": 790041991445738,
+							"parameters": {
+								"key": "\"ShockBot\"",
+								"value": "8"
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "BotsPrice",
+							"sid": 279101417797250,
+							"parameters": {
+								"key": "\"BattleDrone\"",
+								"value": "16"
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "BotsPrice",
+							"sid": 697412016688236,
+							"parameters": {
+								"key": "\"StepperCannon\"",
+								"value": "30"
+							}
+						}
+					],
+					"sid": 817190699204489
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "LOADED"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 724625396052577,
+					"parameters": {
+						"first-value": "loadingprogress",
+						"comparison": 0,
+						"second-value": "1"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 229858076065080,
+					"parameters": {
+						"variable": "SaveCount",
+						"comparison": 3,
+						"value": "0"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 110411440902800,
+					"parameters": {
+						"first-value": "time",
+						"comparison": 4,
+						"second-value": "1.5"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 225536429473114,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 285191508375775,
+							"parameters": {
+								"variable": "MatchesPlayed",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 801126127666881,
+							"parameters": {
+								"layout": "Map-1-1-3D"
+							}
+						}
+					],
+					"sid": 249081891650400
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 941493204447874
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 364600810139341,
+							"parameters": {
+								"layout": "M-MainMenu"
+							}
+						}
+					],
+					"sid": 659711940526714
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "EXIST"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 804755491660438,
+					"parameters": {
+						"key": "\"CharactersSavings\""
+					}
+				},
+				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 163704337743467,
+					"parameters": {
+						"key": "\"Trophies\""
+					}
+				},
+				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 201792230611933,
+					"parameters": {
+						"key": "\"NickName\""
+					}
+				},
+				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 781669275474176,
+					"parameters": {
+						"key": "\"MatchesPlayed\""
+					}
+				},
+				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 586780735967795,
+					"parameters": {
+						"key": "\"Graphics\""
+					}
+				},
+				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 367503453080314,
+					"parameters": {
+						"key": "\"RenderingMode\""
+					}
+				},
+				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 610199705570308,
+					"parameters": {
+						"key": "\"Bot1Name\""
+					}
+				},
+				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 216537280528417,
+					"parameters": {
+						"key": "\"Bot2Name\""
+					}
+				},
+				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 388392070176958,
+					"parameters": {
+						"key": "\"Bot3Name\""
+					}
+				},
+				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 105224581234369,
+					"parameters": {
+						"key": "\"CharacterName\""
+					}
+				},
+				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 141868153221713,
+					"parameters": {
+						"key": "\"Region\""
+					}
+				},
+				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 561821623966210,
+					"parameters": {
+						"key": "\"Language\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "get-item",
+					"objectClass": "LocalStorage",
+					"sid": 172513726653374,
+					"parameters": {
+						"key": "LocalStorage.Key"
+					}
+				}
+			],
+			"sid": 149949536829198,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "comment",
+			"text": "GET"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 170710444459562,
+					"parameters": {
+						"key": "\"CharactersSavings\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "CharactersBuyed",
+					"sid": 152652145099665,
+					"parameters": {
+						"json": "LocalStorage.ItemValue"
+					}
+				}
+			],
+			"sid": 333264928434147
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 768046419961942,
+					"parameters": {
+						"key": "\"Trophies\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 352575404143748,
+					"parameters": {
+						"variable": "Trophies",
+						"value": "int(LocalStorage.ItemValue)"
+					}
+				}
+			],
+			"sid": 378668917775905
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 543428444013040,
+					"parameters": {
+						"key": "\"NickName\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 325792518625297,
+					"parameters": {
+						"variable": "NickName",
+						"value": "LocalStorage.ItemValue"
+					}
+				}
+			],
+			"sid": 713949266548413
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 103801144557845,
+					"parameters": {
+						"key": "\"MatchesPlayed\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 713793332469659,
+					"parameters": {
+						"variable": "MatchesPlayed",
+						"value": "int(LocalStorage.ItemValue)"
+					}
+				}
+			],
+			"sid": 468886783699514
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 100024524720735,
+					"parameters": {
+						"key": "\"Graphics\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 989798788480442,
+					"parameters": {
+						"variable": "Graphics",
+						"value": "LocalStorage.ItemValue"
+					}
+				}
+			],
+			"sid": 815437404708348
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 102488988514336,
+					"parameters": {
+						"key": "\"RenderingMode\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 774414480702800,
+					"parameters": {
+						"variable": "RenderingMode",
+						"value": "LocalStorage.ItemValue"
+					}
+				}
+			],
+			"sid": 547301279089066
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 884921548409202,
+					"parameters": {
+						"key": "\"Bot1Name\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 980228859504408,
+					"parameters": {
+						"variable": "Bot1Name",
+						"value": "LocalStorage.ItemValue"
+					}
+				}
+			],
+			"sid": 748959864512748
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 199535113014697,
+					"parameters": {
+						"key": "\"Bot2Name\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 274352182022924,
+					"parameters": {
+						"variable": "Bot2Name",
+						"value": "LocalStorage.ItemValue"
+					}
+				}
+			],
+			"sid": 977435198032648
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 801340716636518,
+					"parameters": {
+						"key": "\"Bot3Name\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 134620880533020,
+					"parameters": {
+						"variable": "Bot3Name",
+						"value": "LocalStorage.ItemValue"
+					}
+				}
+			],
+			"sid": 364107588272114
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 565049738042977,
+					"parameters": {
+						"key": "\"CharacterName\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 755135419958124,
+					"parameters": {
+						"variable": "MyCharacterName",
+						"value": "LocalStorage.ItemValue"
+					}
+				}
+			],
+			"sid": 446197568551684
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 186056947343811,
+					"parameters": {
+						"key": "\"Region\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 664846947689321,
+					"parameters": {
+						"variable": "Region",
+						"value": "LocalStorage.ItemValue"
+					}
+				}
+			],
+			"sid": 711174771572877
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 565547039164208,
+					"parameters": {
+						"key": "\"Language\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 777842934187291,
+					"parameters": {
+						"variable": "Language",
+						"value": "LocalStorage.ItemValue"
+					}
+				}
+			],
+			"sid": 506985714689509
+		},
+		{
+			"eventType": "comment",
+			"text": "MISSING"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 729715815939126,
+					"parameters": {
+						"key": "\"Trophies\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 340621976804430,
+					"parameters": {
+						"variable": "SaveCount",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 837916231467207,
+					"parameters": {
+						"variable": "FirstStart",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 976255236660183
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 583054406797502,
+					"parameters": {
+						"key": "\"Region\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 955530759415566,
+					"parameters": {
+						"variable": "SaveCount",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 154596629820027,
+					"parameters": {
+						"variable": "RegionSelected",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 346756320146897
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 803758069694808
+				},
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 908550468552954,
+					"parameters": {
+						"key": "\"NickName\""
+					}
+				},
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 266101211035746,
+					"parameters": {
+						"key": "\"MatchesPlayed\""
+					}
+				},
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 157972011279270,
+					"parameters": {
+						"key": "\"Graphics\""
+					}
+				},
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 314998288242504,
+					"parameters": {
+						"key": "\"RenderingMode\""
+					}
+				},
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 389495426060198,
+					"parameters": {
+						"key": "\"CharactersSavings\""
+					}
+				},
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 132941028771500,
+					"parameters": {
+						"key": "\"Bot1Name\""
+					}
+				},
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 903583557430460,
+					"parameters": {
+						"key": "\"Bot2Name\""
+					}
+				},
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 107015416342758,
+					"parameters": {
+						"key": "\"Bot3Name\""
+					}
+				},
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 405787443576446,
+					"parameters": {
+						"key": "\"CharacterName\""
+					}
+				},
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 646059650342675,
+					"parameters": {
+						"key": "\"Language\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 661228717875469,
+					"parameters": {
+						"variable": "SaveCount",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 689719974808595,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 820076422026029
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 560429751896275,
+					"disabled": true,
+					"parameters": {
+						"variable": "SaveCount",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 333468721399299,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "langCode",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 301117534647352
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 730955069330564,
+							"parameters": {
+								"variable": "langCode",
+								"value": "Browser.Language"
+							}
+						}
+					],
+					"sid": 298435830450810
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 226114947437116,
+							"parameters": {
+								"first-value": "tokenat(langCode, 0, \"-\")",
+								"comparison": 0,
+								"second-value": "\"en\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 859598752328897,
+							"parameters": {
+								"variable": "Language",
+								"value": "\"ENG\""
+							}
+						}
+					],
+					"sid": 910267332648815
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 712919315629754,
+							"parameters": {
+								"first-value": "tokenat(langCode, 0, \"-\")",
+								"comparison": 0,
+								"second-value": "\"ru\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 682992712587737,
+							"parameters": {
+								"variable": "Language",
+								"value": "\"RU\""
+							}
+						}
+					],
+					"sid": 644204324979087
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 362351014368076,
+							"disabled": true,
+							"parameters": {
+								"key": "\"Language\"",
+								"value": "Language"
+							}
+						},
+						{
+							"callFunction": "SetLocalization",
+							"sid": 557490538260406
+						}
+					],
+					"sid": 993368268370355
+				}
+			]
+		}
+	],
+	"sid": 762938287018243
+}

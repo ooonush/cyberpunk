@@ -1,0 +1,679 @@
+{
+	"name": "eInput",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Input",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "InputMyCharacter",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "ondown1",
+									"objectClass": "InputManager",
+									"sid": 783448100849533,
+									"parameters": {
+										"input0": "\"Left\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Character",
+									"sid": 573974975494124,
+									"parameters": {
+										"instance-variable": "oActorNr",
+										"comparison": 0,
+										"value": "MyActorNr"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "MovementSetHorizontal",
+									"sid": 370275235607741,
+									"parameters": [
+										"Character.UID",
+										"-1"
+									]
+								}
+							],
+							"sid": 413957331328418
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "onup2",
+									"objectClass": "InputManager",
+									"sid": 551300706159386,
+									"parameters": {
+										"input0": "\"Right\""
+									}
+								},
+								{
+									"id": "isdown0",
+									"objectClass": "InputManager",
+									"sid": 184012429298312,
+									"parameters": {
+										"input0": "\"Left\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Character",
+									"sid": 560937027108049,
+									"parameters": {
+										"instance-variable": "oActorNr",
+										"comparison": 0,
+										"value": "MyActorNr"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "MovementSetHorizontal",
+									"sid": 209175663060315,
+									"parameters": [
+										"Character.UID",
+										"0"
+									]
+								}
+							],
+							"sid": 106064816443163
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "onup2",
+									"objectClass": "InputManager",
+									"sid": 975298987613764,
+									"parameters": {
+										"input0": "\"Left\""
+									}
+								},
+								{
+									"id": "isdown0",
+									"objectClass": "InputManager",
+									"sid": 196212706482009,
+									"parameters": {
+										"input0": "\"Right\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Character",
+									"sid": 555143478306442,
+									"parameters": {
+										"instance-variable": "oActorNr",
+										"comparison": 0,
+										"value": "MyActorNr"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "MovementSetHorizontal",
+									"sid": 141556700265855,
+									"parameters": [
+										"Character.UID",
+										"0"
+									]
+								}
+							],
+							"sid": 260524826701504
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "ondown1",
+									"objectClass": "InputManager",
+									"sid": 743211062163549,
+									"parameters": {
+										"input0": "\"Right\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Character",
+									"sid": 743508352280074,
+									"parameters": {
+										"instance-variable": "oActorNr",
+										"comparison": 0,
+										"value": "MyActorNr"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "MovementSetHorizontal",
+									"sid": 579435454356840,
+									"parameters": [
+										"Character.UID",
+										"1"
+									]
+								}
+							],
+							"sid": 689652551549454
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "ondown1",
+									"objectClass": "InputManager",
+									"sid": 799504171170669,
+									"parameters": {
+										"input0": "\"Up\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Character",
+									"sid": 321290383193019,
+									"parameters": {
+										"instance-variable": "oActorNr",
+										"comparison": 0,
+										"value": "MyActorNr"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "MovementSetVertical",
+									"sid": 241834307703964,
+									"parameters": [
+										"Character.UID",
+										"1"
+									]
+								}
+							],
+							"sid": 133958183810112
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "onup2",
+									"objectClass": "InputManager",
+									"sid": 617042139831862,
+									"parameters": {
+										"input0": "\"Up\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Character",
+									"sid": 713156844601887,
+									"parameters": {
+										"instance-variable": "oActorNr",
+										"comparison": 0,
+										"value": "MyActorNr"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "MovementSetVertical",
+									"sid": 570531729292160,
+									"parameters": [
+										"Character.UID",
+										"0"
+									]
+								}
+							],
+							"sid": 228999993799846
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "ondown1",
+									"objectClass": "InputManager",
+									"sid": 573431423082776,
+									"parameters": {
+										"input0": "\"Attack\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Character",
+									"sid": 435523258837419,
+									"parameters": {
+										"instance-variable": "oActorNr",
+										"comparison": 0,
+										"value": "MyActorNr"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "ReloadableWeaponTryAttackSync",
+									"sid": 707366719133407,
+									"parameters": [
+										"Character.UID"
+									]
+								}
+							],
+							"sid": 256166587530028
+						}
+					],
+					"sid": 612777774892238
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "InputManager",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "InputRight",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 389098796349594,
+											"parameters": {
+												"key": 68
+											}
+										},
+										{
+											"id": "on-touched-object",
+											"objectClass": "Touch",
+											"sid": 429096633381364,
+											"parameters": {
+												"object": "RightArrow"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "setdown6",
+											"objectClass": "InputManager",
+											"sid": 568766884317790,
+											"parameters": {
+												"input0": "\"Right\""
+											}
+										}
+									],
+									"sid": 969806648790777,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-released",
+											"objectClass": "Keyboard",
+											"sid": 776247297332398,
+											"parameters": {
+												"key": 68
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "setup5",
+											"objectClass": "InputManager",
+											"sid": 677865135103776,
+											"parameters": {
+												"input0": "\"Right\""
+											}
+										}
+									],
+									"sid": 385116050214067,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-any-touch-end",
+											"objectClass": "Touch",
+											"sid": 592047708478029
+										},
+										{
+											"id": "is-touching-object",
+											"objectClass": "Touch",
+											"sid": 233902974831396,
+											"parameters": {
+												"object": "RightArrow"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "setup5",
+											"objectClass": "InputManager",
+											"sid": 691544728712381,
+											"parameters": {
+												"input0": "\"Right\""
+											}
+										}
+									],
+									"sid": 318449827489714
+								}
+							],
+							"sid": 426038590710319
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "InputLeft",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 982779914644183,
+											"parameters": {
+												"key": 65
+											}
+										},
+										{
+											"id": "on-touched-object",
+											"objectClass": "Touch",
+											"sid": 114765364742120,
+											"parameters": {
+												"object": "LeftArrow"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "setdown6",
+											"objectClass": "InputManager",
+											"sid": 516670278763175,
+											"parameters": {
+												"input0": "\"Left\""
+											}
+										}
+									],
+									"sid": 796693071255365,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-released",
+											"objectClass": "Keyboard",
+											"sid": 623756331311800,
+											"parameters": {
+												"key": 65
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "setup5",
+											"objectClass": "InputManager",
+											"sid": 205412664867545,
+											"parameters": {
+												"input0": "\"Left\""
+											}
+										}
+									],
+									"sid": 993244768726310,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-any-touch-end",
+											"objectClass": "Touch",
+											"sid": 792156087618243
+										},
+										{
+											"id": "is-touching-object",
+											"objectClass": "Touch",
+											"sid": 139650487801558,
+											"parameters": {
+												"object": "LeftArrow"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "setup5",
+											"objectClass": "InputManager",
+											"sid": 854623555681310,
+											"parameters": {
+												"input0": "\"Left\""
+											}
+										}
+									],
+									"sid": 464162282592913
+								}
+							],
+							"sid": 888092942846185
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "InputUp",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 981303671610604,
+											"parameters": {
+												"key": 87
+											}
+										},
+										{
+											"id": "on-touched-object",
+											"objectClass": "Touch",
+											"sid": 296324908856467,
+											"parameters": {
+												"object": "JumpArrow"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "setdown6",
+											"objectClass": "InputManager",
+											"sid": 495851637791750,
+											"parameters": {
+												"input0": "\"Up\""
+											}
+										}
+									],
+									"sid": 517756707682063,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-released",
+											"objectClass": "Keyboard",
+											"sid": 720398475097393,
+											"parameters": {
+												"key": 87
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "setup5",
+											"objectClass": "InputManager",
+											"sid": 559084684660359,
+											"parameters": {
+												"input0": "\"Up\""
+											}
+										}
+									],
+									"sid": 977164676403202,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-any-touch-end",
+											"objectClass": "Touch",
+											"sid": 522570248556819
+										},
+										{
+											"id": "is-touching-object",
+											"objectClass": "Touch",
+											"sid": 689144972513956,
+											"parameters": {
+												"object": "JumpArrow"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "setup5",
+											"objectClass": "InputManager",
+											"sid": 253426519116855,
+											"parameters": {
+												"input0": "\"Up\""
+											}
+										}
+									],
+									"sid": 391937940619057
+								}
+							],
+							"sid": 894244301146557
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "InputAttack",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 379518303039844,
+											"parameters": {
+												"key": 69
+											}
+										},
+										{
+											"id": "on-touched-object",
+											"objectClass": "Touch",
+											"sid": 931211510550598,
+											"parameters": {
+												"object": "AttackButton"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "setdown6",
+											"objectClass": "InputManager",
+											"sid": 901185408781903,
+											"parameters": {
+												"input0": "\"Attack\""
+											}
+										}
+									],
+									"sid": 242544842587317,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-released",
+											"objectClass": "Keyboard",
+											"sid": 354041483883432,
+											"parameters": {
+												"key": 69
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "setup5",
+											"objectClass": "InputManager",
+											"sid": 325567235505960,
+											"parameters": {
+												"input0": "\"Attack\""
+											}
+										}
+									],
+									"sid": 860754955171628,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-any-touch-end",
+											"objectClass": "Touch",
+											"sid": 756927209823398
+										},
+										{
+											"id": "is-touching-object",
+											"objectClass": "Touch",
+											"sid": 183533479901200,
+											"parameters": {
+												"object": "AttackButton"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "setup5",
+											"objectClass": "InputManager",
+											"sid": 761095423397188,
+											"parameters": {
+												"input0": "\"Attack\""
+											}
+										}
+									],
+									"sid": 996428221751353
+								}
+							],
+							"sid": 701490190296268
+						}
+					],
+					"sid": 761474652139371
+				}
+			],
+			"sid": 762642845498937
+		}
+	],
+	"sid": 205848719594853
+}

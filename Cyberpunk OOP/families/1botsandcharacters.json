@@ -1,0 +1,20 @@
+{
+	"name": "1BotsAndCharacters",
+	"plugin-id": "Sprite",
+	"sid": 707190773452753,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"CharacterCollider",
+		"Alarmbot",
+		"BattleDrone",
+		"Cannon",
+		"Copter",
+		"Drone",
+		"Hammer",
+		"Patrol",
+		"ShockBot",
+		"StepperCannon"
+	]
+}

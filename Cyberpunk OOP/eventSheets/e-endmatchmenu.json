@@ -1,0 +1,529 @@
+{
+	"name": "E-endMatchMenu",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "buttons"
+		},
+		{
+			"eventType": "variable",
+			"name": "PlayerData",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 880083791737442
+		},
+		{
+			"eventType": "variable",
+			"name": "PlayerActorNr2",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 503267525002583
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 527026650519245
+				}
+			],
+			"actions": [],
+			"sid": 352198847390794,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 972478930492751,
+							"parameters": {
+								"seconds": "0"
+							}
+						}
+					],
+					"sid": 110871123436764,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 849702680219389,
+									"parameters": {
+										"first-value": "ViewportHeight(0)",
+										"comparison": 4,
+										"second-value": "ViewportWidth(0)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-width",
+									"objectClass": "Sprite11",
+									"sid": 900640264551097,
+									"parameters": {
+										"width": "ViewportWidth(0)"
+									}
+								},
+								{
+									"id": "set-height",
+									"objectClass": "Sprite11",
+									"sid": 137892430030316,
+									"parameters": {
+										"height": "ViewportHeight(0)"
+									}
+								}
+							],
+							"sid": 795337051335083
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 358373470414812
+								}
+							],
+							"actions": [
+								{
+									"id": "set-width",
+									"objectClass": "Sprite11",
+									"sid": 794146814272212,
+									"parameters": {
+										"width": "ViewportWidth(0)"
+									}
+								},
+								{
+									"id": "set-height",
+									"objectClass": "Sprite11",
+									"sid": 133682374436956,
+									"parameters": {
+										"height": "ViewportWidth(0)"
+									}
+								}
+							],
+							"sid": 471836866734708
+						}
+					]
+				},
+				{
+					"eventType": "variable",
+					"name": "indexX",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 268385557913726
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 720043803486567,
+							"parameters": {
+								"object": "CharacterInMenu"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 753092011043903,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 464580924641059,
+									"parameters": {
+										"first-value": "MyPlayerNumber",
+										"comparison": 3,
+										"second-value": "MaxPlayers/2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 434633123668469,
+									"parameters": {
+										"variable": "indexX",
+										"value": "CharacterInMenu.ID - 1"
+									}
+								}
+							],
+							"sid": 107843584974069
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 338769818576242
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 398276496977425,
+									"parameters": {
+										"variable": "indexX",
+										"value": "MaxPlayers - CharacterInMenu.ID"
+									}
+								}
+							],
+							"sid": 456944788320547
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "CharacterInMenu",
+									"sid": 138132677702513,
+									"parameters": {
+										"child": "Text",
+										"which": "own"
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "CharacterInMenu",
+									"sid": 381141371017834,
+									"parameters": {
+										"child": "NickNameInMenu",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "CharacterInMenu",
+									"sid": 137886180540740,
+									"parameters": {
+										"animation": "1PlayersArray.At(indexX, CharacterNameY)",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 702609527783055,
+									"parameters": {
+										"text": "1PlayersArray.At(indexX, TrophiesArrayY)"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "NickNameInMenu",
+									"sid": 135300787513327,
+									"parameters": {
+										"text": "1PlayersArray.At(indexX, NickNameY)"
+									}
+								}
+							],
+							"sid": 415952628219134
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 687932132024992,
+							"parameters": {
+								"variable": "WinTrophiesCount",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "WinText",
+							"sid": 930524520225411,
+							"parameters": {
+								"text": "\"+\"&WinTrophiesCount"
+							}
+						}
+					],
+					"sid": 972794994921943
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 999355434980263
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "WinText",
+							"sid": 721181327684036,
+							"parameters": {
+								"text": "WinTrophiesCount"
+							}
+						}
+					],
+					"sid": 611622639688393
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for",
+							"objectClass": "System",
+							"sid": 146210013702157,
+							"parameters": {
+								"name": "\"\"",
+								"start-index": "1",
+								"end-index": "MaxPlayers"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 531076101359961,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 428736522323522,
+									"parameters": {
+										"first-value": "MyPlayerNumber",
+										"comparison": 4,
+										"second-value": "MaxPlayers/2"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 103670266598883,
+									"parameters": {
+										"first-value": "loopindex",
+										"comparison": 4,
+										"second-value": "MaxPlayers/2"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 380789447141849,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 738734739940350
+								}
+							],
+							"actions": [],
+							"sid": 304666979371452,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 107364839878359,
+											"parameters": {
+												"object": "CharacterInMenu"
+											}
+										},
+										{
+											"id": "pick-children",
+											"objectClass": "CharacterInMenu",
+											"sid": 321522469141705,
+											"parameters": {
+												"child": "Text",
+												"which": "own"
+											}
+										},
+										{
+											"id": "pick-children",
+											"objectClass": "CharacterInMenu",
+											"sid": 790487874400608,
+											"parameters": {
+												"child": "NickNameInMenu",
+												"which": "own"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 324569554782143,
+											"parameters": {
+												"variable": "PlayerData",
+												"value": "PlayersDataDict.Get(\"a\"&MaxPlayers + 1 - CharacterInMenu.ID)"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "CharacterInMenu",
+											"sid": 200764807012181,
+											"parameters": {
+												"animation": "tokenat(PlayerData, 1, \"/\")",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Text",
+											"sid": 860387353970542,
+											"parameters": {
+												"text": "tokenat(PlayerData, 2, \"/\")"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "NickNameInMenu",
+											"sid": 368670486027136,
+											"parameters": {
+												"text": "tokenat(PlayerData, 0, \"/\")"
+											}
+										}
+									],
+									"sid": 271402572899360,
+									"disabled": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "stop-loop",
+									"objectClass": "System",
+									"sid": 457754476735278
+								}
+							],
+							"sid": 315862089106637,
+							"disabled": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 365883066810137
+				}
+			],
+			"actions": [],
+			"sid": 875670146644146,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-loaded-interstitial",
+							"objectClass": "MobileAdvert",
+							"sid": 380219180190883
+						}
+					],
+					"actions": [
+						{
+							"id": "show-interstitial",
+							"objectClass": "MobileAdvert",
+							"sid": 143824133862609
+						}
+					],
+					"sid": 265020677926957
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 690729438574239
+						}
+					],
+					"actions": [
+						{
+							"id": "create-interstitial",
+							"objectClass": "MobileAdvert",
+							"sid": 765587025812364,
+							"parameters": {
+								"advert-id": "\"ca-app-pub-2860474538448366/8521327233\"",
+								"show": "true"
+							}
+						}
+					],
+					"sid": 505441222014587
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 849692831859496,
+					"parameters": {
+						"object": "OK"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 745225285995260,
+					"parameters": {
+						"seconds": "0.15"
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 987744558165929,
+					"parameters": {
+						"layout": "M-MainMenu"
+					}
+				}
+			],
+			"sid": 378971710434766
+		}
+	],
+	"sid": 412039946352838
+}

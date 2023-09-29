@@ -1,0 +1,50 @@
+{
+	"name": "EmojiBack",
+	"plugin-id": "Sprite",
+	"sid": 688670541984467,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "TargetScale",
+			"type": "number",
+			"desc": "",
+			"sid": 648611132117690
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 950135798827357
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 26,
+						"originX": 0.0625,
+						"originY": 0.9230769230769231,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 94847,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 896296732463973,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

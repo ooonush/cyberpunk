@@ -1,0 +1,72 @@
+{
+	"name": "LeftArrow",
+	"plugin-id": "Sprite",
+	"sid": 864266929015739,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 34,
+						"height": 30,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "E:\\igraepta\\Кнструк\\v2\\Новая папка (2)\\Animations\\LeftArrow\\Default\\000.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3747263,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 436006678727731,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			},
+			{
+				"frames": [
+					{
+						"width": 34,
+						"height": 30,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1891514,
+						"collisionPoly": {
+							"points": [
+								0.029411764705882353,
+								0.03333333333333333,
+								1,
+								0.03333333333333333,
+								1,
+								1,
+								0.029411764705882353,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 978218083633735,
+				"name": "Touched",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

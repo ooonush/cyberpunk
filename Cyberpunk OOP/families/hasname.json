@@ -1,0 +1,22 @@
+{
+	"name": "HasName",
+	"plugin-id": "Sprite",
+	"sid": 545210431011029,
+	"instanceVariables": [
+		{
+			"name": "Name",
+			"type": "string",
+			"desc": "",
+			"sid": 742023260803678
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Punk",
+		"Biker",
+		"Cyborg",
+		"Brigand",
+		"Bomj"
+	]
+}

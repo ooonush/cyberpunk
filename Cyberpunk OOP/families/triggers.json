@@ -1,0 +1,72 @@
+{
+	"name": "Triggers",
+	"plugin-id": "Sprite",
+	"sid": 829045291770205,
+	"instanceVariables": [
+		{
+			"name": "Color",
+			"type": "string",
+			"desc": "",
+			"sid": 432465196263866
+		},
+		{
+			"name": "ColorMultiple",
+			"type": "number",
+			"desc": "",
+			"sid": 835702990970427
+		},
+		{
+			"name": "Dir1",
+			"type": "number",
+			"desc": "",
+			"sid": 324025366401754
+		},
+		{
+			"name": "DirMultiple",
+			"type": "number",
+			"desc": "",
+			"sid": 970838859657924
+		},
+		{
+			"name": "DefaultMoveDir1",
+			"type": "string",
+			"desc": "",
+			"sid": 721851307426282
+		},
+		{
+			"name": "DefaultJump",
+			"type": "string",
+			"desc": "",
+			"sid": 387396040353014
+		},
+		{
+			"name": "BucksMoveDir1",
+			"type": "string",
+			"desc": "",
+			"sid": 275137760830408
+		},
+		{
+			"name": "BucksJump",
+			"type": "string",
+			"desc": "",
+			"sid": 619290085515844
+		},
+		{
+			"name": "BasaAttackJump",
+			"type": "string",
+			"desc": "",
+			"sid": 653474380958595
+		},
+		{
+			"name": "DefenseJump",
+			"type": "string",
+			"desc": "",
+			"sid": 439383458497590
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"CharacterBotTrigger"
+	]
+}

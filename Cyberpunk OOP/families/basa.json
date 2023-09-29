@@ -1,0 +1,42 @@
+{
+	"name": "Basa",
+	"plugin-id": "Shape3D",
+	"sid": 551183803070163,
+	"instanceVariables": [
+		{
+			"name": "Color",
+			"type": "string",
+			"desc": "",
+			"sid": 801067851835861
+		},
+		{
+			"name": "HP",
+			"type": "number",
+			"desc": "",
+			"sid": 327286424613949
+		},
+		{
+			"name": "Hurting",
+			"type": "boolean",
+			"desc": "",
+			"sid": 672570352494592
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 176953917475905
+		}
+	],
+	"effectTypes": [
+		{
+			"effectId": "blacknwhite",
+			"name": "BlackWhite"
+		}
+	],
+	"members": [
+		"BasaRed",
+		"3DShape19"
+	]
+}

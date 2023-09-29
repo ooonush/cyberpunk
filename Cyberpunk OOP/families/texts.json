@@ -1,0 +1,11 @@
+{
+	"name": "Texts",
+	"plugin-id": "Text",
+	"sid": 355293834155087,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Text"
+	]
+}

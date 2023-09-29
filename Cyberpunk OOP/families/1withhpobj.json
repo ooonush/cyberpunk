@@ -1,0 +1,23 @@
+{
+	"name": "1WithHPObj",
+	"plugin-id": "Sprite",
+	"sid": 270523825154634,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"BattleDrone",
+		"Alarmbot",
+		"BotIcon",
+		"Cannon",
+		"Copter",
+		"Drone",
+		"Hammer",
+		"Patrol",
+		"ShockBot",
+		"Sprite20",
+		"StepperCannon",
+		"CharacterCollider",
+		"BasaBlue"
+	]
+}

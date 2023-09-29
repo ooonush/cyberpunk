@@ -1,0 +1,47 @@
+{
+	"name": "CharacterScins",
+	"plugin-id": "Sprite",
+	"sid": 833809401738379,
+	"instanceVariables": [
+		{
+			"name": "ID",
+			"type": "number",
+			"desc": "",
+			"sid": 384449933705012
+		},
+		{
+			"name": "Hurting",
+			"type": "boolean",
+			"desc": "",
+			"sid": 538426588108617
+		},
+		{
+			"name": "OnlineAnimation",
+			"type": "string",
+			"desc": "",
+			"sid": 664453735151274
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "blacknwhite",
+			"name": "Hurt"
+		},
+		{
+			"effectId": "tint",
+			"name": "AddHP"
+		},
+		{
+			"effectId": "exposure",
+			"name": "AddHPExposure"
+		}
+	],
+	"members": [
+		"Punk",
+		"Biker",
+		"Cyborg",
+		"Bomj",
+		"Brigand"
+	]
+}

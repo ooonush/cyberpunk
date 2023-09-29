@@ -1,0 +1,457 @@
+{
+	"name": "E-Object",
+	"events": [
+		{
+			"functionName": "GetColor",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 775072061614460
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 148537854814106,
+					"parameters": {
+						"value": "\"\""
+					}
+				}
+			],
+			"sid": 288655711345029,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "CharacterCollider",
+							"sid": 274999218146062,
+							"parameters": {
+								"unique-id": "UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 128664590449031,
+							"parameters": {
+								"value": "CharacterCollider.Color"
+							}
+						}
+					],
+					"sid": 575500644022086
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 503827450725831
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Bot",
+							"sid": 381407232161419,
+							"parameters": {
+								"unique-id": "UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 283133435175057,
+							"parameters": {
+								"value": "Bot.Color"
+							}
+						}
+					],
+					"sid": 752671552905563
+				}
+			]
+		},
+		{
+			"functionName": "SyncDamageObj",
+			"functionDescription": "",
+			"functionCategory": "Character",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "objUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 813263805420298
+				},
+				{
+					"name": "Damage",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 653338691419287
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "1WithHPObj",
+					"sid": 398019779265355,
+					"parameters": {
+						"unique-id": "objUID"
+					}
+				},
+				{
+					"id": "pick-children",
+					"objectClass": "1WithHPObj",
+					"sid": 755563950164450,
+					"parameters": {
+						"child": "0HP",
+						"which": "own"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "HasHealthAddHPSync",
+					"sid": 285814821548526,
+					"parameters": [
+						"0HP.UID",
+						"-Damage"
+					]
+				}
+			],
+			"sid": 480433964185156
+		},
+		{
+			"functionName": "SyncSetObjMaxHP",
+			"functionDescription": "",
+			"functionCategory": "Character",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "objUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 794861039174110
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "1WithHPObj",
+					"sid": 703170375166059,
+					"parameters": {
+						"unique-id": "objUID"
+					}
+				},
+				{
+					"id": "pick-children",
+					"objectClass": "1WithHPObj",
+					"sid": 580350154434083,
+					"parameters": {
+						"child": "0HP",
+						"which": "own"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "HasHealthSetHPSync",
+					"sid": 610017224901202,
+					"parameters": [
+						"0HP.UID",
+						"0HP.MaxHP"
+					]
+				}
+			],
+			"sid": 764767172154955
+		},
+		{
+			"functionName": "GetObjHP",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 755689239060613
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "1WithHPObj",
+					"sid": 494142963622127,
+					"parameters": {
+						"unique-id": "UID"
+					}
+				},
+				{
+					"id": "pick-children",
+					"objectClass": "1WithHPObj",
+					"sid": 639362020862583,
+					"parameters": {
+						"child": "0HP",
+						"which": "own"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 670290440989276,
+					"parameters": {
+						"value": "0HP.HP"
+					}
+				}
+			],
+			"sid": 430392577509712
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "AddSetObjHP",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "SyncObjHP",
+					"functionDescription": "",
+					"functionCategory": "Character",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "objUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 671677815566106
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "1WithHPObj",
+							"sid": 950673006334019,
+							"parameters": {
+								"unique-id": "objUID"
+							}
+						},
+						{
+							"id": "pick-children",
+							"objectClass": "1WithHPObj",
+							"sid": 537675398330402,
+							"parameters": {
+								"child": "0HP",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "HasHealthSetHPSync",
+							"sid": 372270132206506,
+							"parameters": [
+								"0HP.UID",
+								"0HP.HP"
+							]
+						}
+					],
+					"sid": 844308078272323
+				},
+				{
+					"functionName": "SyncSetObjHP",
+					"functionDescription": "",
+					"functionCategory": "Character",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "objUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 868281929655069
+						},
+						{
+							"name": "hp",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 724050359748462
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "1WithHPObj",
+							"sid": 583704347087647,
+							"parameters": {
+								"unique-id": "objUID"
+							}
+						},
+						{
+							"id": "pick-children",
+							"objectClass": "1WithHPObj",
+							"sid": 973067132385941,
+							"parameters": {
+								"child": "0HP",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "HasHealthSetHPSync",
+							"sid": 835274150044674,
+							"parameters": [
+								"0HP.UID",
+								"HP"
+							]
+						}
+					],
+					"sid": 318552842028025
+				},
+				{
+					"functionName": "SetObjHP",
+					"functionDescription": "",
+					"functionCategory": "Character",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "objUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 564825044960798
+						},
+						{
+							"name": "hp",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 532831139399180
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "1WithHPObj",
+							"sid": 311941474468427,
+							"parameters": {
+								"unique-id": "objUID"
+							}
+						},
+						{
+							"id": "pick-children",
+							"objectClass": "1WithHPObj",
+							"sid": 441262069590668,
+							"parameters": {
+								"child": "0HP",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "HasHealthSetHP",
+							"sid": 102019707831584,
+							"parameters": [
+								"0HP.UID",
+								"HP"
+							]
+						}
+					],
+					"sid": 748546133587892
+				},
+				{
+					"functionName": "SyncAddObjHP",
+					"functionDescription": "",
+					"functionCategory": "Character",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "objUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 693429560669296
+						},
+						{
+							"name": "hpCount",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 863895197591616
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "1WithHPObj",
+							"sid": 612204322059484,
+							"parameters": {
+								"unique-id": "objUID"
+							}
+						},
+						{
+							"id": "pick-children",
+							"objectClass": "1WithHPObj",
+							"sid": 660855270284321,
+							"parameters": {
+								"child": "0HP",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "HasHealthAddHPSync",
+							"sid": 321753792452271,
+							"parameters": [
+								"0HP.UID",
+								"hpCount"
+							]
+						}
+					],
+					"sid": 889184641863477
+				}
+			],
+			"sid": 133267959617341
+		}
+	],
+	"sid": 117565838201994
+}

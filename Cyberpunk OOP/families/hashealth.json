@@ -1,0 +1,72 @@
+{
+	"name": "HasHealth",
+	"plugin-id": "Sprite",
+	"sid": 321348656418468,
+	"instanceVariables": [
+		{
+			"name": "oHealth",
+			"type": "number",
+			"desc": "",
+			"sid": 709695582317679
+		},
+		{
+			"name": "oMaxHealth",
+			"type": "number",
+			"desc": "",
+			"sid": 743209200539452
+		},
+		{
+			"name": "CanDamage",
+			"type": "boolean",
+			"desc": "",
+			"sid": 574601367206876
+		},
+		{
+			"name": "HealTimer",
+			"type": "number",
+			"desc": "",
+			"sid": 804524893367927
+		},
+		{
+			"name": "CanHeal",
+			"type": "boolean",
+			"desc": "",
+			"sid": 716385123568977
+		},
+		{
+			"name": "HealCount",
+			"type": "number",
+			"desc": "",
+			"sid": 278234870537359
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Timer",
+			"name": "HasHealthTimer",
+			"sid": 890668479086449
+		}
+	],
+	"effectTypes": [
+		{
+			"effectId": "brightness",
+			"name": "HasHealthHurt"
+		}
+	],
+	"members": [
+		"Alarmbot",
+		"BattleDrone",
+		"Biker",
+		"Bomj",
+		"Brigand",
+		"Cannon",
+		"Copter",
+		"Cyborg",
+		"Drone",
+		"Hammer",
+		"Patrol",
+		"Punk",
+		"ShockBot",
+		"StepperCannon"
+	]
+}

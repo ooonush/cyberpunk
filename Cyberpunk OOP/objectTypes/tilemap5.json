@@ -1,0 +1,126 @@
+{
+	"name": "Tilemap5",
+	"plugin-id": "Tilemap",
+	"sid": 716821770590132,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 320,
+		"height": 256,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 4423129,
+		"useCollisionPoly": true
+	},
+	"tile-collision-polys": {
+		"60": {
+			"collisionPoly": {
+				"points": [
+					1,
+					0,
+					1,
+					1,
+					0,
+					1
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"61": {
+			"collisionPoly": {
+				"points": [
+					0,
+					0,
+					1,
+					1,
+					0,
+					1
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"62": {
+			"collisionPoly": {
+				"points": [
+					1,
+					0,
+					1,
+					1,
+					0,
+					1
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"63": {
+			"collisionPoly": {
+				"points": [
+					0,
+					0,
+					1,
+					1,
+					0,
+					1
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"64": {
+			"collisionPoly": {
+				"points": [
+					1,
+					0,
+					1,
+					1,
+					0,
+					1
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"65": {
+			"collisionPoly": {
+				"points": [
+					0,
+					0,
+					1,
+					1,
+					0,
+					1
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"66": {
+			"collisionPoly": {
+				"points": [
+					1,
+					0,
+					1,
+					1,
+					0,
+					1
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"67": {
+			"collisionPoly": {
+				"points": [
+					0,
+					0,
+					1,
+					1,
+					0,
+					1
+				]
+			},
+			"useCollisionPoly": true
+		}
+	}
+}

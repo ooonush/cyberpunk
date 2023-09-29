@@ -1,0 +1,1908 @@
+{
+	"name": "E-Bots",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 417322163427300,
+					"parameters": {
+						"object": "Bot"
+					}
+				},
+				{
+					"id": "pick-children",
+					"objectClass": "Bot",
+					"sid": 789732732628199,
+					"parameters": {
+						"child": "0HP",
+						"which": "own"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 176027094331087,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "0HP",
+							"sid": 707000367052517,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Bot",
+							"sid": 697731739371668,
+							"parameters": {
+								"instance-variable": "IsDeath",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 880721471677191
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 646350444610031
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Bot",
+							"sid": 473298419792990,
+							"parameters": {
+								"instance-variable": "IsDeath",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 243961572604376
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "BotSpawn",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Bot",
+							"sid": 501453437836860
+						}
+					],
+					"actions": [
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Bot",
+							"sid": 377972533793832,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"BlackWhite\""
+							}
+						}
+					],
+					"sid": 936545113063776
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 487387967244338,
+							"parameters": {
+								"object": "Bot"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Bot",
+							"sid": 682601484491913,
+							"parameters": {
+								"instance-variable": "IsSpawning"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterCollider",
+							"sid": 555458355795364,
+							"parameters": {
+								"instance-variable": "ID",
+								"comparison": 0,
+								"value": "Bot.ID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Bot",
+							"sid": 937439552810322,
+							"parameters": {
+								"instance-variable": "IsSpawning",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Bot",
+							"sid": 209394639527862,
+							"parameters": {
+								"instance-variable": "Color",
+								"value": "Functions.GetColorByActorNr(Bot.ID)"
+							}
+						},
+						{
+							"callFunction": "BotCreateHealthBar",
+							"sid": 919415899539919,
+							"parameters": [
+								"Bot.UID"
+							]
+						}
+					],
+					"sid": 728087125206558,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Bot2",
+									"sid": 857055975880479,
+									"parameters": {
+										"unique-id": "Bot.UID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Bot2",
+									"sid": 108197351412762,
+									"parameters": {
+										"instance-variable": "ColorBot2",
+										"value": "Bot.Color"
+									}
+								}
+							],
+							"sid": 227046423228998
+						}
+					]
+				},
+				{
+					"functionName": "SyncBotBuying",
+					"functionDescription": "",
+					"functionCategory": "Bot",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "BotName",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 246287812784132
+						},
+						{
+							"name": "CharacterID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 580272378764652
+						},
+						{
+							"name": "BotID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 185208898777538
+						},
+						{
+							"name": "X",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 277121618749848
+						},
+						{
+							"name": "Y",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 174862056352750
+						},
+						{
+							"name": "Price",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 801917151554861
+						},
+						{
+							"name": "TargetActors",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 274968639845773
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 328621371816594,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 382466602294795,
+									"parameters": {
+										"variable": "OnlineMode"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "raiseevent17",
+									"objectClass": "Photon",
+									"sid": 450197391013478,
+									"parameters": {
+										"code0": "20",
+										"data1": "BotName&\"/\"&CharacterID&\"/\"&BotID&\"/\"&int(X)&\"/\"&int(Y)&\"/\"&Price",
+										"interestgroup2": "0",
+										"cache11": "donotcache",
+										"receivers15": "others",
+										"targetactors16": "TargetActors",
+										"webforward19": "no"
+									}
+								}
+							],
+							"sid": 631086287795972
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 401107923372028
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "SpawnBot",
+									"sid": 510017962250935,
+									"parameters": [
+										"BotName",
+										"CharacterID",
+										"BotID",
+										"X",
+										"Y",
+										"Price"
+									]
+								}
+							],
+							"sid": 283515007908739
+						}
+					]
+				},
+				{
+					"functionName": "SpawnBot",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "BotName",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 604577827222120
+						},
+						{
+							"name": "CharacterID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 352188324458067
+						},
+						{
+							"name": "BotID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 526869141352452
+						},
+						{
+							"name": "X",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 677483505495952
+						},
+						{
+							"name": "Y",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 312655641451795
+						},
+						{
+							"name": "Price",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 371666042370666
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterCollider",
+							"sid": 903962390672571,
+							"parameters": {
+								"instance-variable": "ID",
+								"comparison": 0,
+								"value": "CharacterID"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 739219750449902,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "ID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 879201665611487
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Bot",
+									"sid": 619237733957076,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "CharacterID"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Bot",
+									"sid": 226105967227316,
+									"parameters": {
+										"instance-variable": "BotID",
+										"comparison": 0,
+										"value": "BotID"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 325263414764684
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 370582907795794
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "BucksSet",
+									"sid": 152701824593983,
+									"parameters": [
+										"CharacterCollider.UID",
+										"CharacterCollider.Bucks - Price"
+									]
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "CharacterCollider",
+									"sid": 146016394569642,
+									"parameters": {
+										"instance-variable": "LastBotID",
+										"value": "BotID + 1"
+									}
+								},
+								{
+									"id": "create-object-by-name",
+									"objectClass": "System",
+									"sid": 407520344767456,
+									"parameters": {
+										"object-name": "BotName",
+										"layer": "Functions.GetObjectsLayerName",
+										"x": "X",
+										"y": "Y",
+										"create-hierarchy": true,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 523985790876253,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-last-created",
+											"objectClass": "System",
+											"sid": 912652469920150,
+											"parameters": {
+												"object": "Bot"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Bot",
+											"sid": 527356351533899,
+											"parameters": {
+												"instance-variable": "ID",
+												"value": "CharacterID"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Bot",
+											"sid": 738411831123792,
+											"parameters": {
+												"instance-variable": "BotID",
+												"value": "BotID"
+											}
+										}
+									],
+									"sid": 709185512548529
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "onevent3",
+							"objectClass": "Photon",
+							"sid": 991348423608503,
+							"parameters": {
+								"code0": "20"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SpawnBot",
+							"sid": 750352772350488,
+							"parameters": [
+								"tokenat(Photon.EventData, 0, \"/\")",
+								"int(tokenat(Photon.EventData, 1, \"/\"))",
+								"int(tokenat(Photon.EventData, 2, \"/\"))",
+								"Functions.GetXByActorNr(int(tokenat(Photon.EventData, 3, \"/\")), Photon.ActorNr)",
+								"int(tokenat(Photon.EventData, 4, \"/\"))",
+								"int(tokenat(Photon.EventData, 5, \"/\"))"
+							]
+						}
+					],
+					"sid": 352781583545083
+				}
+			],
+			"sid": 895747642916603
+		},
+		{
+			"functionName": "BotCreateHealthBar",
+			"functionDescription": "",
+			"functionCategory": "Bot",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "botUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 498096626041186
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Bot",
+					"sid": 289893641422891,
+					"parameters": {
+						"unique-id": "botUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "HealthBarCreate",
+					"sid": 450142488342448,
+					"parameters": [
+						"botUID",
+						"Bot.X",
+						"Bot.Y - Bot.Height / 2",
+						"\"Bot\""
+					]
+				}
+			],
+			"sid": 426861060684232
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "BotsMoving",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 910912717096785,
+							"parameters": {
+								"object": "Bot"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 360809139788554,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Bot",
+									"sid": 967787158908063,
+									"parameters": {
+										"instance-variable": "FlyHeight",
+										"comparison": 1,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 773167027427907,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-overlapping-point",
+											"objectClass": "System",
+											"sid": 761591784075616,
+											"parameters": {
+												"object": "Tiles",
+												"x": "Bot.X",
+												"y": "Bot.Y+Bot.FlyHeight"
+											}
+										},
+										{
+											"id": "pick-overlapping-point",
+											"objectClass": "System",
+											"sid": 658843719002310,
+											"parameters": {
+												"object": "BotsFlyingZone",
+												"x": "Bot.X",
+												"y": "Bot.Y+Bot.FlyHeight"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-vector-y",
+											"objectClass": "Bot",
+											"sid": 957818773938415,
+											"behaviorType": "Platform",
+											"parameters": {
+												"vector-y": "-Self.FlySpeed"
+											}
+										}
+									],
+									"sid": 388603792866240,
+									"isOrBlock": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Bot",
+									"sid": 341312969932023,
+									"parameters": {
+										"animation": "\"Run\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 840208635486319,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Bot",
+											"sid": 653464707966669,
+											"parameters": {
+												"instance-variable": "Color",
+												"comparison": 0,
+												"value": "\"Blue\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "Bot",
+											"sid": 930558601298007,
+											"behaviorType": "Platform",
+											"parameters": {
+												"control": "right"
+											}
+										},
+										{
+											"id": "set-mirrored",
+											"objectClass": "Bot",
+											"sid": 279860194041380,
+											"parameters": {
+												"state": "not-mirrored"
+											}
+										}
+									],
+									"sid": 779693666272794
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 369677729484961
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "Bot",
+											"sid": 291141710578922,
+											"behaviorType": "Platform",
+											"parameters": {
+												"control": "left"
+											}
+										},
+										{
+											"id": "set-mirrored",
+											"objectClass": "Bot",
+											"sid": 547324730224307,
+											"parameters": {
+												"state": "mirrored"
+											}
+										}
+									],
+									"sid": 369673150341147
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 588038283837867
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "BotSyncFuncs",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "NotFoundedBot",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "SyncNotFoundedBot",
+							"functionDescription": "",
+							"functionCategory": "SyncBot",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "ID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 765712578143661
+								},
+								{
+									"name": "BotID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 630071229382540
+								},
+								{
+									"name": "TargetActors",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 574939060226490
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 238083429360181,
+									"parameters": {
+										"variable": "OnlineMode"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "raiseevent17",
+									"objectClass": "Photon",
+									"sid": 934221247473834,
+									"parameters": {
+										"code0": "21",
+										"data1": "ID&\"/\"&BotID",
+										"interestgroup2": "0",
+										"cache11": "donotcache",
+										"receivers15": "others",
+										"targetactors16": "TargetActors",
+										"webforward19": "no"
+									}
+								},
+								{
+									"id": "add-item",
+									"objectClass": "List",
+									"sid": 403549952686960,
+									"parameters": {
+										"text": "ID&\"/\"&BotID&\"/\"&TargetActors"
+									}
+								}
+							],
+							"sid": 822788919015702
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "onevent3",
+									"objectClass": "Photon",
+									"sid": 802837654236658,
+									"parameters": {
+										"code0": "21"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Bot",
+									"sid": 315442652279024,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "int(tokenat(Photon.EventData, 0, \"/\"))"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Bot",
+									"sid": 854108932323261,
+									"parameters": {
+										"instance-variable": "BotID",
+										"comparison": 0,
+										"value": "int(tokenat(Photon.EventData, 1, \"/\"))"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 228761109051357,
+									"parameters": {
+										"variable": "OnlineMode"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "SyncBotBuying",
+									"sid": 609869523141512,
+									"parameters": [
+										"Bot.ObjectTypeName",
+										"Bot.ID",
+										"Bot.BotID",
+										"Bot.X",
+										"Bot.Y",
+										"0",
+										"str(Photon.ActorNr)"
+									]
+								},
+								{
+									"callFunction": "SyncBotPosAndHP",
+									"sid": 419099657759494,
+									"parameters": [
+										"Bot.UID",
+										"str(Photon.ActorNr)"
+									]
+								}
+							],
+							"sid": 978011325720288
+						}
+					],
+					"sid": 659516118415849
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "SyncBotPosAndHP",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "SyncBotPos",
+							"functionDescription": "",
+							"functionCategory": "Bot",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 163660472685473
+								},
+								{
+									"name": "TargetActors",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 327016307661362
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 344529640105513,
+									"parameters": {
+										"variable": "OnlineMode"
+									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Bot",
+									"sid": 610283979270207,
+									"parameters": {
+										"unique-id": "UID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "raiseevent17",
+									"objectClass": "Photon",
+									"sid": 661237342772854,
+									"parameters": {
+										"code0": "22",
+										"data1": "Bot.ID&\"/\"&Bot.BotID&\"/\"&int(Bot.X)&\"/\"&int(Bot.Y)&\"/\"&Bot.Width&\"/\"&Bot.AnimationName",
+										"interestgroup2": "0",
+										"cache11": "donotcache",
+										"receivers15": "others",
+										"targetactors16": "TargetActors",
+										"webforward19": "no"
+									}
+								}
+							],
+							"sid": 930822962759461
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "onevent3",
+									"objectClass": "Photon",
+									"sid": 254002614031908,
+									"parameters": {
+										"code0": "22"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 614631057662642,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Bot",
+											"sid": 511979543545891,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "int(tokenat(Photon.EventData, 0, \"/\"))"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Bot",
+											"sid": 589047199714895,
+											"parameters": {
+												"instance-variable": "BotID",
+												"comparison": 0,
+												"value": "int(tokenat(Photon.EventData, 1, \"/\"))"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Bot",
+											"sid": 811754119165046,
+											"parameters": {
+												"x": "Functions.GetXByActorNr(int(tokenat(Photon.EventData, 2, \"/\")) + 1, Photon.ActorNr)",
+												"y": "int(tokenat(Photon.EventData, 3, \"/\"))+1"
+											}
+										},
+										{
+											"id": "set-width",
+											"objectClass": "Bot",
+											"sid": 785523007071455,
+											"parameters": {
+												"width": "Functions.GetWidthByActorNr(int(tokenat(Photon.EventData, 4, \"/\")),Photon.ActorNr)"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Bot",
+											"sid": 618698980726915,
+											"parameters": {
+												"animation": "tokenat(Photon.EventData, 5, \"/\")",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 837993133795051
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 698858525478561
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "SyncNotFoundedBot",
+											"sid": 419232598094291,
+											"parameters": [
+												"int(tokenat(Photon.EventData, 0, \"/\"))",
+												"int(tokenat(Photon.EventData, 1, \"/\"))",
+												"str(Photon.ActorNr)"
+											]
+										}
+									],
+									"sid": 618459387033076
+								}
+							]
+						},
+						{
+							"functionName": "SyncBotPosAndHP",
+							"functionDescription": "",
+							"functionCategory": "Bot",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 779680752045910
+								},
+								{
+									"name": "TargetActors",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 368749490871805
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 249744445243380,
+									"parameters": {
+										"variable": "OnlineMode"
+									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Bot",
+									"sid": 950520433066275,
+									"parameters": {
+										"unique-id": "UID"
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "Bot",
+									"sid": 859192379895950,
+									"parameters": {
+										"child": "0HP",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "raiseevent17",
+									"objectClass": "Photon",
+									"sid": 477959422326757,
+									"parameters": {
+										"code0": "25",
+										"data1": "Bot.ID&\"/\"&Bot.BotID&\"/\"&int(Bot.X)&\"/\"&int(Bot.Y)&\"/\"&Bot.Width&\"/\"&Bot.AnimationName&\"/\"&0HP.HP",
+										"interestgroup2": "0",
+										"cache11": "donotcache",
+										"receivers15": "others",
+										"targetactors16": "TargetActors",
+										"webforward19": "no"
+									}
+								}
+							],
+							"sid": 340591630048872
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "onevent3",
+									"objectClass": "Photon",
+									"sid": 142566402259608,
+									"parameters": {
+										"code0": "25"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 117800793788811,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Bot",
+											"sid": 508640268215156,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "int(tokenat(Photon.EventData, 0, \"/\"))"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Bot",
+											"sid": 429133268521624,
+											"parameters": {
+												"instance-variable": "BotID",
+												"comparison": 0,
+												"value": "int(tokenat(Photon.EventData, 1, \"/\"))"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Bot",
+											"sid": 836688250776859,
+											"parameters": {
+												"x": "Functions.GetXByActorNr(int(tokenat(Photon.EventData, 2, \"/\")) + 1, Photon.ActorNr)",
+												"y": "int(tokenat(Photon.EventData, 3, \"/\"))+1"
+											}
+										},
+										{
+											"id": "set-width",
+											"objectClass": "Bot",
+											"sid": 195244874353563,
+											"parameters": {
+												"width": "Functions.GetWidthByActorNr(int(tokenat(Photon.EventData, 4, \"/\")),Photon.ActorNr)"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Bot",
+											"sid": 862206758828412,
+											"parameters": {
+												"animation": "tokenat(Photon.EventData, 5, \"/\")",
+												"from": "beginning"
+											}
+										},
+										{
+											"callFunction": "SetObjHP",
+											"sid": 207525462537801,
+											"parameters": [
+												"Bot.UID",
+												"int(tokenat(Photon.EventData, 6, \"/\"))"
+											]
+										}
+									],
+									"sid": 656488670158889
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 497002203687868
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "SyncNotFoundedBot",
+											"sid": 596791200474482,
+											"parameters": [
+												"int(tokenat(Photon.EventData, 0, \"/\"))",
+												"int(tokenat(Photon.EventData, 1, \"/\"))",
+												"str(Photon.ActorNr)"
+											]
+										}
+									],
+									"sid": 822694094106698
+								}
+							]
+						}
+					],
+					"sid": 167475292047788
+				}
+			],
+			"sid": 238998072715655
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "BotAttacks",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 950309126190380,
+							"parameters": {
+								"interval-seconds": "0.1"
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 636601465678950,
+							"parameters": {
+								"object": "Bot"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterCollider",
+							"sid": 521989558063756,
+							"parameters": {
+								"instance-variable": "ID",
+								"comparison": 0,
+								"value": "Bot.ID"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterCollider",
+							"sid": 397575415411893,
+							"parameters": {
+								"instance-variable": "OnlineID",
+								"comparison": 0,
+								"value": "MyActorNr"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 857655802633374,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 799798211851698,
+									"parameters": {
+										"first-value": "Functions.IsBotAttacking(Bot.UID)",
+										"comparison": 0,
+										"second-value": "0"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Bot",
+									"sid": 657262394464551,
+									"parameters": {
+										"animation": "\"Attack\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Bot",
+									"sid": 791906915562500,
+									"parameters": {
+										"animation": "\"Run\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"callFunction": "SyncBotPosAndHP",
+									"sid": 214461458655443,
+									"parameters": [
+										"Bot.UID",
+										"Functions.GetOnlineOthers"
+									]
+								}
+							],
+							"sid": 594099650371333
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "TryBotAttack",
+									"sid": 409781065921378,
+									"parameters": [
+										"Bot.UID"
+									]
+								}
+							],
+							"sid": 717742264466817
+						}
+					]
+				},
+				{
+					"functionName": "TryBotAttack",
+					"functionDescription": "Бот начинает атаковать если видит врага и готов",
+					"functionCategory": "Bot",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 310178167837043
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Bot",
+							"sid": 427099603900229,
+							"parameters": {
+								"unique-id": "UID"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 708793111987001,
+							"parameters": {
+								"first-value": "Functions.IsBotAttacking(UID)",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Bot",
+							"sid": 360958941037632,
+							"parameters": {
+								"animation": "\"Death\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 710863116893147,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "ViewDir",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 354311000127784
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "Bot",
+									"sid": 837753087461762,
+									"parameters": {
+										"child": "AttackView",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 657976763273698,
+									"parameters": {
+										"variable": "ViewDir",
+										"value": "Functions.IsEnemyInAttackView(AttackView.UID, Bot.Color, 0)"
+									}
+								}
+							],
+							"sid": 124885286990990
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 909768976221986,
+									"parameters": {
+										"variable": "ViewDir",
+										"comparison": 1,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 852723536350676,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 949887041065486,
+											"parameters": {
+												"variable": "ViewDir",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mirrored",
+											"objectClass": "Bot",
+											"sid": 159927290227896,
+											"parameters": {
+												"state": "not-mirrored"
+											}
+										}
+									],
+									"sid": 210163448682962
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 731805624581225
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mirrored",
+											"objectClass": "Bot",
+											"sid": 629056467518295,
+											"parameters": {
+												"state": "mirrored"
+											}
+										}
+									],
+									"sid": 312121349409519
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Bot",
+											"sid": 137665845636646,
+											"parameters": {
+												"animation": "\"Attack\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"callFunction": "SyncBotPosAndHP",
+											"sid": 593583940350219,
+											"parameters": [
+												"Bot.UID",
+												"Functions.GetOnlineOthers"
+											]
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 331863371228962,
+											"parameters": {
+												"seconds": "Bot.AttackWait"
+											}
+										}
+									],
+									"sid": 104053481043448,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Bot",
+													"sid": 416878030085310,
+													"parameters": {
+														"animation": "\"Death\""
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [],
+											"sid": 511162842771689,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Bot",
+															"sid": 695282740315541,
+															"parameters": {
+																"instance-variable": "AttackMode",
+																"comparison": 0,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 661494941634896
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 253624135210735
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Bot",
+															"sid": 950873743342436,
+															"parameters": {
+																"instance-variable": "AttackMode",
+																"comparison": 0,
+																"value": "1"
+															}
+														},
+														{
+															"id": "pick-children",
+															"objectClass": "Bot",
+															"sid": 645401825543995,
+															"parameters": {
+																"child": "AttackView",
+																"which": "own"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "SyncBotAttackMode2",
+															"sid": 929502008682155,
+															"parameters": [
+																"Bot.UID",
+																"Bot.X + AttackView.Width / 2 * ViewDir"
+															]
+														}
+													],
+													"sid": 970717434912199
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "IsBotAttacking",
+					"functionDescription": "Атакует ли бот на данный момент",
+					"functionCategory": "Bot",
+					"functionReturnType": "number",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 509581930715745
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Bot",
+							"sid": 503840749081521,
+							"parameters": {
+								"unique-id": "UID"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 762881141380231,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Bot",
+									"sid": 619677964201877,
+									"parameters": {
+										"animation": "\"Attack\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 351048998175463,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "Bot",
+											"sid": 548860359428271,
+											"parameters": {
+												"comparison": 5,
+												"number": "Bot.AnimationFrameCount-1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 956419201759507,
+											"parameters": {
+												"value": "0"
+											}
+										}
+									],
+									"sid": 667686075107085
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 223267911193590
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 820924024240671,
+											"parameters": {
+												"value": "1"
+											}
+										}
+									],
+									"sid": 896007861493368
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 471677447159079
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 916760041773732,
+									"parameters": {
+										"value": "0"
+									}
+								}
+							],
+							"sid": 901608752937747
+						}
+					]
+				}
+			],
+			"sid": 716621987170399
+		},
+		{
+			"functionName": "OnDamageBot",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 174087050049367
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Bot",
+					"sid": 231369591238108,
+					"parameters": {
+						"unique-id": "UID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "StartBotHurtAnim",
+					"sid": 815899421451693,
+					"parameters": [
+						"UID"
+					]
+				}
+			],
+			"sid": 392097809722828
+		},
+		{
+			"functionName": "StartBotHurtAnim",
+			"functionDescription": "",
+			"functionCategory": "Bot",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 839486107620374
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Bot",
+					"sid": 233678513644331,
+					"parameters": {
+						"unique-id": "UID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "start-timer",
+					"objectClass": "Bot",
+					"sid": 434663444110890,
+					"behaviorType": "Timer",
+					"parameters": {
+						"duration": "0.2",
+						"type": "once",
+						"tag": "\"Hurting\""
+					}
+				},
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Bot",
+					"sid": 700741825685160,
+					"parameters": {
+						"mode": "enable",
+						"effect": "\"BlackWhite\""
+					}
+				}
+			],
+			"sid": 884087884815005,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-children",
+							"objectClass": "Bot",
+							"sid": 265925356824267,
+							"parameters": {
+								"child": "0HP",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "HealthBarStartHurtAnim",
+							"sid": 400947125676857,
+							"parameters": [
+								"0HP.UID"
+							]
+						}
+					],
+					"sid": 477111025872309
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-timer",
+					"objectClass": "Bot",
+					"sid": 950242030051264,
+					"behaviorType": "Timer",
+					"parameters": {
+						"tag": "\"Hurting\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "Bot",
+					"sid": 790005142012823,
+					"parameters": {
+						"mode": "disable",
+						"effect": "\"BlackWhite\""
+					}
+				}
+			],
+			"sid": 908143510387182
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Bot",
+					"sid": 280407587165132,
+					"parameters": {
+						"instance-variable": "IsDeath"
+					}
+				},
+				{
+					"id": "is-animation-playing",
+					"objectClass": "Bot",
+					"sid": 752018570286255,
+					"parameters": {
+						"animation": "\"Death\""
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Bot",
+					"sid": 717968168152521,
+					"parameters": {
+						"animation": "\"Death\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"callFunction": "SyncBotPosAndHP",
+					"sid": 372234047933207,
+					"parameters": [
+						"Bot.UID",
+						"Functions.GetOnlineOthers"
+					]
+				}
+			],
+			"sid": 331537996238493
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-animation-finished",
+					"objectClass": "Bot",
+					"sid": 315269123578819,
+					"parameters": {
+						"animation": "\"Death\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Bot",
+					"sid": 545662089847662
+				}
+			],
+			"sid": 935687272709535
+		}
+	],
+	"sid": 777269013241812
+}

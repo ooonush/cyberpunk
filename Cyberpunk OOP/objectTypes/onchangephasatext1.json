@@ -1,0 +1,49 @@
+{
+	"name": "OnChangePhasaText1",
+	"plugin-id": "Spritefont2",
+	"sid": 432604282643813,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "ID",
+			"type": "number",
+			"desc": "",
+			"sid": 229702235774019
+		},
+		{
+			"name": "ID2",
+			"type": "string",
+			"desc": "",
+			"sid": 600830193323109
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 840224905448968
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Sine2",
+			"sid": 814694268031310
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Sine3",
+			"sid": 415972586467729
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 130,
+		"height": 28,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 2711258,
+		"useCollisionPoly": true
+	}
+}

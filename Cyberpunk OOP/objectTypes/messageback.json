@@ -1,0 +1,74 @@
+{
+	"name": "MessageBack",
+	"plugin-id": "Sprite",
+	"sid": 380376647997176,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Message",
+			"type": "string",
+			"desc": "",
+			"sid": 271642350375935
+		},
+		{
+			"name": "TargetScale",
+			"type": "number",
+			"desc": "",
+			"sid": 702229303056237
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 60,
+						"height": 11,
+						"originX": 1,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5925250,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 60,
+						"height": 11,
+						"originX": 1,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3712150,
+						"collisionPoly": {
+							"points": [
+								1,
+								1,
+								0,
+								1,
+								0,
+								0,
+								1,
+								0
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 634796438757227,
+				"name": "Enemy",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

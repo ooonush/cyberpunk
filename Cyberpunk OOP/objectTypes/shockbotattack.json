@@ -1,0 +1,79 @@
+{
+	"name": "ShockBotAttack",
+	"plugin-id": "Sprite",
+	"sid": 814079533439052,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 560308588335255
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 15,
+						"height": 17,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 253608,
+						"collisionPoly": {
+							"points": [
+								0.06666666666666667,
+								0.058823529411764705,
+								1,
+								0.058823529411764705,
+								1,
+								0.9411764705882353,
+								0.06666666666666667,
+								0.9411764705882353
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 15,
+						"height": 17,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9591683,
+						"collisionPoly": {
+							"points": [
+								0.06666666666666667,
+								0.058823529411764705,
+								1,
+								0.058823529411764705,
+								1,
+								0.9411764705882353,
+								0.06666666666666667,
+								0.9411764705882353
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 953346214847714,
+				"name": "Blue",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

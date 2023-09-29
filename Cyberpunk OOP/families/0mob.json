@@ -1,0 +1,31 @@
+{
+	"name": "0Mob",
+	"plugin-id": "Sprite",
+	"sid": 534014726333588,
+	"instanceVariables": [
+		{
+			"name": "oOnlineAnim",
+			"type": "string",
+			"desc": "",
+			"sid": 782481755351021
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Alarmbot",
+		"BattleDrone",
+		"Biker",
+		"Bomj",
+		"Brigand",
+		"Cannon",
+		"Cyborg",
+		"Copter",
+		"Drone",
+		"Hammer",
+		"Patrol",
+		"Punk",
+		"ShockBot",
+		"StepperCannon"
+	]
+}

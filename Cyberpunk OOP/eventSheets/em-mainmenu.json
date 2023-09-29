@@ -1,0 +1,3115 @@
+{
+	"name": "EM-MainMenu",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "Trophies",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 182352868927511
+		},
+		{
+			"eventType": "variable",
+			"name": "MatchesPlayed",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 767245975105766
+		},
+		{
+			"eventType": "variable",
+			"name": "Bot1Name",
+			"type": "string",
+			"initialValue": "Alarmbot",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 581901321375254
+		},
+		{
+			"eventType": "variable",
+			"name": "Bot2Name",
+			"type": "string",
+			"initialValue": "Copter",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 779036924204245
+		},
+		{
+			"eventType": "variable",
+			"name": "Bot3Name",
+			"type": "string",
+			"initialValue": "Hammer",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 995421336643498
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "buttons"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "E-LeaderBoard"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "E-Localization"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 762971282838823,
+					"parameters": {
+						"interval-seconds": "4"
+					}
+				},
+				{
+					"id": "is-showing-banner",
+					"objectClass": "MobileAdvert",
+					"sid": 386577930969072
+				}
+			],
+			"actions": [
+				{
+					"id": "hide-banner",
+					"objectClass": "MobileAdvert",
+					"sid": 735246474501623
+				}
+			],
+			"sid": 440800956108763,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-css-style",
+					"objectClass": "TextInput",
+					"sid": 216175302551267,
+					"parameters": {
+						"property-name": "\"font-size\"",
+						"value": "\"calc(1em + 4vw)\""
+					}
+				},
+				{
+					"id": "set-max-length",
+					"objectClass": "TextInput",
+					"sid": 594452432124115,
+					"parameters": {
+						"max-length": "15"
+					}
+				}
+			],
+			"sid": 849742489094451
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "TextInput",
+					"sid": 710577118951397
+				}
+			],
+			"actions": [
+				{
+					"id": "set-css-style",
+					"objectClass": "TextInput",
+					"sid": 685000020470285,
+					"parameters": {
+						"property-name": "\"font-family\"",
+						"value": "\"pixelfont\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "TextInput",
+					"sid": 888479069477975,
+					"parameters": {
+						"property-name": "\"outline\"",
+						"value": "\"none\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "TextInput",
+					"sid": 427877254571375,
+					"parameters": {
+						"property-name": "\"color\"",
+						"value": "\"white\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "TextInput",
+					"sid": 105490321427863,
+					"parameters": {
+						"property-name": "\"padding-left\"",
+						"value": "\"5%\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "TextInput",
+					"sid": 215166301514472,
+					"parameters": {
+						"property-name": "\"padding-top\"",
+						"value": "\"5%\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "TextInput",
+					"sid": 981559606184325,
+					"parameters": {
+						"property-name": "\"background\"",
+						"value": "\"none\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "TextInput",
+					"sid": 676683464946543,
+					"parameters": {
+						"property-name": "\"border\"",
+						"value": "\"none\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "TextInput",
+					"sid": 895104794410392,
+					"parameters": {
+						"property-name": "\"margin-right\"",
+						"value": "\"auto\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "TextInput",
+					"sid": 823199489467545,
+					"disabled": true,
+					"parameters": {
+						"property-name": "\"opacity\"",
+						"value": "\"0\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 174118170335096,
+					"disabled": true,
+					"parameters": {
+						"seconds": "1"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 848689896265856,
+					"parameters": {
+						"layer": "\"ChangeNickName\"",
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 979169843806968
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-end-of-layout",
+					"objectClass": "System",
+					"sid": 541997442444362
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 458554056990815,
+					"parameters": {
+						"layer": "\"ChangeNickName\"",
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 981588833781573
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 285592807185793
+				}
+			],
+			"actions": [
+				{
+					"id": "add-key",
+					"objectClass": "CharactersBuyed",
+					"sid": 570540342537706,
+					"disabled": true,
+					"parameters": {
+						"key": "\"Punk\"",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "CharacterInMenu",
+					"sid": 665211186662118,
+					"parameters": {
+						"animation": "MyCharacterName",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-layout-scale",
+					"objectClass": "System",
+					"sid": 291620404575897,
+					"parameters": {
+						"scale": "1"
+					}
+				},
+				{
+					"callFunction": "SetCharactersBought",
+					"sid": 381078944892982
+				},
+				{
+					"callFunction": "SetNickNameText",
+					"sid": 309264077959760
+				},
+				{
+					"callFunction": "SetTrophiesText",
+					"sid": 125611841586863
+				},
+				{
+					"id": "stop-all",
+					"objectClass": "Audio",
+					"sid": 842233729383908
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 543423045714181,
+					"parameters": {
+						"audio-file": "Rise of the Machines",
+						"loop": "looping",
+						"volume": "-13",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "leaveroom16",
+					"objectClass": "Photon",
+					"sid": 107813385693843
+				},
+				{
+					"id": "disconnect14",
+					"objectClass": "Photon",
+					"sid": 669522310255241
+				},
+				{
+					"id": "adddesigneventwithvalue",
+					"objectClass": "1GameAnalytics",
+					"sid": 649464161452344,
+					"disabled": true,
+					"parameters": {
+						"event_id": "\"Trophies\"",
+						"value": "Trophies"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 146948802925015,
+					"parameters": {
+						"seconds": "0"
+					}
+				}
+			],
+			"sid": 589041710961429,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 359170147234657,
+							"parameters": {
+								"variable": "RegionSelected"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "MoveToArrow2",
+							"sid": 793738916532197,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "MoveToArrow3",
+							"sid": 211469207300952,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 455119423172033
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 419778619823658,
+							"parameters": {
+								"first-value": "ViewportHeight(0)",
+								"comparison": 4,
+								"second-value": "ViewportWidth(0)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 963932484055917,
+							"parameters": {
+								"seconds": "0"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "Sprite21",
+							"sid": 491490037010112,
+							"parameters": {
+								"width": "ViewportWidth(0)",
+								"height": "ViewportHeight(0)"
+							}
+						}
+					],
+					"sid": 658440926404322
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 348830418685807
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 504589467797108,
+							"parameters": {
+								"seconds": "0"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "Sprite21",
+							"sid": 336992752676950,
+							"parameters": {
+								"width": "ViewportWidth(0)",
+								"height": "ViewportWidth(0)"
+							}
+						}
+					],
+					"sid": 906535742580046
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 211301154767853,
+							"parameters": {
+								"variable": "Trophies",
+								"comparison": 2,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SetTrophies",
+							"sid": 392443540078987,
+							"parameters": [
+								"0"
+							]
+						}
+					],
+					"sid": 812811418548906
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 618076429373084,
+							"parameters": {
+								"instance-variable": "ID2",
+								"comparison": 0,
+								"value": "\"CharacterPrice\""
+							}
+						},
+						{
+							"id": "pick-parent",
+							"objectClass": "Text",
+							"sid": 411994958667717,
+							"parameters": {
+								"parent": "CharacterInMenu",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 496657377275605,
+							"parameters": {
+								"text": "CharacterInMenu.Price"
+							}
+						}
+					],
+					"sid": 774428576739774
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "AD",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 267869679315530
+						}
+					],
+					"actions": [
+						{
+							"id": "create-banner",
+							"objectClass": "MobileAdvert",
+							"sid": 610975491599943,
+							"parameters": {
+								"advert-id": "\"ca-app-pub-2860474538448366/4082199402\"",
+								"banner-size": "landscape",
+								"show": "false",
+								"position": "top"
+							}
+						},
+						{
+							"id": "create-interstitial",
+							"objectClass": "MobileAdvert",
+							"sid": 676996464757248,
+							"parameters": {
+								"advert-id": "\"ca-app-pub-2860474538448366/8521327233\"",
+								"show": "false"
+							}
+						}
+					],
+					"sid": 719531600903442
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-loaded-interstitial",
+							"objectClass": "MobileAdvert",
+							"sid": 461423691559334
+						}
+					],
+					"actions": [
+						{
+							"id": "show-interstitial",
+							"objectClass": "MobileAdvert",
+							"sid": 857491998816690
+						}
+					],
+					"sid": 554803975980400,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-rewarded-complete",
+							"objectClass": "MobileAdvert",
+							"sid": 881209012686111
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 806023657856249,
+							"parameters": {
+								"variable": "WinTrophiesCount",
+								"value": "5"
+							}
+						},
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 278763974925132
+						}
+					],
+					"sid": 662695816090843,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-rewarded-failed-to-load",
+							"objectClass": "MobileAdvert",
+							"sid": 278006699960953
+						},
+						{
+							"id": "on-rewarded-cancelled",
+							"objectClass": "MobileAdvert",
+							"sid": 886586055681103
+						},
+						{
+							"id": "on-rewarded-complete",
+							"objectClass": "MobileAdvert",
+							"sid": 148085617832679
+						}
+					],
+					"actions": [],
+					"sid": 827661966112798,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 668840290778207,
+									"parameters": {
+										"instance-variable": "ID2",
+										"comparison": 0,
+										"value": "\"AdLoading\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Text",
+									"sid": 180884058244730,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 265201927264971
+						}
+					],
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-rewarded-ready",
+							"objectClass": "MobileAdvert",
+							"sid": 836536222651544
+						}
+					],
+					"actions": [
+						{
+							"id": "show-rewarded",
+							"objectClass": "MobileAdvert",
+							"sid": 311852560981576
+						}
+					],
+					"sid": 424302042624513,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 651210099012217,
+									"parameters": {
+										"instance-variable": "ID2",
+										"comparison": 0,
+										"value": "\"AdLoading\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Text",
+									"sid": 601962215926044,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 909273090448560
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 496854014360058,
+							"parameters": {
+								"object": "Sprite22"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-rewarded",
+							"objectClass": "MobileAdvert",
+							"sid": 283735377187472,
+							"parameters": {
+								"advert-id": "\"ca-app-pub-2860474538448366/2102903323\"",
+								"show": "true"
+							}
+						}
+					],
+					"sid": 995024641131518,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 229014528911373,
+									"parameters": {
+										"instance-variable": "ID2",
+										"comparison": 0,
+										"value": "\"AdLoading\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Text",
+									"sid": 618293318020563,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 179970311365141
+						}
+					]
+				}
+			],
+			"sid": 126290525547610
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "InteractiveMenus",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "SetSelectRegionMenuInteractive",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 439025536383764,
+							"parameters": {
+								"layer": "\"ChangeBot\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 115074293492571,
+							"parameters": {
+								"layer": "\"ChangeBot\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 840598604924558,
+							"parameters": {
+								"layer": "\"Win\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 304547763595301,
+							"parameters": {
+								"layer": "\"Win\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 491122871579114,
+							"parameters": {
+								"layer": "\"Buttons\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 401510079932986,
+							"parameters": {
+								"layer": "\"Buttons\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 669746033089689,
+							"parameters": {
+								"layer": "\"Region\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 728927613147966,
+							"parameters": {
+								"layer": "\"Region\"",
+								"interactive": true
+							}
+						}
+					],
+					"sid": 617638750202527
+				},
+				{
+					"functionName": "SetWinMenuInteractive",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 670440655051676,
+							"parameters": {
+								"layer": "\"ChangeBot\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 481827505507993,
+							"parameters": {
+								"layer": "\"ChangeBot\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 633574953280173,
+							"parameters": {
+								"layer": "\"Win\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 488865476641527,
+							"parameters": {
+								"layer": "\"Win\"",
+								"interactive": true
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 772651579005172,
+							"parameters": {
+								"layer": "\"Buttons\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 129309781759967,
+							"parameters": {
+								"layer": "\"Buttons\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 101202786426591,
+							"parameters": {
+								"layer": "\"Region\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 166797072114231,
+							"parameters": {
+								"layer": "\"Region\"",
+								"interactive": false
+							}
+						}
+					],
+					"sid": 513177767225908
+				},
+				{
+					"functionName": "SetButtonsMenuInteractive",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 493243939095951,
+							"parameters": {
+								"layer": "\"ChangeBot\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 324188762199450,
+							"parameters": {
+								"layer": "\"ChangeBot\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 813862239525315,
+							"parameters": {
+								"layer": "\"Win\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 855112671840143,
+							"parameters": {
+								"layer": "\"Win\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 911424220639087,
+							"parameters": {
+								"layer": "\"Buttons\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 275734978877690,
+							"parameters": {
+								"layer": "\"Buttons\"",
+								"interactive": true
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 910947054635301,
+							"parameters": {
+								"layer": "\"Region\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 975345967390042,
+							"parameters": {
+								"layer": "\"Region\"",
+								"interactive": false
+							}
+						}
+					],
+					"sid": 479353711436715
+				},
+				{
+					"functionName": "SetChangeBotMenuInteractive",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 312420136472978,
+							"parameters": {
+								"layer": "\"ChangeBot\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 470199846092941,
+							"parameters": {
+								"layer": "\"ChangeBot\"",
+								"interactive": true
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 606861767037843,
+							"parameters": {
+								"layer": "\"Win\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 781535408338745,
+							"parameters": {
+								"layer": "\"Win\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 100160602735548,
+							"parameters": {
+								"layer": "\"Buttons\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 548559669390561,
+							"parameters": {
+								"layer": "\"Buttons\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 807941373699938,
+							"parameters": {
+								"layer": "\"Region\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 830357308888109,
+							"parameters": {
+								"layer": "\"Region\"",
+								"interactive": false
+							}
+						}
+					],
+					"sid": 327099858345022
+				}
+			],
+			"sid": 958108182704596
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "ChangeBotMenu",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "CurrentBotButtonUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 335125579979883
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 437019548800701
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 374139380632506,
+							"parameters": {
+								"object": "BotBuyButton"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 737627792066079,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-layer",
+									"objectClass": "BotBuyButton",
+									"sid": 302287370364968,
+									"parameters": {
+										"layer": "\"Buttons\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 459494428723266,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "BotBuyButton",
+											"sid": 987347989745457,
+											"parameters": {
+												"instance-variable": "BotNumber",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "BotBuyButton",
+											"sid": 895295872605876,
+											"parameters": {
+												"instance-variable": "BotName",
+												"value": "Bot1Name"
+											}
+										}
+									],
+									"sid": 101675843268207
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 132237702616216
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "BotBuyButton",
+											"sid": 525805469621159,
+											"parameters": {
+												"instance-variable": "BotNumber",
+												"comparison": 0,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "BotBuyButton",
+											"sid": 718285354541920,
+											"parameters": {
+												"instance-variable": "BotName",
+												"value": "Bot2Name"
+											}
+										}
+									],
+									"sid": 379713861719027
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 581104190867850
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "BotBuyButton",
+											"sid": 564127896646237,
+											"parameters": {
+												"instance-variable": "BotNumber",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "BotBuyButton",
+											"sid": 572565586671484,
+											"parameters": {
+												"instance-variable": "BotName",
+												"value": "Bot3Name"
+											}
+										}
+									],
+									"sid": 210686659451997
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "SpawnBotIcon",
+									"sid": 533155367576331,
+									"parameters": [
+										"BotBuyButton.UID",
+										"BotBuyButton.BotName"
+									]
+								}
+							],
+							"sid": 461390332736169
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 264631582420111,
+							"parameters": {
+								"object": "BotBuyButton"
+							}
+						},
+						{
+							"id": "is-on-layer",
+							"objectClass": "BotBuyButton",
+							"sid": 273222648505106,
+							"parameters": {
+								"layer": "\"Buttons\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 110896126095136,
+							"parameters": {
+								"variable": "CurrentBotButtonUID",
+								"value": "BotBuyButton.UID"
+							}
+						},
+						{
+							"callFunction": "SetChangeBotMenuInteractive",
+							"sid": 925054161630684
+						}
+					],
+					"sid": 507845703803983
+				},
+				{
+					"functionName": "SaveMyBots",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 607102585479901,
+							"parameters": {
+								"object": "BotBuyButton"
+							}
+						},
+						{
+							"id": "is-on-layer",
+							"objectClass": "BotBuyButton",
+							"sid": 440357190887575,
+							"parameters": {
+								"layer": "\"Buttons\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 365251496659727,
+							"parameters": {
+								"key": "\"Bot\"&BotBuyButton.BotNumber&\"Name\"",
+								"value": "BotBuyButton.BotName"
+							}
+						}
+					],
+					"sid": 700013026770883,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "BotBuyButton",
+									"sid": 494682904853530,
+									"parameters": {
+										"instance-variable": "BotNumber",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 603624908842841,
+									"parameters": {
+										"variable": "Bot1Name",
+										"value": "BotBuyButton.BotName"
+									}
+								}
+							],
+							"sid": 345520069784977
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 184456452775203
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "BotBuyButton",
+									"sid": 335334530225237,
+									"parameters": {
+										"instance-variable": "BotNumber",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 672373119561579,
+									"parameters": {
+										"variable": "Bot2Name",
+										"value": "BotBuyButton.BotName"
+									}
+								}
+							],
+							"sid": 877017236647504
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 878676738895479
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "BotBuyButton",
+									"sid": 665595014039969,
+									"parameters": {
+										"instance-variable": "BotNumber",
+										"comparison": 0,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 195574093059519,
+									"parameters": {
+										"variable": "Bot3Name",
+										"value": "BotBuyButton.BotName"
+									}
+								}
+							],
+							"sid": 947091980937573
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 645041854194906,
+							"parameters": {
+								"object": "BotBuyButton"
+							}
+						},
+						{
+							"id": "is-on-layer",
+							"objectClass": "BotBuyButton",
+							"sid": 269324669825891,
+							"parameters": {
+								"layer": "\"ChangeBot\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SetBotIcon",
+							"sid": 445520186077517,
+							"parameters": [
+								"CurrentBotButtonUID",
+								"BotBuyButton.BotName"
+							]
+						},
+						{
+							"callFunction": "SaveMyBots",
+							"sid": 901678889977947
+						},
+						{
+							"callFunction": "SetButtonsMenuInteractive",
+							"sid": 122151088103832
+						}
+					],
+					"sid": 228534786241571
+				}
+			],
+			"sid": 311350947738269
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "WinMenu",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 326193093460201,
+							"parameters": {
+								"object": "OK"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SetButtonsMenuInteractive",
+							"sid": 298999463086647
+						}
+					],
+					"sid": 962405411423206
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 954730091571900
+						}
+					],
+					"actions": [],
+					"sid": 615752118138721,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 939926840619997,
+									"parameters": {
+										"variable": "WinTrophiesCount",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "SetButtonsMenuInteractive",
+									"sid": 987996562189886
+								}
+							],
+							"sid": 561691988950616
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 538125860255841
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "SetWinMenuInteractive",
+									"sid": 669078554551788
+								}
+							],
+							"sid": 125538019574584,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Text",
+											"sid": 131196520865388,
+											"parameters": {
+												"instance-variable": "ID2",
+												"comparison": 0,
+												"value": "\"WinTrophiesCount\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 993676374958045,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 912342767551043,
+													"parameters": {
+														"variable": "WinTrophiesCount",
+														"comparison": 2,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Text",
+													"sid": 519696517451649,
+													"parameters": {
+														"text": "WinTrophiesCount"
+													}
+												}
+											],
+											"sid": 651537885089882
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 160653759027420
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Text",
+													"sid": 236436889901273,
+													"parameters": {
+														"text": "\"+\"&WinTrophiesCount"
+													}
+												}
+											],
+											"sid": 389353659053615
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Text",
+											"sid": 129069900932381,
+											"parameters": {
+												"instance-variable": "ID2",
+												"comparison": 0,
+												"value": "\"WinText\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 206136479683773,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 210020284960015,
+													"parameters": {
+														"variable": "WinTrophiesCount",
+														"comparison": 2,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Text",
+													"sid": 135169840197942,
+													"parameters": {
+														"text": "Localization.Get(\"Loose\")"
+													}
+												}
+											],
+											"sid": 773468774343151
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 160647544057669
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Text",
+													"sid": 645637406100311,
+													"parameters": {
+														"text": "Localization.Get(\"Win\")"
+													}
+												}
+											],
+											"sid": 882741781707950
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 962504939060191,
+											"parameters": {
+												"variable": "WinTrophiesCount",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 962290014162976
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 285288016984749
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "ChangeNickName",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-text-changed",
+							"objectClass": "TextInput",
+							"sid": 847627565833362
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TextInput",
+							"sid": 812049586203964,
+							"parameters": {
+								"text": "replace(Self.Text, \"/\", \"\")"
+							}
+						},
+						{
+							"callFunction": "SetNickName",
+							"sid": 853025024409144,
+							"parameters": [
+								"TextInput.Text"
+							]
+						}
+					],
+					"sid": 548859474012370
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-focused",
+							"objectClass": "TextInput",
+							"sid": 361439492536159
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Sprite4",
+							"sid": 149959000431029,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "TextInput",
+							"sid": 669277424760871,
+							"parameters": {
+								"property-name": "\"text-decoration\"",
+								"value": "\"underline\""
+							}
+						}
+					],
+					"sid": 183372176679773,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 891875539663088,
+									"parameters": {
+										"key": 13
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-unfocused",
+									"objectClass": "TextInput",
+									"sid": 649304876592057
+								}
+							],
+							"sid": 231929741601211
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 373768654211771
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Sprite4",
+							"sid": 791646072015607,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "TextInput",
+							"sid": 648194821611000,
+							"parameters": {
+								"property-name": "\"text-decoration\"",
+								"value": "\"none\""
+							}
+						}
+					],
+					"sid": 903397631717274
+				},
+				{
+					"functionName": "SetNickName",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Name",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 668633858645802
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 286991631312774,
+							"parameters": {
+								"variable": "NickName",
+								"value": "Name"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "TextInput",
+							"sid": 275687799911724,
+							"parameters": {
+								"text": "NickName"
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 465773356939541,
+							"parameters": {
+								"key": "\"NickName\"",
+								"value": "NickName"
+							}
+						},
+						{
+							"callFunction": "SetNickNameText",
+							"sid": 867728562055117
+						}
+					],
+					"sid": 405535047640462
+				},
+				{
+					"functionName": "SetNickNameText",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TextInput",
+							"sid": 552241717374835,
+							"parameters": {
+								"text": "NickName"
+							}
+						}
+					],
+					"sid": 631881338242001
+				}
+			],
+			"sid": 606883015100753
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Graphics Settings",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 245703440492250
+						}
+					],
+					"actions": [],
+					"sid": 476145543354811,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Btn",
+									"sid": 175559002882117,
+									"parameters": {
+										"instance-variable": "Name",
+										"comparison": 0,
+										"value": "\"GraphicsSettings\""
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "Btn",
+									"sid": 821290180637763,
+									"parameters": {
+										"child": "Text",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 548200459737413,
+									"parameters": {
+										"text": "Localization.Get(\"Graphics\")&\": \"&Graphics"
+									}
+								}
+							],
+							"sid": 666035519716947
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Btn",
+									"sid": 465851293144844,
+									"parameters": {
+										"instance-variable": "Name",
+										"comparison": 0,
+										"value": "\"RenderingSettings\""
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "Btn",
+									"sid": 923599412854496,
+									"parameters": {
+										"child": "Text",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 338225779861473,
+									"parameters": {
+										"text": "RenderingMode"
+									}
+								}
+							],
+							"sid": 495352672121953
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 872431275690717,
+							"parameters": {
+								"object": "Btn"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Btn",
+							"sid": 264152130609694,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"GraphicsSettings\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "runtime.globalVars.Graphics = graphicsSettings.getNext(runtime.globalVars.Graphics)"
+						}
+					],
+					"sid": 349085266857434,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "Btn",
+									"sid": 156578987717016,
+									"parameters": {
+										"child": "Text",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 667150729578830,
+									"parameters": {
+										"text": "Localization.Get(\"Graphics\")&\": \"&Graphics"
+									}
+								},
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 524406068452938,
+									"parameters": {
+										"key": "\"Graphics\"",
+										"value": "Graphics"
+									}
+								}
+							],
+							"sid": 788829545450687
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 889577975347789,
+							"parameters": {
+								"object": "Btn"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Btn",
+							"sid": 542432058628365,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"RenderingSettings\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 622056244834371,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 235713831569528,
+									"parameters": {
+										"variable": "RenderingMode",
+										"comparison": 0,
+										"value": "\"2D\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 315806633955634,
+									"parameters": {
+										"variable": "RenderingMode",
+										"value": "\"3D\""
+									}
+								}
+							],
+							"sid": 178369823068708
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 105222828301490
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 740863262142210,
+									"parameters": {
+										"variable": "RenderingMode",
+										"value": "\"2D\""
+									}
+								}
+							],
+							"sid": 261406245845252
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "Btn",
+									"sid": 893650861804189,
+									"parameters": {
+										"child": "Text",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 913747158262165,
+									"parameters": {
+										"text": "RenderingMode"
+									}
+								},
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 359419888299395,
+									"parameters": {
+										"key": "\"RenderingMode\"",
+										"value": "RenderingMode"
+									}
+								}
+							],
+							"sid": 621252324038745
+						}
+					]
+				}
+			],
+			"sid": 302864653766772
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Region",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 342421141763196
+						}
+					],
+					"actions": [
+						{
+							"id": "setregion5",
+							"objectClass": "Photon",
+							"sid": 795937093033999,
+							"parameters": {
+								"region0": "Region"
+							}
+						},
+						{
+							"callFunction": "SetRegion",
+							"sid": 495004480404765,
+							"parameters": [
+								"Region"
+							]
+						}
+					],
+					"sid": 413176727964219
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 687038537788432,
+							"parameters": {
+								"object": "Btn"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Btn",
+							"sid": 115418270301246,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"RegionSettings\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SetSelectRegionMenuInteractive",
+							"sid": 740791476145610
+						}
+					],
+					"sid": 722521775815170
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 722179265793367,
+							"parameters": {
+								"object": "Btn"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Btn",
+							"sid": 222249976018005,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"SelectRegion\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SetRegion",
+							"sid": 229145703322256,
+							"parameters": [
+								"Btn.Value"
+							]
+						},
+						{
+							"callFunction": "SetButtonsMenuInteractive",
+							"sid": 137860782709487
+						}
+					],
+					"sid": 151812886172199
+				},
+				{
+					"functionName": "SetRegion",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Name",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 458584094863481
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 295018404907625,
+							"parameters": {
+								"variable": "Region",
+								"value": "Name"
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 910984962554212,
+							"parameters": {
+								"key": "\"Region\"",
+								"value": "Name"
+							}
+						},
+						{
+							"id": "setregion5",
+							"objectClass": "Photon",
+							"sid": 624906090101361,
+							"parameters": {
+								"region0": "Name"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 775244559902816,
+							"parameters": {
+								"variable": "RegionSelected",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 157293810736753,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "MoveToArrow2",
+									"sid": 111096291918484,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "MoveToArrow3",
+									"sid": 904387901702942,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 516244947447920
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Btn",
+									"sid": 954398276636042,
+									"parameters": {
+										"instance-variable": "Name",
+										"comparison": 0,
+										"value": "\"RegionSettings\""
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "Btn",
+									"sid": 260609595223497,
+									"parameters": {
+										"child": "Text",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 555571883807276,
+									"parameters": {
+										"text": "Localization.Get(\"Region\")&\": \"&Region"
+									}
+								}
+							],
+							"sid": 965691912917177
+						}
+					]
+				}
+			],
+			"sid": 579771943106726
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 975587620775651,
+					"parameters": {
+						"object": "Buttons"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Buttons",
+					"sid": 261212212342407,
+					"parameters": {
+						"instance-variable": "Name",
+						"comparison": 0,
+						"value": "\"Start\""
+					}
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 597827743820151,
+					"parameters": {
+						"layer": "\"Win\""
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 565599595648765,
+					"parameters": {
+						"variable": "MyCharacterName",
+						"value": "CharacterInMenu.AnimationName"
+					}
+				},
+				{
+					"id": "connect10",
+					"objectClass": "Photon",
+					"sid": 693929826184277
+				},
+				{
+					"id": "setmyroommaxplayers107",
+					"objectClass": "Photon",
+					"sid": 477936102253950,
+					"parameters": {
+						"maxplayers0": "MaxPlayers"
+					}
+				},
+				{
+					"id": "setmyroomisopen106",
+					"objectClass": "Photon",
+					"sid": 364926389791296,
+					"parameters": {
+						"isopen2": "yes"
+					}
+				},
+				{
+					"id": "setmyroomisvisible105",
+					"objectClass": "Photon",
+					"sid": 188636460561455,
+					"parameters": {
+						"isvisible2": "yes"
+					}
+				},
+				{
+					"id": "setmyactorname101",
+					"objectClass": "Photon",
+					"sid": 915362816903864,
+					"parameters": {
+						"name0": "NickName"
+					}
+				},
+				{
+					"id": "setuserid0",
+					"objectClass": "Photon",
+					"sid": 516671007300545,
+					"disabled": true,
+					"parameters": {
+						"userid0": "NickName&\"/\"&MyCharacterName&\"/\"&random(0,10000)"
+					}
+				},
+				{
+					"id": "setpropertyofactorbynr102",
+					"objectClass": "Photon",
+					"sid": 280018033061528,
+					"parameters": {
+						"actornr0": "Photon.MyActorNr",
+						"propname1": "\"CharacterName\"",
+						"value2": "MyCharacterName",
+						"webforward5": "no",
+						"checkandset8": "no",
+						"expectedvalue9": "0"
+					}
+				},
+				{
+					"id": "setpropertyofactorbynr102",
+					"objectClass": "Photon",
+					"sid": 178103923936013,
+					"parameters": {
+						"actornr0": "Photon.MyActorNr",
+						"propname1": "\"Team\"",
+						"value2": "0",
+						"webforward5": "no",
+						"checkandset8": "no",
+						"expectedvalue9": "0"
+					}
+				},
+				{
+					"id": "setpropertyofactorbynr102",
+					"objectClass": "Photon",
+					"sid": 175092139304949,
+					"parameters": {
+						"actornr0": "Photon.MyActorNr",
+						"propname1": "\"Trophies\"",
+						"value2": "Trophies",
+						"webforward5": "no",
+						"checkandset8": "no",
+						"expectedvalue9": "0"
+					}
+				}
+			],
+			"sid": 327036821630270,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 200921669096764,
+							"parameters": {
+								"object": "BotBuyButton"
+							}
+						},
+						{
+							"id": "is-on-layer",
+							"objectClass": "BotBuyButton",
+							"sid": 596148737564639,
+							"parameters": {
+								"layer": "\"Buttons\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 477680406509302,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "BotBuyButton",
+									"sid": 457630013517786,
+									"parameters": {
+										"instance-variable": "BotNumber",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "setpropertyofactorbynr102",
+									"objectClass": "Photon",
+									"sid": 389112519906842,
+									"parameters": {
+										"actornr0": "Photon.MyActorNr",
+										"propname1": "\"Bot1Name\"",
+										"value2": "BotBuyButton.BotName",
+										"webforward5": "no",
+										"checkandset8": "no",
+										"expectedvalue9": "0"
+									}
+								}
+							],
+							"sid": 384786162181016
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 835890010991807
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "BotBuyButton",
+									"sid": 598035370742274,
+									"parameters": {
+										"instance-variable": "BotNumber",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "setpropertyofactorbynr102",
+									"objectClass": "Photon",
+									"sid": 156270926938272,
+									"parameters": {
+										"actornr0": "Photon.MyActorNr",
+										"propname1": "\"Bot2Name\"",
+										"value2": "BotBuyButton.BotName",
+										"webforward5": "no",
+										"checkandset8": "no",
+										"expectedvalue9": "0"
+									}
+								}
+							],
+							"sid": 898468721281890
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 771360409052952
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "BotBuyButton",
+									"sid": 136858548549488,
+									"parameters": {
+										"instance-variable": "BotNumber",
+										"comparison": 0,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "setpropertyofactorbynr102",
+									"objectClass": "Photon",
+									"sid": 511530001932251,
+									"parameters": {
+										"actornr0": "Photon.MyActorNr",
+										"propname1": "\"Bot3Name\"",
+										"value2": "BotBuyButton.BotName",
+										"webforward5": "no",
+										"checkandset8": "no",
+										"expectedvalue9": "0"
+									}
+								}
+							],
+							"sid": 870306594311689
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 586518949632383,
+							"parameters": {
+								"layout": "BattleFinding"
+							}
+						}
+					],
+					"sid": 109617105412589
+				}
+			]
+		},
+		{
+			"functionName": "AddMatchesPlayed",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 153605230791436,
+					"parameters": {
+						"variable": "MatchesPlayed",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-item",
+					"objectClass": "LocalStorage",
+					"sid": 282563170632297,
+					"parameters": {
+						"key": "\"MatchesPlayed\"",
+						"value": "MatchesPlayed"
+					}
+				}
+			],
+			"sid": 535142086889492
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Trophies",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "SetTrophies",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Value",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 271483215522318
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 569973639708410,
+							"parameters": {
+								"variable": "Trophies",
+								"value": "Value"
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 422465985657968,
+							"parameters": {
+								"key": "\"Trophies\"",
+								"value": "Trophies"
+							}
+						},
+						{
+							"callFunction": "SyncTrophiesLeaderBoard",
+							"sid": 231217526501338
+						},
+						{
+							"callFunction": "SetTrophiesText",
+							"sid": 626760019656670
+						}
+					],
+					"sid": 925918953719303
+				},
+				{
+					"functionName": "SetTrophiesText",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TrophiesText",
+							"sid": 131617922894455,
+							"parameters": {
+								"text": "Trophies"
+							}
+						}
+					],
+					"sid": 844380592436389
+				},
+				{
+					"functionName": "Save2",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 299915625630201,
+							"parameters": {
+								"key": "\"CharactersSavings\"",
+								"value": "CharactersBuyed.AsJSON"
+							}
+						}
+					],
+					"sid": 474510404002071,
+					"disabled": true
+				}
+			],
+			"sid": 123852451871048
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "MenuCharacters",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 342745333545356,
+							"parameters": {
+								"object": "ChangeCharacterArrow"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 886632299023310,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "ChangeCharacterArrow",
+									"sid": 989049784674964,
+									"parameters": {
+										"instance-variable": "Next"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "let characterInst = runtime.objects.CharacterInMenu.getFirstInstance()\n\nlet next = charactersOrder.getNextCharacterName(characterInst.animationName)\ncharacterInst.setAnimation(next)"
+								}
+							],
+							"sid": 755135602281730
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 215962945286023
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "let characterInst = runtime.objects.CharacterInMenu.getFirstInstance()\n\nlet next = charactersOrder.getPrevCharacterName(characterInst.animationName)\ncharacterInst.setAnimation(next)"
+								}
+							],
+							"sid": 963836362683086
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 892480853994510,
+									"parameters": {
+										"variable": "MyCharacterName",
+										"value": "CharacterInMenu.AnimationName"
+									}
+								},
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 984264602335898,
+									"parameters": {
+										"key": "\"CharacterName\"",
+										"value": "CharacterInMenu.AnimationName"
+									}
+								}
+							],
+							"sid": 395182018288253
+						}
+					]
+				},
+				{
+					"functionName": "SetCharactersBought",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 829570004003920,
+							"parameters": {
+								"object": "CharacterInMenu"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 122809062871276,
+							"parameters": {
+								"variable": "Trophies",
+								"comparison": 5,
+								"value": "CharacterInMenu.Price"
+							}
+						},
+						{
+							"id": "pick-children",
+							"objectClass": "CharacterInMenu",
+							"sid": 359863440728474,
+							"parameters": {
+								"child": "Text",
+								"which": "own"
+							}
+						},
+						{
+							"id": "pick-children",
+							"objectClass": "CharacterInMenu",
+							"sid": 661059335712107,
+							"parameters": {
+								"child": "Sprite7",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Text",
+							"sid": 489372567402815,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Sprite7",
+							"sid": 422580609147039,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 164809940117867
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 243647604127858,
+							"parameters": {
+								"object": "CharacterInMenu"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 577504588739002,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "CharacterInMenu",
+									"sid": 573763700339806,
+									"parameters": {
+										"animation": "MyCharacterName"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "CharacterInMenu",
+									"sid": 293031873412326,
+									"parameters": {
+										"opacity": "100"
+									}
+								}
+							],
+							"sid": 128118881493779,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 187074156000161
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "CharacterInMenu",
+									"sid": 359214370325155,
+									"parameters": {
+										"opacity": "40"
+									}
+								}
+							],
+							"sid": 369136308137719,
+							"disabled": true
+						}
+					]
+				}
+			],
+			"sid": 590918103555235
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Text",
+					"sid": 646285941167131,
+					"parameters": {
+						"instance-variable": "ID2",
+						"comparison": 0,
+						"value": "\"PhotonState\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Text",
+					"sid": 450741722496372,
+					"parameters": {
+						"text": "Photon.State"
+					}
+				}
+			],
+			"sid": 771166261437253,
+			"disabled": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 382077084661167,
+							"parameters": {
+								"object": "BuyButton"
+							}
+						},
+						{
+							"id": "pick-parent",
+							"objectClass": "BuyButton",
+							"sid": 994634160711453,
+							"parameters": {
+								"parent": "CharacterInMenu",
+								"which": "own"
+							}
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "BuyButton",
+							"sid": 928725934784926
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 588919129078642,
+							"parameters": {
+								"variable": "Trophies",
+								"comparison": 5,
+								"value": "CharacterInMenu.Price"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-key",
+							"objectClass": "CharactersBuyed",
+							"sid": 841462162039466,
+							"parameters": {
+								"key": "CharacterInMenu.AnimationName",
+								"value": "1"
+							}
+						},
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 218466889813691,
+							"parameters": {
+								"variable": "Trophies",
+								"value": "CharacterInMenu.Price"
+							}
+						},
+						{
+							"callFunction": "SetCharactersBought",
+							"sid": 766054279459374
+						},
+						{
+							"callFunction": "SetTrophies",
+							"sid": 530643202427780,
+							"parameters": [
+								"0"
+							]
+						}
+					],
+					"sid": 922162927946752
+				}
+			]
+		}
+	],
+	"sid": 618940701647006
+}

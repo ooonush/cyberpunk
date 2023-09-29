@@ -1,0 +1,28 @@
+{
+	"name": "Text",
+	"plugin-id": "Text",
+	"sid": 835030815359706,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "ID",
+			"type": "number",
+			"desc": "",
+			"sid": 475978651916794
+		},
+		{
+			"name": "ID2",
+			"type": "string",
+			"desc": "",
+			"sid": 238294039571406
+		},
+		{
+			"name": "LocalizationKey",
+			"type": "string",
+			"desc": "",
+			"sid": 644706312466880
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

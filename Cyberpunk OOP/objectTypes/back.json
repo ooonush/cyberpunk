@@ -1,0 +1,21 @@
+{
+	"name": "Back",
+	"plugin-id": "Tilemap",
+	"sid": 119454679993324,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 32,
+		"height": 576,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 4155141,
+		"useCollisionPoly": true
+	},
+	"tile-collision-polys": {}
+}

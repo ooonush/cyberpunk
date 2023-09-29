@@ -1,0 +1,37 @@
+{
+	"name": "BuyButton",
+	"plugin-id": "Sprite",
+	"sid": 923480224166991,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 224,
+						"height": 105,
+						"originX": 0.546875,
+						"originY": 0.49047619047619045,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 509115,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 520125671539899,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,74 @@
+{
+	"name": "ZoneMyBasa4",
+	"plugin-id": "Sprite",
+	"sid": 763282279751637,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Dir",
+			"type": "number",
+			"desc": "",
+			"sid": 361461130313832
+		},
+		{
+			"name": "Jump",
+			"type": "string",
+			"desc": "",
+			"sid": 243427877497837
+		},
+		{
+			"name": "MoveDir",
+			"type": "string",
+			"desc": "",
+			"sid": 273366842435810
+		},
+		{
+			"name": "DoubleJump",
+			"type": "string",
+			"desc": "",
+			"sid": 711589157973723
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 8,
+						"height": 8,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4099628,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "left",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "right",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 853956386087470,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

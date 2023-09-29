@@ -1,0 +1,131 @@
+{
+	"name": "EC-Shield",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "onevent3",
+					"objectClass": "Photon",
+					"sid": 447613628502600,
+					"parameters": {
+						"code0": "14"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "CharacterCollider",
+					"sid": 511379622219043,
+					"parameters": {
+						"instance-variable": "ID",
+						"comparison": 0,
+						"value": "int(tokenat(Photon.EventData, 0, \"/\"))"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "CharacterCollider",
+					"sid": 690048411268965,
+					"parameters": {
+						"instance-variable": "ShiledTimer",
+						"value": "int(tokenat(Photon.EventData, 1, \"/\"))"
+					}
+				}
+			],
+			"sid": 568288241977704,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 822751579069419,
+					"parameters": {
+						"interval-seconds": "1.0"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 167839746849656,
+			"disabled": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 192386921026922,
+							"parameters": {
+								"object": "CharacterCollider"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterCollider",
+							"sid": 679211410348795,
+							"parameters": {
+								"instance-variable": "ShiledTimer",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "CharacterCollider",
+							"sid": 772021650001905,
+							"parameters": {
+								"instance-variable": "ShiledTimer",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 626606091010327,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "CharacterCollider",
+									"sid": 257367517906129,
+									"parameters": {
+										"instance-variable": "OnlineID",
+										"comparison": 0,
+										"value": "Photon.MyActorNr"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "raiseevent17",
+									"objectClass": "Photon",
+									"sid": 838612397587771,
+									"parameters": {
+										"code0": "14",
+										"data1": "CharacterCollider.ID&\"/\"&CharacterCollider.ShiledTimer",
+										"interestgroup2": "0",
+										"cache11": "donotcache",
+										"receivers15": "others",
+										"targetactors16": "\"\"",
+										"webforward19": "no"
+									}
+								}
+							],
+							"sid": 307729119194651,
+							"disabled": true
+						}
+					]
+				}
+			]
+		}
+	],
+	"sid": 563151621689983
+}

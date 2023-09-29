@@ -1,0 +1,44 @@
+{
+	"name": "ChangeCharacterButton",
+	"plugin-id": "Sprite",
+	"sid": 818614495768819,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Dir",
+			"type": "string",
+			"desc": "",
+			"sid": 739183563588086
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 83,
+						"height": 122,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 362238,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 199565146094504,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

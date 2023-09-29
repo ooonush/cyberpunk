@@ -1,0 +1,1195 @@
+{
+	"name": "EB-Basa",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Basa",
+					"sid": 149685783039940
+				},
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 142932536010181,
+					"parameters": {
+						"object": "0HP"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "0HP",
+					"sid": 335628995575845,
+					"parameters": {
+						"instance-variable": "Mode",
+						"comparison": 0,
+						"value": "\"Base\""
+					}
+				},
+				{
+					"id": "pick-children",
+					"objectClass": "0HP",
+					"sid": 422543488789112,
+					"parameters": {
+						"child": "HPBar",
+						"which": "own"
+					}
+				},
+				{
+					"id": "is-animation-playing",
+					"objectClass": "HPBar",
+					"sid": 667452109077823,
+					"parameters": {
+						"animation": "Basa.Color"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 816624520019255,
+					"parameters": {
+						"seconds": "0"
+					}
+				}
+			],
+			"sid": 448127575610768,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 421769891034093,
+							"parameters": {
+								"variable": "MatchesPlayed",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 569381263238840
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 956558193534118
+						}
+					],
+					"actions": [],
+					"sid": 756341647830283
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "BasaRed",
+					"sid": 873359054035720
+				}
+			],
+			"actions": [
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "BasaRed",
+					"sid": 440515362970099,
+					"parameters": {
+						"mode": "disable",
+						"effect": "\"BlackWhite\""
+					}
+				}
+			],
+			"sid": 323297435185306
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "3DShape19",
+					"sid": 543472786241418
+				}
+			],
+			"actions": [
+				{
+					"id": "set-effect-enabled",
+					"objectClass": "3DShape19",
+					"sid": 345418794627955,
+					"parameters": {
+						"mode": "disable",
+						"effect": "\"BlackWhite\""
+					}
+				}
+			],
+			"sid": 174760788909668
+		},
+		{
+			"functionName": "SetBasaHpTexts",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "0HP",
+					"sid": 490695805647236,
+					"parameters": {
+						"instance-variable": "Mode",
+						"comparison": 0,
+						"value": "\"Basa\""
+					}
+				},
+				{
+					"id": "is-animation-playing",
+					"objectClass": "0HP",
+					"sid": 350116736363624,
+					"parameters": {
+						"animation": "Basa.Color"
+					}
+				},
+				{
+					"id": "pick-children",
+					"objectClass": "0HP",
+					"sid": 424273665761900,
+					"parameters": {
+						"child": "HPBar",
+						"which": "own"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-width",
+					"objectClass": "HPBarUI",
+					"sid": 279699400706062,
+					"parameters": {
+						"width": "Basa.HP/BasaMaxHP*(HPBarBackUI.Width-4)"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "SpriteFontNumbers",
+					"sid": 954499111034486,
+					"parameters": {
+						"text": "max(0, Basa.HP)"
+					}
+				}
+			],
+			"sid": 694963982825359,
+			"disabled": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-width",
+							"objectClass": "HPBarUI",
+							"sid": 967609451365684,
+							"parameters": {
+								"comparison": 2,
+								"width": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-width",
+							"objectClass": "HPBarUI",
+							"sid": 694849153300733,
+							"parameters": {
+								"width": "0"
+							}
+						}
+					],
+					"sid": 972810663050216,
+					"disabled": true
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 262387908476300,
+					"parameters": {
+						"interval-seconds": "1.0"
+					}
+				},
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 998049545194831,
+					"parameters": {
+						"object": "Basa"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "SyncObjHP",
+					"sid": 950388038106003,
+					"parameters": [
+						"Basa.UID"
+					]
+				}
+			],
+			"sid": 368030367059387
+		},
+		{
+			"functionName": "GetTeamByPlayerNumber",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "playerNumber",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 771471397795002
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 849013403392375,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 629453265071176,
+							"parameters": {
+								"variable": "playerNumber",
+								"comparison": 3,
+								"value": "MaxPlayers / 2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 730474271453687,
+							"parameters": {
+								"value": "1"
+							}
+						}
+					],
+					"sid": 756784505031745
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 856388377982564
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 270960549332493,
+							"parameters": {
+								"value": "2"
+							}
+						}
+					],
+					"sid": 871401623683658
+				}
+			]
+		},
+		{
+			"functionName": "GetBaseNumber",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "baseUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 783169864139697
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Basa",
+					"sid": 484766796574469,
+					"parameters": {
+						"unique-id": "baseUID"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "CharacterCollider",
+					"sid": 193937459331105,
+					"parameters": {
+						"instance-variable": "Color",
+						"comparison": 0,
+						"value": "Basa.Color"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 655708181697917,
+					"parameters": {
+						"value": "Functions.GetTeamByPlayerNumber(CharacterCollider.PlayerNumber)"
+					}
+				}
+			],
+			"sid": 500806238461478
+		},
+		{
+			"functionName": "StartBaseHurtAnim",
+			"functionDescription": "",
+			"functionCategory": "Base",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 119545370822787
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Basa",
+					"sid": 242800620256692,
+					"parameters": {
+						"unique-id": "UID"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 714636497286214,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "0HP",
+							"sid": 709056526716230,
+							"parameters": {
+								"instance-variable": "Mode",
+								"comparison": 0,
+								"value": "\"Basa\""
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "0HP",
+							"sid": 857868554684393,
+							"parameters": {
+								"animation": "Basa.Color"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "HealthBarStartHurtAnim",
+							"sid": 517473071536499,
+							"parameters": [
+								"0HP.UID"
+							]
+						}
+					],
+					"sid": 927506431650180,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Basa",
+							"sid": 193973162169053,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"BlackWhite\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 420444138439349,
+							"parameters": {
+								"seconds": "0.15"
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "Basa",
+							"sid": 709530798379243,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"BlackWhite\""
+							}
+						}
+					],
+					"sid": 700731615222175
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 944272581915213,
+					"parameters": {
+						"variable": "EndMatch"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [],
+			"sid": 229731847423487,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 990075165410376,
+							"parameters": {
+								"interval-seconds": "1.0"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 487983950732591,
+							"parameters": {
+								"variable": "OnlineMode"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 366252861408065,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Basa",
+									"sid": 749858600207631,
+									"parameters": {
+										"instance-variable": "Color",
+										"comparison": 0,
+										"value": "\"Blue\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 373456442431633,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 270195396666901,
+											"parameters": {
+												"variable": "MyPlayerNumber",
+												"comparison": 3,
+												"value": "MaxPlayers/2"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 150780669051928,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 974169051565760,
+													"parameters": {
+														"first-value": "Photon.PropertyOfMyRoom(\"Basa1IsWin\")",
+														"comparison": 0,
+														"second-value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Basa",
+													"sid": 603372474777550,
+													"parameters": {
+														"instance-variable": "HP",
+														"value": "0"
+													}
+												},
+												{
+													"callFunction": "SetBasaHpTexts",
+													"sid": 858336473645144
+												}
+											],
+											"sid": 708545800268947
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 513937024221696
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 214638435003942,
+											"parameters": {
+												"first-value": "Photon.PropertyOfMyRoom(\"Basa2IsWin\")",
+												"comparison": 0,
+												"second-value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Basa",
+											"sid": 949330373514766,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "0"
+											}
+										},
+										{
+											"callFunction": "SetBasaHpTexts",
+											"sid": 560613335556745
+										}
+									],
+									"sid": 576940697942352
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Basa",
+									"sid": 286661233102479,
+									"parameters": {
+										"instance-variable": "Color",
+										"comparison": 0,
+										"value": "\"Red\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 686761228668393,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 242045049398378,
+											"parameters": {
+												"variable": "MyPlayerNumber",
+												"comparison": 3,
+												"value": "MaxPlayers/2"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 915036993271219,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 858268949787383,
+													"parameters": {
+														"first-value": "Photon.PropertyOfMyRoom(\"Basa2IsWin\")",
+														"comparison": 0,
+														"second-value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Basa",
+													"sid": 698159846478810,
+													"parameters": {
+														"instance-variable": "HP",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 397103100246841
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 239969676525305
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 471931952495365,
+											"parameters": {
+												"first-value": "Photon.PropertyOfMyRoom(\"Basa1IsWin\")",
+												"comparison": 0,
+												"second-value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Basa",
+											"sid": 518036246602718,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 706777498202334
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 206027819430918,
+							"parameters": {
+								"interval-seconds": "6"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 658516370882384,
+							"parameters": {
+								"variable": "OnlineMode"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterCollider",
+							"sid": 788058668300805,
+							"parameters": {
+								"instance-variable": "OnlineID",
+								"comparison": 0,
+								"value": "MyActorNr"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Basa",
+							"sid": 434832403955037,
+							"parameters": {
+								"instance-variable": "Color",
+								"comparison": 0,
+								"value": "CharacterCollider.Color"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterCollider",
+							"sid": 695128117407360,
+							"parameters": {
+								"instance-variable": "IsOnline"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "raiseevent17",
+							"objectClass": "Photon",
+							"sid": 561876346750827,
+							"parameters": {
+								"code0": "31",
+								"data1": "Basa.Color&\"/\"&max(0,Basa.HP)",
+								"interestgroup2": "0",
+								"cache11": "donotcache",
+								"receivers15": "others",
+								"targetactors16": "Functions.GetOnlineOthers",
+								"webforward19": "no"
+							}
+						}
+					],
+					"sid": 771495039408101,
+					"disabled": true
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": true,
+			"title": "BasaAddHP",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "SyncBasaAddHP",
+					"functionDescription": "",
+					"functionCategory": "Basa",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 742734998778261
+						},
+						{
+							"name": "HPCount",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 881769623226211
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Basa",
+							"sid": 710230962010830,
+							"parameters": {
+								"unique-id": "UID"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 279197937774991,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 620065404330678,
+									"parameters": {
+										"variable": "OnlineMode"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "raiseevent17",
+									"objectClass": "Photon",
+									"sid": 601523455938630,
+									"parameters": {
+										"code0": "32",
+										"data1": "Basa.Color&\"/\"&HPCount",
+										"interestgroup2": "0",
+										"cache11": "donotcache",
+										"receivers15": "others",
+										"targetactors16": "Functions.GetOnlineAll",
+										"webforward19": "no"
+									}
+								}
+							],
+							"sid": 337567541383478,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 767057644743964
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "BasaAddHP",
+									"sid": 388594389292198,
+									"parameters": [
+										"UID",
+										"HPCount"
+									]
+								}
+							],
+							"sid": 390999953703168,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "onevent3",
+							"objectClass": "Photon",
+							"sid": 119895980084634,
+							"parameters": {
+								"code0": "32"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Basa",
+							"sid": 468253732819012,
+							"parameters": {
+								"instance-variable": "Color",
+								"comparison": 0,
+								"value": "Functions.ChangeColorByActorNr(Photon.ActorNr, tokenat(Photon.EventData, 0, \"/\"))"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "BasaAddHP",
+							"sid": 902175882161328,
+							"parameters": [
+								"Basa.UID",
+								"int(tokenat(Photon.EventData, 1, \"/\"))"
+							]
+						}
+					],
+					"sid": 997176422115020,
+					"disabled": true
+				},
+				{
+					"functionName": "BasaAddHP",
+					"functionDescription": "",
+					"functionCategory": "Basa",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 605995929737364
+						},
+						{
+							"name": "HPCount",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 168361063566360
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Basa",
+							"sid": 813669098203240,
+							"parameters": {
+								"unique-id": "UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Basa",
+							"sid": 721797054737838,
+							"parameters": {
+								"instance-variable": "HP",
+								"value": "HPCount"
+							}
+						},
+						{
+							"callFunction": "SetBasaHpTexts",
+							"sid": 641877516223139
+						}
+					],
+					"sid": 810978442469365,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 749645112731249,
+									"parameters": {
+										"first-value": "HPCount",
+										"comparison": 2,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "StartBaseHurtAnim",
+									"sid": 285839792258878,
+									"parameters": [
+										"Basa.UID"
+									]
+								}
+							],
+							"sid": 548445505158770,
+							"disabled": true
+						}
+					]
+				}
+			],
+			"sid": 950865616085129
+		},
+		{
+			"eventType": "group",
+			"disabled": true,
+			"title": "BasaSetHP",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "SyncBasaSetHP",
+					"functionDescription": "",
+					"functionCategory": "Basa",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 526523285032461
+						},
+						{
+							"name": "HPCount",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 737719213119206
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Basa",
+							"sid": 317588137196404,
+							"parameters": {
+								"unique-id": "UID"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 366492206996657,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 368358509885850,
+									"parameters": {
+										"variable": "OnlineMode"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "raiseevent17",
+									"objectClass": "Photon",
+									"sid": 763412080570869,
+									"parameters": {
+										"code0": "31",
+										"data1": "Basa.Color&\"/\"&HPCount",
+										"interestgroup2": "0",
+										"cache11": "donotcache",
+										"receivers15": "others",
+										"targetactors16": "Functions.GetOnlineOthers",
+										"webforward19": "no"
+									}
+								}
+							],
+							"sid": 804979242670794,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 563753577721979
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "BasaSetHP",
+									"sid": 732110937676202,
+									"parameters": [
+										"UID",
+										"HPCount"
+									]
+								}
+							],
+							"sid": 265400795115068,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "onevent3",
+							"objectClass": "Photon",
+							"sid": 113969925190137,
+							"parameters": {
+								"code0": "31"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Basa",
+							"sid": 668763902064958,
+							"parameters": {
+								"instance-variable": "Color",
+								"comparison": 0,
+								"value": "Functions.ChangeColorByActorNr(Photon.ActorNr, tokenat(Photon.EventData, 0, \"/\"))"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "BasaSetHP",
+							"sid": 391872430566132,
+							"parameters": [
+								"Basa.UID",
+								"int(tokenat(Photon.EventData, 1, \"/\"))"
+							]
+						}
+					],
+					"sid": 407954123541017,
+					"disabled": true
+				},
+				{
+					"functionName": "BasaSetHP",
+					"functionDescription": "",
+					"functionCategory": "Basa",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 410746464760951
+						},
+						{
+							"name": "HPCount",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 638800097872793
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Basa",
+							"sid": 381127155441636,
+							"parameters": {
+								"unique-id": "UID"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Basa",
+							"sid": 145809653417428,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 4,
+								"value": "HPCount"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Basa",
+							"sid": 110021268209581,
+							"parameters": {
+								"instance-variable": "HP",
+								"value": "HPCount"
+							}
+						},
+						{
+							"callFunction": "SetBasaHpTexts",
+							"sid": 205977467848772
+						}
+					],
+					"sid": 938250348126864,
+					"disabled": true
+				}
+			],
+			"sid": 128829966018902
+		}
+	],
+	"sid": 244706360089938
+}

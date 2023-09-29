@@ -1,0 +1,1865 @@
+{
+	"name": "E-Emoji",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 250942421600958
+				}
+			],
+			"actions": [],
+			"sid": 338397087415842,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 485670661489186,
+							"parameters": {
+								"object": "EmojiButtonBack"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 895855744662893,
+							"parameters": {
+								"object-to-create": "Emoji",
+								"layer": "EmojiButtonBack.LayerName",
+								"x": "EmojiButtonBack.X",
+								"y": "EmojiButtonBack.Y",
+								"create-hierarchy": false,
+								"template-name": "\"Button\""
+							}
+						},
+						{
+							"id": "add-child",
+							"objectClass": "EmojiButtonBack",
+							"sid": 271356664623400,
+							"parameters": {
+								"child": "Emoji",
+								"transform-x": true,
+								"transform-y": true,
+								"transform-w": true,
+								"transform-h": true,
+								"transform-a": true,
+								"transform-z-elevation": true,
+								"destroy-with-parent": true
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Emoji",
+							"sid": 856758420758406,
+							"parameters": {
+								"animation": "EmojiButtonBack.EmojiName",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Emoji",
+							"sid": 186056587803955,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "EmojiButtonBack",
+							"sid": 148310137262942,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 330904302574174
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 749596515685552,
+							"parameters": {
+								"object": "MessageButton"
+							}
+						},
+						{
+							"id": "pick-children",
+							"objectClass": "MessageButton",
+							"sid": 559655816819870,
+							"parameters": {
+								"child": "2SpriteFont",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "MessageButton",
+							"sid": 304008379927568,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "2SpriteFont",
+							"sid": 494275238253823,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 516675779733101
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-touched-object",
+					"objectClass": "Touch",
+					"sid": 926691038964760,
+					"parameters": {
+						"object": "EmojiButton"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 801827925428858,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-visible",
+							"objectClass": "EmojiButtonBack",
+							"sid": 932340790676257
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "MessageButton",
+							"sid": 534941827619735
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SetEmojiVisible",
+							"sid": 555594233379534,
+							"parameters": [
+								false
+							]
+						}
+					],
+					"sid": 115851812018669,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 209136754808367
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SetEmojiVisible",
+							"sid": 100665492559939,
+							"parameters": [
+								true
+							]
+						}
+					],
+					"sid": 924193302999674
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-touched-object",
+					"objectClass": "Touch",
+					"sid": 738470435723690,
+					"parameters": {
+						"object": "EmojiButtonBack"
+					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "EmojiButtonBack",
+					"sid": 802824785940712
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "CharacterCollider",
+					"sid": 295562079291421,
+					"parameters": {
+						"instance-variable": "ID",
+						"comparison": 0,
+						"value": "MyActorNr"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "SetEmojiVisible",
+					"sid": 676385065027645,
+					"parameters": [
+						false
+					]
+				},
+				{
+					"callFunction": "SyncCharacterSetEmoji",
+					"sid": 847051682485068,
+					"parameters": [
+						"CharacterCollider.UID",
+						"EmojiButtonBack.EmojiName"
+					]
+				}
+			],
+			"sid": 196124854253717
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-touched-object",
+					"objectClass": "Touch",
+					"sid": 661081869127551,
+					"parameters": {
+						"object": "MessageButton"
+					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "MessageButton",
+					"sid": 420102097614192
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "CharacterCollider",
+					"sid": 605754296314576,
+					"parameters": {
+						"instance-variable": "ID",
+						"comparison": 0,
+						"value": "MyActorNr"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "SetEmojiVisible",
+					"sid": 670625435400151,
+					"parameters": [
+						false
+					]
+				}
+			],
+			"sid": 354833567986719,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-timer-running",
+							"objectClass": "CharacterCollider",
+							"sid": 506873857952510,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"WaitForMessage\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SyncCharacterSetMessage",
+							"sid": 590010964400438,
+							"parameters": [
+								"CharacterCollider.UID",
+								"MessageButton.Message"
+							]
+						}
+					],
+					"sid": 744302852880379
+				}
+			]
+		},
+		{
+			"functionName": "SyncCharacterSetEmoji",
+			"functionDescription": "",
+			"functionCategory": "Character",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 365954822873380
+				},
+				{
+					"name": "EmojiName",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 238628194235824
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "CharacterCollider",
+					"sid": 918501022891747,
+					"parameters": {
+						"unique-id": "UID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "raiseevent17",
+					"objectClass": "Photon",
+					"sid": 676412194030280,
+					"parameters": {
+						"code0": "26",
+						"data1": "CharacterCollider.ID&\"/\"&EmojiName",
+						"interestgroup2": "0",
+						"cache11": "donotcache",
+						"receivers15": "others",
+						"targetactors16": "Functions.GetOnlineOthers",
+						"webforward19": "no"
+					}
+				},
+				{
+					"callFunction": "CharacterSetEmoji",
+					"sid": 751494704134134,
+					"parameters": [
+						"CharacterCollider.UID",
+						"EmojiName"
+					]
+				}
+			],
+			"sid": 968195405365514
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "onevent3",
+					"objectClass": "Photon",
+					"sid": 525485489190216,
+					"parameters": {
+						"code0": "26"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "CharacterCollider",
+					"sid": 423612991845435,
+					"parameters": {
+						"instance-variable": "ID",
+						"comparison": 0,
+						"value": "int(tokenat(Photon.EventData, 0, \"/\"))"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "CharacterSetEmoji",
+					"sid": 962896504266991,
+					"parameters": [
+						"CharacterCollider.UID",
+						"tokenat(Photon.EventData, 1, \"/\")"
+					]
+				}
+			],
+			"sid": 337309142389704
+		},
+		{
+			"functionName": "SyncCharacterSetMessage",
+			"functionDescription": "",
+			"functionCategory": "Character",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 411569282450861
+				},
+				{
+					"name": "Message",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 291759834565826
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "CharacterCollider",
+					"sid": 244735977584858,
+					"parameters": {
+						"unique-id": "UID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "raiseevent17",
+					"objectClass": "Photon",
+					"sid": 197245959464690,
+					"parameters": {
+						"code0": "27",
+						"data1": "CharacterCollider.ID&\"/\"&Message",
+						"interestgroup2": "0",
+						"cache11": "donotcache",
+						"receivers15": "others",
+						"targetactors16": "Functions.GetOnlineOthers",
+						"webforward19": "no"
+					}
+				},
+				{
+					"callFunction": "CharacterSetMessage",
+					"sid": 967238858104585,
+					"parameters": [
+						"CharacterCollider.UID",
+						"Message"
+					]
+				}
+			],
+			"sid": 836968771523349
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "onevent3",
+					"objectClass": "Photon",
+					"sid": 449201430988856,
+					"parameters": {
+						"code0": "27"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "CharacterCollider",
+					"sid": 293331901019773,
+					"parameters": {
+						"instance-variable": "ID",
+						"comparison": 0,
+						"value": "int(tokenat(Photon.EventData, 0, \"/\"))"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "CharacterSetMessage",
+					"sid": 888691220177753,
+					"parameters": [
+						"CharacterCollider.UID",
+						"tokenat(Photon.EventData, 1, \"/\")"
+					]
+				}
+			],
+			"sid": 404078817659691
+		},
+		{
+			"functionName": "CharacterSetEmoji",
+			"functionDescription": "",
+			"functionCategory": "Character",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 211704344145583
+				},
+				{
+					"name": "EmojiName",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 707012418651767
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "CharacterCollider",
+					"sid": 612628862227585,
+					"parameters": {
+						"unique-id": "UID"
+					}
+				},
+				{
+					"id": "pick-children",
+					"objectClass": "CharacterCollider",
+					"sid": 111031611784254,
+					"parameters": {
+						"child": "EmojiBack",
+						"which": "own"
+					}
+				},
+				{
+					"id": "pick-children",
+					"objectClass": "EmojiBack",
+					"sid": 235131038905070,
+					"parameters": {
+						"child": "Emoji",
+						"which": "own"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-active",
+					"objectClass": "EmojiBack",
+					"sid": 301969857261977,
+					"behaviorType": "Sine",
+					"parameters": {
+						"state": "active"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "EmojiBack",
+					"sid": 205431886041551,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Emoji",
+					"sid": 866822472930707,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Emoji",
+					"sid": 504177532078814,
+					"parameters": {
+						"animation": "EmojiName",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "start-timer",
+					"objectClass": "CharacterCollider",
+					"sid": 743001383530738,
+					"behaviorType": "Timer",
+					"parameters": {
+						"duration": "4",
+						"type": "once",
+						"tag": "\"Emoji\""
+					}
+				}
+			],
+			"sid": 608889288930790
+		},
+		{
+			"functionName": "GetColorForMessage",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Message",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 679187882772208
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 992020064967914,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 876504598560524,
+							"parameters": {
+								"variable": "Message",
+								"comparison": 0,
+								"value": "\"Enemy\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 712958087423942,
+							"parameters": {
+								"value": "rgb(41, 56, 87)"
+							}
+						}
+					],
+					"sid": 184277234035620
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 217682923683375
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 526015298272542,
+							"parameters": {
+								"variable": "Message",
+								"comparison": 0,
+								"value": "\"Help\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 244344544020230,
+							"parameters": {
+								"value": "rgb(255, 51, 51)"
+							}
+						}
+					],
+					"sid": 266481538161609
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 847861968352383
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 734794268409052,
+							"parameters": {
+								"variable": "Message",
+								"comparison": 0,
+								"value": "\"Defense\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 248362232921412,
+							"parameters": {
+								"value": "rgb(20, 134, 255)"
+							}
+						}
+					],
+					"sid": 980285852247798
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 566214662055166
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 885013391656218,
+							"parameters": {
+								"variable": "Message",
+								"comparison": 0,
+								"value": "\"Attack\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 670144438265264,
+							"parameters": {
+								"value": "rgb(255, 136, 0)"
+							}
+						}
+					],
+					"sid": 268552964148491
+				}
+			]
+		},
+		{
+			"functionName": "CharacterSetMessage",
+			"functionDescription": "",
+			"functionCategory": "Character",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 315266619556898
+				},
+				{
+					"name": "Message",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 777732448717743
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "CharacterCollider",
+					"sid": 111518672725729,
+					"parameters": {
+						"unique-id": "UID"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Carcas",
+					"sid": 234148405677668,
+					"parameters": {
+						"instance-variable": "ID",
+						"comparison": 0,
+						"value": "MyActorNr"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Carcas",
+					"sid": 766221844707198,
+					"parameters": {
+						"instance-variable": "Color",
+						"comparison": 0,
+						"value": "CharacterCollider.Color"
+					}
+				},
+				{
+					"id": "pick-children",
+					"objectClass": "CharacterCollider",
+					"sid": 818573867553270,
+					"parameters": {
+						"child": "MessageBack",
+						"which": "own"
+					}
+				},
+				{
+					"id": "pick-children",
+					"objectClass": "MessageBack",
+					"sid": 534892534726910,
+					"parameters": {
+						"child": "2SpriteFont",
+						"which": "own"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "MessageBack",
+					"sid": 856761392993016,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "2SpriteFont",
+					"sid": 284665958424673,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "2SpriteFont",
+					"sid": 440187665808375,
+					"parameters": {
+						"text": "Localization.Get(Message&\"Message\")"
+					}
+				},
+				{
+					"id": "start-timer",
+					"objectClass": "CharacterCollider",
+					"sid": 444362355472989,
+					"behaviorType": "Timer",
+					"parameters": {
+						"duration": "5",
+						"type": "once",
+						"tag": "\"Message\""
+					}
+				},
+				{
+					"id": "start-timer",
+					"objectClass": "CharacterCollider",
+					"sid": 634928043433953,
+					"behaviorType": "Timer",
+					"parameters": {
+						"duration": "8",
+						"type": "once",
+						"tag": "\"WaitForMessage\""
+					}
+				}
+			],
+			"sid": 300953120522031,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 133431700081461,
+							"parameters": {
+								"object": "Carcas"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 301990635460695,
+							"parameters": {
+								"first-value": "Functions.IsCharacterBot(Carcas.UID)",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 465981335398626,
+							"parameters": {
+								"first-value": "Functions.IsCharacterMyOnline(Carcas.UID)",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Carcas",
+							"sid": 675409432896734,
+							"parameters": {
+								"instance-variable": "BotMessage",
+								"value": "Message"
+							}
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "Carcas",
+							"sid": 987740515636299,
+							"disabled": true,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "10",
+								"type": "once",
+								"tag": "\"BotMessage\""
+							}
+						}
+					],
+					"sid": 159765869247652,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 104968082712174,
+							"parameters": {
+								"variable": "Message",
+								"comparison": 0,
+								"value": "\"Enemy\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "MessageBack",
+							"sid": 162985127121761,
+							"parameters": {
+								"color": "rgbEx255(41, 56, 87)"
+							}
+						}
+					],
+					"sid": 575324624278067
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 584363916739174
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 984354567358592,
+							"parameters": {
+								"variable": "Message",
+								"comparison": 0,
+								"value": "\"Help\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "MessageBack",
+							"sid": 705217158003582,
+							"parameters": {
+								"color": "rgbEx255(255, 51, 51)"
+							}
+						}
+					],
+					"sid": 117957606097610
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 112861645142937
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 160376882362201,
+							"parameters": {
+								"variable": "Message",
+								"comparison": 0,
+								"value": "\"Defense\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "MessageBack",
+							"sid": 430507080956672,
+							"parameters": {
+								"color": "rgbEx255(20, 134, 255)"
+							}
+						}
+					],
+					"sid": 981950762947865
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 927551983254327
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 696475686928302,
+							"parameters": {
+								"variable": "Message",
+								"comparison": 0,
+								"value": "\"Attack\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "MessageBack",
+							"sid": 206369731979208,
+							"parameters": {
+								"color": "rgbEx255(255, 136, 0)"
+							}
+						}
+					],
+					"sid": 147540467863270
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterCollider",
+							"sid": 267981425860359,
+							"parameters": {
+								"instance-variable": "ID",
+								"comparison": 0,
+								"value": "MyActorNr"
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 937402630491304,
+							"parameters": {
+								"object": "MessageButton"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "MessageButton",
+							"sid": 539581108316620,
+							"parameters": {
+								"opacity": "30"
+							}
+						}
+					],
+					"sid": 263469192225550
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-timer",
+					"objectClass": "CharacterCollider",
+					"sid": 704875101595534,
+					"behaviorType": "Timer",
+					"parameters": {
+						"tag": "\"Emoji\""
+					}
+				},
+				{
+					"id": "pick-children",
+					"objectClass": "CharacterCollider",
+					"sid": 488052543540674,
+					"parameters": {
+						"child": "EmojiBack",
+						"which": "own"
+					}
+				},
+				{
+					"id": "pick-children",
+					"objectClass": "EmojiBack",
+					"sid": 944456809361422,
+					"parameters": {
+						"child": "Emoji",
+						"which": "own"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-active",
+					"objectClass": "EmojiBack",
+					"sid": 217121800340826,
+					"behaviorType": "Sine",
+					"parameters": {
+						"state": "inactive"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 494170036744351,
+					"parameters": {
+						"seconds": "0.5"
+					}
+				}
+			],
+			"sid": 405774773198724,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-timer-running",
+							"objectClass": "CharacterCollider",
+							"sid": 926802365617430,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"Emoji\""
+							},
+							"isInverted": true
+						},
+						{
+							"id": "pick-children",
+							"objectClass": "EmojiBack",
+							"sid": 677939953418801,
+							"parameters": {
+								"child": "Emoji",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "EmojiBack",
+							"sid": 768077887156210,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Emoji",
+							"sid": 441200752865494,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 136249967759082
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-timer",
+					"objectClass": "CharacterCollider",
+					"sid": 986498770138015,
+					"behaviorType": "Timer",
+					"parameters": {
+						"tag": "\"Message\""
+					}
+				},
+				{
+					"id": "pick-children",
+					"objectClass": "CharacterCollider",
+					"sid": 828876658289579,
+					"parameters": {
+						"child": "MessageBack",
+						"which": "own"
+					}
+				},
+				{
+					"id": "pick-children",
+					"objectClass": "MessageBack",
+					"sid": 504934536112755,
+					"parameters": {
+						"child": "2SpriteFont",
+						"which": "own"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "2SpriteFont",
+					"sid": 818203968734310,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 254920148189859,
+					"parameters": {
+						"seconds": "0.5"
+					}
+				}
+			],
+			"sid": 645436946886969,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-timer-running",
+							"objectClass": "CharacterCollider",
+							"sid": 172595238294952,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"Message\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "MessageBack",
+							"sid": 334942356354155,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 418314530247194
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-timer",
+					"objectClass": "CharacterCollider",
+					"sid": 448699392198735,
+					"behaviorType": "Timer",
+					"parameters": {
+						"tag": "\"WaitForMessage\""
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "CharacterCollider",
+					"sid": 895356276219416,
+					"parameters": {
+						"instance-variable": "ID",
+						"comparison": 0,
+						"value": "MyActorNr"
+					}
+				},
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 571746107843735,
+					"parameters": {
+						"object": "MessageButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-opacity",
+					"objectClass": "MessageButton",
+					"sid": 312907968123368,
+					"parameters": {
+						"opacity": "100"
+					}
+				}
+			],
+			"sid": 256301825488299
+		},
+		{
+			"functionName": "SetEmojiVisible",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Value",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"sid": 117815966144316
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 837672854184717,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 931555100426465,
+							"parameters": {
+								"object": "EmojiButtonBack"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 473112434004062,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 543045290179936,
+									"parameters": {
+										"variable": "Value"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "EmojiButtonBack",
+									"sid": 757416312482129,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 946118813453660,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-children",
+											"objectClass": "EmojiButtonBack",
+											"sid": 879036475430428,
+											"parameters": {
+												"child": "Emoji",
+												"which": "own"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Emoji",
+											"sid": 311719111565240,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 120389023377673
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 480552135491585
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "EmojiButtonBack",
+									"sid": 286955854573968,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 887106993352173,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-children",
+											"objectClass": "EmojiButtonBack",
+											"sid": 535589398773288,
+											"parameters": {
+												"child": "Emoji",
+												"which": "own"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Emoji",
+											"sid": 154860426817951,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 478215678687828
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 865908354105680,
+							"parameters": {
+								"object": "MessageButton"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 289838945191807,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 877975140947248,
+									"parameters": {
+										"variable": "Value"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "MessageButton",
+									"sid": 354484732717359,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 892576839947825,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-children",
+											"objectClass": "MessageButton",
+											"sid": 248635998472697,
+											"parameters": {
+												"child": "2SpriteFont",
+												"which": "own"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "2SpriteFont",
+											"sid": 325058494504188,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 790483928022442
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 980367702248532
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "MessageButton",
+									"sid": 415399298859962,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 798412978514306,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-children",
+											"objectClass": "MessageButton",
+											"sid": 125271019947315,
+											"parameters": {
+												"child": "2SpriteFont",
+												"which": "own"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "2SpriteFont",
+											"sid": 154127083704248,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 174032102668915
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 557788480427328,
+					"parameters": {
+						"object": "CharacterCollider"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 269840583819171,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-children",
+							"objectClass": "CharacterCollider",
+							"sid": 715893700547369,
+							"parameters": {
+								"child": "MessageBack",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 622098296123731,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-timer-running",
+									"objectClass": "CharacterCollider",
+									"sid": 253092276533432,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "\"Message\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "MessageBack",
+									"sid": 100069402460159,
+									"parameters": {
+										"instance-variable": "TargetScale",
+										"value": "lerp(Self.TargetScale, 1, 0.2)"
+									}
+								},
+								{
+									"id": "set-scale",
+									"objectClass": "MessageBack",
+									"sid": 787495219161428,
+									"parameters": {
+										"scale": "Self.TargetScale"
+									}
+								}
+							],
+							"sid": 246651747314726,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 330891558307131,
+											"parameters": {
+												"first-value": "TargetX",
+												"comparison": 2,
+												"second-value": "CharacterCollider.ImagePointX(\"Message\")"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-x",
+											"objectClass": "MessageBack",
+											"sid": 398973497843132,
+											"parameters": {
+												"x": "min(ViewportRight(\"InGameUI\") - 10, CharacterCollider.ImagePointX(\"Message\"))"
+											}
+										}
+									],
+									"sid": 716236728877376
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 542084528414290
+										}
+									],
+									"actions": [
+										{
+											"id": "set-x",
+											"objectClass": "MessageBack",
+											"sid": 517012265532564,
+											"parameters": {
+												"x": "max(ViewportLeft(\"InGameUI\") + MessageBack.Width + 10, CharacterCollider.ImagePointX(\"Message\"))"
+											}
+										}
+									],
+									"sid": 780682101363315,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 744176807468339,
+													"parameters": {
+														"first-value": "MessageBack.X",
+														"comparison": 4,
+														"second-value": "CharacterCollider.ImagePointX(\"Message\") + 32"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "MessageBack",
+													"sid": 726285368629230,
+													"parameters": {
+														"frame-number": "1"
+													}
+												}
+											],
+											"sid": 575622651145084
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 369563567913235
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "MessageBack",
+													"sid": 995031103844157,
+													"parameters": {
+														"frame-number": "0"
+													}
+												}
+											],
+											"sid": 504048166466448
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 812231545570592,
+											"parameters": {
+												"first-value": "TargetY",
+												"comparison": 2,
+												"second-value": "CharacterCollider.ImagePointY(\"Message\")"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-y",
+											"objectClass": "MessageBack",
+											"sid": 389678282792598,
+											"parameters": {
+												"y": "min(ViewportBottom(\"InGameUI\") - 20, CharacterCollider.ImagePointY(\"Message\"))"
+											}
+										}
+									],
+									"sid": 835334880325420
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 979525056077278
+										}
+									],
+									"actions": [
+										{
+											"id": "set-y",
+											"objectClass": "MessageBack",
+											"sid": 516933995222099,
+											"parameters": {
+												"y": "max(ViewportTop(\"InGameUI\") + 20, CharacterCollider.ImagePointY(\"Message\"))"
+											}
+										}
+									],
+									"sid": 270570031414997
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 846528724293657
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "MessageBack",
+									"sid": 948590510638687,
+									"parameters": {
+										"instance-variable": "TargetScale",
+										"value": "lerp(Self.TargetScale, 0, 0.2)"
+									}
+								},
+								{
+									"id": "set-scale",
+									"objectClass": "MessageBack",
+									"sid": 897698073946439,
+									"parameters": {
+										"scale": "Self.TargetScale"
+									}
+								}
+							],
+							"sid": 775980891144765
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-children",
+							"objectClass": "CharacterCollider",
+							"sid": 311303670750539,
+							"parameters": {
+								"child": "EmojiBack",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 816654466812254,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-timer-running",
+									"objectClass": "CharacterCollider",
+									"sid": 449660831551155,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "\"Emoji\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "EmojiBack",
+									"sid": 636217433468869,
+									"parameters": {
+										"instance-variable": "TargetScale",
+										"value": "lerp(Self.TargetScale, 0.75, 0.2)"
+									}
+								},
+								{
+									"id": "set-scale",
+									"objectClass": "EmojiBack",
+									"sid": 925312290356676,
+									"parameters": {
+										"scale": "Self.TargetScale"
+									}
+								}
+							],
+							"sid": 752998818286129
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 678910217284183
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "EmojiBack",
+									"sid": 157948536473161,
+									"parameters": {
+										"instance-variable": "TargetScale",
+										"value": "lerp(Self.TargetScale, 0, 0.2)"
+									}
+								},
+								{
+									"id": "set-scale",
+									"objectClass": "EmojiBack",
+									"sid": 590819273658703,
+									"parameters": {
+										"scale": "Self.TargetScale"
+									}
+								}
+							],
+							"sid": 687265768294680
+						}
+					]
+				}
+			]
+		}
+	],
+	"sid": 355351822967237
+}

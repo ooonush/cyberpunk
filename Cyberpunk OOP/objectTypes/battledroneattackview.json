@@ -1,0 +1,73 @@
+{
+	"name": "BattleDroneAttackView",
+	"plugin-id": "Sprite",
+	"sid": 748109306661757,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 124,
+						"height": 62,
+						"originX": 0.016129032258064516,
+						"originY": 0.04838709677419355,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 739071,
+						"collisionPoly": {
+							"points": [
+								0.02649773101103471,
+								0.002304156255062824,
+								0.9884792626728112,
+								0.9723502040458718,
+								0.8894010007656118,
+								0.9781107441071545,
+								0.004608312510125839,
+								0.09907827069682461
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 124,
+						"height": 62,
+						"originX": 0.016129032258064516,
+						"originY": 0.04838709677419355,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5559539,
+						"collisionPoly": {
+							"points": [
+								0.02649773101103471,
+								0.002304156255062824,
+								0.9884792626728112,
+								0.9723502040458718,
+								0.8894010007656118,
+								0.9781107441071545,
+								0.004608312510125839,
+								0.09907827069682461
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 249738664930731,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 10
+			}
+		],
+		"subfolders": []
+	}
+}

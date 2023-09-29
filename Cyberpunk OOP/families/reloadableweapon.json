@@ -1,0 +1,46 @@
+{
+	"name": "ReloadableWeapon",
+	"plugin-id": "Sprite",
+	"sid": 511908851177477,
+	"instanceVariables": [
+		{
+			"name": "ReloadPreparingDuration",
+			"type": "number",
+			"desc": "",
+			"sid": 366075678559722
+		},
+		{
+			"name": "ReloadBulletDuration",
+			"type": "number",
+			"desc": "",
+			"sid": 741313328734776
+		},
+		{
+			"name": "BulletCount",
+			"type": "number",
+			"desc": "",
+			"sid": 844310331287622
+		},
+		{
+			"name": "MaxBulletCount",
+			"type": "number",
+			"desc": "",
+			"sid": 832934182461840
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Timer",
+			"name": "ReloadableWeaponTimer",
+			"sid": 433524470736387
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Biker",
+		"Bomj",
+		"Brigand",
+		"Cyborg",
+		"Punk"
+	]
+}

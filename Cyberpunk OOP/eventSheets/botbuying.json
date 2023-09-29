@@ -1,0 +1,1004 @@
+{
+	"name": "botBuying",
+	"events": [
+		{
+			"functionName": "SetBotNamesAndPrices",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 700848710405302
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 233770858401447
+				}
+			],
+			"actions": [
+				{
+					"id": "add-key",
+					"objectClass": "BotNames",
+					"sid": 612477071168552,
+					"disabled": true,
+					"parameters": {
+						"key": "Punk.ObjectTypeName&1",
+						"value": "Alarmbot.ObjectTypeName"
+					}
+				},
+				{
+					"id": "add-key",
+					"objectClass": "BotNames",
+					"sid": 419586266085583,
+					"disabled": true,
+					"parameters": {
+						"key": "Punk.ObjectTypeName&2",
+						"value": "Copter.ObjectTypeName"
+					}
+				},
+				{
+					"id": "add-key",
+					"objectClass": "BotNames",
+					"sid": 649722842187900,
+					"disabled": true,
+					"parameters": {
+						"key": "Punk.ObjectTypeName&3",
+						"value": "Hammer.ObjectTypeName"
+					}
+				},
+				{
+					"id": "add-key",
+					"objectClass": "BotNames",
+					"sid": 393044212703716,
+					"disabled": true,
+					"parameters": {
+						"key": "Biker.ObjectTypeName&1",
+						"value": "Patrol.ObjectTypeName"
+					}
+				},
+				{
+					"id": "add-key",
+					"objectClass": "BotNames",
+					"sid": 424075968401873,
+					"disabled": true,
+					"parameters": {
+						"key": "Biker.ObjectTypeName&2",
+						"value": "Drone.ObjectTypeName"
+					}
+				},
+				{
+					"id": "add-key",
+					"objectClass": "BotNames",
+					"sid": 664196900986338,
+					"disabled": true,
+					"parameters": {
+						"key": "Biker.ObjectTypeName&3",
+						"value": "Cannon.ObjectTypeName"
+					}
+				},
+				{
+					"id": "add-key",
+					"objectClass": "BotNames",
+					"sid": 400848711961956,
+					"disabled": true,
+					"parameters": {
+						"key": "Cyborg.ObjectTypeName&1",
+						"value": "ShockBot.ObjectTypeName"
+					}
+				},
+				{
+					"id": "add-key",
+					"objectClass": "BotNames",
+					"sid": 348913963658299,
+					"disabled": true,
+					"parameters": {
+						"key": "Cyborg.ObjectTypeName&2",
+						"value": "BattleDrone.ObjectTypeName"
+					}
+				},
+				{
+					"id": "add-key",
+					"objectClass": "BotNames",
+					"sid": 329916161250801,
+					"disabled": true,
+					"parameters": {
+						"key": "Cyborg.ObjectTypeName&3",
+						"value": "StepperCannon.ObjectTypeName"
+					}
+				}
+			],
+			"sid": 600339633318872
+		},
+		{
+			"functionName": "SpawnBotIcon",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 523550685928286
+				},
+				{
+					"name": "botName",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 424396605462148
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "BotBuyButton",
+					"sid": 441973524448174,
+					"parameters": {
+						"unique-id": "UID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "spawn-another-object",
+					"objectClass": "BotBuyButton",
+					"sid": 273169313893819,
+					"parameters": {
+						"object": "BotIcon",
+						"layer": "Self.LayerName",
+						"image-point": "0",
+						"create-hierarchy": false
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "BotIcon",
+					"sid": 735413248954914,
+					"parameters": {
+						"animation": "botName",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-scale",
+					"objectClass": "BotIcon",
+					"sid": 698585723593377,
+					"parameters": {
+						"scale": "0.55 * (BotBuyButton.Width / BotBuyButton.ImageWidth)"
+					}
+				},
+				{
+					"id": "add-child",
+					"objectClass": "BotBuyButton",
+					"sid": 925129076012855,
+					"parameters": {
+						"child": "BotIcon",
+						"transform-x": true,
+						"transform-y": true,
+						"transform-w": true,
+						"transform-h": true,
+						"transform-a": false,
+						"transform-z-elevation": false,
+						"destroy-with-parent": true
+					}
+				}
+			],
+			"sid": 407818149902102,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 681392568117543,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"MainMenu\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 103118228448686,
+							"parameters": {
+								"object-to-create": "Text",
+								"layer": "BotBuyButton.LayerName",
+								"x": "BotBuyButton.ImagePointX(\"Price\")",
+								"y": "BotBuyButton.ImagePointY(\"Price\")",
+								"create-hierarchy": false,
+								"template-name": "\"BotPrice\""
+							}
+						},
+						{
+							"id": "set-font-size",
+							"objectClass": "Text",
+							"sid": 734244531768975,
+							"parameters": {
+								"size-pt": "7 * (BotBuyButton.Width / BotBuyButton.ImageWidth)"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 832887568516161,
+							"parameters": {
+								"text": "BotsPrice.Get(botName)"
+							}
+						},
+						{
+							"id": "add-child",
+							"objectClass": "BotBuyButton",
+							"sid": 751509907646907,
+							"parameters": {
+								"child": "Text",
+								"transform-x": true,
+								"transform-y": true,
+								"transform-w": true,
+								"transform-h": true,
+								"transform-a": true,
+								"transform-z-elevation": true,
+								"destroy-with-parent": true
+							}
+						}
+					],
+					"sid": 386640117775720
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 703053812845516
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 983168116471253,
+							"parameters": {
+								"object-to-create": "SpriteFontNumbers",
+								"layer": "BotBuyButton.LayerName",
+								"x": "BotBuyButton.ImagePointX(\"Price\")",
+								"y": "BotBuyButton.ImagePointY(\"Price\")",
+								"create-hierarchy": false,
+								"template-name": "\"BotPrice\""
+							}
+						},
+						{
+							"id": "set-scale",
+							"objectClass": "SpriteFontNumbers",
+							"sid": 688036455589027,
+							"parameters": {
+								"scale": "1.3 * (BotBuyButton.Width / BotBuyButton.ImageWidth)"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "SpriteFontNumbers",
+							"sid": 519353426756687,
+							"parameters": {
+								"text": "BotsPrice.Get(botName)"
+							}
+						},
+						{
+							"id": "add-child",
+							"objectClass": "BotBuyButton",
+							"sid": 735058487029991,
+							"parameters": {
+								"child": "SpriteFontNumbers",
+								"transform-x": true,
+								"transform-y": true,
+								"transform-w": true,
+								"transform-h": true,
+								"transform-a": true,
+								"transform-z-elevation": true,
+								"destroy-with-parent": true
+							}
+						}
+					],
+					"sid": 101604398681520
+				}
+			]
+		},
+		{
+			"functionName": "SetBotIcon",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 899392743757348
+				},
+				{
+					"name": "botName",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 830741948424390
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "BotBuyButton",
+					"sid": 568642545484475,
+					"parameters": {
+						"unique-id": "UID"
+					}
+				},
+				{
+					"id": "pick-children",
+					"objectClass": "BotBuyButton",
+					"sid": 696537845312697,
+					"parameters": {
+						"child": "BotIcon",
+						"which": "own"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "BotBuyButton",
+					"sid": 305510629171263,
+					"parameters": {
+						"instance-variable": "BotName",
+						"value": "botName"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "BotIcon",
+					"sid": 909333666875589,
+					"parameters": {
+						"animation": "BotBuyButton.BotName",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 755497269515659,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-children",
+							"objectClass": "BotBuyButton",
+							"sid": 430147069432057,
+							"parameters": {
+								"child": "SpriteFontNumbers",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "SpriteFontNumbers",
+							"sid": 541864478073604,
+							"parameters": {
+								"text": "BotsPrice.Get(botName)"
+							}
+						}
+					],
+					"sid": 880645803239319
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-children",
+							"objectClass": "BotBuyButton",
+							"sid": 902248042913533,
+							"parameters": {
+								"child": "Text",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 121082147197233,
+							"parameters": {
+								"text": "BotsPrice.Get(botName)"
+							}
+						}
+					],
+					"sid": 932385108877282
+				}
+			]
+		},
+		{
+			"functionName": "SetMyBotPrices",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "CharacterCollider",
+					"sid": 440478668125618,
+					"parameters": {
+						"instance-variable": "ID",
+						"comparison": 0,
+						"value": "MyActorNr"
+					}
+				},
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 409557009181375,
+					"parameters": {
+						"object": "BotBuyButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "SpawnBotIcon",
+					"sid": 385276770606067,
+					"parameters": [
+						"BotBuyButton.UID",
+						"Functions.GetBotNameByNumber(CharacterCollider.UID, BotBuyButton.BotNumber)"
+					]
+				}
+			],
+			"sid": 462121808955006
+		},
+		{
+			"functionName": "SetBotIconsActive",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 660313083809507,
+					"parameters": {
+						"object": "BotBuyButton"
+					}
+				},
+				{
+					"id": "pick-children",
+					"objectClass": "BotBuyButton",
+					"sid": 749159212281963,
+					"parameters": {
+						"child": "BotIcon",
+						"which": "own"
+					}
+				},
+				{
+					"id": "pick-children",
+					"objectClass": "BotBuyButton",
+					"sid": 300620376211483,
+					"parameters": {
+						"child": "SpriteFontNumbers",
+						"which": "own"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "CharacterCollider",
+					"sid": 628381446861488,
+					"parameters": {
+						"instance-variable": "ID",
+						"comparison": 0,
+						"value": "MyActorNr"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 859972379951868,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 978971061382943,
+							"parameters": {
+								"first-value": "Functions.IsCharacterCanBuy(CharacterCollider.UID, int(SpriteFontNumbers.Text))",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "BotIcon",
+							"sid": 381373750936901,
+							"parameters": {
+								"opacity": "100"
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "BotBuyButton",
+							"sid": 488135293991717,
+							"parameters": {
+								"opacity": "100"
+							}
+						}
+					],
+					"sid": 843142931875320
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 174273570685464
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "BotIcon",
+							"sid": 490106795906743,
+							"parameters": {
+								"opacity": "40"
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "BotBuyButton",
+							"sid": 886069949024625,
+							"parameters": {
+								"opacity": "50"
+							}
+						}
+					],
+					"sid": 248602239033105
+				}
+			]
+		},
+		{
+			"functionName": "IsCharacterCanBuy",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CharacterUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 642868677760617
+				},
+				{
+					"name": "BotPrice",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 160124971718792
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "CharacterCollider",
+					"sid": 126052529344752,
+					"parameters": {
+						"unique-id": "CharacterUID"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 162839634244076,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 415759598898330,
+							"parameters": {
+								"variable": "MatchesPlayed",
+								"comparison": 0,
+								"value": "0"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterCollider",
+							"sid": 478148045546563,
+							"parameters": {
+								"instance-variable": "Bucks",
+								"comparison": 5,
+								"value": "BotPrice"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "CharacterCollider",
+							"sid": 969893367451251,
+							"parameters": {
+								"object": "BotBuyZoneTutor"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 150624432235030,
+							"parameters": {
+								"value": "1"
+							}
+						}
+					],
+					"sid": 428584200600392
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 118082569648622
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterCollider",
+							"sid": 556074846027431,
+							"parameters": {
+								"instance-variable": "Ready"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterCollider",
+							"sid": 302260878135179,
+							"parameters": {
+								"instance-variable": "Bucks",
+								"comparison": 5,
+								"value": "BotPrice"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Basa",
+							"sid": 623695083296019,
+							"parameters": {
+								"instance-variable": "Color",
+								"comparison": 0,
+								"value": "CharacterCollider.Color"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 687070986187040,
+							"parameters": {
+								"first-value": "abs(CharacterCollider.X - Basa.X)",
+								"comparison": 3,
+								"second-value": "Cam.BotBuyingDistance"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 214672117892329,
+							"parameters": {
+								"first-value": "Functions.GetPhasaName",
+								"comparison": 0,
+								"second-value": "\"Bots\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 984870185169871,
+							"parameters": {
+								"value": "1"
+							}
+						}
+					],
+					"sid": 583974276777361
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 786582782997269
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 471878325574318,
+							"parameters": {
+								"value": "0"
+							}
+						}
+					],
+					"sid": 453260897426608
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 503425456036186,
+					"parameters": {
+						"object": "BotBuyButton"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "CharacterCollider",
+					"sid": 329582350659106,
+					"parameters": {
+						"instance-variable": "ID",
+						"comparison": 0,
+						"value": "MyActorNr"
+					}
+				},
+				{
+					"id": "pick-children",
+					"objectClass": "BotBuyButton",
+					"sid": 637014231569514,
+					"parameters": {
+						"child": "BotIcon",
+						"which": "own"
+					}
+				},
+				{
+					"id": "pick-children",
+					"objectClass": "BotBuyButton",
+					"sid": 161294804781108,
+					"parameters": {
+						"child": "SpriteFontNumbers",
+						"which": "own"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 400915188859164,
+					"parameters": {
+						"first-value": "Functions.IsCharacterCanBuy(CharacterCollider.UID, int(SpriteFontNumbers.Text))",
+						"comparison": 0,
+						"second-value": "1"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 465083674308228,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "BotName",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 883493765139320
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 318213946969612,
+							"parameters": {
+								"variable": "BotName",
+								"value": "BotIcon.AnimationName"
+							}
+						},
+						{
+							"callFunction": "SyncBotBuying",
+							"sid": 721347031788247,
+							"parameters": [
+								"BotName",
+								"CharacterCollider.ID",
+								"CharacterCollider.LastBotID",
+								"CharacterCollider.X",
+								"CharacterCollider.Y",
+								"int(SpriteFontNumbers.Text)",
+								"Functions.GetOnlineAll"
+							]
+						}
+					],
+					"sid": 800114190294097
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 176600807065484,
+					"parameters": {
+						"interval-seconds": "1.0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "SetBotIconsActive",
+					"sid": 315060458815773
+				}
+			],
+			"sid": 799160883968157
+		},
+		{
+			"functionName": "GetBotNameByNumber",
+			"functionDescription": "",
+			"functionCategory": "Bot",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 299554725094387
+				},
+				{
+					"name": "Number",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 981272258354633
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "CharacterCollider",
+					"sid": 772598089605379,
+					"parameters": {
+						"unique-id": "UID"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 212049662120071,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 995966634394858,
+							"parameters": {
+								"variable": "Number",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 823326100824290,
+							"parameters": {
+								"value": "CharacterCollider.Bot1Name"
+							}
+						}
+					],
+					"sid": 432251289386085
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 709556766692202
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 743392408047044,
+							"parameters": {
+								"variable": "Number",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 586743598473124,
+							"parameters": {
+								"value": "CharacterCollider.Bot2Name"
+							}
+						}
+					],
+					"sid": 167916710961472
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 398145924047788
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 349645527830408,
+							"parameters": {
+								"variable": "Number",
+								"comparison": 0,
+								"value": "3"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 705648749570948,
+							"parameters": {
+								"value": "CharacterCollider.Bot3Name"
+							}
+						}
+					],
+					"sid": 701001089851820
+				}
+			]
+		}
+	],
+	"sid": 949893121837443
+}

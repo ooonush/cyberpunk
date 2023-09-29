@@ -1,0 +1,61 @@
+{
+	"name": "Cam",
+	"plugin-id": "Sprite",
+	"sid": 677033938231625,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "LayoutScale",
+			"type": "number",
+			"desc": "",
+			"sid": 163460287269668
+		},
+		{
+			"name": "BotBuyingDistance",
+			"type": "number",
+			"desc": "",
+			"sid": 205028455493474
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "scrollto",
+			"name": "ScrollTo",
+			"sid": 128808627238886
+		},
+		{
+			"behaviorId": "Timer",
+			"name": "Timer",
+			"sid": 863845176862896
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4696881,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 436168703223298,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

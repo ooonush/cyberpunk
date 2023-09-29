@@ -1,0 +1,49 @@
+{
+	"name": "CharacterBotTrigger",
+	"plugin-id": "Sprite",
+	"sid": 859779836243977,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 8,
+						"height": 8,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8475811,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "left",
+								"x": 0,
+								"y": 1
+							},
+							{
+								"name": "right",
+								"x": 1,
+								"y": 1
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 749518470545328,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

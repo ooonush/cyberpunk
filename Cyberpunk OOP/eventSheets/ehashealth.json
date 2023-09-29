@@ -1,0 +1,1811 @@
+{
+	"name": "eHasHealth",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "HealthBar",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 665310569360458,
+							"parameters": {
+								"object": "0HP"
+							}
+						},
+						{
+							"id": "pick-parent",
+							"objectClass": "0HP",
+							"sid": 180421197410548,
+							"parameters": {
+								"parent": "HasHealth",
+								"which": "own"
+							}
+						},
+						{
+							"id": "pick-children",
+							"objectClass": "0HP",
+							"sid": 426367291004634,
+							"parameters": {
+								"child": "HPBar",
+								"which": "own"
+							}
+						},
+						{
+							"id": "pick-children",
+							"objectClass": "0HP",
+							"sid": 739163995345751,
+							"parameters": {
+								"child": "HPBarWhiteEffect",
+								"which": "own"
+							}
+						},
+						{
+							"id": "pick-children",
+							"objectClass": "0HP",
+							"sid": 784889816286619,
+							"parameters": {
+								"child": "SpriteFontNumbers",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-width",
+							"objectClass": "HPBar",
+							"sid": 380296887200725,
+							"parameters": {
+								"width": "lerp(Self.Width, Functions.HasHealthGetNormalizedHealth(HasHealth.UID)*(0HP.Width - (Self.X - 0HP.X + 0HP.Width / 2)), 0.4)"
+							}
+						},
+						{
+							"id": "set-width",
+							"objectClass": "HPBarWhiteEffect",
+							"sid": 849029464902276,
+							"parameters": {
+								"width": "lerp(Self.Width, HPBar.Width, 0.2)"
+							}
+						}
+					],
+					"sid": 808075814207570
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "HealthBar API",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "HealthBarCreate",
+							"functionDescription": "",
+							"functionCategory": "HealthBar",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "hasHealthUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 958882854413561
+								},
+								{
+									"name": "x",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 357586366547663
+								},
+								{
+									"name": "y",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 881187805419624
+								},
+								{
+									"name": "template",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 646307466623515
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "HasHealth",
+									"sid": 186936048138430,
+									"parameters": {
+										"unique-id": "hasHealthUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 634063215470988,
+									"parameters": {
+										"object-to-create": "0HP",
+										"layer": "\"InGameUI\"",
+										"x": "x",
+										"y": "y",
+										"create-hierarchy": true,
+										"template-name": "template"
+									}
+								},
+								{
+									"id": "add-child",
+									"objectClass": "HasHealth",
+									"sid": 198000772016991,
+									"parameters": {
+										"child": "0HP",
+										"transform-x": true,
+										"transform-y": true,
+										"transform-w": false,
+										"transform-h": false,
+										"transform-a": false,
+										"transform-z-elevation": false,
+										"destroy-with-parent": true
+									}
+								}
+							],
+							"sid": 151055964107227,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-children",
+											"objectClass": "0HP",
+											"sid": 649763555286267,
+											"parameters": {
+												"child": "HPBar",
+												"which": "own"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "HPBar",
+											"sid": 831373298482452,
+											"parameters": {
+												"animation": "Functions.СoloredGetColotByUID(hasHealthUID)",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 877784914684779
+								}
+							]
+						}
+					],
+					"sid": 198852250443936
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "HealthBarAnimations",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "HealthBarStartHurtAnim",
+							"functionDescription": "",
+							"functionCategory": "HealthBar",
+							"functionReturnType": "none",
+							"functionIsAsync": true,
+							"functionParameters": [
+								{
+									"name": "hpBarBackUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 560653945875337
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "0HP",
+									"sid": 824899099960969,
+									"parameters": {
+										"unique-id": "hpBarBackUID"
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "0HP",
+									"sid": 913881890764974,
+									"parameters": {
+										"child": "HPBar",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instance",
+									"objectClass": "TimelineController",
+									"sid": 600410415779937,
+									"parameters": {
+										"object-class": "0HP",
+										"track-id": "\"HPBarBack\""
+									}
+								},
+								{
+									"id": "set-instance",
+									"objectClass": "TimelineController",
+									"sid": 997668807830430,
+									"parameters": {
+										"object-class": "HPBar",
+										"track-id": "\"HPBar\""
+									}
+								},
+								{
+									"id": "play-timeline",
+									"objectClass": "TimelineController",
+									"sid": 403566447174956,
+									"parameters": {
+										"timeline": "HPBarHurt",
+										"tags": "\"CharacterHurt\""
+									}
+								}
+							],
+							"sid": 749002610477678
+						},
+						{
+							"functionName": "HPBarStartHealAnim",
+							"functionDescription": "",
+							"functionCategory": "HealthBar",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "hpBarBackUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 772353746067263
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "0HP",
+									"sid": 708669020603676,
+									"parameters": {
+										"unique-id": "hpBarBackUID"
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "0HP",
+									"sid": 549350608190504,
+									"parameters": {
+										"child": "HPBar",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "HPBar",
+									"sid": 290642128974806,
+									"parameters": {
+										"frame-number": "2"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 708976359721886,
+									"parameters": {
+										"seconds": "0.2"
+									}
+								}
+							],
+							"sid": 638741740857411,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "HPBar",
+											"sid": 713677964293922,
+											"parameters": {
+												"comparison": 0,
+												"number": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "HPBar",
+											"sid": 288288583393190,
+											"parameters": {
+												"frame-number": "0"
+											}
+										}
+									],
+									"sid": 613729834574345
+								}
+							]
+						}
+					],
+					"sid": 262651295542419
+				}
+			],
+			"sid": 991387463648773
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "HasHealth",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "HasHealth Shield",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "HasHealthIsShieldActive",
+							"functionDescription": "",
+							"functionCategory": "HasHealth",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "hasShieldUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 528438887173918
+								},
+								{
+									"name": "shieldDuration",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 801568056597950
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "HasHealth",
+									"sid": 674708648533056,
+									"parameters": {
+										"unique-id": "hasShieldUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "start-timer",
+									"objectClass": "HasHealth",
+									"sid": 792354143760520,
+									"behaviorType": "HasHealthTimer",
+									"parameters": {
+										"duration": "shieldDuration",
+										"type": "once",
+										"tag": "\"Shield\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HasHealth",
+									"sid": 796224611877278,
+									"parameters": {
+										"object": "Shield",
+										"layer": "HasHealth.LayerName",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "add-child",
+									"objectClass": "HasHealth",
+									"sid": 336905752425850,
+									"parameters": {
+										"child": "Shield",
+										"transform-x": true,
+										"transform-y": true,
+										"transform-w": true,
+										"transform-h": true,
+										"transform-a": false,
+										"transform-z-elevation": false,
+										"destroy-with-parent": false
+									}
+								}
+							],
+							"sid": 541125615939984
+						},
+						{
+							"functionName": "HasHealthStartShield",
+							"functionDescription": "",
+							"functionCategory": "HasHealth",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "hasShieldUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 975521420899426
+								},
+								{
+									"name": "shieldDuration",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 940197602185443
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "HasHealth",
+									"sid": 674010436270526,
+									"parameters": {
+										"unique-id": "hasShieldUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "HasHealth",
+									"sid": 473745720583321,
+									"parameters": {
+										"object": "Shield",
+										"layer": "HasHealth.LayerName",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "add-child",
+									"objectClass": "HasHealth",
+									"sid": 516574385313817,
+									"parameters": {
+										"child": "Shield",
+										"transform-x": true,
+										"transform-y": true,
+										"transform-w": true,
+										"transform-h": true,
+										"transform-a": false,
+										"transform-z-elevation": false,
+										"destroy-with-parent": false
+									}
+								}
+							],
+							"sid": 415038831124092
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-timer",
+									"objectClass": "HasHealth",
+									"sid": 405696301531197,
+									"behaviorType": "HasHealthTimer",
+									"parameters": {
+										"tag": "\"Shield\""
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "HasHealth",
+									"sid": 242051968375496,
+									"parameters": {
+										"child": "Shield",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Shield",
+									"sid": 793217305838556
+								}
+							],
+							"sid": 933847891516948
+						}
+					],
+					"sid": 582307041583067
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "HasHealth API",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "HasHealthGetNormalizedHealth",
+							"functionDescription": "",
+							"functionCategory": "HasHealth",
+							"functionReturnType": "number",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "hasHealthUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 820052763543950
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "HasHealth",
+									"sid": 266715643394230,
+									"parameters": {
+										"unique-id": "hasHealthUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 146822067967670,
+									"parameters": {
+										"value": "HasHealth.oHealth / HasHealth.oMaxHealth"
+									}
+								}
+							],
+							"sid": 256791178072984
+						},
+						{
+							"functionName": "HasHealthGetHealth",
+							"functionDescription": "",
+							"functionCategory": "HasHealth",
+							"functionReturnType": "number",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "hasHealthUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 620608681276382
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "HasHealth",
+									"sid": 382866780202051,
+									"parameters": {
+										"unique-id": "hasHealthUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 524098160243631,
+									"parameters": {
+										"value": "HasHealth.oHealth"
+									}
+								}
+							],
+							"sid": 134509418082181
+						},
+						{
+							"functionName": "HasHealthIsDeath",
+							"functionDescription": "",
+							"functionCategory": "HasHealth",
+							"functionReturnType": "number",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "hasHealthUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 194940943427150
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "HasHealth",
+									"sid": 859980919193713,
+									"parameters": {
+										"unique-id": "hasHealthUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 292866540925648,
+									"parameters": {
+										"value": "HasHealth.oHealth <= 0"
+									}
+								}
+							],
+							"sid": 867365936081912
+						},
+						{
+							"functionName": "HasHealthIsAlive",
+							"functionDescription": "",
+							"functionCategory": "HasHealth",
+							"functionReturnType": "number",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "hasHealthUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 592044264028068
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "HasHealth",
+									"sid": 216759151041506,
+									"parameters": {
+										"unique-id": "hasHealthUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 877399328518402,
+									"parameters": {
+										"value": "HasHealth.oHealth > 0"
+									}
+								}
+							],
+							"sid": 889113289958961
+						},
+						{
+							"functionName": "HasHealthGetMaxHealth",
+							"functionDescription": "",
+							"functionCategory": "HasHealth",
+							"functionReturnType": "number",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "hasHealthUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 377534282097208
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "HasHealth",
+									"sid": 339468827674374,
+									"parameters": {
+										"unique-id": "hasHealthUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 481655280723863,
+									"parameters": {
+										"value": "HasHealth.oMaxHealth"
+									}
+								}
+							],
+							"sid": 560588339994277
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "HasHealth API States",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"functionName": "HasHealthOnDamage",
+									"functionDescription": "",
+									"functionCategory": "HasHealth",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "hasHealthUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 745301250088580
+										},
+										{
+											"name": "damage",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 676336581702107
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "HasHealth",
+											"sid": 355025311304754,
+											"parameters": {
+												"unique-id": "hasHealthUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "HasHealthStartHurtAnim",
+											"sid": 603950468361668,
+											"parameters": [
+												"hasHealthUID"
+											]
+										}
+									],
+									"sid": 309139570934960,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "HasHealth",
+													"sid": 630047078673928,
+													"parameters": {
+														"instance-variable": "CanHeal"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "HasHealthResetHealTimer",
+													"sid": 321532130703724,
+													"parameters": [
+														"hasHealthUID"
+													]
+												}
+											],
+											"sid": 568596581187676
+										}
+									]
+								},
+								{
+									"functionName": "HasHealthOnHeal",
+									"functionDescription": "",
+									"functionCategory": "HasHealth",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "hasHealthUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 433363393594036
+										},
+										{
+											"name": "healthCount",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 330308086139061
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "HasHealth",
+											"sid": 964340828487696,
+											"parameters": {
+												"unique-id": "hasHealthUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "HasHealthAddHPSync",
+											"sid": 976766079121499,
+											"parameters": [
+												"0HP.UID",
+												"-healthCount"
+											]
+										}
+									],
+									"sid": 219039459706864,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-parent",
+													"objectClass": "0HP",
+													"sid": 313056285810646,
+													"parameters": {
+														"parent": "CharacterCollider",
+														"which": "own"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "HasHealthStartHealAnim",
+													"sid": 252118841988551,
+													"parameters": [
+														"CharacterCollider.UID"
+													]
+												}
+											],
+											"sid": 877377923170202
+										}
+									]
+								},
+								{
+									"functionName": "HasHealthOnChangeHP",
+									"functionDescription": "",
+									"functionCategory": "HasHealth",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "hasHealthUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 424266603423707
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "HasHealth",
+											"sid": 258965382709816,
+											"parameters": {
+												"unique-id": "hasHealthUID"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 105159972561727,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-children",
+													"objectClass": "0HP",
+													"sid": 760758544375028,
+													"parameters": {
+														"child": "SpriteFontNumbers",
+														"which": "own"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "SpriteFontNumbers",
+													"sid": 194105423621157,
+													"parameters": {
+														"text": "0HP.HP"
+													}
+												}
+											],
+											"sid": 103718788007044
+										}
+									]
+								}
+							],
+							"sid": 662636196012479
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "HasHealth API Animations",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"functionName": "HasHealthStartHurtAnim",
+									"functionDescription": "",
+									"functionCategory": "HasHealth",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "hasHealthUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 487898514848609
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "HasHealth",
+											"sid": 319965456236376,
+											"parameters": {
+												"unique-id": "hasHealthUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "start-timer",
+											"objectClass": "HasHealth",
+											"sid": 562607636489028,
+											"behaviorType": "HasHealthTimer",
+											"parameters": {
+												"duration": "0.2",
+												"type": "once",
+												"tag": "\"HurtAnimation\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "HasHealth",
+											"sid": 114629692536937,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"HasHealthHurt\""
+											}
+										}
+									],
+									"sid": 116826578195091,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-children",
+													"objectClass": "HasHealth",
+													"sid": 633809540515637,
+													"parameters": {
+														"child": "0HP",
+														"which": "own"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "HealthBarStartHurtAnim",
+													"sid": 327164639766027,
+													"parameters": [
+														"0HP.UID"
+													]
+												}
+											],
+											"sid": 766585766733896
+										},
+										{
+											"eventType": "comment",
+											"text": "task"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 546001069054095,
+													"parameters": {
+														"first-value": "Functions.SyncedGetIDByUID(hasHealthUID)",
+														"comparison": 0,
+														"second-value": "MyActorNr"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "CameraDamageAnim",
+													"sid": 237396647797641,
+													"parameters": [
+														"0"
+													]
+												}
+											],
+											"sid": 826205691292719,
+											"disabled": true
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-timer",
+											"objectClass": "HasHealth",
+											"sid": 654174265630691,
+											"behaviorType": "HasHealthTimer",
+											"parameters": {
+												"tag": "\"HurtAnimation\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "HasHealth",
+											"sid": 792699283825837,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Hurt\""
+											}
+										}
+									],
+									"sid": 274706947377621
+								},
+								{
+									"functionName": "HasHealthStartHealAnim",
+									"functionDescription": "",
+									"functionCategory": "Character",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "hasHealthUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 625024259908778
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "HasHealth",
+											"sid": 521883065722373,
+											"parameters": {
+												"unique-id": "hasHealthUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "start-timer",
+											"objectClass": "HasHealth",
+											"sid": 481673592301756,
+											"behaviorType": "HasHealthTimer",
+											"parameters": {
+												"duration": "0.2",
+												"type": "once",
+												"tag": "\"HealAnimation\""
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 383112585254242,
+											"parameters": {
+												"object-to-create": "AddHPParticle",
+												"layer": "HasHealth.LayerName",
+												"x": "HasHealth.X\n",
+												"y": "HasHealth.Y - HasHealth.Height / 2",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"type": "comment",
+											"text": "task"
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "HasHealth",
+											"sid": 556007954726607,
+											"disabled": true,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Heal\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "HasHealth",
+											"sid": 773875364420074,
+											"disabled": true,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"HealExposure\""
+											}
+										}
+									],
+									"sid": 999236165383495,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-children",
+													"objectClass": "HasHealth",
+													"sid": 671847149060261,
+													"parameters": {
+														"child": "0HP",
+														"which": "own"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "HPBarStartHealAnim",
+													"sid": 310414738915041,
+													"parameters": [
+														"0HP.UID"
+													]
+												}
+											],
+											"sid": 147745645164643
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-timer",
+											"objectClass": "HasHealth",
+											"sid": 750835711700677,
+											"behaviorType": "HasHealthTimer",
+											"parameters": {
+												"tag": "\"HealAnimation\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "task"
+										}
+									],
+									"sid": 573815692599490
+								}
+							],
+							"sid": 806484509794201
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "HasHealth API Heal",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"functionName": "HasHealthResetHealTimer",
+									"functionDescription": "",
+									"functionCategory": "HasHealth",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "hasHealthUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 599536457130579
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "HasHealth",
+											"sid": 219123048668022,
+											"parameters": {
+												"unique-id": "hasHealthUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "start-timer",
+											"objectClass": "HasHealth",
+											"sid": 472130487119682,
+											"behaviorType": "HasHealthTimer",
+											"parameters": {
+												"duration": "HasHealth.HealTimer",
+												"type": "once",
+												"tag": "\"Heal\""
+											}
+										}
+									],
+									"sid": 690517578334783
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-timer",
+											"objectClass": "HasHealth",
+											"sid": 963539610305517,
+											"behaviorType": "HasHealthTimer",
+											"parameters": {
+												"tag": "\"Heal\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "HasHealthAddHPSync",
+											"sid": 490336638934637,
+											"parameters": [
+												"HasHealth.UID",
+												"HasHealth.HealCount"
+											]
+										}
+									],
+									"sid": 660118510000436
+								}
+							],
+							"sid": 172112732055710
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "HasHealth API Sync",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"functionName": "HasHealthSetHPSync",
+									"functionDescription": "",
+									"functionCategory": "HasHealth",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "hasHealthUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 891661390187635
+										},
+										{
+											"name": "health",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 647083716250228
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "HasHealth",
+											"sid": 427755382336631,
+											"parameters": {
+												"unique-id": "hasHealthUID"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "HasHealth",
+											"sid": 544917817882148,
+											"parameters": {
+												"instance-variable": "oMaxHealth",
+												"comparison": 4,
+												"value": "health"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 278574975816571,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 536448410150319,
+													"parameters": {
+														"variable": "OnlineMode"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "raiseevent17",
+													"objectClass": "Photon",
+													"sid": 816548620959168,
+													"parameters": {
+														"code0": "12",
+														"data1": "Functions.SyncedGetIDByUID(hasHealthUID)&\"/\"&health",
+														"interestgroup2": "0",
+														"cache11": "donotcache",
+														"receivers15": "others",
+														"targetactors16": "Functions.GetOnlineAll",
+														"webforward19": "no"
+													}
+												}
+											],
+											"sid": 548078598878893
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 672727829003219
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "HasHealthSetHP",
+													"sid": 658528271641582,
+													"parameters": [
+														"hasHealthUID",
+														"health"
+													]
+												}
+											],
+											"sid": 867169715702925
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "onevent3",
+											"objectClass": "Photon",
+											"sid": 936586775644975,
+											"parameters": {
+												"code0": "12"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Synced",
+											"sid": 974525090744987,
+											"parameters": {
+												"instance-variable": "oID",
+												"comparison": 0,
+												"value": "tokenat(Photon.EventData, 0, \"/\")"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "HasHealthSetHP",
+											"sid": 632264695204434,
+											"parameters": [
+												"Synced.UID",
+												"int(tokenat(Photon.EventData, 1, \"/\"))"
+											]
+										}
+									],
+									"sid": 696431297655340
+								},
+								{
+									"functionName": "HasHealthAddHPSync",
+									"functionDescription": "",
+									"functionCategory": "HasHealth",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "hasHealthUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 128729154063529
+										},
+										{
+											"name": "healthCount",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 240437177963082
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "HasHealth",
+											"sid": 571304570346349,
+											"parameters": {
+												"unique-id": "hasHealthUID"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 863318147470775,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 309071943900008,
+													"parameters": {
+														"variable": "OnlineMode"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "raiseevent17",
+													"objectClass": "Photon",
+													"sid": 926240966627150,
+													"parameters": {
+														"code0": "15",
+														"data1": "Functions.SyncedGetIDByUID(hasHealthUID)&\"/\"&healthCount",
+														"interestgroup2": "0",
+														"cache11": "donotcache",
+														"receivers15": "others",
+														"targetactors16": "Functions.GetOnlineAll",
+														"webforward19": "no"
+													}
+												}
+											],
+											"sid": 427248096155474
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 470843671783802
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "HasHealthSetHP",
+													"sid": 749072536756440,
+													"parameters": [
+														"0HP.UID",
+														"0HP.HP + healthCount"
+													]
+												}
+											],
+											"sid": 256845026598057
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "onevent3",
+											"objectClass": "Photon",
+											"sid": 156408851835421,
+											"parameters": {
+												"code0": "15"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Synced",
+											"sid": 804867482815131,
+											"parameters": {
+												"instance-variable": "oID",
+												"comparison": 0,
+												"value": "tokenat(Photon.EventData, 0, \"/\")"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "HasHealthAddHP",
+											"sid": 262347867409513,
+											"parameters": [
+												"Synced.UID",
+												"int(tokenat(Photon.EventData, 1, \"/\"))"
+											]
+										}
+									],
+									"sid": 527043781325981
+								}
+							],
+							"sid": 967926732361314
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "HasHealth API Set",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"functionName": "HasHealthSetHP",
+									"functionDescription": "",
+									"functionCategory": "HasHealth",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "hasHealthUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 390609066345233
+										},
+										{
+											"name": "health",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 300752953927421
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "HasHealth",
+											"sid": 292068696868629,
+											"parameters": {
+												"unique-id": "hasHealthUID"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "HasHealth",
+											"sid": 367499216871924,
+											"parameters": {
+												"instance-variable": "oHealth",
+												"comparison": 1,
+												"value": "health"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 132585729766265,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "HasHealth",
+													"sid": 428579808330494,
+													"parameters": {
+														"instance-variable": "oHealth",
+														"comparison": 4,
+														"value": "health"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "HasHealthOnDamage",
+													"sid": 261149984420547,
+													"parameters": [
+														"hasHealthUID",
+														"HasHealth.UID - health"
+													]
+												}
+											],
+											"sid": 548523415491209
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 480470180766890
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "HasHealthOnHeal",
+													"sid": 703009584196595,
+													"parameters": [
+														"hasHealthUID",
+														"health - HasHealth.UID"
+													]
+												}
+											],
+											"sid": 436304323970860
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "HasHealth",
+													"sid": 109572562952308,
+													"parameters": {
+														"instance-variable": "oHealth",
+														"value": "max(0, min(health, HasHealth.oMaxHealth))"
+													}
+												},
+												{
+													"callFunction": "HasHealthOnChangeHP",
+													"sid": 147575898873621,
+													"parameters": [
+														"hasHealthUID"
+													]
+												}
+											],
+											"sid": 360781576915404
+										}
+									]
+								},
+								{
+									"functionName": "HasHealthResetHP",
+									"functionDescription": "",
+									"functionCategory": "HasHealth",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "hasHealthUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 544314346825853
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "HasHealth",
+											"sid": 170372168413006,
+											"parameters": {
+												"unique-id": "hasHealthUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "HasHealthSetHP",
+											"sid": 963323514004244,
+											"parameters": [
+												"hasHealthUID",
+												"HasHealth.oMaxHealth"
+											]
+										}
+									],
+									"sid": 177561479796966
+								},
+								{
+									"functionName": "HasHealthResetHPSync",
+									"functionDescription": "",
+									"functionCategory": "HasHealth",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "hasHealthUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 310277548870809
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "HasHealth",
+											"sid": 250891969143910,
+											"parameters": {
+												"unique-id": "hasHealthUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "HasHealthSetHPSync",
+											"sid": 844786383782744,
+											"parameters": [
+												"hasHealthUID",
+												"HasHealth.oMaxHealth"
+											]
+										}
+									],
+									"sid": 861484640468476
+								},
+								{
+									"functionName": "HasHealthAddHP",
+									"functionDescription": "",
+									"functionCategory": "HasHealth",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "hasHealthUID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 859962905656101
+										},
+										{
+											"name": "healthCount",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 773817024226635
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "HasHealth",
+											"sid": 362915448169633,
+											"parameters": {
+												"unique-id": "hasHealthUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "HasHealthSetHP",
+											"sid": 411318994395083,
+											"parameters": [
+												"hasHealthUID",
+												"HasHealth.oHealth + healthCount"
+											]
+										}
+									],
+									"sid": 627980739328243
+								}
+							],
+							"sid": 163678311514487
+						}
+					],
+					"sid": 322048173841049
+				}
+			],
+			"sid": 743727259613670
+		}
+	],
+	"sid": 365893618524480
+}

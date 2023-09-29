@@ -1,0 +1,301 @@
+{
+	"name": "buttons",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 919170612979513,
+					"disabled": true,
+					"parameters": {
+						"interval-seconds": "0.1"
+					}
+				},
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 956732012891278,
+					"parameters": {
+						"object": "Buttons"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 172028742917153,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 470994018549879,
+							"parameters": {
+								"object": "Buttons"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Buttons",
+							"sid": 744607666768290,
+							"parameters": {
+								"instance-variable": "Scale1",
+								"value": "0.9*Self.DefaultScale"
+							}
+						}
+					],
+					"sid": 924289332768160,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "AnimatedButtons",
+									"sid": 207219307556397,
+									"parameters": {
+										"unique-id": "Buttons.UID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "AnimatedButtons",
+									"sid": 487750384822429,
+									"parameters": {
+										"animation": "\"Touched\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 745000710451025
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 191090942372740
+						}
+					],
+					"actions": [],
+					"sid": 773049583678581,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "AnimatedButtons",
+									"sid": 317027896821110,
+									"parameters": {
+										"unique-id": "Buttons.UID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "AnimatedButtons",
+									"sid": 370889641300548,
+									"parameters": {
+										"animation": "\"Default\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 290026398433979
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 492422707986475,
+									"parameters": {
+										"object": "Buttons"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 211092058088625,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Buttons",
+											"sid": 220559530464575,
+											"parameters": {
+												"instance-variable": "Scale1",
+												"comparison": 3,
+												"value": "Self.DefaultScale"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Buttons",
+											"sid": 252580561120602,
+											"parameters": {
+												"instance-variable": "Scale1",
+												"value": "0.94*Self.DefaultScale"
+											}
+										}
+									],
+									"sid": 709935194024439
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 329370801348145
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Buttons",
+									"sid": 713787739309166,
+									"parameters": {
+										"instance-variable": "Scale1",
+										"value": "Self.DefaultScale"
+									}
+								}
+							],
+							"sid": 934021209886072
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 487471518698944
+				},
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 821114352371488,
+					"parameters": {
+						"object": "Buttons"
+					}
+				},
+				{
+					"id": "compare-opacity",
+					"objectClass": "Buttons",
+					"sid": 312596272420182,
+					"disabled": true,
+					"parameters": {
+						"comparison": 0,
+						"opacity": "100"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 991603656793611,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 305161534384398,
+							"parameters": {
+								"layer": "\"Win\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 696516354130739,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-layer",
+									"objectClass": "Buttons",
+									"sid": 503883041576988,
+									"parameters": {
+										"layer": "\"Win\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Buttons",
+									"sid": 903727128973156,
+									"parameters": {
+										"instance-variable": "Scale2",
+										"value": "lerp(Self.scale2,Self.scale1,0.25)"
+									}
+								},
+								{
+									"id": "set-scale",
+									"objectClass": "Buttons",
+									"sid": 439003219122306,
+									"parameters": {
+										"scale": "Self.scale2"
+									}
+								}
+							],
+							"sid": 967109317472921
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 943166654537433
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Buttons",
+							"sid": 614692142887555,
+							"parameters": {
+								"instance-variable": "Scale2",
+								"value": "lerp(Self.scale2,Self.scale1,0.25)"
+							}
+						},
+						{
+							"id": "set-scale",
+							"objectClass": "Buttons",
+							"sid": 597036033238306,
+							"parameters": {
+								"scale": "Self.scale2"
+							}
+						}
+					],
+					"sid": 139583526701634
+				}
+			]
+		}
+	],
+	"sid": 110082443387409
+}

@@ -1,0 +1,1425 @@
+{
+	"name": "E-MatchFinding",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "buttons"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "playersArray"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "E-Localization"
+		},
+		{
+			"eventType": "variable",
+			"name": "Region",
+			"type": "string",
+			"initialValue": "eu",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 406835321028198
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 644398048546497
+				}
+			],
+			"actions": [
+				{
+					"id": "set-size",
+					"objectClass": "1PlayersArray",
+					"sid": 807122947906774,
+					"parameters": {
+						"width": "MaxPlayers",
+						"height": "9",
+						"depth": "1"
+					}
+				},
+				{
+					"id": "clear",
+					"objectClass": "1PlayersArray",
+					"sid": 916331500682639,
+					"parameters": {
+						"value": "0"
+					}
+				},
+				{
+					"callFunction": "SetBotsCharacterNames",
+					"sid": 759733601274805
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 220803606097942,
+					"parameters": {
+						"variable": "OnlineMode",
+						"value": "true"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 954988524352313,
+					"parameters": {
+						"seconds": "0"
+					}
+				},
+				{
+					"id": "preload",
+					"objectClass": "Audio",
+					"sid": 993755841453304,
+					"parameters": {
+						"audio-file": "Jump"
+					}
+				},
+				{
+					"id": "preload",
+					"objectClass": "Audio",
+					"sid": 478101988195731,
+					"parameters": {
+						"audio-file": "Landed"
+					}
+				},
+				{
+					"id": "preload",
+					"objectClass": "Audio",
+					"sid": 251993331888256,
+					"parameters": {
+						"audio-file": "Run"
+					}
+				},
+				{
+					"id": "preload",
+					"objectClass": "Audio",
+					"sid": 202742368709411,
+					"parameters": {
+						"audio-file": "Boom"
+					}
+				}
+			],
+			"sid": 422585548889467,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 484823688894908,
+							"parameters": {
+								"variable": "RenderingMode",
+								"comparison": 0,
+								"value": "\"2D\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load-layout-images",
+							"objectClass": "System",
+							"sid": 817419315654571,
+							"parameters": {
+								"layout": "Map-1-1-2D"
+							}
+						}
+					],
+					"sid": 406492887927345
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 312532178335619
+						}
+					],
+					"actions": [
+						{
+							"id": "load-layout-images",
+							"objectClass": "System",
+							"sid": 917168550106275,
+							"parameters": {
+								"layout": "Map-1-1-3D"
+							}
+						}
+					],
+					"sid": 124126448652429
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 975605616447288,
+							"parameters": {
+								"first-value": "ViewportHeight(0)",
+								"comparison": 4,
+								"second-value": "ViewportWidth(0)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-width",
+							"objectClass": "Sprite3",
+							"sid": 252569190049787,
+							"parameters": {
+								"width": "ViewportWidth(0)"
+							}
+						},
+						{
+							"id": "set-height",
+							"objectClass": "Sprite3",
+							"sid": 463518510978820,
+							"parameters": {
+								"height": "ViewportHeight(0)"
+							}
+						}
+					],
+					"sid": 992060751668176
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 144067301368146
+						}
+					],
+					"actions": [
+						{
+							"id": "set-width",
+							"objectClass": "Sprite3",
+							"sid": 221811399702454,
+							"parameters": {
+								"width": "ViewportWidth(0)"
+							}
+						},
+						{
+							"id": "set-height",
+							"objectClass": "Sprite3",
+							"sid": 905782402000662,
+							"parameters": {
+								"height": "ViewportWidth(0)"
+							}
+						}
+					],
+					"sid": 282438810683971
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 676651334601365
+				}
+			],
+			"actions": [],
+			"sid": 716320559156553,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 146856659890648,
+							"parameters": {
+								"instance-variable": "ID2",
+								"comparison": 0,
+								"value": "\"PlayerFound\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 493022871865993,
+							"parameters": {
+								"text": "Localization.Get(\"PlayersFound\")"
+							}
+						}
+					],
+					"sid": 231416883744194,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 555128151157208,
+							"parameters": {
+								"instance-variable": "ID2",
+								"comparison": 0,
+								"value": "\"SelectBot\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 321356032645823,
+							"parameters": {
+								"text": "Localization.Get(\"SelectBot\")"
+							}
+						}
+					],
+					"sid": 999277072770039,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 641491827042064,
+							"parameters": {
+								"instance-variable": "ID2",
+								"comparison": 0,
+								"value": "\"Play\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 953915162323173,
+							"parameters": {
+								"text": "Localization.Get(\"Play\")"
+							}
+						}
+					],
+					"sid": 452813910572284,
+					"disabled": true
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "FindingText",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "onerror0",
+							"objectClass": "Photon",
+							"sid": 897103719163588
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text2",
+							"sid": 398250698509109,
+							"parameters": {
+								"text": "\"error\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 401136244967126,
+							"parameters": {
+								"seconds": "1.0"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 863592231939383,
+							"parameters": {
+								"layout": "M-MainMenu"
+							}
+						}
+					],
+					"sid": 129992716860177
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 171195245555418,
+							"parameters": {
+								"interval-seconds": "0.5"
+							}
+						},
+						{
+							"id": "compare-text",
+							"objectClass": "Text2",
+							"sid": 346635378200844,
+							"parameters": {
+								"text-to-compare": "\"error\"",
+								"case-sensitivity": "ignore-case"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 225954173629391,
+							"parameters": {
+								"first-value": "Photon.ErrorCode",
+								"comparison": 1,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text2",
+							"sid": 161505457352828,
+							"parameters": {
+								"text": "\"error\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 267831182051841,
+							"parameters": {
+								"seconds": "1.0"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 864923500135309,
+							"parameters": {
+								"layout": "M-MainMenu"
+							}
+						}
+					],
+					"sid": 640806694333030,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 837225855614781
+						}
+					],
+					"actions": [],
+					"sid": 124220086629192,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-text",
+									"objectClass": "Text2",
+									"sid": 947351436954665,
+									"parameters": {
+										"text-to-compare": "\"error\"",
+										"case-sensitivity": "ignore-case"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text2",
+									"sid": 101621387989283,
+									"parameters": {
+										"text": "Localization.Get(\"Connecting\")&\"...\""
+									}
+								}
+							],
+							"sid": 381060215584286
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-loaded-banner",
+									"objectClass": "MobileAdvert",
+									"sid": 244432635361044
+								}
+							],
+							"actions": [
+								{
+									"id": "show-banner",
+									"objectClass": "MobileAdvert",
+									"sid": 694047824411200
+								}
+							],
+							"sid": 130945841135070
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 149708156649523
+								}
+							],
+							"actions": [
+								{
+									"id": "create-banner",
+									"objectClass": "MobileAdvert",
+									"sid": 400867184644072,
+									"parameters": {
+										"advert-id": "\"ca-app-pub-2860474538448366/4082199402\"",
+										"banner-size": "landscape",
+										"show": "false",
+										"position": "top"
+									}
+								}
+							],
+							"sid": 653360875471878
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-end-of-layout",
+							"objectClass": "System",
+							"sid": 233748537287863
+						}
+					],
+					"actions": [
+						{
+							"id": "hide-banner",
+							"objectClass": "MobileAdvert",
+							"sid": 309165453516541
+						}
+					],
+					"sid": 393956671009098
+				},
+				{
+					"eventType": "variable",
+					"name": "PlayersCount",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 452302536712433
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 292498061749393,
+							"parameters": {
+								"interval-seconds": "1.0"
+							}
+						},
+						{
+							"id": "isjoinedtoroom34",
+							"objectClass": "Photon",
+							"sid": 398687253249719
+						},
+						{
+							"id": "compare-text",
+							"objectClass": "Text2",
+							"sid": 922238686467655,
+							"parameters": {
+								"text-to-compare": "\"error\"",
+								"case-sensitivity": "ignore-case"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 941502005009043,
+							"parameters": {
+								"variable": "PlayersCount",
+								"value": "Functions.GetActorsAndBotsCount"
+							}
+						}
+					],
+					"sid": 734306434151573,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 457381026255248,
+									"parameters": {
+										"variable": "PlayersCount",
+										"comparison": 1,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text2",
+									"sid": 706850094185242,
+									"parameters": {
+										"text": "Localization.Get(\"PlayersFound\")&\" \"&PlayersCount&\"/\"&MaxPlayers"
+									}
+								}
+							],
+							"sid": 822820466742829
+						}
+					]
+				}
+			],
+			"sid": 530390647464421
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 548846485882440,
+					"parameters": {
+						"object": "exit"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 263684786473984,
+					"parameters": {
+						"layout": "M-MainMenu"
+					}
+				}
+			],
+			"sid": 637307428016573
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "onjoinedlobby22",
+					"objectClass": "Photon",
+					"sid": 233878818852533
+				}
+			],
+			"actions": [
+				{
+					"id": "joinrandomroom13",
+					"objectClass": "Photon",
+					"sid": 997829040608253,
+					"disabled": true,
+					"parameters": {
+						"matchmyroom2": "yes",
+						"matchmakingmode6": "fillroom",
+						"lobbyname7": "\"\"",
+						"lobbytype10": "default",
+						"sqllobbyfilter11": "\"\""
+					}
+				},
+				{
+					"id": "joinrandomroom13",
+					"objectClass": "Photon",
+					"sid": 742672024006344,
+					"parameters": {
+						"matchmyroom2": "no",
+						"matchmakingmode6": "fillroom",
+						"lobbyname7": "PlayerName",
+						"lobbytype10": "default",
+						"sqllobbyfilter11": "\"\""
+					}
+				}
+			],
+			"sid": 867716559779018
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "onjoinrandomroomnomatchfound23",
+					"objectClass": "Photon",
+					"sid": 573369262738825
+				}
+			],
+			"actions": [
+				{
+					"id": "setsuspendedplayerlivetime109",
+					"objectClass": "Photon",
+					"sid": 336140126736315,
+					"disabled": true,
+					"parameters": {
+						"suspendedplayerlivetime0": "120000"
+					}
+				},
+				{
+					"id": "setpropertyofmyroom103",
+					"objectClass": "Photon",
+					"sid": 777267531954324,
+					"parameters": {
+						"propname0": "\"BotsCount\"",
+						"value1": "0",
+						"webforward4": "no",
+						"checkandset7": "no",
+						"expectedvalue8": "0"
+					}
+				},
+				{
+					"id": "setpropertyofmyroom103",
+					"objectClass": "Photon",
+					"sid": 236203727853191,
+					"parameters": {
+						"propname0": "\"PhasaAndPhasaTimer\"",
+						"value1": "1&\"/\"&60",
+						"webforward4": "no",
+						"checkandset7": "no",
+						"expectedvalue8": "0"
+					}
+				},
+				{
+					"id": "setpropertyofmyroom103",
+					"objectClass": "Photon",
+					"sid": 635296069819600,
+					"parameters": {
+						"propname0": "\"Basa1IsWin\"",
+						"value1": "0",
+						"webforward4": "no",
+						"checkandset7": "no",
+						"expectedvalue8": "0"
+					}
+				},
+				{
+					"id": "setpropertyofmyroom103",
+					"objectClass": "Photon",
+					"sid": 860509168696313,
+					"parameters": {
+						"propname0": "\"Basa2IsWin\"",
+						"value1": "0",
+						"webforward4": "no",
+						"checkandset7": "no",
+						"expectedvalue8": "0"
+					}
+				},
+				{
+					"id": "setpropertyofmyroom103",
+					"objectClass": "Photon",
+					"sid": 574102356036689,
+					"parameters": {
+						"propname0": "\"MatchFounded\"",
+						"value1": "0",
+						"webforward4": "no",
+						"checkandset7": "no",
+						"expectedvalue8": "0"
+					}
+				},
+				{
+					"id": "setpropertyofmyroom103",
+					"objectClass": "Photon",
+					"sid": 258811075868941,
+					"parameters": {
+						"propname0": "\"PlayersArray\"",
+						"value1": "\"\"",
+						"webforward4": "no",
+						"checkandset7": "yes",
+						"expectedvalue8": "0"
+					}
+				},
+				{
+					"id": "setpropertyofmyroom103",
+					"objectClass": "Photon",
+					"sid": 233599184163664,
+					"parameters": {
+						"propname0": "\"BotsCharacterNames\"",
+						"value1": "CharacterBotsData.AsJSON",
+						"webforward4": "no",
+						"checkandset7": "no",
+						"expectedvalue8": "0"
+					}
+				}
+			],
+			"sid": 574182556738101,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "MapName",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 488815419789522
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 906905654384558,
+							"parameters": {
+								"variable": "MatchesPlayed",
+								"comparison": 5,
+								"value": "5"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 444479175747442,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 217162534051053,
+									"parameters": {
+										"variable": "Trophies",
+										"comparison": 4,
+										"value": "20"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 357750110415141,
+									"parameters": {
+										"variable": "MapName",
+										"value": "choose(\"1-1\", \"1-2\")"
+									}
+								}
+							],
+							"sid": 253631165350498
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 351735543660404
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 246382709940846,
+									"parameters": {
+										"variable": "Trophies",
+										"comparison": 4,
+										"value": "50"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 717582472287170,
+									"parameters": {
+										"variable": "MapName",
+										"value": "choose(\"1-1\", \"1-2\", \"1-2\")"
+									}
+								}
+							],
+							"sid": 822963341365862
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 769855491129863
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 497912128562479,
+									"parameters": {
+										"variable": "Trophies",
+										"comparison": 4,
+										"value": "150"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 234120966488100,
+									"parameters": {
+										"variable": "MapName",
+										"value": "choose(\"1-1\", \"1-2\", \"1-2\", \"1-2\")"
+									}
+								}
+							],
+							"sid": 334934767665599
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 600028299976817
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 529711636836917,
+							"parameters": {
+								"variable": "MapName",
+								"value": "\"1-1\""
+							}
+						}
+					],
+					"sid": 786965433721455
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "setpropertyofmyroom103",
+							"objectClass": "Photon",
+							"sid": 761971659677763,
+							"parameters": {
+								"propname0": "\"MapName\"",
+								"value1": "MapName",
+								"webforward4": "no",
+								"checkandset7": "no",
+								"expectedvalue8": "0"
+							}
+						},
+						{
+							"id": "createroom11",
+							"objectClass": "Photon",
+							"sid": 465519018122256,
+							"parameters": {
+								"room0": "\"roomC2-\" & round(random(10000))",
+								"lobbyname1": "PlayerName",
+								"lobbytype4": "default"
+							}
+						}
+					],
+					"sid": 885349536833986
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 709546973799981,
+					"parameters": {
+						"interval-seconds": "5"
+					}
+				},
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 468168327864503,
+					"parameters": {
+						"key": 66
+					}
+				}
+			],
+			"actions": [],
+			"sid": 460927692019615,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 386396894370279,
+							"parameters": {
+								"first-value": "Photon.MyActorNr",
+								"comparison": 0,
+								"second-value": "Photon.MasterActorNr"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 156776685457429,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "BotsCount",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 316016102105027
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 789747593519103,
+									"parameters": {
+										"first-value": "Functions.GetActorsAndBotsCount",
+										"comparison": 2,
+										"second-value": "MaxPlayers"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 310134531326709,
+									"parameters": {
+										"variable": "BotsCount",
+										"value": "Photon.PropertyOfMyRoom(\"BotsCount\") + 1"
+									}
+								}
+							],
+							"sid": 253749661644357,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 671262685358698,
+											"parameters": {
+												"variable": "BotsCount",
+												"comparison": 5,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "setmyroommaxplayers107",
+											"objectClass": "Photon",
+											"sid": 369338528772827,
+											"parameters": {
+												"maxplayers0": "MaxPlayers - BotsCount"
+											}
+										},
+										{
+											"id": "setpropertyofmyroom103",
+											"objectClass": "Photon",
+											"sid": 457359475186697,
+											"parameters": {
+												"propname0": "\"BotsCount\"",
+												"value1": "BotsCount",
+												"webforward4": "no",
+												"checkandset7": "no",
+												"expectedvalue8": "0"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 163957688436303,
+											"disabled": true,
+											"parameters": {
+												"variable": "MaxOnlinePlayers",
+												"value": "MaxPlayers - BotsCount"
+											}
+										}
+									],
+									"sid": 217247216025357
+								}
+							]
+						}
+					]
+				}
+			],
+			"isOrBlock": true
+		},
+		{
+			"eventType": "variable",
+			"name": "MaxOnlinePlayers",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "Количество игроков не считая ботов",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 233803722072603
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 374334949388059,
+					"parameters": {
+						"interval-seconds": "1.0"
+					}
+				},
+				{
+					"id": "isjoinedtoroom34",
+					"objectClass": "Photon",
+					"sid": 309432889236901
+				}
+			],
+			"actions": [],
+			"sid": 360839652083408,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 942127235022082,
+							"parameters": {
+								"first-value": "Photon.PropertyOfMyRoom(\"MatchFounded\")",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 805543543358073,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 146822788700976,
+									"parameters": {
+										"first-value": "Functions.GetActorsAndBotsCount",
+										"comparison": 0,
+										"second-value": "MaxPlayers"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "UpdateActorList",
+									"sid": 144194074329054
+								},
+								{
+									"id": "setmyroomisopen106",
+									"objectClass": "Photon",
+									"sid": 887958065303770,
+									"parameters": {
+										"isopen2": "no"
+									}
+								},
+								{
+									"id": "setmyroomisvisible105",
+									"objectClass": "Photon",
+									"sid": 838284038512433,
+									"parameters": {
+										"isvisible2": "no"
+									}
+								},
+								{
+									"id": "setpropertyofmyroom103",
+									"objectClass": "Photon",
+									"sid": 107766805343735,
+									"parameters": {
+										"propname0": "\"MatchFounded\"",
+										"value1": "1",
+										"webforward4": "no",
+										"checkandset7": "yes",
+										"expectedvalue8": "0"
+									}
+								},
+								{
+									"id": "setpropertyofmyroom103",
+									"objectClass": "Photon",
+									"sid": 574979001445079,
+									"parameters": {
+										"propname0": "\"PlayersArray\"",
+										"value1": "1PlayersArray.AsJSON",
+										"webforward4": "no",
+										"checkandset7": "no",
+										"expectedvalue8": "0"
+									}
+								}
+							],
+							"sid": 976125926321929
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 929021314834753
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "1PlayersArray",
+							"sid": 370948175575155,
+							"parameters": {
+								"json": "Photon.PropertyOfMyRoom(\"PlayersArray\")"
+							}
+						}
+					],
+					"sid": 157219767847981
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 663528136562389,
+							"parameters": {
+								"first-value": "Functions.GetPlayersDataCount",
+								"comparison": 0,
+								"second-value": "MaxPlayers"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "setpropertyofmyroom103",
+							"objectClass": "Photon",
+							"sid": 600227448921189,
+							"parameters": {
+								"propname0": "\"PlayersArray\"",
+								"value1": "1PlayersArray.AsJSON",
+								"webforward4": "no",
+								"checkandset7": "no",
+								"expectedvalue8": "0"
+							}
+						},
+						{
+							"id": "go-to-layout-by-name",
+							"objectClass": "System",
+							"sid": 838252225890398,
+							"parameters": {
+								"layout": "\"Map-\"&Photon.PropertyOfMyRoom(\"MapName\")&\"-\"&RenderingMode"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 722804706951830,
+							"disabled": true,
+							"parameters": {
+								"layout": "Map-1-1-3D"
+							}
+						}
+					],
+					"sid": 784517169288477
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 868857893813316,
+					"parameters": {
+						"first-value": "Photon.ActorCount",
+						"comparison": 3,
+						"second-value": "MaxPlayers"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 520992368601683,
+			"disabled": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 762006447265461,
+							"parameters": {
+								"first-value": "Functions.GetPlayersDataCount",
+								"comparison": 0,
+								"second-value": "MaxPlayers"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 331951443794545,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 164324742618020
+						}
+					],
+					"actions": [
+						{
+							"id": "setmyroomisvisible105",
+							"objectClass": "Photon",
+							"sid": 691625270682428,
+							"parameters": {
+								"isvisible2": "yes"
+							}
+						},
+						{
+							"id": "setmyroomisopen106",
+							"objectClass": "Photon",
+							"sid": 628521686593578,
+							"parameters": {
+								"isopen2": "yes"
+							}
+						},
+						{
+							"id": "setpropertyofmyroom103",
+							"objectClass": "Photon",
+							"sid": 374809949887510,
+							"parameters": {
+								"propname0": "\"MatchFounded\"",
+								"value1": "0",
+								"webforward4": "no",
+								"checkandset7": "no",
+								"expectedvalue8": "0"
+							}
+						}
+					],
+					"sid": 371693330527811,
+					"disabled": true
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "onmyroompropertieschange13",
+					"objectClass": "Photon",
+					"sid": 575644285359960
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "UpdateActorList",
+					"sid": 418145703620035
+				}
+			],
+			"sid": 936403326394381,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "onjoinroom14",
+					"objectClass": "Photon",
+					"sid": 295093095086337
+				},
+				{
+					"id": "onactorjoin15",
+					"objectClass": "Photon",
+					"sid": 175531061239010
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "UpdateActorList",
+					"sid": 919673225452889
+				},
+				{
+					"id": "load",
+					"objectClass": "CharacterBotsData",
+					"sid": 222563458850573,
+					"parameters": {
+						"json": "Photon.PropertyOfMyRoom(\"BotsCharacterNames\")"
+					}
+				}
+			],
+			"sid": 743318124148957,
+			"disabled": true,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "onactorleave16",
+					"objectClass": "Photon",
+					"sid": 447909010416302
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "UpdateActorList",
+					"sid": 613895019906789
+				}
+			],
+			"sid": 505511033326000,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "onactorsuspend17",
+					"objectClass": "Photon",
+					"sid": 132505283578986
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "UpdateActorList",
+					"sid": 118927941351096
+				}
+			],
+			"sid": 332410367333066,
+			"disabled": true
+		}
+	],
+	"sid": 737537178153617
+}

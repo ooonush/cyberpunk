@@ -1,0 +1,282 @@
+{
+	"name": "E-LeaderBoard",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-signed-in",
+					"objectClass": "2GooglePlay",
+					"sid": 666542489507545,
+					"isInverted": true
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 536229529011141
+				}
+			],
+			"actions": [
+				{
+					"id": "sign-in",
+					"objectClass": "2GooglePlay",
+					"sid": 762440193844898
+				}
+			],
+			"sid": 158236418138048,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-signed-in",
+					"objectClass": "2GooglePlay",
+					"sid": 550258081601413
+				},
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 606066256071834
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "SyncTrophiesLeaderBoard",
+					"sid": 945436994393445
+				}
+			],
+			"sid": 684072172337651,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 529738770419988,
+							"parameters": {
+								"variable": "FirstStart"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "request-player-details",
+							"objectClass": "2GooglePlay",
+							"sid": 815452427712279
+						}
+					],
+					"sid": 930337355705145
+				}
+			],
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 841972493020567,
+					"parameters": {
+						"object": "Top"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 448127737860111,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-signed-in",
+							"objectClass": "2GooglePlay",
+							"sid": 400434560198621
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SyncTrophiesLeaderBoard",
+							"sid": 321997677030393
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 740061571473195
+						},
+						{
+							"id": "show-leaderboard",
+							"objectClass": "2GooglePlay",
+							"sid": 389589851179318,
+							"parameters": {
+								"leaderboard-id": "\"CgkIhMLMwOYWEAIQAQ\""
+							}
+						}
+					],
+					"sid": 446711750239695
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 866543244135753
+						}
+					],
+					"actions": [
+						{
+							"id": "sign-in",
+							"objectClass": "2GooglePlay",
+							"sid": 707803214861933
+						}
+					],
+					"sid": 763237158453590
+				}
+			]
+		},
+		{
+			"functionName": "SyncTrophiesLeaderBoard",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": true,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "is-signed-in",
+					"objectClass": "2GooglePlay",
+					"sid": 785631059979664
+				}
+			],
+			"actions": [
+				{
+					"id": "submit-score",
+					"objectClass": "2GooglePlay",
+					"sid": 965394792753871,
+					"parameters": {
+						"leaderboard-id": "\"CgkIhMLMwOYWEAIQAQ\"",
+						"score": "Trophies",
+						"tag": "NickName"
+					}
+				}
+			],
+			"sid": 600213836585498
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-player-details-received",
+					"objectClass": "2GooglePlay",
+					"sid": 712906624360321
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 612801818492309,
+					"parameters": {
+						"variable": "FirstStart"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 798093603382985,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 298151128319967,
+							"parameters": {
+								"variable": "NickName",
+								"comparison": 0,
+								"value": "\"Player\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SetNickName",
+							"sid": 116408624123595,
+							"parameters": [
+								"2GooglePlay.MyDisplayName"
+							]
+						}
+					],
+					"sid": 873359427825116
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-hi-score-request-success",
+					"objectClass": "2GooglePlay",
+					"sid": 661774269851750
+				}
+			],
+			"actions": [
+				{
+					"id": "add-item",
+					"objectClass": "List",
+					"sid": 180411810784722,
+					"parameters": {
+						"text": "str(2GooglePlay.HiScoreMyBest)"
+					}
+				}
+			],
+			"sid": 990185189478535,
+			"disabled": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 406642163159250,
+							"parameters": {
+								"variable": "FirstStart"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SetTrophies",
+							"sid": 592087422323757,
+							"parameters": [
+								"2GooglePlay.HiScoreMyBest"
+							]
+						},
+						{
+							"callFunction": "SetNickName",
+							"sid": 588850994024717,
+							"parameters": [
+								"2GooglePlay.HiScoreMyBestTag"
+							]
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 736383353897126,
+							"parameters": {
+								"variable": "FirstStart",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 801347939867728,
+					"disabled": true
+				}
+			]
+		}
+	],
+	"sid": 752410332611484
+}

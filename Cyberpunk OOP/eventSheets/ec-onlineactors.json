@@ -1,0 +1,412 @@
+{
+	"name": "EC-OnlineActors",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "ActorsGroup",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 550401039156705
+		},
+		{
+			"functionName": "GetOnlineOthers",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 709199726498468,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Список игроков, которые в сети"
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 453515314779380,
+							"parameters": {
+								"variable": "ActorsGroup",
+								"value": "\"\""
+							}
+						}
+					],
+					"sid": 292861022811529
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 281005664372699,
+							"parameters": {
+								"object": "CharacterCollider"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterCollider",
+							"sid": 315402879979369,
+							"parameters": {
+								"instance-variable": "ID",
+								"comparison": 0,
+								"value": "Self.OnlineID"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterCollider",
+							"sid": 545828082790598,
+							"parameters": {
+								"instance-variable": "ID",
+								"comparison": 1,
+								"value": "MyActorNr"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterCollider",
+							"sid": 793823506199351,
+							"parameters": {
+								"instance-variable": "IsOnline"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 220634140532747,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 763934144941211,
+									"parameters": {
+										"variable": "ActorsGroup",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 570951112930874,
+									"parameters": {
+										"variable": "ActorsGroup",
+										"value": "CharacterCollider.ID"
+									}
+								}
+							],
+							"sid": 310481771283522
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 975821579373051
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 170719563519267,
+									"parameters": {
+										"variable": "ActorsGroup",
+										"value": "ActorsGroup&\",\"&CharacterCollider.ID"
+									}
+								}
+							],
+							"sid": 265973032937639
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 136970874397150,
+							"parameters": {
+								"value": "ActorsGroup"
+							}
+						},
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 752484472726501,
+							"disabled": true,
+							"parameters": {
+								"value": "\"\""
+							}
+						}
+					],
+					"sid": 763903577117217
+				}
+			]
+		},
+		{
+			"functionName": "GetOnlinePlayersCount",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Color",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 359101361591192
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 257081704157886,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "count",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 488394615389685
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 464088359574740,
+							"parameters": {
+								"object": "CharacterCollider"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterCollider",
+							"sid": 931641547802846,
+							"parameters": {
+								"instance-variable": "IsOnline"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterCollider",
+							"sid": 601732081648470,
+							"parameters": {
+								"instance-variable": "Color",
+								"comparison": 0,
+								"value": "Color"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 163141854163229,
+							"parameters": {
+								"variable": "count",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 515917720393861
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 821080783434929,
+							"parameters": {
+								"value": "count"
+							}
+						}
+					],
+					"sid": 968356373817901
+				}
+			]
+		},
+		{
+			"eventType": "variable",
+			"name": "ActorsGroupAll",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 350819513240624
+		},
+		{
+			"functionName": "GetOnlineAll",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 518403351952167,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Список игроков, которые в сети"
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 953746211393349,
+							"parameters": {
+								"variable": "ActorsGroupAll",
+								"value": "\"\""
+							}
+						}
+					],
+					"sid": 415896519233734
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 557547945208858,
+							"parameters": {
+								"object": "CharacterCollider"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterCollider",
+							"sid": 292163355749502,
+							"parameters": {
+								"instance-variable": "ID",
+								"comparison": 0,
+								"value": "Self.OnlineID"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CharacterCollider",
+							"sid": 689362151638859,
+							"disabled": true,
+							"parameters": {
+								"instance-variable": "ID",
+								"comparison": 1,
+								"value": "Photon.MyActorNr"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "CharacterCollider",
+							"sid": 967742120896157,
+							"parameters": {
+								"instance-variable": "IsOnline"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 699260351428043,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 568770951259848,
+									"parameters": {
+										"variable": "ActorsGroupAll",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 965748454069300,
+									"parameters": {
+										"variable": "ActorsGroupAll",
+										"value": "CharacterCollider.ID"
+									}
+								}
+							],
+							"sid": 149576083847044
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 891371461268855
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 939204972769808,
+									"parameters": {
+										"variable": "ActorsGroupAll",
+										"value": "ActorsGroupAll&\",\"&CharacterCollider.ID"
+									}
+								}
+							],
+							"sid": 663827678538631
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 913779535257950,
+							"parameters": {
+								"value": "ActorsGroupAll"
+							}
+						}
+					],
+					"sid": 235410651681726
+				}
+			]
+		}
+	],
+	"sid": 307606494207053
+}

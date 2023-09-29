@@ -1,0 +1,20 @@
+{
+	"name": "AddHPParticle",
+	"plugin-id": "Particles",
+	"sid": 212279274999269,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 8,
+		"height": 8,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 953556,
+		"useCollisionPoly": true
+	}
+}

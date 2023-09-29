@@ -1,0 +1,122 @@
+{
+	"name": "particles",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 671483937835909,
+					"parameters": {
+						"interval-seconds": "0.3"
+					}
+				},
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 798748967540382,
+					"parameters": {
+						"object": "CharacterScins"
+					}
+				},
+				{
+					"id": "is-animation-playing",
+					"objectClass": "CharacterScins",
+					"sid": 166489651196191,
+					"parameters": {
+						"animation": "\"Run\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "spawn-another-object",
+					"objectClass": "CharacterScins",
+					"sid": 416689492995839,
+					"parameters": {
+						"object": "RunParticles",
+						"layer": "Functions.GetObjectsLayerName",
+						"image-point": "0",
+						"create-hierarchy": false
+					}
+				},
+				{
+					"id": "set-angle",
+					"objectClass": "RunParticles",
+					"sid": 453707615391644,
+					"parameters": {
+						"angle": "270"
+					}
+				}
+			],
+			"sid": 493127330636607
+		},
+		{
+			"functionName": "CreateJumpParticles",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "X",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 934149636788917
+				},
+				{
+					"name": "Y",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 840239409908481
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 628870941031463,
+					"parameters": {
+						"object-to-create": "JumpParticles",
+						"layer": "Functions.GetObjectsLayerName",
+						"x": "X",
+						"y": "Y",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-angle",
+					"objectClass": "JumpParticles",
+					"sid": 712919601245680,
+					"parameters": {
+						"angle": "270"
+					}
+				}
+			],
+			"sid": 857245915293088
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Particles",
+					"sid": 224452557986379,
+					"parameters": {
+						"x": "ViewportLeft(Self.LayerName)+ViewportWidth(Self.LayerName)/2+500*CharacterCollider.Direction",
+						"y": "ViewportBottom(Self.LayerName) + 200"
+					}
+				}
+			],
+			"sid": 144636451030433
+		}
+	],
+	"sid": 254752409020377
+}

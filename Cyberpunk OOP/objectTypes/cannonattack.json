@@ -1,0 +1,108 @@
+{
+	"name": "CannonAttack",
+	"plugin-id": "Sprite",
+	"sid": 497533085700022,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 128,
+						"height": 15,
+						"originX": 0.0390625,
+						"originY": 0.4666666666666667,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 903293,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 128,
+						"height": 21,
+						"originX": 0.0390625,
+						"originY": 0.47619047619047616,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3921546,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 21,
+						"height": 25,
+						"originX": 0.2857142857142857,
+						"originY": 0.48,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4898472,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 364484086181481,
+				"name": "Blue",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 10
+			},
+			{
+				"frames": [
+					{
+						"width": 128,
+						"height": 15,
+						"originX": 0.0390625,
+						"originY": 0.4666666666666667,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9206805,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 128,
+						"height": 21,
+						"originX": 0.0390625,
+						"originY": 0.47619047619047616,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8687741,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 21,
+						"height": 25,
+						"originX": 0.2857142857142857,
+						"originY": 0.48,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5119180,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 297308978037461,
+				"name": "Red",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 10
+			}
+		],
+		"subfolders": []
+	}
+}
